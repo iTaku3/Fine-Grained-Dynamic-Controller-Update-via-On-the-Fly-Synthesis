@@ -126,7 +126,7 @@ needed when modifying the MTSA implementation.
    file from `Experiment/Models/` or a dated
    `Experiment/Experiment/<date>/models/` directory.
 
-   ![Selecting a model file](pictures/2-file-select.png)
+   <img src="pictures/2-file-select.png" alt="Selecting a model file" width="900">
 
 5. The selected model content is displayed in the editor.
 
