@@ -105,6 +105,9 @@ jar.
 
 ## Recommended Usage
 
+Download and run the prebuilt artifact first. Building from source is only
+needed when modifying the MTSA implementation.
+
 1. Download `mtsa.jar` from the release asset:
 
    https://github.com/iTaku3/Fine-Grained-Dynamic-Controller-Update-via-On-the-Fly-Synthesis/releases/download/v1.0.0/mtsa.jar
@@ -115,14 +118,44 @@ jar.
    java -jar mtsa.jar
    ```
 
-3. In the MTSA GUI, open a benchmark `.lts` file from `Experiment/Models/` or a
-   dated `Experiment/Experiment/<date>/models/` directory.
+3. After startup, the MTSA GUI is displayed.
 
-4. Parse/compile the model and run the relevant synthesis or controller-update
-   workflow from the GUI menus.
+   ![MTSA startup screen](pictures/1-init.png)
 
-5. Compare generated outputs with the files under the corresponding
-   `Experiment/Experiment/<date>/result/` directory.
+4. Click the file-open button to select a model, then open any benchmark `.lts`
+   file from `Experiment/Models/` or a dated
+   `Experiment/Experiment/<date>/models/` directory.
+
+   ![Selecting a model file](pictures/2-file-select.png)
+
+5. The selected model content is displayed in the editor.
+
+   ![Opened model content](pictures/3-file-opened.png)
+
+6. Select the controller to synthesize.
+
+   ![Selecting the controller](pictures/4-model-select.png)
+
+7. Click the `Compose` button. The synthesis log is displayed in the output
+   pane.
+
+   ![Running controller synthesis](pictures/5-synthesis.png)
+
+8. To inspect the synthesized controller as transitions, select `Transitions`,
+   then select the same model as the controller selected earlier. The LTS of the
+   synthesized controller is shown as a transition listing.
+
+   ![Viewing synthesized transitions](pictures/6-output-transitions.png)
+
+9. To inspect the synthesized controller as a state transition diagram, select
+   `Draw`, then select the same model as the controller selected earlier.
+
+   ![Viewing synthesized controller diagram](pictures/7-output-draw.png)
+
+10. To animate the synthesized controller, click the `A` button. State
+    transitions from the initial state can then be checked interactively.
+
+    ![Animating synthesized controller](pictures/8-output-animation.png)
 
 ## Cloning The Full Artifact
 
@@ -180,4 +213,3 @@ mtsa.jar
 Large CSV result files and local dependency jars are managed with Git LFS inside
 the repository. Maven build outputs under `target/` are ignored and should be
 regenerated locally when needed.
-
