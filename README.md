@@ -132,7 +132,22 @@ needed when modifying the MTSA implementation.
 
    ![Opened model content](pictures/3-file-opened.png)
 
-6. Select the controller to synthesize.
+6. Select the controller to synthesize. The selected controller name determines
+   which synthesis method is used:
+
+   - `UpdCont_OTF_SFG`: on-the-fly synthesis with abstract update actions
+     (proposed method)
+   - `UpdCont_OTF_FG`: on-the-fly synthesis only
+   - `UpdCont_SFG`: abstract update actions only
+   - `UpdCont_FG`: no extension, corresponding to the traditional method
+
+   If the model name is followed by one of the suffixes below, the update-time
+   requirement changes accordingly. See the paper for the details of each
+   update-time requirement.
+
+   - `none`: update-time requirement is `none`
+   - `R1`: update-time requirement is `R1`
+   - `R2`: update-time requirement is `R2`
 
    ![Selecting the controller](pictures/4-model-select.png)
 
