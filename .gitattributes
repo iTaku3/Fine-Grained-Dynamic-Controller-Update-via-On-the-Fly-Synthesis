@@ -1,3 +1,5 @@
 Source[[:space:]]Code/maven-root/mtsa/lib/synoptic/synoptic/1.0/synoptic-1.0.jar filter=lfs diff=lfs merge=lfs -text
 Source[[:space:]]Code/maven-root/mtsa/lib/synoptic/synoptic/1.0/sedcJFeOP filter=lfs diff=lfs merge=lfs -text
 Source[[:space:]]Code/maven-root/locallib/synoptic.jar filter=lfs diff=lfs merge=lfs -text
+Experiment/Experiment/result/**/All/runs_compact.csv filter=lfs diff=lfs merge=lfs -text
+Experiment/Experiment/result/**/All/extracted_rows_full.csv filter=lfs diff=lfs merge=lfs -text

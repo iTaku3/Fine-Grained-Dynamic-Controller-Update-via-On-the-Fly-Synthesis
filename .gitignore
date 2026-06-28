@@ -10,5 +10,3 @@
 
 # Large generated artifacts. Publish these as GitHub Release assets.
 Experiment/mtsa.jar
-Experiment/Experiment/result/**/All/extracted_rows_full.csv
-Experiment/Experiment/result/**/All/runs_compact.csv
