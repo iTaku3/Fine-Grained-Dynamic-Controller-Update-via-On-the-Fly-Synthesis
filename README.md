@@ -175,9 +175,11 @@ needed when modifying the MTSA implementation.
 ## Cloning The Full Artifact
 
 The repository uses Git LFS for large local libraries and large aggregated CSV
-result files. After cloning the repository, run:
+result files. Clone the repository and pull the LFS-managed files:
 
 ```bash
+git clone https://github.com/iTaku3/Fine-Grained-Dynamic-Controller-Update-via-On-the-Fly-Synthesis.git
+cd Fine-Grained-Dynamic-Controller-Update-via-On-the-Fly-Synthesis
 git lfs install
 git lfs pull
 ```
@@ -211,7 +213,8 @@ Source Code/maven-root/mtsa/target/mtsa-1.0-SNAPSHOT.jar
 Run the rebuilt tool with:
 
 ```bash
-java -jar "Source Code/maven-root/mtsa/target/mtsa-1.0-SNAPSHOT.jar"
+cd target
+java -jar mtsa-1.0-SNAPSHOT.jar
 ```
 
 The Maven configuration targets Java 10 because the source code uses Java 10
