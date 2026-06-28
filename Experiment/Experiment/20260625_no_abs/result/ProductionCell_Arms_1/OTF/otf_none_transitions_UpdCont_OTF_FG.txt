@@ -1,0 +1,97 @@
+Process:
+	UpdCont_OTF_FG
+States:
+	73
+Transitions:
+	UpdCont_OTF_FG = Q0,
+	Q0	= (hotSwapIn -> Q1
+		  |in[1] -> Q25),
+	Q1	= (in[1] -> Q2),
+	Q2	= (stopOldSpec_P_AVOID_STAMPING_1 -> Q3),
+	Q3	= (stopOldSpec_P_CLEAN_ONCE_1 -> Q4),
+	Q4	= (stopOldSpec_P_DRILL_ONCE_1 -> Q5),
+	Q5	= (stopOldSpec_P_OLD_OUT_IF_FINISHED_1 -> Q6),
+	Q6	= (stopOldSpec_P_OLD_TOOL_ORDER_1 -> Q7),
+	Q7	= (stopOldSpec_P_POLISH_ONCE_1 -> Q8),
+	Q8	= (reconfigure_PRODUCTION_CELL_1 -> Q9),
+	Q9	= (startNewSpec_P_AVOID_STAMPING_1 -> Q10),
+	Q10	= (startNewSpec_P_CLEAN_ONCE_1 -> Q11),
+	Q11	= (startNewSpec_P_DRILL_ONCE_1 -> Q12),
+	Q12	= (startNewSpec_P_NEW_OUT_IF_FINISHED_1 -> Q13),
+	Q13	= (startNewSpec_P_NEW_TOOL_ORDER_1 -> Q14),
+	Q14	= (startNewSpec_P_PAINT_ONCE_1 -> Q15),
+	Q15	= (hotSwapOut -> Q16),
+	Q16	= (clean[1] -> Q17),
+	Q17	= (cleanNOk[1] -> Q16
+		  |cleanOk[1] -> Q18),
+	Q18	= (paint[1] -> Q19),
+	Q19	= (paintNOk[1] -> Q18
+		  |paintOk[1] -> Q20),
+	Q20	= (drill[1] -> Q21),
+	Q21	= (drillNOk[1] -> Q20
+		  |drillOk[1] -> Q22),
+	Q22	= (out[1] -> Q23),
+	Q23	= (reset[1] -> Q24),
+	Q24	= (in[1] -> Q16),
+	Q25	= (hotSwapIn -> Q2
+		  |drill[1] -> Q26),
+	Q26	= (drillNOk[1] -> Q25
+		  |hotSwapIn -> Q27
+		  |drillOk[1] -> Q44),
+	Q27	= (drillNOk[1] -> Q2
+		  |drillOk[1] -> Q28),
+	Q28	= (stopOldSpec_P_AVOID_STAMPING_1 -> Q29),
+	Q29	= (stopOldSpec_P_CLEAN_ONCE_1 -> Q30),
+	Q30	= (stopOldSpec_P_DRILL_ONCE_1 -> Q31),
+	Q31	= (stopOldSpec_P_OLD_OUT_IF_FINISHED_1 -> Q32),
+	Q32	= (stopOldSpec_P_OLD_TOOL_ORDER_1 -> Q33),
+	Q33	= (stopOldSpec_P_POLISH_ONCE_1 -> Q34),
+	Q34	= (reconfigure_PRODUCTION_CELL_1 -> Q35),
+	Q35	= (startNewSpec_P_AVOID_STAMPING_1 -> Q36),
+	Q36	= (startNewSpec_P_CLEAN_ONCE_1 -> Q37),
+	Q37	= (startNewSpec_P_DRILL_ONCE_1 -> Q38),
+	Q38	= (startNewSpec_P_NEW_TOOL_ORDER_1 -> Q39),
+	Q39	= (startNewSpec_P_PAINT_ONCE_1 -> Q40),
+	Q40	= (out[1] -> Q41),
+	Q41	= (reset[1] -> Q42),
+	Q42	= (in[1] -> Q43),
+	Q43	= (startNewSpec_P_NEW_OUT_IF_FINISHED_1 -> Q15),
+	Q44	= (hotSwapIn -> Q28
+		  |polish[1] -> Q45),
+	Q45	= (polishNOk[1] -> Q44
+		  |hotSwapIn -> Q46
+		  |polishOk[1] -> Q53),
+	Q46	= (polishNOk[1] -> Q28
+		  |polishOk[1] -> Q47),
+	Q47	= (stopOldSpec_P_AVOID_STAMPING_1 -> Q48),
+	Q48	= (stopOldSpec_P_CLEAN_ONCE_1 -> Q49),
+	Q49	= (stopOldSpec_P_DRILL_ONCE_1 -> Q50),
+	Q50	= (stopOldSpec_P_OLD_OUT_IF_FINISHED_1 -> Q51),
+	Q51	= (stopOldSpec_P_OLD_TOOL_ORDER_1 -> Q52),
+	Q52	= (stopOldSpec_P_POLISH_ONCE_1 -> Q34),
+	Q53	= (hotSwapIn -> Q47
+		  |clean[1] -> Q54),
+	Q54	= (cleanNOk[1] -> Q53
+		  |hotSwapIn -> Q55
+		  |cleanOk[1] -> Q70),
+	Q55	= (cleanNOk[1] -> Q47
+		  |cleanOk[1] -> Q56),
+	Q56	= (stopOldSpec_P_AVOID_STAMPING_1 -> Q57),
+	Q57	= (stopOldSpec_P_CLEAN_ONCE_1 -> Q58),
+	Q58	= (stopOldSpec_P_DRILL_ONCE_1 -> Q59),
+	Q59	= (stopOldSpec_P_OLD_OUT_IF_FINISHED_1 -> Q60),
+	Q60	= (stopOldSpec_P_OLD_TOOL_ORDER_1 -> Q61),
+	Q61	= (stopOldSpec_P_POLISH_ONCE_1 -> Q62),
+	Q62	= (reconfigure_PRODUCTION_CELL_1 -> Q63),
+	Q63	= (startNewSpec_P_AVOID_STAMPING_1 -> Q64),
+	Q64	= (startNewSpec_P_CLEAN_ONCE_1 -> Q65),
+	Q65	= (startNewSpec_P_DRILL_ONCE_1 -> Q66),
+	Q66	= (startNewSpec_P_NEW_TOOL_ORDER_1 -> Q67),
+	Q67	= (startNewSpec_P_PAINT_ONCE_1 -> Q68),
+	Q68	= (out[1] -> Q69),
+	Q69	= (reset[1] -> Q42),
+	Q70	= (hotSwapIn -> Q56
+		  |out[1] -> Q71),
+	Q71	= (reset[1] -> Q0
+		  |hotSwapIn -> Q72),
+	Q72	= (reset[1] -> Q1)+{{stamp, stampOk}[1].

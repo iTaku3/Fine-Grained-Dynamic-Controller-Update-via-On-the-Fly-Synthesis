@@ -1,0 +1,107 @@
+Process:
+	UpdCont_SFG_R1
+States:
+	84
+Transitions:
+	UpdCont_SFG_R1 = Q0,
+	Q0	= (shiftX -> Q40
+		  |hotSwapIn -> Q53),
+	Q1	= (reconfigure -> Q26),
+	Q2	= (shiftX -> Q64),
+	Q3	= (encode -> Q65),
+	Q4	= (shiftT -> Q3),
+	Q5	= (startNewSpec -> Q43
+		  |reconfigure -> Q66),
+	Q6	= (shiftX -> Q67),
+	Q7	= (reconfigure -> Q37
+		  |startNewSpec -> Q46),
+	Q8	= (decode[3] -> Q44),
+	Q9	= (encode -> Q59),
+	Q10	= (shiftT -> Q9),
+	Q11	= (reconfigure -> Q72),
+	Q12	= (stopOldSpec -> Q61),
+	Q13	= (reconfigure -> Q74),
+	Q14	= (decode[3] -> Q34),
+	Q15	= (receive -> Q14),
+	Q16	= (encode -> Q69
+		  |hotSwapIn -> Q76),
+	Q17	= (startNewSpec -> Q57
+		  |reconfigure -> Q60),
+	Q18	= (shiftT -> Q83),
+	Q19	= (shiftX -> Q62),
+	Q20	= (stopOldSpec -> Q80),
+	Q21	= (reconfigure -> Q15),
+	Q22	= (receive -> Q82),
+	Q23	= (output -> Q19),
+	Q24	= (stopOldSpec -> Q17),
+	Q25	= (receive -> Q48
+		  |hotSwapIn -> Q71),
+	Q26	= (shiftZ -> Q18),
+	Q27	= (output -> Q2),
+	Q28	= (startNewSpec -> Q41),
+	Q29	= (shiftZ -> Q4),
+	Q30	= (receive -> Q8),
+	Q31	= (shiftT -> Q9),
+	Q32	= (startNewSpec -> Q78),
+	Q33	= (shiftZ -> Q10),
+	Q34	= (output -> Q6),
+	Q35	= (receive -> Q14),
+	Q36	= (output -> Q19),
+	Q37	= (startNewSpec -> Q58),
+	Q38	= (startNewSpec -> Q21
+		  |reconfigure -> Q77),
+	Q39	= (receive -> Q82),
+	Q40	= (hotSwapIn -> Q12
+		  |shiftY -> Q73),
+	Q41	= (shiftT -> Q83),
+	Q42	= (shiftZ -> Q18),
+	Q43	= (reconfigure -> Q50),
+	Q44	= (output -> Q2),
+	Q45	= (shiftX -> Q67),
+	Q46	= (reconfigure -> Q45),
+	Q47	= (shiftZ -> Q4),
+	Q48	= (hotSwapIn -> Q20
+		  |decode[2] -> Q79),
+	Q49	= (stopOldSpec -> Q56),
+	Q50	= (send -> Q39),
+	Q51	= (stopOldSpec -> Q5),
+	Q52	= (reconfigure -> Q31),
+	Q53	= (stopOldSpec -> Q7),
+	Q54	= (send -> Q30),
+	Q55	= (shiftX -> Q40
+		  |hotSwapIn -> Q53),
+	Q56	= (startNewSpec -> Q1
+		  |reconfigure -> Q75),
+	Q57	= (reconfigure -> Q23),
+	Q58	= (shiftX -> Q62),
+	Q59	= (send -> Q35),
+	Q60	= (startNewSpec -> Q27),
+	Q61	= (startNewSpec -> Q13
+		  |reconfigure -> Q32),
+	Q62	= (shiftY -> Q42),
+	Q63	= (send -> Q39),
+	Q64	= (shiftY -> Q47),
+	Q65	= (send -> Q30),
+	Q66	= (startNewSpec -> Q54),
+	Q67	= (shiftY -> Q33),
+	Q68	= (reconfigure -> Q28
+		  |startNewSpec -> Q52),
+	Q69	= (send -> Q25
+		  |hotSwapIn -> Q51),
+	Q70	= (startNewSpec -> Q81),
+	Q71	= (stopOldSpec -> Q38),
+	Q72	= (decode[3] -> Q44),
+	Q73	= (shiftZ -> Q16
+		  |hotSwapIn -> Q49),
+	Q74	= (shiftY -> Q47),
+	Q75	= (startNewSpec -> Q29),
+	Q76	= (stopOldSpec -> Q68),
+	Q77	= (startNewSpec -> Q22),
+	Q78	= (shiftY -> Q33),
+	Q79	= (hotSwapIn -> Q24
+		  |output -> Q55),
+	Q80	= (startNewSpec -> Q11
+		  |reconfigure -> Q70),
+	Q81	= (decode[3] -> Q34),
+	Q82	= (decode[3] -> Q36),
+	Q83	= (encode -> Q63).

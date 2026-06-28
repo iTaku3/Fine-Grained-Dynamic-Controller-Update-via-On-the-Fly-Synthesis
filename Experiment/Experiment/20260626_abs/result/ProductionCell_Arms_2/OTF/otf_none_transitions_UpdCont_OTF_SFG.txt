@@ -1,0 +1,4879 @@
+Process:
+	UpdCont_OTF_SFG
+States:
+	3193
+Transitions:
+	UpdCont_OTF_SFG = Q0,
+	Q0	= (hotSwapIn -> Q1
+		  |in[1] -> Q92
+		  |in[2] -> Q1248),
+	Q1	= (in[1] -> Q2
+		  |in[2] -> Q88
+		  |stopOldSpec -> Q90),
+	Q2	= (in[2] -> Q3),
+	Q3	= (stopOldSpec -> Q4),
+	Q4	= (reconfigure -> Q5),
+	Q5	= (startNewSpec -> Q6),
+	Q6	= (hotSwapOut -> Q7),
+	Q7	= (clean[1] -> Q8
+		  |clean[2] -> Q10),
+	Q8	= (cleanNOk[1] -> Q7
+		  |clean[2] -> Q9
+		  |cleanOk[1] -> Q71),
+	Q9	= (cleanNOk[2] -> Q8
+		  |cleanNOk[1] -> Q10
+		  |cleanOk[2] -> Q12
+		  |cleanOk[1] -> Q70),
+	Q10	= (cleanNOk[2] -> Q7
+		  |clean[1] -> Q9
+		  |cleanOk[2] -> Q11),
+	Q11	= (clean[1] -> Q12
+		  |paint[2] -> Q58),
+	Q12	= (cleanNOk[1] -> Q11
+		  |paint[2] -> Q13
+		  |cleanOk[1] -> Q72),
+	Q13	= (paintNOk[2] -> Q12
+		  |paintOk[2] -> Q14
+		  |cleanNOk[1] -> Q58
+		  |cleanOk[1] -> Q79),
+	Q14	= (drill[2] -> Q15
+		  |cleanNOk[1] -> Q17
+		  |cleanOk[1] -> Q78),
+	Q15	= (drillNOk[2] -> Q14
+		  |cleanNOk[1] -> Q16
+		  |drillOk[2] -> Q19
+		  |cleanOk[1] -> Q77),
+	Q16	= (clean[1] -> Q15
+		  |drillNOk[2] -> Q17
+		  |drillOk[2] -> Q18),
+	Q17	= (clean[1] -> Q14
+		  |drill[2] -> Q16),
+	Q18	= (clean[1] -> Q19
+		  |out[2] -> Q80),
+	Q19	= (cleanNOk[1] -> Q18
+		  |cleanOk[1] -> Q20
+		  |out[2] -> Q81),
+	Q20	= (paint[1] -> Q21
+		  |out[2] -> Q82),
+	Q21	= (paintNOk[1] -> Q20
+		  |paintOk[1] -> Q22
+		  |out[2] -> Q83),
+	Q22	= (drill[1] -> Q23
+		  |out[2] -> Q84),
+	Q23	= (drillNOk[1] -> Q22
+		  |drillOk[1] -> Q24
+		  |out[2] -> Q85),
+	Q24	= (out[1] -> Q25
+		  |out[2] -> Q86),
+	Q25	= (reset[1] -> Q26
+		  |out[2] -> Q87),
+	Q26	= (in[1] -> Q18
+		  |out[2] -> Q27),
+	Q27	= (reset[2] -> Q28
+		  |in[1] -> Q80),
+	Q28	= (in[1] -> Q29
+		  |in[2] -> Q63),
+	Q29	= (in[2] -> Q7
+		  |clean[1] -> Q30),
+	Q30	= (in[2] -> Q8
+		  |cleanNOk[1] -> Q29
+		  |cleanOk[1] -> Q31),
+	Q31	= (paint[1] -> Q32
+		  |in[2] -> Q71),
+	Q32	= (paintNOk[1] -> Q31
+		  |paintOk[1] -> Q33
+		  |in[2] -> Q68),
+	Q33	= (drill[1] -> Q34
+		  |in[2] -> Q36),
+	Q34	= (drillNOk[1] -> Q33
+		  |in[2] -> Q35
+		  |drillOk[1] -> Q66),
+	Q35	= (drillNOk[1] -> Q36
+		  |clean[2] -> Q38
+		  |drillOk[1] -> Q61),
+	Q36	= (drill[1] -> Q35
+		  |clean[2] -> Q37),
+	Q37	= (cleanNOk[2] -> Q36
+		  |drill[1] -> Q38
+		  |cleanOk[2] -> Q40),
+	Q38	= (cleanNOk[2] -> Q35
+		  |drillNOk[1] -> Q37
+		  |cleanOk[2] -> Q39
+		  |drillOk[1] -> Q60),
+	Q39	= (drillNOk[1] -> Q40
+		  |paint[2] -> Q52
+		  |drillOk[1] -> Q54),
+	Q40	= (drill[1] -> Q39
+		  |paint[2] -> Q41),
+	Q41	= (paintNOk[2] -> Q40
+		  |paintOk[2] -> Q42
+		  |drill[1] -> Q52),
+	Q42	= (drill[1] -> Q43
+		  |drill[2] -> Q45),
+	Q43	= (drillNOk[1] -> Q42
+		  |drill[2] -> Q44
+		  |drillOk[1] -> Q47),
+	Q44	= (drillOk[2] -> Q23
+		  |drillNOk[2] -> Q43
+		  |drillNOk[1] -> Q45
+		  |drillOk[1] -> Q46),
+	Q45	= (drillOk[2] -> Q22
+		  |drillNOk[2] -> Q42
+		  |drill[1] -> Q44),
+	Q46	= (drillOk[2] -> Q24
+		  |drillNOk[2] -> Q47
+		  |out[1] -> Q51),
+	Q47	= (drill[2] -> Q46
+		  |out[1] -> Q48),
+	Q48	= (reset[1] -> Q49
+		  |drill[2] -> Q51),
+	Q49	= (in[1] -> Q17
+		  |drill[2] -> Q50),
+	Q50	= (in[1] -> Q16
+		  |drillOk[2] -> Q26
+		  |drillNOk[2] -> Q49),
+	Q51	= (drillOk[2] -> Q25
+		  |drillNOk[2] -> Q48
+		  |reset[1] -> Q50),
+	Q52	= (paintNOk[2] -> Q39
+		  |drillNOk[1] -> Q41
+		  |paintOk[2] -> Q43
+		  |drillOk[1] -> Q53),
+	Q53	= (paintOk[2] -> Q47
+		  |paintNOk[2] -> Q54
+		  |out[1] -> Q59),
+	Q54	= (paint[2] -> Q53
+		  |out[1] -> Q55),
+	Q55	= (reset[1] -> Q56
+		  |paint[2] -> Q59),
+	Q56	= (in[1] -> Q11
+		  |paint[2] -> Q57),
+	Q57	= (paintOk[2] -> Q49
+		  |paintNOk[2] -> Q56
+		  |in[1] -> Q58),
+	Q58	= (paintNOk[2] -> Q11
+		  |clean[1] -> Q13
+		  |paintOk[2] -> Q17),
+	Q59	= (paintOk[2] -> Q48
+		  |paintNOk[2] -> Q55
+		  |reset[1] -> Q57),
+	Q60	= (cleanOk[2] -> Q54
+		  |cleanNOk[2] -> Q61
+		  |out[1] -> Q65),
+	Q61	= (clean[2] -> Q60
+		  |out[1] -> Q62),
+	Q62	= (reset[1] -> Q63
+		  |clean[2] -> Q65),
+	Q63	= (in[1] -> Q7
+		  |clean[2] -> Q64),
+	Q64	= (in[1] -> Q10
+		  |cleanOk[2] -> Q56
+		  |cleanNOk[2] -> Q63),
+	Q65	= (cleanOk[2] -> Q55
+		  |cleanNOk[2] -> Q62
+		  |reset[1] -> Q64),
+	Q66	= (in[2] -> Q61
+		  |out[1] -> Q67),
+	Q67	= (reset[1] -> Q28
+		  |in[2] -> Q62),
+	Q68	= (paintOk[1] -> Q36
+		  |clean[2] -> Q69
+		  |paintNOk[1] -> Q71),
+	Q69	= (paintOk[1] -> Q37
+		  |cleanNOk[2] -> Q68
+		  |paintNOk[1] -> Q70
+		  |cleanOk[2] -> Q73),
+	Q70	= (paint[1] -> Q69
+		  |cleanNOk[2] -> Q71
+		  |cleanOk[2] -> Q72),
+	Q71	= (paint[1] -> Q68
+		  |clean[2] -> Q70),
+	Q72	= (paint[1] -> Q73
+		  |paint[2] -> Q79),
+	Q73	= (paintOk[1] -> Q40
+		  |paintNOk[1] -> Q72
+		  |paint[2] -> Q74),
+	Q74	= (paintOk[1] -> Q41
+		  |paintNOk[2] -> Q73
+		  |paintOk[2] -> Q75
+		  |paintNOk[1] -> Q79),
+	Q75	= (paintOk[1] -> Q42
+		  |drill[2] -> Q76
+		  |paintNOk[1] -> Q78),
+	Q76	= (drillOk[2] -> Q21
+		  |paintOk[1] -> Q45
+		  |drillNOk[2] -> Q75
+		  |paintNOk[1] -> Q77),
+	Q77	= (drillOk[2] -> Q20
+		  |paint[1] -> Q76
+		  |drillNOk[2] -> Q78),
+	Q78	= (paint[1] -> Q75
+		  |drill[2] -> Q77),
+	Q79	= (paintNOk[2] -> Q72
+		  |paint[1] -> Q74
+		  |paintOk[2] -> Q78),
+	Q80	= (reset[2] -> Q29
+		  |clean[1] -> Q81),
+	Q81	= (reset[2] -> Q30
+		  |cleanNOk[1] -> Q80
+		  |cleanOk[1] -> Q82),
+	Q82	= (reset[2] -> Q31
+		  |paint[1] -> Q83),
+	Q83	= (reset[2] -> Q32
+		  |paintNOk[1] -> Q82
+		  |paintOk[1] -> Q84),
+	Q84	= (reset[2] -> Q33
+		  |drill[1] -> Q85),
+	Q85	= (reset[2] -> Q34
+		  |drillNOk[1] -> Q84
+		  |drillOk[1] -> Q86),
+	Q86	= (reset[2] -> Q66
+		  |out[1] -> Q87),
+	Q87	= (reset[1] -> Q27
+		  |reset[2] -> Q67),
+	Q88	= (in[1] -> Q3
+		  |stopOldSpec -> Q89),
+	Q89	= (in[1] -> Q4),
+	Q90	= (in[2] -> Q89
+		  |in[1] -> Q91),
+	Q91	= (in[2] -> Q4),
+	Q92	= (drill[1] -> Q93
+		  |in[2] -> Q110
+		  |hotSwapIn -> Q3188),
+	Q93	= (drillNOk[1] -> Q92
+		  |hotSwapIn -> Q94
+		  |in[2] -> Q109
+		  |drillOk[1] -> Q984),
+	Q94	= (drillNOk[1] -> Q95
+		  |in[2] -> Q100
+		  |drillOk[1] -> Q108),
+	Q95	= (in[2] -> Q96),
+	Q96	= (stopOldSpec -> Q97),
+	Q97	= (reconfigure -> Q98),
+	Q98	= (startNewSpec -> Q99),
+	Q99	= (hotSwapOut -> Q7),
+	Q100	= (drillNOk[1] -> Q96
+		  |drillOk[1] -> Q101),
+	Q101	= (stopOldSpec -> Q102),
+	Q102	= (reconfigure -> Q103),
+	Q103	= (out[1] -> Q104),
+	Q104	= (reset[1] -> Q105),
+	Q105	= (in[1] -> Q106),
+	Q106	= (startNewSpec -> Q107),
+	Q107	= (hotSwapOut -> Q7),
+	Q108	= (in[2] -> Q101),
+	Q109	= (drillNOk[1] -> Q110
+		  |drill[2] -> Q112
+		  |drillOk[1] -> Q1519
+		  |hotSwapIn -> Q3166),
+	Q110	= (drill[1] -> Q111
+		  |drill[2] -> Q3183
+		  |hotSwapIn -> Q3184),
+	Q111	= (drillNOk[1] -> Q110
+		  |drill[2] -> Q112
+		  |drillOk[1] -> Q1519
+		  |hotSwapIn -> Q3166),
+	Q112	= (drillNOk[2] -> Q109
+		  |drillNOk[1] -> Q113
+		  |hotSwapIn -> Q115
+		  |drillOk[2] -> Q191
+		  |drillOk[1] -> Q1026),
+	Q113	= (drillNOk[2] -> Q110
+		  |drill[1] -> Q114
+		  |drillOk[2] -> Q2758
+		  |hotSwapIn -> Q3149),
+	Q114	= (drillNOk[2] -> Q109
+		  |drillNOk[1] -> Q113
+		  |hotSwapIn -> Q115
+		  |drillOk[2] -> Q191
+		  |drillOk[1] -> Q1026),
+	Q115	= (drillNOk[2] -> Q116
+		  |drillNOk[1] -> Q128
+		  |stopOldSpec -> Q137
+		  |drillOk[2] -> Q165
+		  |drillOk[1] -> Q190),
+	Q116	= (drillNOk[1] -> Q117
+		  |drillOk[1] -> Q121),
+	Q117	= (stopOldSpec -> Q118),
+	Q118	= (reconfigure -> Q119),
+	Q119	= (startNewSpec -> Q120),
+	Q120	= (hotSwapOut -> Q7),
+	Q121	= (stopOldSpec -> Q122),
+	Q122	= (reconfigure -> Q123),
+	Q123	= (out[1] -> Q124),
+	Q124	= (reset[1] -> Q125),
+	Q125	= (in[1] -> Q126),
+	Q126	= (startNewSpec -> Q127),
+	Q127	= (hotSwapOut -> Q7),
+	Q128	= (drillNOk[2] -> Q117
+		  |drillOk[2] -> Q129),
+	Q129	= (stopOldSpec -> Q130),
+	Q130	= (reconfigure -> Q131),
+	Q131	= (out[2] -> Q132),
+	Q132	= (reset[2] -> Q133),
+	Q133	= (in[2] -> Q134
+		  |startNewSpec -> Q136),
+	Q134	= (startNewSpec -> Q135),
+	Q135	= (hotSwapOut -> Q7),
+	Q136	= (in[2] -> Q135),
+	Q137	= (drillNOk[2] -> Q138
+		  |drillNOk[1] -> Q144
+		  |reconfigure -> Q149
+		  |drillOk[2] -> Q162
+		  |drillOk[1] -> Q164),
+	Q138	= (drillNOk[1] -> Q118
+		  |reconfigure -> Q139
+		  |drillOk[1] -> Q143),
+	Q139	= (drillNOk[1] -> Q119
+		  |drillOk[1] -> Q140),
+	Q140	= (out[1] -> Q141),
+	Q141	= (reset[1] -> Q142),
+	Q142	= (in[1] -> Q119),
+	Q143	= (reconfigure -> Q140),
+	Q144	= (drillNOk[2] -> Q118
+		  |drillOk[2] -> Q145),
+	Q145	= (reconfigure -> Q146),
+	Q146	= (out[2] -> Q147),
+	Q147	= (reset[2] -> Q148),
+	Q148	= (in[2] -> Q119),
+	Q149	= (drillNOk[2] -> Q139
+		  |drillNOk[1] -> Q150
+		  |drillOk[2] -> Q151
+		  |drillOk[1] -> Q161),
+	Q150	= (drillNOk[2] -> Q119
+		  |drillOk[2] -> Q146),
+	Q151	= (drillNOk[1] -> Q146
+		  |drillOk[1] -> Q152
+		  |out[2] -> Q155),
+	Q152	= (out[2] -> Q153),
+	Q153	= (reset[2] -> Q154),
+	Q154	= (in[2] -> Q140),
+	Q155	= (reset[2] -> Q156
+		  |drillNOk[1] -> Q157
+		  |drillOk[1] -> Q160),
+	Q156	= (in[2] -> Q139
+		  |drillNOk[1] -> Q148
+		  |drillOk[1] -> Q154),
+	Q157	= (reset[2] -> Q148
+		  |startNewSpec -> Q158),
+	Q158	= (reset[2] -> Q159),
+	Q159	= (in[2] -> Q120),
+	Q160	= (reset[2] -> Q154),
+	Q161	= (drillNOk[2] -> Q140
+		  |drillOk[2] -> Q152),
+	Q162	= (drillNOk[1] -> Q145
+		  |drillOk[1] -> Q163),
+	Q163	= (reconfigure -> Q152),
+	Q164	= (drillNOk[2] -> Q143
+		  |reconfigure -> Q161
+		  |drillOk[2] -> Q163),
+	Q165	= (drillNOk[1] -> Q129
+		  |stopOldSpec -> Q166
+		  |drillOk[1] -> Q180),
+	Q166	= (drillNOk[1] -> Q130
+		  |reconfigure -> Q167
+		  |drillOk[1] -> Q179),
+	Q167	= (drillNOk[1] -> Q131
+		  |drillOk[1] -> Q168),
+	Q168	= (out[2] -> Q169),
+	Q169	= (reset[2] -> Q170),
+	Q170	= (in[2] -> Q171
+		  |out[1] -> Q174),
+	Q171	= (out[1] -> Q172),
+	Q172	= (reset[1] -> Q173),
+	Q173	= (in[1] -> Q134),
+	Q174	= (reset[1] -> Q175
+		  |in[2] -> Q178),
+	Q175	= (in[1] -> Q133
+		  |in[2] -> Q173
+		  |startNewSpec -> Q176),
+	Q176	= (in[1] -> Q136
+		  |in[2] -> Q177),
+	Q177	= (in[1] -> Q135),
+	Q178	= (reset[1] -> Q173),
+	Q179	= (reconfigure -> Q168),
+	Q180	= (stopOldSpec -> Q181),
+	Q181	= (reconfigure -> Q182),
+	Q182	= (out[2] -> Q183),
+	Q183	= (reset[2] -> Q184),
+	Q184	= (in[2] -> Q185),
+	Q185	= (out[1] -> Q186),
+	Q186	= (reset[1] -> Q187),
+	Q187	= (in[1] -> Q188),
+	Q188	= (startNewSpec -> Q189),
+	Q189	= (hotSwapOut -> Q7),
+	Q190	= (drillNOk[2] -> Q121
+		  |drillOk[2] -> Q180),
+	Q191	= (polish[2] -> Q192
+		  |drillOk[1] -> Q295
+		  |drillNOk[1] -> Q2758
+		  |hotSwapIn -> Q2760),
+	Q192	= (polishNOk[2] -> Q191
+		  |drillNOk[1] -> Q193
+		  |hotSwapIn -> Q195
+		  |drillOk[1] -> Q292
+		  |polishOk[2] -> Q640),
+	Q193	= (drill[1] -> Q194
+		  |polishOk[2] -> Q641
+		  |polishNOk[2] -> Q2758
+		  |hotSwapIn -> Q3127),
+	Q194	= (polishNOk[2] -> Q191
+		  |drillNOk[1] -> Q193
+		  |hotSwapIn -> Q195
+		  |drillOk[1] -> Q292
+		  |polishOk[2] -> Q640),
+	Q195	= (drillNOk[1] -> Q196
+		  |polishNOk[2] -> Q212
+		  |stopOldSpec -> Q232
+		  |drillOk[1] -> Q256
+		  |polishOk[2] -> Q291),
+	Q196	= (polishNOk[2] -> Q197
+		  |polishOk[2] -> Q205),
+	Q197	= (stopOldSpec -> Q198),
+	Q198	= (reconfigure -> Q199),
+	Q199	= (out[2] -> Q200),
+	Q200	= (reset[2] -> Q201),
+	Q201	= (in[2] -> Q202
+		  |startNewSpec -> Q204),
+	Q202	= (startNewSpec -> Q203),
+	Q203	= (hotSwapOut -> Q7),
+	Q204	= (in[2] -> Q203),
+	Q205	= (stopOldSpec -> Q206),
+	Q206	= (reconfigure -> Q207),
+	Q207	= (out[2] -> Q208),
+	Q208	= (reset[2] -> Q209),
+	Q209	= (in[2] -> Q210),
+	Q210	= (startNewSpec -> Q211),
+	Q211	= (hotSwapOut -> Q7),
+	Q212	= (drillNOk[1] -> Q197
+		  |stopOldSpec -> Q213
+		  |drillOk[1] -> Q222),
+	Q213	= (drillNOk[1] -> Q198
+		  |drillOk[1] -> Q214),
+	Q214	= (reconfigure -> Q215),
+	Q215	= (out[2] -> Q216),
+	Q216	= (reset[2] -> Q217),
+	Q217	= (in[2] -> Q218),
+	Q218	= (out[1] -> Q219),
+	Q219	= (reset[1] -> Q220),
+	Q220	= (in[1] -> Q202
+		  |startNewSpec -> Q221),
+	Q221	= (in[1] -> Q203),
+	Q222	= (stopOldSpec -> Q223),
+	Q223	= (reconfigure -> Q224),
+	Q224	= (out[2] -> Q225),
+	Q225	= (reset[2] -> Q226),
+	Q226	= (in[2] -> Q227),
+	Q227	= (out[1] -> Q228),
+	Q228	= (reset[1] -> Q229),
+	Q229	= (in[1] -> Q230),
+	Q230	= (startNewSpec -> Q231),
+	Q231	= (hotSwapOut -> Q7),
+	Q232	= (drillNOk[1] -> Q233
+		  |{polishNOk, polishOk}[2] -> Q240
+		  |reconfigure -> Q241
+		  |drillOk[1] -> Q255),
+	Q233	= ({polishNOk, polishOk}[2] -> Q234
+		  |reconfigure -> Q235),
+	Q234	= (reconfigure -> Q235),
+	Q235	= (out[2] -> Q236),
+	Q236	= (reset[2] -> Q237),
+	Q237	= (in[2] -> Q238),
+	Q238	= (startNewSpec -> Q239),
+	Q239	= (hotSwapOut -> Q7),
+	Q240	= (drillNOk[1] -> Q234
+		  |reconfigure -> Q241
+		  |drillOk[1] -> Q254),
+	Q241	= (drillNOk[1] -> Q235
+		  |drillOk[1] -> Q242),
+	Q242	= (out[2] -> Q243),
+	Q243	= (reset[2] -> Q244
+		  |out[1] -> Q248),
+	Q244	= (in[2] -> Q245),
+	Q245	= (out[1] -> Q246),
+	Q246	= (reset[1] -> Q247),
+	Q247	= (in[1] -> Q238),
+	Q248	= (reset[2] -> Q249
+		  |reset[1] -> Q252),
+	Q249	= (reset[1] -> Q250
+		  |in[2] -> Q251),
+	Q250	= (in[1] -> Q237
+		  |in[2] -> Q247),
+	Q251	= (reset[1] -> Q247),
+	Q252	= (reset[2] -> Q250
+		  |in[1] -> Q253),
+	Q253	= (reset[2] -> Q237),
+	Q254	= (reconfigure -> Q242),
+	Q255	= (reconfigure -> Q242
+		  |{polishNOk, polishOk}[2] -> Q254),
+	Q256	= (polishNOk[2] -> Q222
+		  |stopOldSpec -> Q257
+		  |polishOk[2] -> Q273),
+	Q257	= ({polishNOk, polishOk}[2] -> Q258),
+	Q258	= (reconfigure -> Q259),
+	Q259	= (out[2] -> Q260),
+	Q260	= (reset[2] -> Q261),
+	Q261	= (in[2] -> Q262
+		  |out[1] -> Q268),
+	Q262	= (out[1] -> Q263),
+	Q263	= (reset[1] -> Q264),
+	Q264	= (in[1] -> Q265
+		  |startNewSpec -> Q267),
+	Q265	= (startNewSpec -> Q266),
+	Q266	= (hotSwapOut -> Q7),
+	Q267	= (in[1] -> Q266),
+	Q268	= (reset[1] -> Q269
+		  |in[2] -> Q272),
+	Q269	= (in[2] -> Q264
+		  |in[1] -> Q270),
+	Q270	= (in[2] -> Q265
+		  |startNewSpec -> Q271),
+	Q271	= (in[2] -> Q266),
+	Q272	= (reset[1] -> Q264),
+	Q273	= (stopOldSpec -> Q274),
+	Q274	= (reconfigure -> Q275),
+	Q275	= (out[2] -> Q276),
+	Q276	= (reset[2] -> Q277
+		  |out[1] -> Q283),
+	Q277	= (in[2] -> Q278),
+	Q278	= (out[1] -> Q279),
+	Q279	= (reset[1] -> Q280),
+	Q280	= (in[1] -> Q281),
+	Q281	= (startNewSpec -> Q282),
+	Q282	= (hotSwapOut -> Q7),
+	Q283	= (reset[2] -> Q284
+		  |reset[1] -> Q289),
+	Q284	= (reset[1] -> Q285
+		  |in[2] -> Q288),
+	Q285	= (in[2] -> Q280
+		  |in[1] -> Q286),
+	Q286	= (in[2] -> Q281
+		  |startNewSpec -> Q287),
+	Q287	= (in[2] -> Q282),
+	Q288	= (reset[1] -> Q280),
+	Q289	= (reset[2] -> Q285
+		  |in[1] -> Q290),
+	Q290	= (reset[2] -> Q286),
+	Q291	= (drillNOk[1] -> Q205
+		  |drillOk[1] -> Q273),
+	Q292	= (polish[1] -> Q293
+		  |polishNOk[2] -> Q295
+		  |polishOk[2] -> Q1874
+		  |hotSwapIn -> Q3089),
+	Q293	= (polishNOk[1] -> Q292
+		  |polishNOk[2] -> Q294
+		  |polishOk[1] -> Q367
+		  |polishOk[2] -> Q1873
+		  |hotSwapIn -> Q2953),
+	Q294	= (polish[2] -> Q293
+		  |polishNOk[1] -> Q295
+		  |hotSwapIn -> Q313
+		  |polishOk[1] -> Q366),
+	Q295	= (polish[2] -> Q292
+		  |polish[1] -> Q294
+		  |hotSwapIn -> Q296),
+	Q296	= (stopOldSpec -> Q297),
+	Q297	= (reconfigure -> Q298),
+	Q298	= (out[2] -> Q299),
+	Q299	= (reset[2] -> Q300),
+	Q300	= (in[2] -> Q301
+		  |out[1] -> Q306),
+	Q301	= (out[1] -> Q302),
+	Q302	= (reset[1] -> Q303),
+	Q303	= (in[1] -> Q304),
+	Q304	= (startNewSpec -> Q305),
+	Q305	= (hotSwapOut -> Q7),
+	Q306	= (reset[1] -> Q307
+		  |in[2] -> Q312),
+	Q307	= (in[2] -> Q303
+		  |in[1] -> Q308
+		  |startNewSpec -> Q310),
+	Q308	= (in[2] -> Q304
+		  |startNewSpec -> Q309),
+	Q309	= (in[2] -> Q305),
+	Q310	= (in[1] -> Q309
+		  |in[2] -> Q311),
+	Q311	= (in[1] -> Q305),
+	Q312	= (reset[1] -> Q303),
+	Q313	= (polishNOk[1] -> Q314
+		  |stopOldSpec -> Q324
+		  |polishOk[1] -> Q345),
+	Q314	= (stopOldSpec -> Q315),
+	Q315	= (reconfigure -> Q316),
+	Q316	= (out[2] -> Q317),
+	Q317	= (reset[2] -> Q318),
+	Q318	= (in[2] -> Q319),
+	Q319	= (out[1] -> Q320),
+	Q320	= (reset[1] -> Q321),
+	Q321	= (in[1] -> Q322),
+	Q322	= (startNewSpec -> Q323),
+	Q323	= (hotSwapOut -> Q7),
+	Q324	= ({polishNOk, polishOk}[1] -> Q325),
+	Q325	= (reconfigure -> Q326),
+	Q326	= (out[2] -> Q327),
+	Q327	= (reset[2] -> Q328
+		  |out[1] -> Q341),
+	Q328	= (in[2] -> Q329
+		  |out[1] -> Q335),
+	Q329	= (out[1] -> Q330),
+	Q330	= (reset[1] -> Q331),
+	Q331	= (in[1] -> Q332
+		  |startNewSpec -> Q334),
+	Q332	= (startNewSpec -> Q333),
+	Q333	= (hotSwapOut -> Q7),
+	Q334	= (in[1] -> Q333),
+	Q335	= (reset[1] -> Q336
+		  |in[2] -> Q340),
+	Q336	= (in[2] -> Q331
+		  |in[1] -> Q337
+		  |startNewSpec -> Q339),
+	Q337	= (in[2] -> Q332
+		  |startNewSpec -> Q338),
+	Q338	= (in[2] -> Q333),
+	Q339	= (in[2] -> Q334
+		  |in[1] -> Q338),
+	Q340	= (reset[1] -> Q331),
+	Q341	= (reset[2] -> Q342
+		  |reset[1] -> Q343),
+	Q342	= (reset[1] -> Q336
+		  |in[2] -> Q340),
+	Q343	= (reset[2] -> Q336
+		  |in[1] -> Q344),
+	Q344	= (reset[2] -> Q337),
+	Q345	= (stopOldSpec -> Q346),
+	Q346	= (reconfigure -> Q347),
+	Q347	= (out[2] -> Q348),
+	Q348	= (reset[2] -> Q349
+		  |out[1] -> Q362),
+	Q349	= (in[2] -> Q350
+		  |out[1] -> Q356),
+	Q350	= (out[1] -> Q351),
+	Q351	= (reset[1] -> Q352),
+	Q352	= (in[1] -> Q353
+		  |startNewSpec -> Q355),
+	Q353	= (startNewSpec -> Q354),
+	Q354	= (hotSwapOut -> Q7),
+	Q355	= (in[1] -> Q354),
+	Q356	= (reset[1] -> Q357
+		  |in[2] -> Q361),
+	Q357	= (in[2] -> Q352
+		  |in[1] -> Q358
+		  |startNewSpec -> Q360),
+	Q358	= (in[2] -> Q353
+		  |startNewSpec -> Q359),
+	Q359	= (in[2] -> Q354),
+	Q360	= (in[2] -> Q355
+		  |in[1] -> Q359),
+	Q361	= (reset[1] -> Q352),
+	Q362	= (reset[2] -> Q363
+		  |reset[1] -> Q364),
+	Q363	= (reset[1] -> Q357
+		  |in[2] -> Q361),
+	Q364	= (reset[2] -> Q357
+		  |in[1] -> Q365),
+	Q365	= (reset[2] -> Q358),
+	Q366	= (polish[2] -> Q367
+		  |clean[1] -> Q2935
+		  |hotSwapIn -> Q2936),
+	Q367	= (polishNOk[2] -> Q366
+		  |clean[1] -> Q368
+		  |polishOk[2] -> Q2559
+		  |hotSwapIn -> Q2897),
+	Q368	= (cleanNOk[1] -> Q367
+		  |polishNOk[2] -> Q369
+		  |hotSwapIn -> Q371
+		  |cleanOk[1] -> Q561
+		  |polishOk[2] -> Q2145),
+	Q369	= (cleanNOk[1] -> Q366
+		  |polish[2] -> Q370
+		  |cleanOk[1] -> Q562
+		  |hotSwapIn -> Q2844),
+	Q370	= (cleanNOk[1] -> Q367
+		  |polishNOk[2] -> Q369
+		  |hotSwapIn -> Q371
+		  |cleanOk[1] -> Q561
+		  |polishOk[2] -> Q2145),
+	Q371	= (polishNOk[2] -> Q372
+		  |cleanNOk[1] -> Q431
+		  |stopOldSpec -> Q463
+		  |cleanOk[1] -> Q491
+		  |polishOk[2] -> Q531),
+	Q372	= (cleanNOk[1] -> Q373
+		  |stopOldSpec -> Q392
+		  |cleanOk[1] -> Q421),
+	Q373	= (stopOldSpec -> Q374),
+	Q374	= (reconfigure -> Q375),
+	Q375	= (out[2] -> Q376),
+	Q376	= (reset[2] -> Q377),
+	Q377	= (in[2] -> Q378
+		  |out[1] -> Q384),
+	Q378	= (out[1] -> Q379),
+	Q379	= (reset[1] -> Q380),
+	Q380	= (in[1] -> Q381
+		  |startNewSpec -> Q383),
+	Q381	= (startNewSpec -> Q382),
+	Q382	= (hotSwapOut -> Q7),
+	Q383	= (in[1] -> Q382),
+	Q384	= (reset[1] -> Q385
+		  |in[2] -> Q389
+		  |startNewSpec -> Q391),
+	Q385	= (in[2] -> Q380
+		  |in[1] -> Q386
+		  |startNewSpec -> Q388),
+	Q386	= (in[2] -> Q381
+		  |startNewSpec -> Q387),
+	Q387	= (in[2] -> Q382),
+	Q388	= (in[2] -> Q383
+		  |in[1] -> Q387),
+	Q389	= (reset[1] -> Q380
+		  |startNewSpec -> Q390),
+	Q390	= (reset[1] -> Q383),
+	Q391	= (reset[1] -> Q388
+		  |in[2] -> Q390),
+	Q392	= (cleanNOk[1] -> Q393
+		  |cleanOk[1] -> Q410),
+	Q393	= (reconfigure -> Q394),
+	Q394	= (out[2] -> Q395),
+	Q395	= (reset[2] -> Q396
+		  |out[1] -> Q406),
+	Q396	= (in[2] -> Q397
+		  |out[1] -> Q402),
+	Q397	= (out[1] -> Q398),
+	Q398	= (reset[1] -> Q399),
+	Q399	= (in[1] -> Q400),
+	Q400	= (startNewSpec -> Q401),
+	Q401	= (hotSwapOut -> Q7),
+	Q402	= (reset[1] -> Q403
+		  |in[2] -> Q405),
+	Q403	= (in[2] -> Q399
+		  |in[1] -> Q404),
+	Q404	= (in[2] -> Q400),
+	Q405	= (reset[1] -> Q399),
+	Q406	= (reset[2] -> Q407
+		  |reset[1] -> Q408),
+	Q407	= (reset[1] -> Q403
+		  |in[2] -> Q405),
+	Q408	= (reset[2] -> Q403
+		  |in[1] -> Q409),
+	Q409	= (reset[2] -> Q404),
+	Q410	= (reconfigure -> Q411),
+	Q411	= (out[2] -> Q412),
+	Q412	= (reset[2] -> Q413
+		  |out[1] -> Q416),
+	Q413	= (in[2] -> Q414),
+	Q414	= (out[1] -> Q415),
+	Q415	= (reset[1] -> Q399),
+	Q416	= (reset[1] -> Q408
+		  |reset[2] -> Q417),
+	Q417	= (reset[1] -> Q403
+		  |in[2] -> Q418),
+	Q418	= (reset[1] -> Q399
+		  |startNewSpec -> Q419),
+	Q419	= (reset[1] -> Q420),
+	Q420	= (in[1] -> Q401),
+	Q421	= (stopOldSpec -> Q422),
+	Q422	= (reconfigure -> Q423),
+	Q423	= (out[2] -> Q424),
+	Q424	= (reset[2] -> Q425),
+	Q425	= (in[2] -> Q426),
+	Q426	= (out[1] -> Q427),
+	Q427	= (reset[1] -> Q428),
+	Q428	= (in[1] -> Q429),
+	Q429	= (startNewSpec -> Q430),
+	Q430	= (hotSwapOut -> Q7),
+	Q431	= (polishNOk[2] -> Q373
+		  |stopOldSpec -> Q432
+		  |polishOk[2] -> Q452),
+	Q432	= ({polishNOk, polishOk}[2] -> Q433),
+	Q433	= (reconfigure -> Q434),
+	Q434	= (out[2] -> Q435),
+	Q435	= (reset[2] -> Q436
+		  |out[1] -> Q443),
+	Q436	= (in[2] -> Q437),
+	Q437	= (out[1] -> Q438),
+	Q438	= (reset[1] -> Q439),
+	Q439	= (in[1] -> Q440
+		  |startNewSpec -> Q442),
+	Q440	= (startNewSpec -> Q441),
+	Q441	= (hotSwapOut -> Q7),
+	Q442	= (in[1] -> Q441),
+	Q443	= (reset[2] -> Q444
+		  |reset[1] -> Q450),
+	Q444	= (reset[1] -> Q445
+		  |in[2] -> Q449),
+	Q445	= (in[2] -> Q439
+		  |in[1] -> Q446
+		  |startNewSpec -> Q448),
+	Q446	= (in[2] -> Q440
+		  |startNewSpec -> Q447),
+	Q447	= (in[2] -> Q441),
+	Q448	= (in[2] -> Q442
+		  |in[1] -> Q447),
+	Q449	= (reset[1] -> Q439),
+	Q450	= (reset[2] -> Q445
+		  |in[1] -> Q451),
+	Q451	= (reset[2] -> Q446),
+	Q452	= (stopOldSpec -> Q453),
+	Q453	= (reconfigure -> Q454),
+	Q454	= (out[2] -> Q455),
+	Q455	= (reset[2] -> Q456),
+	Q456	= (in[2] -> Q457),
+	Q457	= (out[1] -> Q458),
+	Q458	= (reset[1] -> Q459),
+	Q459	= (in[1] -> Q460
+		  |startNewSpec -> Q462),
+	Q460	= (startNewSpec -> Q461),
+	Q461	= (hotSwapOut -> Q7),
+	Q462	= (in[1] -> Q461),
+	Q463	= ({polishNOk, polishOk}[2] -> Q464
+		  |cleanNOk[1] -> Q489
+		  |cleanOk[1] -> Q490),
+	Q464	= (cleanNOk[1] -> Q465
+		  |cleanOk[1] -> Q474),
+	Q465	= (reconfigure -> Q466),
+	Q466	= (out[2] -> Q467),
+	Q467	= (reset[2] -> Q468),
+	Q468	= (in[2] -> Q469),
+	Q469	= (out[1] -> Q470),
+	Q470	= (reset[1] -> Q471),
+	Q471	= (in[1] -> Q472),
+	Q472	= (startNewSpec -> Q473),
+	Q473	= (hotSwapOut -> Q7),
+	Q474	= (reconfigure -> Q475),
+	Q475	= (out[2] -> Q476),
+	Q476	= (reset[2] -> Q477
+		  |out[1] -> Q485),
+	Q477	= (in[2] -> Q478
+		  |out[1] -> Q480),
+	Q478	= (out[1] -> Q479),
+	Q479	= (reset[1] -> Q471),
+	Q480	= (reset[1] -> Q481
+		  |in[2] -> Q484),
+	Q481	= (in[2] -> Q471
+		  |in[1] -> Q482),
+	Q482	= (in[2] -> Q472
+		  |startNewSpec -> Q483),
+	Q483	= (in[2] -> Q473),
+	Q484	= (reset[1] -> Q471),
+	Q485	= (reset[2] -> Q486
+		  |reset[1] -> Q487),
+	Q486	= (reset[1] -> Q481
+		  |in[2] -> Q484),
+	Q487	= (reset[2] -> Q481
+		  |in[1] -> Q488),
+	Q488	= (reset[2] -> Q482),
+	Q489	= ({polishNOk, polishOk}[2] -> Q465),
+	Q490	= ({polishNOk, polishOk}[2] -> Q474),
+	Q491	= (polishNOk[2] -> Q421
+		  |stopOldSpec -> Q492
+		  |polishOk[2] -> Q509),
+	Q492	= ({polishNOk, polishOk}[2] -> Q493),
+	Q493	= (reconfigure -> Q494),
+	Q494	= (out[2] -> Q495),
+	Q495	= (reset[2] -> Q496
+		  |out[1] -> Q502),
+	Q496	= (in[2] -> Q497),
+	Q497	= (out[1] -> Q498),
+	Q498	= (reset[1] -> Q499),
+	Q499	= (in[1] -> Q500),
+	Q500	= (startNewSpec -> Q501),
+	Q501	= (hotSwapOut -> Q7),
+	Q502	= (reset[2] -> Q503
+		  |reset[1] -> Q507),
+	Q503	= (reset[1] -> Q504
+		  |in[2] -> Q506),
+	Q504	= (in[2] -> Q499
+		  |in[1] -> Q505),
+	Q505	= (in[2] -> Q500),
+	Q506	= (reset[1] -> Q499),
+	Q507	= (reset[2] -> Q504
+		  |in[1] -> Q508),
+	Q508	= (reset[2] -> Q505),
+	Q509	= (stopOldSpec -> Q510),
+	Q510	= (reconfigure -> Q511),
+	Q511	= (out[2] -> Q512),
+	Q512	= (reset[2] -> Q513
+		  |out[1] -> Q526),
+	Q513	= (in[2] -> Q514
+		  |out[1] -> Q520),
+	Q514	= (out[1] -> Q515),
+	Q515	= (reset[1] -> Q516),
+	Q516	= (in[1] -> Q517
+		  |startNewSpec -> Q519),
+	Q517	= (startNewSpec -> Q518),
+	Q518	= (hotSwapOut -> Q7),
+	Q519	= (in[1] -> Q518),
+	Q520	= (reset[1] -> Q521
+		  |in[2] -> Q525),
+	Q521	= (in[2] -> Q516
+		  |in[1] -> Q522
+		  |startNewSpec -> Q524),
+	Q522	= (in[2] -> Q517
+		  |startNewSpec -> Q523),
+	Q523	= (in[2] -> Q518),
+	Q524	= (in[2] -> Q519
+		  |in[1] -> Q523),
+	Q525	= (reset[1] -> Q516),
+	Q526	= (reset[2] -> Q527
+		  |reset[1] -> Q528),
+	Q527	= (reset[1] -> Q521
+		  |in[2] -> Q525),
+	Q528	= (reset[2] -> Q521
+		  |in[1] -> Q529),
+	Q529	= (reset[2] -> Q522
+		  |startNewSpec -> Q530),
+	Q530	= (reset[2] -> Q523),
+	Q531	= (cleanNOk[1] -> Q452
+		  |cleanOk[1] -> Q509
+		  |stopOldSpec -> Q532),
+	Q532	= (cleanNOk[1] -> Q533
+		  |cleanOk[1] -> Q550),
+	Q533	= (reconfigure -> Q534),
+	Q534	= (out[2] -> Q535),
+	Q535	= (reset[2] -> Q536
+		  |out[1] -> Q546),
+	Q536	= (in[2] -> Q537
+		  |out[1] -> Q542),
+	Q537	= (out[1] -> Q538),
+	Q538	= (reset[1] -> Q539),
+	Q539	= (in[1] -> Q540),
+	Q540	= (startNewSpec -> Q541),
+	Q541	= (hotSwapOut -> Q7),
+	Q542	= (reset[1] -> Q543
+		  |in[2] -> Q545),
+	Q543	= (in[2] -> Q539
+		  |in[1] -> Q544),
+	Q544	= (in[2] -> Q540),
+	Q545	= (reset[1] -> Q539),
+	Q546	= (reset[2] -> Q547
+		  |reset[1] -> Q548),
+	Q547	= (reset[1] -> Q543
+		  |in[2] -> Q545),
+	Q548	= (reset[2] -> Q543
+		  |in[1] -> Q549),
+	Q549	= (reset[2] -> Q544),
+	Q550	= (reconfigure -> Q551),
+	Q551	= (out[2] -> Q552),
+	Q552	= (reset[2] -> Q553
+		  |out[1] -> Q556),
+	Q553	= (in[2] -> Q554),
+	Q554	= (out[1] -> Q555),
+	Q555	= (reset[1] -> Q539),
+	Q556	= (reset[1] -> Q548
+		  |reset[2] -> Q557),
+	Q557	= (reset[1] -> Q543
+		  |in[2] -> Q558),
+	Q558	= (reset[1] -> Q539
+		  |startNewSpec -> Q559),
+	Q559	= (reset[1] -> Q560),
+	Q560	= (in[1] -> Q541),
+	Q561	= (polishNOk[2] -> Q562
+		  |polishOk[2] -> Q2382
+		  |hotSwapIn -> Q2785
+		  |out[1] -> Q2843),
+	Q562	= (polish[2] -> Q561
+		  |hotSwapIn -> Q563
+		  |out[1] -> Q574),
+	Q563	= (stopOldSpec -> Q564),
+	Q564	= (reconfigure -> Q565),
+	Q565	= (out[2] -> Q566),
+	Q566	= (reset[2] -> Q567),
+	Q567	= (in[2] -> Q568),
+	Q568	= (out[1] -> Q569),
+	Q569	= (reset[1] -> Q570),
+	Q570	= (in[1] -> Q571
+		  |startNewSpec -> Q573),
+	Q571	= (startNewSpec -> Q572),
+	Q572	= (hotSwapOut -> Q7),
+	Q573	= (in[1] -> Q572),
+	Q574	= (reset[1] -> Q575
+		  |polish[2] -> Q1324
+		  |hotSwapIn -> Q1444),
+	Q575	= (polish[2] -> Q576
+		  |hotSwapIn -> Q2750
+		  |in[1] -> Q2758),
+	Q576	= (in[1] -> Q193
+		  |polishNOk[2] -> Q575
+		  |hotSwapIn -> Q577
+		  |polishOk[2] -> Q604),
+	Q577	= (polishNOk[2] -> Q578
+		  |in[1] -> Q586
+		  |stopOldSpec -> Q594
+		  |polishOk[2] -> Q603),
+	Q578	= (in[1] -> Q579),
+	Q579	= (stopOldSpec -> Q580),
+	Q580	= (reconfigure -> Q581),
+	Q581	= (out[2] -> Q582),
+	Q582	= (reset[2] -> Q583),
+	Q583	= (in[2] -> Q584),
+	Q584	= (startNewSpec -> Q585),
+	Q585	= (hotSwapOut -> Q7),
+	Q586	= (polishNOk[2] -> Q579
+		  |polishOk[2] -> Q587),
+	Q587	= (stopOldSpec -> Q588),
+	Q588	= (reconfigure -> Q589),
+	Q589	= (out[2] -> Q590),
+	Q590	= (reset[2] -> Q591),
+	Q591	= (in[2] -> Q592),
+	Q592	= (startNewSpec -> Q593),
+	Q593	= (hotSwapOut -> Q7),
+	Q594	= ({polishNOk, polishOk}[2] -> Q595
+		  |in[1] -> Q602),
+	Q595	= (in[1] -> Q596),
+	Q596	= (reconfigure -> Q597),
+	Q597	= (out[2] -> Q598),
+	Q598	= (reset[2] -> Q599),
+	Q599	= (in[2] -> Q600),
+	Q600	= (startNewSpec -> Q601),
+	Q601	= (hotSwapOut -> Q7),
+	Q602	= ({polishNOk, polishOk}[2] -> Q596),
+	Q603	= (in[1] -> Q587),
+	Q604	= (clean[2] -> Q605
+		  |in[1] -> Q641
+		  |hotSwapIn -> Q2742),
+	Q605	= (cleanNOk[2] -> Q604
+		  |hotSwapIn -> Q606
+		  |in[1] -> Q638
+		  |cleanOk[2] -> Q962),
+	Q606	= (cleanNOk[2] -> Q607
+		  |in[1] -> Q615
+		  |stopOldSpec -> Q623
+		  |cleanOk[2] -> Q637),
+	Q607	= (in[1] -> Q608),
+	Q608	= (stopOldSpec -> Q609),
+	Q609	= (reconfigure -> Q610),
+	Q610	= (out[2] -> Q611),
+	Q611	= (reset[2] -> Q612),
+	Q612	= (in[2] -> Q613),
+	Q613	= (startNewSpec -> Q614),
+	Q614	= (hotSwapOut -> Q7),
+	Q615	= (cleanNOk[2] -> Q608
+		  |cleanOk[2] -> Q616),
+	Q616	= (stopOldSpec -> Q617),
+	Q617	= (reconfigure -> Q618),
+	Q618	= (out[2] -> Q619),
+	Q619	= (reset[2] -> Q620),
+	Q620	= (in[2] -> Q621),
+	Q621	= (startNewSpec -> Q622),
+	Q622	= (hotSwapOut -> Q7),
+	Q623	= (cleanNOk[2] -> Q624
+		  |in[1] -> Q631
+		  |cleanOk[2] -> Q636),
+	Q624	= (in[1] -> Q625),
+	Q625	= (reconfigure -> Q626),
+	Q626	= (out[2] -> Q627),
+	Q627	= (reset[2] -> Q628),
+	Q628	= (in[2] -> Q629),
+	Q629	= (startNewSpec -> Q630),
+	Q630	= (hotSwapOut -> Q7),
+	Q631	= (cleanNOk[2] -> Q625
+		  |reconfigure -> Q632
+		  |cleanOk[2] -> Q635),
+	Q632	= (cleanNOk[2] -> Q626
+		  |cleanOk[2] -> Q633),
+	Q633	= (out[2] -> Q634),
+	Q634	= (reset[2] -> Q628),
+	Q635	= (reconfigure -> Q633),
+	Q636	= (in[1] -> Q635),
+	Q637	= (in[1] -> Q616),
+	Q638	= (drill[1] -> Q639
+		  |cleanNOk[2] -> Q641
+		  |cleanOk[2] -> Q764
+		  |hotSwapIn -> Q2710),
+	Q639	= (drillNOk[1] -> Q638
+		  |cleanNOk[2] -> Q640
+		  |hotSwapIn -> Q644
+		  |cleanOk[2] -> Q763
+		  |drillOk[1] -> Q1871),
+	Q640	= (drillNOk[1] -> Q641
+		  |clean[2] -> Q643
+		  |drillOk[1] -> Q1874
+		  |hotSwapIn -> Q2666),
+	Q641	= (drill[1] -> Q642
+		  |clean[2] -> Q2709
+		  |hotSwapIn -> Q2735),
+	Q642	= (drillNOk[1] -> Q641
+		  |clean[2] -> Q643
+		  |drillOk[1] -> Q1874
+		  |hotSwapIn -> Q2666),
+	Q643	= (drillNOk[1] -> Q638
+		  |cleanNOk[2] -> Q640
+		  |hotSwapIn -> Q644
+		  |cleanOk[2] -> Q763
+		  |drillOk[1] -> Q1871),
+	Q644	= (drillNOk[1] -> Q645
+		  |cleanNOk[2] -> Q671
+		  |stopOldSpec -> Q698
+		  |cleanOk[2] -> Q716
+		  |drillOk[1] -> Q743),
+	Q645	= (cleanNOk[2] -> Q646
+		  |stopOldSpec -> Q653
+		  |cleanOk[2] -> Q664),
+	Q646	= (stopOldSpec -> Q647),
+	Q647	= (reconfigure -> Q648),
+	Q648	= (out[2] -> Q649),
+	Q649	= (reset[2] -> Q650),
+	Q650	= (in[2] -> Q651),
+	Q651	= (startNewSpec -> Q652),
+	Q652	= (hotSwapOut -> Q7),
+	Q653	= (cleanNOk[2] -> Q654
+		  |reconfigure -> Q660
+		  |cleanOk[2] -> Q663),
+	Q654	= (reconfigure -> Q655),
+	Q655	= (out[2] -> Q656),
+	Q656	= (reset[2] -> Q657),
+	Q657	= (in[2] -> Q658),
+	Q658	= (startNewSpec -> Q659),
+	Q659	= (hotSwapOut -> Q7),
+	Q660	= (cleanNOk[2] -> Q655
+		  |cleanOk[2] -> Q661),
+	Q661	= (out[2] -> Q662),
+	Q662	= (reset[2] -> Q657),
+	Q663	= (reconfigure -> Q661),
+	Q664	= (stopOldSpec -> Q665),
+	Q665	= (reconfigure -> Q666),
+	Q666	= (out[2] -> Q667),
+	Q667	= (reset[2] -> Q668),
+	Q668	= (in[2] -> Q669),
+	Q669	= (startNewSpec -> Q670),
+	Q670	= (hotSwapOut -> Q7),
+	Q671	= (drillNOk[1] -> Q646
+		  |stopOldSpec -> Q672
+		  |drillOk[1] -> Q680),
+	Q672	= (drillNOk[1] -> Q647
+		  |drillOk[1] -> Q673),
+	Q673	= (reconfigure -> Q674),
+	Q674	= (out[2] -> Q675),
+	Q675	= (reset[2] -> Q676),
+	Q676	= (in[2] -> Q677),
+	Q677	= (out[1] -> Q678),
+	Q678	= (reset[1] -> Q679),
+	Q679	= (in[1] -> Q651),
+	Q680	= (stopOldSpec -> Q681),
+	Q681	= (reconfigure -> Q682),
+	Q682	= (out[2] -> Q683),
+	Q683	= (reset[2] -> Q684
+		  |out[1] -> Q694),
+	Q684	= (in[2] -> Q685
+		  |out[1] -> Q690),
+	Q685	= (out[1] -> Q686),
+	Q686	= (reset[1] -> Q687),
+	Q687	= (in[1] -> Q688),
+	Q688	= (startNewSpec -> Q689),
+	Q689	= (hotSwapOut -> Q7),
+	Q690	= (reset[1] -> Q691
+		  |in[2] -> Q693),
+	Q691	= (in[2] -> Q687
+		  |in[1] -> Q692),
+	Q692	= (in[2] -> Q688),
+	Q693	= (reset[1] -> Q687),
+	Q694	= (reset[2] -> Q695
+		  |reset[1] -> Q696),
+	Q695	= (reset[1] -> Q691
+		  |in[2] -> Q693),
+	Q696	= (reset[2] -> Q691
+		  |in[1] -> Q697),
+	Q697	= (reset[2] -> Q692),
+	Q698	= (drillNOk[1] -> Q653
+		  |cleanNOk[2] -> Q699
+		  |reconfigure -> Q708
+		  |cleanOk[2] -> Q713
+		  |drillOk[1] -> Q715),
+	Q699	= (drillNOk[1] -> Q654
+		  |reconfigure -> Q700
+		  |drillOk[1] -> Q707),
+	Q700	= (drillNOk[1] -> Q655
+		  |drillOk[1] -> Q701),
+	Q701	= (out[2] -> Q702),
+	Q702	= (reset[2] -> Q703),
+	Q703	= (in[2] -> Q704),
+	Q704	= (out[1] -> Q705),
+	Q705	= (reset[1] -> Q706),
+	Q706	= (in[1] -> Q658),
+	Q707	= (reconfigure -> Q701),
+	Q708	= (drillNOk[1] -> Q660
+		  |cleanNOk[2] -> Q700
+		  |cleanOk[2] -> Q709
+		  |drillOk[1] -> Q712),
+	Q709	= (drillNOk[1] -> Q661
+		  |drillOk[1] -> Q710),
+	Q710	= (out[2] -> Q711),
+	Q711	= (reset[2] -> Q703),
+	Q712	= (cleanNOk[2] -> Q701
+		  |cleanOk[2] -> Q710),
+	Q713	= (drillNOk[1] -> Q663
+		  |drillOk[1] -> Q714),
+	Q714	= (reconfigure -> Q710),
+	Q715	= (cleanNOk[2] -> Q707
+		  |reconfigure -> Q712
+		  |cleanOk[2] -> Q714),
+	Q716	= (drillNOk[1] -> Q664
+		  |drillOk[1] -> Q717),
+	Q717	= (stopOldSpec -> Q718),
+	Q718	= (reconfigure -> Q719),
+	Q719	= (out[2] -> Q720),
+	Q720	= (reset[2] -> Q721
+		  |out[1] -> Q733),
+	Q721	= (in[2] -> Q722
+		  |out[1] -> Q727),
+	Q722	= (out[1] -> Q723),
+	Q723	= (reset[1] -> Q724),
+	Q724	= (in[1] -> Q725),
+	Q725	= (startNewSpec -> Q726),
+	Q726	= (hotSwapOut -> Q7),
+	Q727	= (reset[1] -> Q728
+		  |in[2] -> Q730),
+	Q728	= (in[2] -> Q724
+		  |in[1] -> Q729),
+	Q729	= (in[2] -> Q725),
+	Q730	= (reset[1] -> Q724
+		  |startNewSpec -> Q731),
+	Q731	= (reset[1] -> Q732),
+	Q732	= (in[1] -> Q726),
+	Q733	= (reset[2] -> Q734
+		  |reset[1] -> Q735
+		  |startNewSpec -> Q737),
+	Q734	= (reset[1] -> Q728
+		  |in[2] -> Q730),
+	Q735	= (reset[2] -> Q728
+		  |in[1] -> Q736),
+	Q736	= (reset[2] -> Q729),
+	Q737	= (reset[2] -> Q738
+		  |reset[1] -> Q741),
+	Q738	= (in[2] -> Q731
+		  |reset[1] -> Q739),
+	Q739	= (in[2] -> Q732
+		  |in[1] -> Q740),
+	Q740	= (in[2] -> Q726),
+	Q741	= (reset[2] -> Q739
+		  |in[1] -> Q742),
+	Q742	= (reset[2] -> Q740),
+	Q743	= (cleanNOk[2] -> Q680
+		  |cleanOk[2] -> Q717
+		  |stopOldSpec -> Q744),
+	Q744	= (cleanNOk[2] -> Q745
+		  |reconfigure -> Q759
+		  |cleanOk[2] -> Q762),
+	Q745	= (reconfigure -> Q746),
+	Q746	= (out[2] -> Q747),
+	Q747	= (reset[2] -> Q748),
+	Q748	= (in[2] -> Q749
+		  |out[1] -> Q754),
+	Q749	= (out[1] -> Q750),
+	Q750	= (reset[1] -> Q751),
+	Q751	= (in[1] -> Q752),
+	Q752	= (startNewSpec -> Q753),
+	Q753	= (hotSwapOut -> Q7),
+	Q754	= (reset[1] -> Q755
+		  |in[2] -> Q758),
+	Q755	= (in[2] -> Q751
+		  |in[1] -> Q756),
+	Q756	= (in[2] -> Q752
+		  |startNewSpec -> Q757),
+	Q757	= (in[2] -> Q753),
+	Q758	= (reset[1] -> Q751),
+	Q759	= (cleanNOk[2] -> Q746
+		  |cleanOk[2] -> Q760),
+	Q760	= (out[2] -> Q761),
+	Q761	= (reset[2] -> Q748),
+	Q762	= (reconfigure -> Q760),
+	Q763	= (drillNOk[1] -> Q764
+		  |hotSwapIn -> Q766
+		  |drillOk[1] -> Q815
+		  |out[2] -> Q1862),
+	Q764	= (drill[1] -> Q765
+		  |hotSwapIn -> Q1863
+		  |out[2] -> Q1870),
+	Q765	= (drillNOk[1] -> Q764
+		  |hotSwapIn -> Q766
+		  |drillOk[1] -> Q815
+		  |out[2] -> Q1862),
+	Q766	= (drillNOk[1] -> Q767
+		  |stopOldSpec -> Q774
+		  |drillOk[1] -> Q794),
+	Q767	= (stopOldSpec -> Q768),
+	Q768	= (reconfigure -> Q769),
+	Q769	= (out[2] -> Q770),
+	Q770	= (reset[2] -> Q771),
+	Q771	= (in[2] -> Q772),
+	Q772	= (startNewSpec -> Q773),
+	Q773	= (hotSwapOut -> Q7),
+	Q774	= (drillNOk[1] -> Q768
+		  |drillOk[1] -> Q775),
+	Q775	= (reconfigure -> Q776),
+	Q776	= (out[2] -> Q777),
+	Q777	= (reset[2] -> Q778
+		  |out[1] -> Q788),
+	Q778	= (in[2] -> Q779
+		  |out[1] -> Q782),
+	Q779	= (out[1] -> Q780),
+	Q780	= (reset[1] -> Q781),
+	Q781	= (in[1] -> Q772),
+	Q782	= (reset[1] -> Q783
+		  |in[2] -> Q787),
+	Q783	= (in[1] -> Q771
+		  |in[2] -> Q781
+		  |startNewSpec -> Q784),
+	Q784	= (in[1] -> Q785
+		  |in[2] -> Q786),
+	Q785	= (in[2] -> Q773),
+	Q786	= (in[1] -> Q773),
+	Q787	= (reset[1] -> Q781),
+	Q788	= (reset[2] -> Q789
+		  |reset[1] -> Q792),
+	Q789	= (reset[1] -> Q783
+		  |in[2] -> Q787
+		  |startNewSpec -> Q790),
+	Q790	= (reset[1] -> Q784
+		  |in[2] -> Q791),
+	Q791	= (reset[1] -> Q786),
+	Q792	= (reset[2] -> Q783
+		  |in[1] -> Q793),
+	Q793	= (reset[2] -> Q771),
+	Q794	= (stopOldSpec -> Q795),
+	Q795	= (reconfigure -> Q796),
+	Q796	= (out[2] -> Q797),
+	Q797	= (reset[2] -> Q798
+		  |out[1] -> Q811),
+	Q798	= (in[2] -> Q799
+		  |out[1] -> Q805),
+	Q799	= (out[1] -> Q800),
+	Q800	= (reset[1] -> Q801),
+	Q801	= (in[1] -> Q802
+		  |startNewSpec -> Q804),
+	Q802	= (startNewSpec -> Q803),
+	Q803	= (hotSwapOut -> Q7),
+	Q804	= (in[1] -> Q803),
+	Q805	= (reset[1] -> Q806
+		  |in[2] -> Q810),
+	Q806	= (in[2] -> Q801
+		  |in[1] -> Q807
+		  |startNewSpec -> Q809),
+	Q807	= (in[2] -> Q802
+		  |startNewSpec -> Q808),
+	Q808	= (in[2] -> Q803),
+	Q809	= (in[2] -> Q804
+		  |in[1] -> Q808),
+	Q810	= (reset[1] -> Q801),
+	Q811	= (reset[2] -> Q812
+		  |reset[1] -> Q813),
+	Q812	= (reset[1] -> Q806
+		  |in[2] -> Q810),
+	Q813	= (reset[2] -> Q806
+		  |in[1] -> Q814),
+	Q814	= (reset[2] -> Q807),
+	Q815	= (polish[1] -> Q816
+		  |hotSwapIn -> Q1837
+		  |out[2] -> Q1861),
+	Q816	= (polishNOk[1] -> Q815
+		  |hotSwapIn -> Q817
+		  |polishOk[1] -> Q865
+		  |out[2] -> Q1836),
+	Q817	= (polishNOk[1] -> Q818
+		  |polishOk[1] -> Q841),
+	Q818	= (stopOldSpec -> Q819),
+	Q819	= (reconfigure -> Q820),
+	Q820	= (out[2] -> Q821),
+	Q821	= (reset[2] -> Q822
+		  |out[1] -> Q835),
+	Q822	= (in[2] -> Q823
+		  |out[1] -> Q828),
+	Q823	= (out[1] -> Q824),
+	Q824	= (reset[1] -> Q825),
+	Q825	= (in[1] -> Q826),
+	Q826	= (startNewSpec -> Q827),
+	Q827	= (hotSwapOut -> Q7),
+	Q828	= (reset[1] -> Q829
+		  |in[2] -> Q834),
+	Q829	= (in[2] -> Q825
+		  |in[1] -> Q830
+		  |startNewSpec -> Q831),
+	Q830	= (in[2] -> Q826),
+	Q831	= (in[1] -> Q832
+		  |in[2] -> Q833),
+	Q832	= (in[2] -> Q827),
+	Q833	= (in[1] -> Q827),
+	Q834	= (reset[1] -> Q825),
+	Q835	= (reset[2] -> Q836
+		  |reset[1] -> Q839),
+	Q836	= (reset[1] -> Q829
+		  |in[2] -> Q834
+		  |startNewSpec -> Q837),
+	Q837	= (reset[1] -> Q831
+		  |in[2] -> Q838),
+	Q838	= (reset[1] -> Q833),
+	Q839	= (reset[2] -> Q829
+		  |in[1] -> Q840),
+	Q840	= (reset[2] -> Q830),
+	Q841	= (stopOldSpec -> Q842),
+	Q842	= (reconfigure -> Q843),
+	Q843	= (out[2] -> Q844),
+	Q844	= (reset[2] -> Q845
+		  |out[1] -> Q857),
+	Q845	= (in[2] -> Q846
+		  |out[1] -> Q852),
+	Q846	= (out[1] -> Q847),
+	Q847	= (reset[1] -> Q848),
+	Q848	= (in[1] -> Q849
+		  |startNewSpec -> Q851),
+	Q849	= (startNewSpec -> Q850),
+	Q850	= (hotSwapOut -> Q7),
+	Q851	= (in[1] -> Q850),
+	Q852	= (reset[1] -> Q853
+		  |in[2] -> Q855),
+	Q853	= (in[2] -> Q848
+		  |in[1] -> Q854),
+	Q854	= (in[2] -> Q849),
+	Q855	= (reset[1] -> Q848
+		  |startNewSpec -> Q856),
+	Q856	= (reset[1] -> Q851),
+	Q857	= (reset[2] -> Q858
+		  |reset[1] -> Q862),
+	Q858	= (reset[1] -> Q853
+		  |in[2] -> Q855
+		  |startNewSpec -> Q859),
+	Q859	= (in[2] -> Q856
+		  |reset[1] -> Q860),
+	Q860	= (in[2] -> Q851
+		  |in[1] -> Q861),
+	Q861	= (in[2] -> Q850),
+	Q862	= (reset[2] -> Q853
+		  |in[1] -> Q863),
+	Q863	= (reset[2] -> Q854
+		  |startNewSpec -> Q864),
+	Q864	= (reset[2] -> Q861),
+	Q865	= (clean[1] -> Q866
+		  |hotSwapIn -> Q1814
+		  |out[2] -> Q1835),
+	Q866	= (cleanNOk[1] -> Q865
+		  |hotSwapIn -> Q867
+		  |cleanOk[1] -> Q943
+		  |out[2] -> Q1813),
+	Q867	= (cleanNOk[1] -> Q868
+		  |stopOldSpec -> Q892
+		  |cleanOk[1] -> Q924),
+	Q868	= (stopOldSpec -> Q869),
+	Q869	= (reconfigure -> Q870),
+	Q870	= (out[2] -> Q871),
+	Q871	= (reset[2] -> Q872
+		  |out[1] -> Q884),
+	Q872	= (in[2] -> Q873
+		  |out[1] -> Q879),
+	Q873	= (out[1] -> Q874),
+	Q874	= (reset[1] -> Q875),
+	Q875	= (in[1] -> Q876
+		  |startNewSpec -> Q878),
+	Q876	= (startNewSpec -> Q877),
+	Q877	= (hotSwapOut -> Q7),
+	Q878	= (in[1] -> Q877),
+	Q879	= (reset[1] -> Q880
+		  |in[2] -> Q882),
+	Q880	= (in[2] -> Q875
+		  |in[1] -> Q881),
+	Q881	= (in[2] -> Q876),
+	Q882	= (reset[1] -> Q875
+		  |startNewSpec -> Q883),
+	Q883	= (reset[1] -> Q878),
+	Q884	= (reset[2] -> Q885
+		  |reset[1] -> Q889),
+	Q885	= (reset[1] -> Q880
+		  |in[2] -> Q882
+		  |startNewSpec -> Q886),
+	Q886	= (in[2] -> Q883
+		  |reset[1] -> Q887),
+	Q887	= (in[2] -> Q878
+		  |in[1] -> Q888),
+	Q888	= (in[2] -> Q877),
+	Q889	= (reset[2] -> Q880
+		  |in[1] -> Q890),
+	Q890	= (reset[2] -> Q881
+		  |startNewSpec -> Q891),
+	Q891	= (reset[2] -> Q888),
+	Q892	= (cleanNOk[1] -> Q893
+		  |reconfigure -> Q909
+		  |cleanOk[1] -> Q923),
+	Q893	= (reconfigure -> Q894),
+	Q894	= (out[2] -> Q895),
+	Q895	= (reset[2] -> Q896),
+	Q896	= (in[2] -> Q897
+		  |out[1] -> Q902),
+	Q897	= (out[1] -> Q898),
+	Q898	= (reset[1] -> Q899),
+	Q899	= (in[1] -> Q900),
+	Q900	= (startNewSpec -> Q901),
+	Q901	= (hotSwapOut -> Q7),
+	Q902	= (reset[1] -> Q903
+		  |in[2] -> Q908),
+	Q903	= (in[2] -> Q899
+		  |in[1] -> Q904
+		  |startNewSpec -> Q906),
+	Q904	= (in[2] -> Q900
+		  |startNewSpec -> Q905),
+	Q905	= (in[2] -> Q901),
+	Q906	= (in[1] -> Q905
+		  |in[2] -> Q907),
+	Q907	= (in[1] -> Q901),
+	Q908	= (reset[1] -> Q899),
+	Q909	= (cleanNOk[1] -> Q894
+		  |cleanOk[1] -> Q910),
+	Q910	= (out[2] -> Q911),
+	Q911	= (reset[2] -> Q912
+		  |out[1] -> Q915),
+	Q912	= (in[2] -> Q913),
+	Q913	= (out[1] -> Q914),
+	Q914	= (reset[1] -> Q899),
+	Q915	= (reset[2] -> Q916
+		  |reset[1] -> Q920),
+	Q916	= (reset[1] -> Q903
+		  |in[2] -> Q917
+		  |startNewSpec -> Q919),
+	Q917	= (reset[1] -> Q899
+		  |startNewSpec -> Q918),
+	Q918	= (reset[1] -> Q907),
+	Q919	= (reset[1] -> Q906
+		  |in[2] -> Q918),
+	Q920	= (reset[2] -> Q903
+		  |in[1] -> Q921),
+	Q921	= (reset[2] -> Q904
+		  |startNewSpec -> Q922),
+	Q922	= (reset[2] -> Q905),
+	Q923	= (reconfigure -> Q910),
+	Q924	= (stopOldSpec -> Q925),
+	Q925	= (reconfigure -> Q926),
+	Q926	= (out[2] -> Q927),
+	Q927	= (reset[2] -> Q928
+		  |out[1] -> Q939),
+	Q928	= (in[2] -> Q929
+		  |out[1] -> Q934),
+	Q929	= (out[1] -> Q930),
+	Q930	= (reset[1] -> Q931),
+	Q931	= (in[1] -> Q932),
+	Q932	= (startNewSpec -> Q933),
+	Q933	= (hotSwapOut -> Q7),
+	Q934	= (reset[1] -> Q935
+		  |in[2] -> Q938),
+	Q935	= (in[2] -> Q931
+		  |in[1] -> Q936),
+	Q936	= (in[2] -> Q932
+		  |startNewSpec -> Q937),
+	Q937	= (in[2] -> Q933),
+	Q938	= (reset[1] -> Q931),
+	Q939	= (reset[2] -> Q940
+		  |reset[1] -> Q941),
+	Q940	= (reset[1] -> Q935
+		  |in[2] -> Q938),
+	Q941	= (reset[2] -> Q935
+		  |in[1] -> Q942),
+	Q942	= (reset[2] -> Q936),
+	Q943	= (hotSwapIn -> Q944
+		  |out[1] -> Q961
+		  |out[2] -> Q1812),
+	Q944	= (stopOldSpec -> Q945),
+	Q945	= (reconfigure -> Q946),
+	Q946	= (out[2] -> Q947),
+	Q947	= (reset[2] -> Q948),
+	Q948	= (in[2] -> Q949
+		  |out[1] -> Q955),
+	Q949	= (out[1] -> Q950),
+	Q950	= (reset[1] -> Q951),
+	Q951	= (in[1] -> Q952
+		  |startNewSpec -> Q954),
+	Q952	= (startNewSpec -> Q953),
+	Q953	= (hotSwapOut -> Q7),
+	Q954	= (in[1] -> Q953),
+	Q955	= (reset[1] -> Q956
+		  |in[2] -> Q960),
+	Q956	= (in[2] -> Q951
+		  |in[1] -> Q957
+		  |startNewSpec -> Q959),
+	Q957	= (in[2] -> Q952
+		  |startNewSpec -> Q958),
+	Q958	= (in[2] -> Q953),
+	Q959	= (in[2] -> Q954
+		  |in[1] -> Q958),
+	Q960	= (reset[1] -> Q951),
+	Q961	= (reset[1] -> Q962
+		  |hotSwapIn -> Q1371
+		  |out[2] -> Q1380),
+	Q962	= (in[1] -> Q764
+		  |hotSwapIn -> Q963
+		  |out[2] -> Q971),
+	Q963	= (in[1] -> Q964),
+	Q964	= (stopOldSpec -> Q965),
+	Q965	= (reconfigure -> Q966),
+	Q966	= (out[2] -> Q967),
+	Q967	= (reset[2] -> Q968),
+	Q968	= (in[2] -> Q969),
+	Q969	= (startNewSpec -> Q970),
+	Q970	= (hotSwapOut -> Q7),
+	Q971	= (reset[2] -> Q0
+		  |hotSwapIn -> Q972
+		  |in[1] -> Q981),
+	Q972	= (reset[2] -> Q973
+		  |in[1] -> Q980),
+	Q973	= (in[1] -> Q974
+		  |in[2] -> Q979),
+	Q974	= (in[2] -> Q975),
+	Q975	= (stopOldSpec -> Q976),
+	Q976	= (reconfigure -> Q977),
+	Q977	= (startNewSpec -> Q978),
+	Q978	= (hotSwapOut -> Q7),
+	Q979	= (in[1] -> Q975),
+	Q980	= (reset[2] -> Q974),
+	Q981	= (reset[2] -> Q92
+		  |drill[1] -> Q982
+		  |hotSwapIn -> Q1806),
+	Q982	= (drillNOk[1] -> Q981
+		  |reset[2] -> Q983
+		  |hotSwapIn -> Q1621
+		  |drillOk[1] -> Q1648),
+	Q983	= (drillNOk[1] -> Q92
+		  |hotSwapIn -> Q94
+		  |in[2] -> Q109
+		  |drillOk[1] -> Q984),
+	Q984	= (polish[1] -> Q985
+		  |in[2] -> Q1519
+		  |hotSwapIn -> Q1613),
+	Q985	= (polishNOk[1] -> Q984
+		  |hotSwapIn -> Q986
+		  |in[2] -> Q1024
+		  |polishOk[1] -> Q1574),
+	Q986	= (polishNOk[1] -> Q987
+		  |in[2] -> Q995
+		  |stopOldSpec -> Q1011
+		  |polishOk[1] -> Q1022),
+	Q987	= (in[2] -> Q988),
+	Q988	= (stopOldSpec -> Q989),
+	Q989	= (reconfigure -> Q990),
+	Q990	= (out[1] -> Q991),
+	Q991	= (reset[1] -> Q992),
+	Q992	= (in[1] -> Q993),
+	Q993	= (startNewSpec -> Q994),
+	Q994	= (hotSwapOut -> Q7),
+	Q995	= (polishNOk[1] -> Q988
+		  |stopOldSpec -> Q996
+		  |polishOk[1] -> Q1004),
+	Q996	= ({polishNOk, polishOk}[1] -> Q997
+		  |reconfigure -> Q998),
+	Q997	= (reconfigure -> Q998),
+	Q998	= (out[1] -> Q999),
+	Q999	= (reset[1] -> Q1000),
+	Q1000	= (in[1] -> Q1001
+		  |startNewSpec -> Q1003),
+	Q1001	= (startNewSpec -> Q1002),
+	Q1002	= (hotSwapOut -> Q7),
+	Q1003	= (hotSwapOut -> Q63
+		  |in[1] -> Q1002),
+	Q1004	= (stopOldSpec -> Q1005),
+	Q1005	= (reconfigure -> Q1006),
+	Q1006	= (out[1] -> Q1007),
+	Q1007	= (reset[1] -> Q1008),
+	Q1008	= (in[1] -> Q1009),
+	Q1009	= (startNewSpec -> Q1010),
+	Q1010	= (hotSwapOut -> Q7),
+	Q1011	= (in[2] -> Q996
+		  |{polishNOk, polishOk}[1] -> Q1012
+		  |reconfigure -> Q1013),
+	Q1012	= (in[2] -> Q997
+		  |reconfigure -> Q1013),
+	Q1013	= (in[2] -> Q998
+		  |out[1] -> Q1014),
+	Q1014	= (reset[1] -> Q1015
+		  |in[2] -> Q1019
+		  |startNewSpec -> Q1021),
+	Q1015	= (in[2] -> Q1000
+		  |in[1] -> Q1016
+		  |startNewSpec -> Q1018),
+	Q1016	= (in[2] -> Q1001
+		  |startNewSpec -> Q1017),
+	Q1017	= (in[2] -> Q1002),
+	Q1018	= (in[2] -> Q1003
+		  |in[1] -> Q1017),
+	Q1019	= (reset[1] -> Q1000
+		  |startNewSpec -> Q1020),
+	Q1020	= (reset[1] -> Q1003),
+	Q1021	= (reset[1] -> Q1018
+		  |in[2] -> Q1020),
+	Q1022	= (in[2] -> Q1004
+		  |stopOldSpec -> Q1023),
+	Q1023	= (in[2] -> Q1005),
+	Q1024	= (drill[2] -> Q1025
+		  |polishOk[1] -> Q1080
+		  |polishNOk[1] -> Q1519
+		  |hotSwapIn -> Q1559),
+	Q1025	= (drillOk[2] -> Q294
+		  |drillNOk[2] -> Q1024
+		  |polishNOk[1] -> Q1026
+		  |hotSwapIn -> Q1028
+		  |polishOk[1] -> Q1079),
+	Q1026	= (drillOk[2] -> Q295
+		  |polish[1] -> Q1027
+		  |drillNOk[2] -> Q1519
+		  |hotSwapIn -> Q1521),
+	Q1027	= (drillOk[2] -> Q294
+		  |drillNOk[2] -> Q1024
+		  |polishNOk[1] -> Q1026
+		  |hotSwapIn -> Q1028
+		  |polishOk[1] -> Q1079),
+	Q1028	= (drillNOk[2] -> Q1029
+		  |polishNOk[1] -> Q1045
+		  |drillOk[2] -> Q1067
+		  |polishOk[1] -> Q1078),
+	Q1029	= (polishNOk[1] -> Q1030
+		  |polishOk[1] -> Q1038),
+	Q1030	= (stopOldSpec -> Q1031),
+	Q1031	= (reconfigure -> Q1032),
+	Q1032	= (out[1] -> Q1033),
+	Q1033	= (reset[1] -> Q1034),
+	Q1034	= (in[1] -> Q1035
+		  |startNewSpec -> Q1037),
+	Q1035	= (startNewSpec -> Q1036),
+	Q1036	= (hotSwapOut -> Q7),
+	Q1037	= (in[1] -> Q1036),
+	Q1038	= (stopOldSpec -> Q1039),
+	Q1039	= (reconfigure -> Q1040),
+	Q1040	= (out[1] -> Q1041),
+	Q1041	= (reset[1] -> Q1042),
+	Q1042	= (in[1] -> Q1043),
+	Q1043	= (startNewSpec -> Q1044),
+	Q1044	= (hotSwapOut -> Q7),
+	Q1045	= (drillNOk[2] -> Q1030
+		  |stopOldSpec -> Q1046
+		  |drillOk[2] -> Q1057),
+	Q1046	= (drillNOk[2] -> Q1031
+		  |reconfigure -> Q1047
+		  |drillOk[2] -> Q1056),
+	Q1047	= (drillNOk[2] -> Q1032
+		  |drillOk[2] -> Q1048),
+	Q1048	= (out[2] -> Q1049),
+	Q1049	= (reset[2] -> Q1050),
+	Q1050	= (in[2] -> Q1032
+		  |out[1] -> Q1051),
+	Q1051	= (reset[1] -> Q1052
+		  |in[2] -> Q1055),
+	Q1052	= (in[2] -> Q1034
+		  |in[1] -> Q1053),
+	Q1053	= (in[2] -> Q1035
+		  |startNewSpec -> Q1054),
+	Q1054	= (in[2] -> Q1036),
+	Q1055	= (reset[1] -> Q1034),
+	Q1056	= (reconfigure -> Q1048),
+	Q1057	= (stopOldSpec -> Q1058),
+	Q1058	= (reconfigure -> Q1059),
+	Q1059	= (out[2] -> Q1060),
+	Q1060	= (reset[2] -> Q1061),
+	Q1061	= (in[2] -> Q1062),
+	Q1062	= (out[1] -> Q1063),
+	Q1063	= (reset[1] -> Q1064),
+	Q1064	= (in[1] -> Q1065),
+	Q1065	= (startNewSpec -> Q1066),
+	Q1066	= (hotSwapOut -> Q7),
+	Q1067	= (polishNOk[1] -> Q1057
+		  |polishOk[1] -> Q1068),
+	Q1068	= (stopOldSpec -> Q1069),
+	Q1069	= (reconfigure -> Q1070),
+	Q1070	= (out[2] -> Q1071),
+	Q1071	= (reset[2] -> Q1072),
+	Q1072	= (in[2] -> Q1073),
+	Q1073	= (out[1] -> Q1074),
+	Q1074	= (reset[1] -> Q1075),
+	Q1075	= (in[1] -> Q1076),
+	Q1076	= (startNewSpec -> Q1077),
+	Q1077	= (hotSwapOut -> Q7),
+	Q1078	= (drillNOk[2] -> Q1038
+		  |drillOk[2] -> Q1068),
+	Q1079	= (drillOk[2] -> Q366
+		  |drillNOk[2] -> Q1080
+		  |clean[1] -> Q1082
+		  |hotSwapIn -> Q1493),
+	Q1080	= (drill[2] -> Q1081
+		  |clean[1] -> Q1511
+		  |hotSwapIn -> Q1512),
+	Q1081	= (drillOk[2] -> Q366
+		  |drillNOk[2] -> Q1080
+		  |clean[1] -> Q1082
+		  |hotSwapIn -> Q1493),
+	Q1082	= (drillOk[2] -> Q369
+		  |cleanNOk[1] -> Q1079
+		  |drillNOk[2] -> Q1083
+		  |hotSwapIn -> Q1085
+		  |cleanOk[1] -> Q1212),
+	Q1083	= (cleanNOk[1] -> Q1080
+		  |drill[2] -> Q1084
+		  |cleanOk[1] -> Q1213
+		  |hotSwapIn -> Q1467),
+	Q1084	= (drillOk[2] -> Q369
+		  |cleanNOk[1] -> Q1079
+		  |drillNOk[2] -> Q1083
+		  |hotSwapIn -> Q1085
+		  |cleanOk[1] -> Q1212),
+	Q1085	= (drillNOk[2] -> Q1086
+		  |cleanNOk[1] -> Q1111
+		  |stopOldSpec -> Q1135
+		  |cleanOk[1] -> Q1156
+		  |drillOk[2] -> Q1186),
+	Q1086	= (cleanNOk[1] -> Q1087
+		  |stopOldSpec -> Q1094
+		  |cleanOk[1] -> Q1104),
+	Q1087	= (stopOldSpec -> Q1088),
+	Q1088	= (reconfigure -> Q1089),
+	Q1089	= (out[1] -> Q1090),
+	Q1090	= (reset[1] -> Q1091),
+	Q1091	= (in[1] -> Q1092),
+	Q1092	= (startNewSpec -> Q1093),
+	Q1093	= (hotSwapOut -> Q7),
+	Q1094	= (cleanNOk[1] -> Q1095
+		  |cleanOk[1] -> Q1101),
+	Q1095	= (reconfigure -> Q1096),
+	Q1096	= (out[1] -> Q1097),
+	Q1097	= (reset[1] -> Q1098),
+	Q1098	= (in[1] -> Q1099),
+	Q1099	= (startNewSpec -> Q1100),
+	Q1100	= (hotSwapOut -> Q7),
+	Q1101	= (reconfigure -> Q1102),
+	Q1102	= (out[1] -> Q1103),
+	Q1103	= (reset[1] -> Q1098),
+	Q1104	= (stopOldSpec -> Q1105),
+	Q1105	= (reconfigure -> Q1106),
+	Q1106	= (out[1] -> Q1107),
+	Q1107	= (reset[1] -> Q1108),
+	Q1108	= (in[1] -> Q1109),
+	Q1109	= (startNewSpec -> Q1110),
+	Q1110	= (hotSwapOut -> Q7),
+	Q1111	= (drillNOk[2] -> Q1087
+		  |stopOldSpec -> Q1112
+		  |drillOk[2] -> Q1117),
+	Q1112	= (drillNOk[2] -> Q1088
+		  |drillOk[2] -> Q1113),
+	Q1113	= (reconfigure -> Q1114),
+	Q1114	= (out[2] -> Q1115),
+	Q1115	= (reset[2] -> Q1116),
+	Q1116	= (in[2] -> Q1089),
+	Q1117	= (stopOldSpec -> Q1118),
+	Q1118	= (reconfigure -> Q1119),
+	Q1119	= (out[2] -> Q1120),
+	Q1120	= (reset[2] -> Q1121
+		  |out[1] -> Q1127),
+	Q1121	= (in[2] -> Q1122),
+	Q1122	= (out[1] -> Q1123),
+	Q1123	= (reset[1] -> Q1124),
+	Q1124	= (in[1] -> Q1125),
+	Q1125	= (startNewSpec -> Q1126),
+	Q1126	= (hotSwapOut -> Q7),
+	Q1127	= (reset[2] -> Q1128
+		  |reset[1] -> Q1133),
+	Q1128	= (reset[1] -> Q1129
+		  |in[2] -> Q1132),
+	Q1129	= (in[2] -> Q1124
+		  |in[1] -> Q1130),
+	Q1130	= (in[2] -> Q1125
+		  |startNewSpec -> Q1131),
+	Q1131	= (in[2] -> Q1126),
+	Q1132	= (reset[1] -> Q1124),
+	Q1133	= (reset[2] -> Q1129
+		  |in[1] -> Q1134),
+	Q1134	= (reset[2] -> Q1130),
+	Q1135	= (drillNOk[2] -> Q1094
+		  |cleanNOk[1] -> Q1136
+		  |reconfigure -> Q1141
+		  |cleanOk[1] -> Q1153
+		  |drillOk[2] -> Q1155),
+	Q1136	= (drillNOk[2] -> Q1095
+		  |drillOk[2] -> Q1137),
+	Q1137	= (reconfigure -> Q1138),
+	Q1138	= (out[2] -> Q1139),
+	Q1139	= (reset[2] -> Q1140),
+	Q1140	= (in[2] -> Q1096),
+	Q1141	= (drillNOk[2] -> Q1142
+		  |cleanNOk[1] -> Q1143
+		  |cleanOk[1] -> Q1144
+		  |drillOk[2] -> Q1148),
+	Q1142	= (cleanNOk[1] -> Q1096
+		  |cleanOk[1] -> Q1102),
+	Q1143	= (drillNOk[2] -> Q1096
+		  |drillOk[2] -> Q1138),
+	Q1144	= (drillNOk[2] -> Q1102
+		  |drillOk[2] -> Q1145),
+	Q1145	= (out[2] -> Q1146),
+	Q1146	= (reset[2] -> Q1147),
+	Q1147	= (in[2] -> Q1102),
+	Q1148	= (cleanNOk[1] -> Q1138
+		  |cleanOk[1] -> Q1145
+		  |out[2] -> Q1149),
+	Q1149	= (reset[2] -> Q1150
+		  |cleanNOk[1] -> Q1151
+		  |cleanOk[1] -> Q1152),
+	Q1150	= (cleanNOk[1] -> Q1140
+		  |in[2] -> Q1142
+		  |cleanOk[1] -> Q1147),
+	Q1151	= (reset[2] -> Q1140),
+	Q1152	= (reset[2] -> Q1147),
+	Q1153	= (drillNOk[2] -> Q1101
+		  |reconfigure -> Q1144
+		  |drillOk[2] -> Q1154),
+	Q1154	= (reconfigure -> Q1145),
+	Q1155	= (cleanNOk[1] -> Q1137
+		  |cleanOk[1] -> Q1154),
+	Q1156	= (drillNOk[2] -> Q1104
+		  |stopOldSpec -> Q1157
+		  |drillOk[2] -> Q1169),
+	Q1157	= (drillNOk[2] -> Q1105
+		  |drillOk[2] -> Q1158),
+	Q1158	= (reconfigure -> Q1159),
+	Q1159	= (out[2] -> Q1160),
+	Q1160	= (reset[2] -> Q1161
+		  |out[1] -> Q1162),
+	Q1161	= (in[2] -> Q1106),
+	Q1162	= (reset[2] -> Q1163
+		  |reset[1] -> Q1167),
+	Q1163	= (reset[1] -> Q1164
+		  |in[2] -> Q1166),
+	Q1164	= (in[2] -> Q1108
+		  |in[1] -> Q1165),
+	Q1165	= (in[2] -> Q1109),
+	Q1166	= (reset[1] -> Q1108),
+	Q1167	= (reset[2] -> Q1164
+		  |in[1] -> Q1168),
+	Q1168	= (reset[2] -> Q1165),
+	Q1169	= (stopOldSpec -> Q1170),
+	Q1170	= (reconfigure -> Q1171),
+	Q1171	= (out[2] -> Q1172),
+	Q1172	= (reset[2] -> Q1173),
+	Q1173	= (in[2] -> Q1174
+		  |out[1] -> Q1179),
+	Q1174	= (out[1] -> Q1175),
+	Q1175	= (reset[1] -> Q1176),
+	Q1176	= (in[1] -> Q1177),
+	Q1177	= (startNewSpec -> Q1178),
+	Q1178	= (hotSwapOut -> Q7),
+	Q1179	= (reset[1] -> Q1180
+		  |in[2] -> Q1183),
+	Q1180	= (in[2] -> Q1176
+		  |in[1] -> Q1181),
+	Q1181	= (in[2] -> Q1177
+		  |startNewSpec -> Q1182),
+	Q1182	= (in[2] -> Q1178),
+	Q1183	= (reset[1] -> Q1176
+		  |startNewSpec -> Q1184),
+	Q1184	= (reset[1] -> Q1185),
+	Q1185	= (in[1] -> Q1178),
+	Q1186	= (cleanNOk[1] -> Q1117
+		  |cleanOk[1] -> Q1169
+		  |stopOldSpec -> Q1187),
+	Q1187	= (cleanNOk[1] -> Q1188
+		  |cleanOk[1] -> Q1202),
+	Q1188	= (reconfigure -> Q1189),
+	Q1189	= (out[2] -> Q1190),
+	Q1190	= (reset[2] -> Q1191),
+	Q1191	= (in[2] -> Q1192
+		  |out[1] -> Q1197),
+	Q1192	= (out[1] -> Q1193),
+	Q1193	= (reset[1] -> Q1194),
+	Q1194	= (in[1] -> Q1195),
+	Q1195	= (startNewSpec -> Q1196),
+	Q1196	= (hotSwapOut -> Q7),
+	Q1197	= (reset[1] -> Q1198
+		  |in[2] -> Q1201),
+	Q1198	= (in[2] -> Q1194
+		  |in[1] -> Q1199),
+	Q1199	= (in[2] -> Q1195
+		  |startNewSpec -> Q1200),
+	Q1200	= (in[2] -> Q1196),
+	Q1201	= (reset[1] -> Q1194),
+	Q1202	= (reconfigure -> Q1203),
+	Q1203	= (out[2] -> Q1204),
+	Q1204	= (reset[2] -> Q1205),
+	Q1205	= (in[2] -> Q1206
+		  |out[1] -> Q1208),
+	Q1206	= (out[1] -> Q1207),
+	Q1207	= (reset[1] -> Q1194),
+	Q1208	= (reset[1] -> Q1198
+		  |in[2] -> Q1209),
+	Q1209	= (reset[1] -> Q1194
+		  |startNewSpec -> Q1210),
+	Q1210	= (reset[1] -> Q1211),
+	Q1211	= (in[1] -> Q1196),
+	Q1212	= (drillOk[2] -> Q562
+		  |drillNOk[2] -> Q1213
+		  |hotSwapIn -> Q1215
+		  |out[1] -> Q1246),
+	Q1213	= (drill[2] -> Q1214
+		  |hotSwapIn -> Q1459
+		  |out[1] -> Q1466),
+	Q1214	= (drillOk[2] -> Q562
+		  |drillNOk[2] -> Q1213
+		  |hotSwapIn -> Q1215
+		  |out[1] -> Q1246),
+	Q1215	= (drillNOk[2] -> Q1216
+		  |drillOk[2] -> Q1223),
+	Q1216	= (stopOldSpec -> Q1217),
+	Q1217	= (reconfigure -> Q1218),
+	Q1218	= (out[1] -> Q1219),
+	Q1219	= (reset[1] -> Q1220),
+	Q1220	= (in[1] -> Q1221),
+	Q1221	= (startNewSpec -> Q1222),
+	Q1222	= (hotSwapOut -> Q7),
+	Q1223	= (stopOldSpec -> Q1224),
+	Q1224	= (reconfigure -> Q1225),
+	Q1225	= (out[2] -> Q1226),
+	Q1226	= (reset[2] -> Q1227
+		  |out[1] -> Q1242),
+	Q1227	= (in[2] -> Q1228
+		  |out[1] -> Q1234),
+	Q1228	= (out[1] -> Q1229),
+	Q1229	= (reset[1] -> Q1230),
+	Q1230	= (in[1] -> Q1231
+		  |startNewSpec -> Q1233),
+	Q1231	= (startNewSpec -> Q1232),
+	Q1232	= (hotSwapOut -> Q7),
+	Q1233	= (in[1] -> Q1232),
+	Q1234	= (reset[1] -> Q1235
+		  |in[2] -> Q1239
+		  |startNewSpec -> Q1241),
+	Q1235	= (in[2] -> Q1230
+		  |in[1] -> Q1236
+		  |startNewSpec -> Q1238),
+	Q1236	= (in[2] -> Q1231
+		  |startNewSpec -> Q1237),
+	Q1237	= (in[2] -> Q1232),
+	Q1238	= (in[2] -> Q1233
+		  |in[1] -> Q1237),
+	Q1239	= (reset[1] -> Q1230
+		  |startNewSpec -> Q1240),
+	Q1240	= (reset[1] -> Q1233),
+	Q1241	= (reset[1] -> Q1238
+		  |in[2] -> Q1240),
+	Q1242	= (reset[2] -> Q1243
+		  |reset[1] -> Q1244),
+	Q1243	= (reset[1] -> Q1235
+		  |in[2] -> Q1239),
+	Q1244	= (reset[2] -> Q1235
+		  |in[1] -> Q1245),
+	Q1245	= (reset[2] -> Q1236),
+	Q1246	= (reset[1] -> Q1247
+		  |drillNOk[2] -> Q1280
+		  |hotSwapIn -> Q1282
+		  |drillOk[2] -> Q1323),
+	Q1247	= (in[1] -> Q113
+		  |drillOk[2] -> Q575
+		  |drillNOk[2] -> Q1248
+		  |hotSwapIn -> Q1250),
+	Q1248	= (in[1] -> Q110
+		  |drill[2] -> Q1249
+		  |hotSwapIn -> Q1275),
+	Q1249	= (in[1] -> Q113
+		  |drillOk[2] -> Q575
+		  |drillNOk[2] -> Q1248
+		  |hotSwapIn -> Q1250),
+	Q1250	= (drillNOk[2] -> Q1251
+		  |in[1] -> Q1257
+		  |stopOldSpec -> Q1271
+		  |drillOk[2] -> Q1273),
+	Q1251	= (in[1] -> Q1252
+		  |stopOldSpec -> Q1256),
+	Q1252	= (stopOldSpec -> Q1253),
+	Q1253	= (reconfigure -> Q1254),
+	Q1254	= (startNewSpec -> Q1255),
+	Q1255	= (hotSwapOut -> Q7),
+	Q1256	= (in[1] -> Q1253),
+	Q1257	= (drillNOk[2] -> Q1252
+		  |stopOldSpec -> Q1258
+		  |drillOk[2] -> Q1264),
+	Q1258	= (drillNOk[2] -> Q1253
+		  |reconfigure -> Q1259
+		  |drillOk[2] -> Q1263),
+	Q1259	= (drillNOk[2] -> Q1254
+		  |drillOk[2] -> Q1260),
+	Q1260	= (out[2] -> Q1261),
+	Q1261	= (reset[2] -> Q1262),
+	Q1262	= (in[2] -> Q1254),
+	Q1263	= (reconfigure -> Q1260),
+	Q1264	= (stopOldSpec -> Q1265),
+	Q1265	= (reconfigure -> Q1266),
+	Q1266	= (out[2] -> Q1267),
+	Q1267	= (reset[2] -> Q1268),
+	Q1268	= (in[2] -> Q1269),
+	Q1269	= (startNewSpec -> Q1270),
+	Q1270	= (hotSwapOut -> Q7),
+	Q1271	= (drillNOk[2] -> Q1256
+		  |in[1] -> Q1258
+		  |drillOk[2] -> Q1272),
+	Q1272	= (in[1] -> Q1263),
+	Q1273	= (in[1] -> Q1264
+		  |stopOldSpec -> Q1274),
+	Q1274	= (in[1] -> Q1265),
+	Q1275	= (in[1] -> Q1276),
+	Q1276	= (stopOldSpec -> Q1277),
+	Q1277	= (reconfigure -> Q1278),
+	Q1278	= (startNewSpec -> Q1279),
+	Q1279	= (hotSwapOut -> Q7),
+	Q1280	= (reset[1] -> Q1248
+		  |drill[2] -> Q1281
+		  |hotSwapIn -> Q1453),
+	Q1281	= (reset[1] -> Q1247
+		  |drillNOk[2] -> Q1280
+		  |hotSwapIn -> Q1282
+		  |drillOk[2] -> Q1323),
+	Q1282	= (reset[1] -> Q1283
+		  |drillNOk[2] -> Q1307
+		  |stopOldSpec -> Q1313
+		  |drillOk[2] -> Q1322),
+	Q1283	= (drillNOk[2] -> Q1284
+		  |in[1] -> Q1289
+		  |stopOldSpec -> Q1303
+		  |drillOk[2] -> Q1306),
+	Q1284	= (in[1] -> Q1285),
+	Q1285	= (stopOldSpec -> Q1286),
+	Q1286	= (reconfigure -> Q1287),
+	Q1287	= (startNewSpec -> Q1288),
+	Q1288	= (hotSwapOut -> Q7),
+	Q1289	= (drillNOk[2] -> Q1285
+		  |stopOldSpec -> Q1290
+		  |drillOk[2] -> Q1296),
+	Q1290	= (drillNOk[2] -> Q1286
+		  |reconfigure -> Q1291
+		  |drillOk[2] -> Q1295),
+	Q1291	= (drillNOk[2] -> Q1287
+		  |drillOk[2] -> Q1292),
+	Q1292	= (out[2] -> Q1293),
+	Q1293	= (reset[2] -> Q1294),
+	Q1294	= (in[2] -> Q1287),
+	Q1295	= (reconfigure -> Q1292),
+	Q1296	= (stopOldSpec -> Q1297),
+	Q1297	= (reconfigure -> Q1298),
+	Q1298	= (out[2] -> Q1299),
+	Q1299	= (reset[2] -> Q1300),
+	Q1300	= (in[2] -> Q1301),
+	Q1301	= (startNewSpec -> Q1302),
+	Q1302	= (hotSwapOut -> Q7),
+	Q1303	= (in[1] -> Q1290
+		  |drillNOk[2] -> Q1304
+		  |drillOk[2] -> Q1305),
+	Q1304	= (in[1] -> Q1286),
+	Q1305	= (in[1] -> Q1295),
+	Q1306	= (in[1] -> Q1296),
+	Q1307	= (reset[1] -> Q1284
+		  |stopOldSpec -> Q1308),
+	Q1308	= (reset[1] -> Q1309),
+	Q1309	= (in[1] -> Q1310),
+	Q1310	= (reconfigure -> Q1311),
+	Q1311	= (startNewSpec -> Q1312),
+	Q1312	= (hotSwapOut -> Q7),
+	Q1313	= (drillNOk[2] -> Q1308
+		  |reset[1] -> Q1314
+		  |drillOk[2] -> Q1321),
+	Q1314	= (drillNOk[2] -> Q1309
+		  |in[1] -> Q1315
+		  |drillOk[2] -> Q1320),
+	Q1315	= (drillNOk[2] -> Q1310
+		  |drillOk[2] -> Q1316),
+	Q1316	= (reconfigure -> Q1317),
+	Q1317	= (out[2] -> Q1318),
+	Q1318	= (reset[2] -> Q1319),
+	Q1319	= (in[2] -> Q1311),
+	Q1320	= (in[1] -> Q1316),
+	Q1321	= (reset[1] -> Q1320),
+	Q1322	= (reset[1] -> Q1306),
+	Q1323	= (reset[1] -> Q575
+		  |polish[2] -> Q1324
+		  |hotSwapIn -> Q1444),
+	Q1324	= (reset[1] -> Q576
+		  |polishNOk[2] -> Q1323
+		  |hotSwapIn -> Q1325
+		  |polishOk[2] -> Q1346),
+	Q1325	= (reset[1] -> Q1326
+		  |polishNOk[2] -> Q1344
+		  |polishOk[2] -> Q1345),
+	Q1326	= (polishNOk[2] -> Q1327
+		  |in[1] -> Q1335
+		  |polishOk[2] -> Q1343),
+	Q1327	= (in[1] -> Q1328),
+	Q1328	= (stopOldSpec -> Q1329),
+	Q1329	= (reconfigure -> Q1330),
+	Q1330	= (out[2] -> Q1331),
+	Q1331	= (reset[2] -> Q1332),
+	Q1332	= (in[2] -> Q1333),
+	Q1333	= (startNewSpec -> Q1334),
+	Q1334	= (hotSwapOut -> Q7),
+	Q1335	= (polishNOk[2] -> Q1328
+		  |polishOk[2] -> Q1336),
+	Q1336	= (stopOldSpec -> Q1337),
+	Q1337	= (reconfigure -> Q1338),
+	Q1338	= (out[2] -> Q1339),
+	Q1339	= (reset[2] -> Q1340),
+	Q1340	= (in[2] -> Q1341),
+	Q1341	= (startNewSpec -> Q1342),
+	Q1342	= (hotSwapOut -> Q7),
+	Q1343	= (in[1] -> Q1336),
+	Q1344	= (reset[1] -> Q1327),
+	Q1345	= (reset[1] -> Q1343),
+	Q1346	= (reset[1] -> Q604
+		  |clean[2] -> Q1347
+		  |hotSwapIn -> Q1435),
+	Q1347	= (cleanNOk[2] -> Q1346
+		  |reset[1] -> Q1348
+		  |hotSwapIn -> Q1349
+		  |cleanOk[2] -> Q1370),
+	Q1348	= (cleanNOk[2] -> Q604
+		  |hotSwapIn -> Q606
+		  |in[1] -> Q638
+		  |cleanOk[2] -> Q962),
+	Q1349	= (reset[1] -> Q1350
+		  |cleanNOk[2] -> Q1368
+		  |cleanOk[2] -> Q1369),
+	Q1350	= (cleanNOk[2] -> Q1351
+		  |in[1] -> Q1359
+		  |cleanOk[2] -> Q1367),
+	Q1351	= (in[1] -> Q1352),
+	Q1352	= (stopOldSpec -> Q1353),
+	Q1353	= (reconfigure -> Q1354),
+	Q1354	= (out[2] -> Q1355),
+	Q1355	= (reset[2] -> Q1356),
+	Q1356	= (in[2] -> Q1357),
+	Q1357	= (startNewSpec -> Q1358),
+	Q1358	= (hotSwapOut -> Q7),
+	Q1359	= (cleanNOk[2] -> Q1352
+		  |cleanOk[2] -> Q1360),
+	Q1360	= (stopOldSpec -> Q1361),
+	Q1361	= (reconfigure -> Q1362),
+	Q1362	= (out[2] -> Q1363),
+	Q1363	= (reset[2] -> Q1364),
+	Q1364	= (in[2] -> Q1365),
+	Q1365	= (startNewSpec -> Q1366),
+	Q1366	= (hotSwapOut -> Q7),
+	Q1367	= (in[1] -> Q1360),
+	Q1368	= (reset[1] -> Q1351),
+	Q1369	= (reset[1] -> Q1367),
+	Q1370	= (reset[1] -> Q962
+		  |hotSwapIn -> Q1371
+		  |out[2] -> Q1380),
+	Q1371	= (reset[1] -> Q1372),
+	Q1372	= (in[1] -> Q1373),
+	Q1373	= (stopOldSpec -> Q1374),
+	Q1374	= (reconfigure -> Q1375),
+	Q1375	= (out[2] -> Q1376),
+	Q1376	= (reset[2] -> Q1377),
+	Q1377	= (in[2] -> Q1378),
+	Q1378	= (startNewSpec -> Q1379),
+	Q1379	= (hotSwapOut -> Q7),
+	Q1380	= (reset[2] -> Q1381
+		  |reset[1] -> Q1403
+		  |hotSwapIn -> Q1404),
+	Q1381	= (reset[1] -> Q0
+		  |in[2] -> Q1280
+		  |hotSwapIn -> Q1382),
+	Q1382	= (reset[1] -> Q1383
+		  |in[2] -> Q1393
+		  |stopOldSpec -> Q1399),
+	Q1383	= (in[1] -> Q1384
+		  |in[2] -> Q1390
+		  |stopOldSpec -> Q1392),
+	Q1384	= (in[2] -> Q1385
+		  |stopOldSpec -> Q1389),
+	Q1385	= (stopOldSpec -> Q1386),
+	Q1386	= (reconfigure -> Q1387),
+	Q1387	= (startNewSpec -> Q1388),
+	Q1388	= (hotSwapOut -> Q7),
+	Q1389	= (in[2] -> Q1386),
+	Q1390	= (in[1] -> Q1385
+		  |stopOldSpec -> Q1391),
+	Q1391	= (in[1] -> Q1386),
+	Q1392	= (in[1] -> Q1389
+		  |in[2] -> Q1391),
+	Q1393	= (reset[1] -> Q1390
+		  |stopOldSpec -> Q1394),
+	Q1394	= (reset[1] -> Q1395),
+	Q1395	= (in[1] -> Q1396),
+	Q1396	= (reconfigure -> Q1397),
+	Q1397	= (startNewSpec -> Q1398),
+	Q1398	= (hotSwapOut -> Q7),
+	Q1399	= (in[2] -> Q1394
+		  |reset[1] -> Q1400),
+	Q1400	= (in[2] -> Q1395
+		  |in[1] -> Q1401),
+	Q1401	= (in[2] -> Q1396
+		  |reconfigure -> Q1402),
+	Q1402	= (in[2] -> Q1397),
+	Q1403	= (reset[2] -> Q0
+		  |hotSwapIn -> Q972
+		  |in[1] -> Q981),
+	Q1404	= (reset[2] -> Q1405
+		  |reset[1] -> Q1425),
+	Q1405	= (reset[1] -> Q1406
+		  |in[2] -> Q1416
+		  |stopOldSpec -> Q1422),
+	Q1406	= (in[1] -> Q1407
+		  |in[2] -> Q1413
+		  |stopOldSpec -> Q1415),
+	Q1407	= (in[2] -> Q1408
+		  |stopOldSpec -> Q1412),
+	Q1408	= (stopOldSpec -> Q1409),
+	Q1409	= (reconfigure -> Q1410),
+	Q1410	= (startNewSpec -> Q1411),
+	Q1411	= (hotSwapOut -> Q7),
+	Q1412	= (in[2] -> Q1409),
+	Q1413	= (in[1] -> Q1408
+		  |stopOldSpec -> Q1414),
+	Q1414	= (in[1] -> Q1409),
+	Q1415	= (in[1] -> Q1412
+		  |in[2] -> Q1414),
+	Q1416	= (reset[1] -> Q1413
+		  |stopOldSpec -> Q1417),
+	Q1417	= (reset[1] -> Q1418),
+	Q1418	= (in[1] -> Q1419),
+	Q1419	= (reconfigure -> Q1420),
+	Q1420	= (startNewSpec -> Q1421),
+	Q1421	= (hotSwapOut -> Q7),
+	Q1422	= (in[2] -> Q1417
+		  |reset[1] -> Q1423),
+	Q1423	= (in[2] -> Q1418
+		  |in[1] -> Q1424),
+	Q1424	= (in[2] -> Q1419),
+	Q1425	= (reset[2] -> Q1406
+		  |in[1] -> Q1426
+		  |stopOldSpec -> Q1432),
+	Q1426	= (reset[2] -> Q1407
+		  |stopOldSpec -> Q1427),
+	Q1427	= (reset[2] -> Q1428),
+	Q1428	= (in[2] -> Q1429),
+	Q1429	= (reconfigure -> Q1430),
+	Q1430	= (startNewSpec -> Q1431),
+	Q1431	= (hotSwapOut -> Q7),
+	Q1432	= (in[1] -> Q1427
+		  |reset[2] -> Q1433),
+	Q1433	= (in[1] -> Q1428
+		  |in[2] -> Q1434),
+	Q1434	= (in[1] -> Q1429),
+	Q1435	= (reset[1] -> Q1436),
+	Q1436	= (in[1] -> Q1437),
+	Q1437	= (stopOldSpec -> Q1438),
+	Q1438	= (reconfigure -> Q1439),
+	Q1439	= (out[2] -> Q1440),
+	Q1440	= (reset[2] -> Q1441),
+	Q1441	= (in[2] -> Q1442),
+	Q1442	= (startNewSpec -> Q1443),
+	Q1443	= (hotSwapOut -> Q7),
+	Q1444	= (reset[1] -> Q1445),
+	Q1445	= (in[1] -> Q1446),
+	Q1446	= (stopOldSpec -> Q1447),
+	Q1447	= (reconfigure -> Q1448),
+	Q1448	= (out[2] -> Q1449),
+	Q1449	= (reset[2] -> Q1450),
+	Q1450	= (in[2] -> Q1451),
+	Q1451	= (startNewSpec -> Q1452),
+	Q1452	= (hotSwapOut -> Q7),
+	Q1453	= (reset[1] -> Q1454),
+	Q1454	= (in[1] -> Q1455),
+	Q1455	= (stopOldSpec -> Q1456),
+	Q1456	= (reconfigure -> Q1457),
+	Q1457	= (startNewSpec -> Q1458),
+	Q1458	= (hotSwapOut -> Q7),
+	Q1459	= (stopOldSpec -> Q1460),
+	Q1460	= (reconfigure -> Q1461),
+	Q1461	= (out[1] -> Q1462),
+	Q1462	= (reset[1] -> Q1463),
+	Q1463	= (in[1] -> Q1464),
+	Q1464	= (startNewSpec -> Q1465),
+	Q1465	= (hotSwapOut -> Q7),
+	Q1466	= (reset[1] -> Q1248
+		  |drill[2] -> Q1281
+		  |hotSwapIn -> Q1453),
+	Q1467	= (cleanNOk[1] -> Q1468
+		  |stopOldSpec -> Q1475
+		  |cleanOk[1] -> Q1486),
+	Q1468	= (stopOldSpec -> Q1469),
+	Q1469	= (reconfigure -> Q1470),
+	Q1470	= (out[1] -> Q1471),
+	Q1471	= (reset[1] -> Q1472),
+	Q1472	= (in[1] -> Q1473),
+	Q1473	= (startNewSpec -> Q1474),
+	Q1474	= (hotSwapOut -> Q7),
+	Q1475	= (cleanNOk[1] -> Q1476
+		  |reconfigure -> Q1482
+		  |cleanOk[1] -> Q1485),
+	Q1476	= (reconfigure -> Q1477),
+	Q1477	= (out[1] -> Q1478),
+	Q1478	= (reset[1] -> Q1479),
+	Q1479	= (in[1] -> Q1480),
+	Q1480	= (startNewSpec -> Q1481),
+	Q1481	= (hotSwapOut -> Q7),
+	Q1482	= (cleanNOk[1] -> Q1477
+		  |cleanOk[1] -> Q1483),
+	Q1483	= (out[1] -> Q1484),
+	Q1484	= (reset[1] -> Q1479),
+	Q1485	= (reconfigure -> Q1483),
+	Q1486	= (stopOldSpec -> Q1487),
+	Q1487	= (reconfigure -> Q1488),
+	Q1488	= (out[1] -> Q1489),
+	Q1489	= (reset[1] -> Q1490),
+	Q1490	= (in[1] -> Q1491),
+	Q1491	= (startNewSpec -> Q1492),
+	Q1492	= (hotSwapOut -> Q7),
+	Q1493	= (drillNOk[2] -> Q1494
+		  |drillOk[2] -> Q1501),
+	Q1494	= (stopOldSpec -> Q1495),
+	Q1495	= (reconfigure -> Q1496),
+	Q1496	= (out[1] -> Q1497),
+	Q1497	= (reset[1] -> Q1498),
+	Q1498	= (in[1] -> Q1499),
+	Q1499	= (startNewSpec -> Q1500),
+	Q1500	= (hotSwapOut -> Q7),
+	Q1501	= (stopOldSpec -> Q1502),
+	Q1502	= (reconfigure -> Q1503),
+	Q1503	= (out[2] -> Q1504),
+	Q1504	= (reset[2] -> Q1505),
+	Q1505	= (in[2] -> Q1506),
+	Q1506	= (out[1] -> Q1507),
+	Q1507	= (reset[1] -> Q1508),
+	Q1508	= (in[1] -> Q1509),
+	Q1509	= (startNewSpec -> Q1510),
+	Q1510	= (hotSwapOut -> Q7),
+	Q1511	= (cleanNOk[1] -> Q1080
+		  |drill[2] -> Q1084
+		  |cleanOk[1] -> Q1213
+		  |hotSwapIn -> Q1467),
+	Q1512	= (stopOldSpec -> Q1513),
+	Q1513	= (reconfigure -> Q1514),
+	Q1514	= (out[1] -> Q1515),
+	Q1515	= (reset[1] -> Q1516),
+	Q1516	= (in[1] -> Q1517),
+	Q1517	= (startNewSpec -> Q1518),
+	Q1518	= (hotSwapOut -> Q7),
+	Q1519	= (polish[1] -> Q1024
+		  |drill[2] -> Q1520
+		  |hotSwapIn -> Q1552),
+	Q1520	= (drillOk[2] -> Q295
+		  |polish[1] -> Q1027
+		  |drillNOk[2] -> Q1519
+		  |hotSwapIn -> Q1521),
+	Q1521	= (drillNOk[2] -> Q1522
+		  |stopOldSpec -> Q1529
+		  |drillOk[2] -> Q1542),
+	Q1522	= (stopOldSpec -> Q1523),
+	Q1523	= (reconfigure -> Q1524),
+	Q1524	= (out[1] -> Q1525),
+	Q1525	= (reset[1] -> Q1526),
+	Q1526	= (in[1] -> Q1527),
+	Q1527	= (startNewSpec -> Q1528),
+	Q1528	= (hotSwapOut -> Q7),
+	Q1529	= (drillNOk[2] -> Q1523
+		  |reconfigure -> Q1530
+		  |drillOk[2] -> Q1541),
+	Q1530	= (drillNOk[2] -> Q1524
+		  |drillOk[2] -> Q1531),
+	Q1531	= (out[2] -> Q1532),
+	Q1532	= (reset[2] -> Q1533),
+	Q1533	= (in[2] -> Q1524
+		  |out[1] -> Q1534),
+	Q1534	= (reset[1] -> Q1535
+		  |in[2] -> Q1540),
+	Q1535	= (in[2] -> Q1526
+		  |in[1] -> Q1536
+		  |startNewSpec -> Q1537),
+	Q1536	= (in[2] -> Q1527),
+	Q1537	= (in[1] -> Q1538
+		  |in[2] -> Q1539),
+	Q1538	= (in[2] -> Q1528),
+	Q1539	= (in[1] -> Q1528),
+	Q1540	= (reset[1] -> Q1526),
+	Q1541	= (reconfigure -> Q1531),
+	Q1542	= (stopOldSpec -> Q1543),
+	Q1543	= (reconfigure -> Q1544),
+	Q1544	= (out[2] -> Q1545),
+	Q1545	= (reset[2] -> Q1546),
+	Q1546	= (in[2] -> Q1547),
+	Q1547	= (out[1] -> Q1548),
+	Q1548	= (reset[1] -> Q1549),
+	Q1549	= (in[1] -> Q1550),
+	Q1550	= (startNewSpec -> Q1551),
+	Q1551	= (hotSwapOut -> Q7),
+	Q1552	= (stopOldSpec -> Q1553),
+	Q1553	= (reconfigure -> Q1554),
+	Q1554	= (out[1] -> Q1555),
+	Q1555	= (reset[1] -> Q1556),
+	Q1556	= (in[1] -> Q1557),
+	Q1557	= (startNewSpec -> Q1558),
+	Q1558	= (hotSwapOut -> Q7),
+	Q1559	= (polishNOk[1] -> Q1560
+		  |polishOk[1] -> Q1567),
+	Q1560	= (stopOldSpec -> Q1561),
+	Q1561	= (reconfigure -> Q1562),
+	Q1562	= (out[1] -> Q1563),
+	Q1563	= (reset[1] -> Q1564),
+	Q1564	= (in[1] -> Q1565),
+	Q1565	= (startNewSpec -> Q1566),
+	Q1566	= (hotSwapOut -> Q7),
+	Q1567	= (stopOldSpec -> Q1568),
+	Q1568	= (reconfigure -> Q1569),
+	Q1569	= (out[1] -> Q1570),
+	Q1570	= (reset[1] -> Q1571),
+	Q1571	= (in[1] -> Q1572),
+	Q1572	= (startNewSpec -> Q1573),
+	Q1573	= (hotSwapOut -> Q7),
+	Q1574	= (in[2] -> Q1080
+		  |clean[1] -> Q1575
+		  |hotSwapIn -> Q1605),
+	Q1575	= (in[2] -> Q1083
+		  |cleanNOk[1] -> Q1574
+		  |hotSwapIn -> Q1576
+		  |cleanOk[1] -> Q1595),
+	Q1576	= (cleanNOk[1] -> Q1577
+		  |in[2] -> Q1585
+		  |cleanOk[1] -> Q1593),
+	Q1577	= (in[2] -> Q1578),
+	Q1578	= (stopOldSpec -> Q1579),
+	Q1579	= (reconfigure -> Q1580),
+	Q1580	= (out[1] -> Q1581),
+	Q1581	= (reset[1] -> Q1582),
+	Q1582	= (in[1] -> Q1583),
+	Q1583	= (startNewSpec -> Q1584),
+	Q1584	= (hotSwapOut -> Q7),
+	Q1585	= (cleanNOk[1] -> Q1578
+		  |cleanOk[1] -> Q1586),
+	Q1586	= (stopOldSpec -> Q1587),
+	Q1587	= (reconfigure -> Q1588),
+	Q1588	= (out[1] -> Q1589),
+	Q1589	= (reset[1] -> Q1590),
+	Q1590	= (in[1] -> Q1591),
+	Q1591	= (startNewSpec -> Q1592),
+	Q1592	= (hotSwapOut -> Q7),
+	Q1593	= (in[2] -> Q1586
+		  |stopOldSpec -> Q1594),
+	Q1594	= (in[2] -> Q1587),
+	Q1595	= (in[2] -> Q1213
+		  |hotSwapIn -> Q1596
+		  |out[1] -> Q1604),
+	Q1596	= (in[2] -> Q1597),
+	Q1597	= (stopOldSpec -> Q1598),
+	Q1598	= (reconfigure -> Q1599),
+	Q1599	= (out[1] -> Q1600),
+	Q1600	= (reset[1] -> Q1601),
+	Q1601	= (in[1] -> Q1602),
+	Q1602	= (startNewSpec -> Q1603),
+	Q1603	= (hotSwapOut -> Q7),
+	Q1604	= (reset[1] -> Q0
+		  |in[2] -> Q1280
+		  |hotSwapIn -> Q1382),
+	Q1605	= (in[2] -> Q1606),
+	Q1606	= (stopOldSpec -> Q1607),
+	Q1607	= (reconfigure -> Q1608),
+	Q1608	= (out[1] -> Q1609),
+	Q1609	= (reset[1] -> Q1610),
+	Q1610	= (in[1] -> Q1611),
+	Q1611	= (startNewSpec -> Q1612),
+	Q1612	= (hotSwapOut -> Q7),
+	Q1613	= (in[2] -> Q1614),
+	Q1614	= (stopOldSpec -> Q1615),
+	Q1615	= (reconfigure -> Q1616),
+	Q1616	= (out[1] -> Q1617),
+	Q1617	= (reset[1] -> Q1618),
+	Q1618	= (in[1] -> Q1619),
+	Q1619	= (startNewSpec -> Q1620),
+	Q1620	= (hotSwapOut -> Q7),
+	Q1621	= (reset[2] -> Q1622
+		  |drillNOk[1] -> Q1638
+		  |drillOk[1] -> Q1639),
+	Q1622	= (drillNOk[1] -> Q1623
+		  |in[2] -> Q1628
+		  |drillOk[1] -> Q1636),
+	Q1623	= (in[2] -> Q1624),
+	Q1624	= (stopOldSpec -> Q1625),
+	Q1625	= (reconfigure -> Q1626),
+	Q1626	= (startNewSpec -> Q1627),
+	Q1627	= (hotSwapOut -> Q7),
+	Q1628	= (drillNOk[1] -> Q1624
+		  |drillOk[1] -> Q1629),
+	Q1629	= (stopOldSpec -> Q1630),
+	Q1630	= (reconfigure -> Q1631),
+	Q1631	= (out[1] -> Q1632),
+	Q1632	= (reset[1] -> Q1633),
+	Q1633	= (in[1] -> Q1634),
+	Q1634	= (startNewSpec -> Q1635),
+	Q1635	= (hotSwapOut -> Q7),
+	Q1636	= (in[2] -> Q1629
+		  |stopOldSpec -> Q1637),
+	Q1637	= (in[2] -> Q1630),
+	Q1638	= (reset[2] -> Q1623),
+	Q1639	= (reset[2] -> Q1636
+		  |stopOldSpec -> Q1640),
+	Q1640	= (reset[2] -> Q1641),
+	Q1641	= (in[2] -> Q1642),
+	Q1642	= (reconfigure -> Q1643),
+	Q1643	= (out[1] -> Q1644),
+	Q1644	= (reset[1] -> Q1645),
+	Q1645	= (in[1] -> Q1646),
+	Q1646	= (startNewSpec -> Q1647),
+	Q1647	= (hotSwapOut -> Q7),
+	Q1648	= (reset[2] -> Q984
+		  |polish[1] -> Q1649
+		  |hotSwapIn -> Q1797),
+	Q1649	= (reset[2] -> Q985
+		  |polishNOk[1] -> Q1648
+		  |hotSwapIn -> Q1650
+		  |polishOk[1] -> Q1709),
+	Q1650	= (reset[2] -> Q1651
+		  |polishNOk[1] -> Q1678
+		  |stopOldSpec -> Q1687
+		  |polishOk[1] -> Q1700),
+	Q1651	= (polishNOk[1] -> Q1652
+		  |in[2] -> Q1660
+		  |stopOldSpec -> Q1675
+		  |polishOk[1] -> Q1677),
+	Q1652	= (in[2] -> Q1653),
+	Q1653	= (stopOldSpec -> Q1654),
+	Q1654	= (reconfigure -> Q1655),
+	Q1655	= (out[1] -> Q1656),
+	Q1656	= (reset[1] -> Q1657),
+	Q1657	= (in[1] -> Q1658),
+	Q1658	= (startNewSpec -> Q1659),
+	Q1659	= (hotSwapOut -> Q7),
+	Q1660	= (polishNOk[1] -> Q1653
+		  |stopOldSpec -> Q1661
+		  |polishOk[1] -> Q1668),
+	Q1661	= ({polishNOk, polishOk}[1] -> Q1662),
+	Q1662	= (reconfigure -> Q1663),
+	Q1663	= (out[1] -> Q1664),
+	Q1664	= (reset[1] -> Q1665),
+	Q1665	= (in[1] -> Q1666),
+	Q1666	= (startNewSpec -> Q1667),
+	Q1667	= (hotSwapOut -> Q7),
+	Q1668	= (stopOldSpec -> Q1669),
+	Q1669	= (reconfigure -> Q1670),
+	Q1670	= (out[1] -> Q1671),
+	Q1671	= (reset[1] -> Q1672),
+	Q1672	= (in[1] -> Q1673),
+	Q1673	= (startNewSpec -> Q1674),
+	Q1674	= (hotSwapOut -> Q7),
+	Q1675	= (in[2] -> Q1661
+		  |{polishNOk, polishOk}[1] -> Q1676),
+	Q1676	= (in[2] -> Q1662),
+	Q1677	= (in[2] -> Q1668),
+	Q1678	= (reset[2] -> Q1652
+		  |stopOldSpec -> Q1679),
+	Q1679	= (reset[2] -> Q1680),
+	Q1680	= (in[2] -> Q1681),
+	Q1681	= (reconfigure -> Q1682),
+	Q1682	= (out[1] -> Q1683),
+	Q1683	= (reset[1] -> Q1684),
+	Q1684	= (in[1] -> Q1685),
+	Q1685	= (startNewSpec -> Q1686),
+	Q1686	= (hotSwapOut -> Q7),
+	Q1687	= (reset[2] -> Q1688
+		  |{polishNOk, polishOk}[1] -> Q1698),
+	Q1688	= ({polishNOk, polishOk}[1] -> Q1689
+		  |in[2] -> Q1697),
+	Q1689	= (in[2] -> Q1690
+		  |reconfigure -> Q1696),
+	Q1690	= (reconfigure -> Q1691),
+	Q1691	= (out[1] -> Q1692),
+	Q1692	= (reset[1] -> Q1693),
+	Q1693	= (in[1] -> Q1694),
+	Q1694	= (startNewSpec -> Q1695),
+	Q1695	= (hotSwapOut -> Q7),
+	Q1696	= (in[2] -> Q1691),
+	Q1697	= ({polishNOk, polishOk}[1] -> Q1690
+		  |reconfigure -> Q1691),
+	Q1698	= (reset[2] -> Q1689
+		  |reconfigure -> Q1699),
+	Q1699	= (reset[2] -> Q1696),
+	Q1700	= (reset[2] -> Q1677
+		  |stopOldSpec -> Q1701),
+	Q1701	= (reset[2] -> Q1702),
+	Q1702	= (in[2] -> Q1703),
+	Q1703	= (reconfigure -> Q1704),
+	Q1704	= (out[1] -> Q1705),
+	Q1705	= (reset[1] -> Q1706),
+	Q1706	= (in[1] -> Q1707),
+	Q1707	= (startNewSpec -> Q1708),
+	Q1708	= (hotSwapOut -> Q7),
+	Q1709	= (reset[2] -> Q1574
+		  |clean[1] -> Q1710
+		  |hotSwapIn -> Q1788),
+	Q1710	= (cleanNOk[1] -> Q1709
+		  |reset[2] -> Q1711
+		  |hotSwapIn -> Q1712
+		  |cleanOk[1] -> Q1777),
+	Q1711	= (in[2] -> Q1083
+		  |cleanNOk[1] -> Q1574
+		  |hotSwapIn -> Q1576
+		  |cleanOk[1] -> Q1595),
+	Q1712	= (reset[2] -> Q1713
+		  |cleanNOk[1] -> Q1746
+		  |stopOldSpec -> Q1755
+		  |cleanOk[1] -> Q1776),
+	Q1713	= (cleanNOk[1] -> Q1714
+		  |in[2] -> Q1723
+		  |stopOldSpec -> Q1742
+		  |cleanOk[1] -> Q1745),
+	Q1714	= (in[2] -> Q1715
+		  |stopOldSpec -> Q1722),
+	Q1715	= (stopOldSpec -> Q1716),
+	Q1716	= (reconfigure -> Q1717),
+	Q1717	= (out[1] -> Q1718),
+	Q1718	= (reset[1] -> Q1719),
+	Q1719	= (in[1] -> Q1720),
+	Q1720	= (startNewSpec -> Q1721),
+	Q1721	= (hotSwapOut -> Q7),
+	Q1722	= (in[2] -> Q1716),
+	Q1723	= (cleanNOk[1] -> Q1715
+		  |stopOldSpec -> Q1724
+		  |cleanOk[1] -> Q1735),
+	Q1724	= (cleanNOk[1] -> Q1725
+		  |reconfigure -> Q1731
+		  |cleanOk[1] -> Q1734),
+	Q1725	= (reconfigure -> Q1726),
+	Q1726	= (out[1] -> Q1727),
+	Q1727	= (reset[1] -> Q1728),
+	Q1728	= (in[1] -> Q1729),
+	Q1729	= (startNewSpec -> Q1730),
+	Q1730	= (hotSwapOut -> Q7),
+	Q1731	= (cleanNOk[1] -> Q1726
+		  |cleanOk[1] -> Q1732),
+	Q1732	= (out[1] -> Q1733),
+	Q1733	= (reset[1] -> Q1728),
+	Q1734	= (reconfigure -> Q1732),
+	Q1735	= (stopOldSpec -> Q1736),
+	Q1736	= (reconfigure -> Q1737),
+	Q1737	= (out[1] -> Q1738),
+	Q1738	= (reset[1] -> Q1739),
+	Q1739	= (in[1] -> Q1740),
+	Q1740	= (startNewSpec -> Q1741),
+	Q1741	= (hotSwapOut -> Q7),
+	Q1742	= (in[2] -> Q1724
+		  |cleanNOk[1] -> Q1743
+		  |cleanOk[1] -> Q1744),
+	Q1743	= (in[2] -> Q1725),
+	Q1744	= (in[2] -> Q1734),
+	Q1745	= (in[2] -> Q1735),
+	Q1746	= (reset[2] -> Q1714
+		  |stopOldSpec -> Q1747),
+	Q1747	= (reset[2] -> Q1748),
+	Q1748	= (in[2] -> Q1749),
+	Q1749	= (reconfigure -> Q1750),
+	Q1750	= (out[1] -> Q1751),
+	Q1751	= (reset[1] -> Q1752),
+	Q1752	= (in[1] -> Q1753),
+	Q1753	= (startNewSpec -> Q1754),
+	Q1754	= (hotSwapOut -> Q7),
+	Q1755	= (reset[2] -> Q1756
+		  |cleanNOk[1] -> Q1774
+		  |cleanOk[1] -> Q1775),
+	Q1756	= (cleanNOk[1] -> Q1757
+		  |in[2] -> Q1764
+		  |cleanOk[1] -> Q1768),
+	Q1757	= (in[2] -> Q1758),
+	Q1758	= (reconfigure -> Q1759),
+	Q1759	= (out[1] -> Q1760),
+	Q1760	= (reset[1] -> Q1761),
+	Q1761	= (in[1] -> Q1762),
+	Q1762	= (startNewSpec -> Q1763),
+	Q1763	= (hotSwapOut -> Q7),
+	Q1764	= (cleanNOk[1] -> Q1758
+		  |cleanOk[1] -> Q1765),
+	Q1765	= (reconfigure -> Q1766),
+	Q1766	= (out[1] -> Q1767),
+	Q1767	= (reset[1] -> Q1761),
+	Q1768	= (in[2] -> Q1765
+		  |reconfigure -> Q1769),
+	Q1769	= (in[2] -> Q1766
+		  |out[1] -> Q1770),
+	Q1770	= (reset[1] -> Q1771
+		  |in[2] -> Q1773),
+	Q1771	= (in[2] -> Q1761
+		  |in[1] -> Q1772),
+	Q1772	= (in[2] -> Q1762),
+	Q1773	= (reset[1] -> Q1761),
+	Q1774	= (reset[2] -> Q1757),
+	Q1775	= (reset[2] -> Q1768),
+	Q1776	= (reset[2] -> Q1745),
+	Q1777	= (reset[2] -> Q1595
+		  |hotSwapIn -> Q1778
+		  |out[1] -> Q1787),
+	Q1778	= (reset[2] -> Q1779),
+	Q1779	= (in[2] -> Q1780),
+	Q1780	= (stopOldSpec -> Q1781),
+	Q1781	= (reconfigure -> Q1782),
+	Q1782	= (out[1] -> Q1783),
+	Q1783	= (reset[1] -> Q1784),
+	Q1784	= (in[1] -> Q1785),
+	Q1785	= (startNewSpec -> Q1786),
+	Q1786	= (hotSwapOut -> Q7),
+	Q1787	= (reset[2] -> Q1381
+		  |reset[1] -> Q1403
+		  |hotSwapIn -> Q1404),
+	Q1788	= (reset[2] -> Q1789),
+	Q1789	= (in[2] -> Q1790),
+	Q1790	= (stopOldSpec -> Q1791),
+	Q1791	= (reconfigure -> Q1792),
+	Q1792	= (out[1] -> Q1793),
+	Q1793	= (reset[1] -> Q1794),
+	Q1794	= (in[1] -> Q1795),
+	Q1795	= (startNewSpec -> Q1796),
+	Q1796	= (hotSwapOut -> Q7),
+	Q1797	= (reset[2] -> Q1798),
+	Q1798	= (in[2] -> Q1799),
+	Q1799	= (stopOldSpec -> Q1800),
+	Q1800	= (reconfigure -> Q1801),
+	Q1801	= (out[1] -> Q1802),
+	Q1802	= (reset[1] -> Q1803),
+	Q1803	= (in[1] -> Q1804),
+	Q1804	= (startNewSpec -> Q1805),
+	Q1805	= (hotSwapOut -> Q7),
+	Q1806	= (reset[2] -> Q1807),
+	Q1807	= (in[2] -> Q1808),
+	Q1808	= (stopOldSpec -> Q1809),
+	Q1809	= (reconfigure -> Q1810),
+	Q1810	= (startNewSpec -> Q1811),
+	Q1811	= (hotSwapOut -> Q7),
+	Q1812	= (reset[2] -> Q1595
+		  |hotSwapIn -> Q1778
+		  |out[1] -> Q1787),
+	Q1813	= (cleanNOk[1] -> Q1709
+		  |reset[2] -> Q1711
+		  |hotSwapIn -> Q1712
+		  |cleanOk[1] -> Q1777),
+	Q1814	= (stopOldSpec -> Q1815),
+	Q1815	= (reconfigure -> Q1816),
+	Q1816	= (out[2] -> Q1817),
+	Q1817	= (reset[2] -> Q1818
+		  |out[1] -> Q1831),
+	Q1818	= (in[2] -> Q1819
+		  |out[1] -> Q1825),
+	Q1819	= (out[1] -> Q1820),
+	Q1820	= (reset[1] -> Q1821),
+	Q1821	= (in[1] -> Q1822
+		  |startNewSpec -> Q1824),
+	Q1822	= (startNewSpec -> Q1823),
+	Q1823	= (hotSwapOut -> Q7),
+	Q1824	= (in[1] -> Q1823),
+	Q1825	= (reset[1] -> Q1826
+		  |in[2] -> Q1830),
+	Q1826	= (in[2] -> Q1821
+		  |in[1] -> Q1827
+		  |startNewSpec -> Q1829),
+	Q1827	= (in[2] -> Q1822
+		  |startNewSpec -> Q1828),
+	Q1828	= (in[2] -> Q1823),
+	Q1829	= (in[2] -> Q1824
+		  |in[1] -> Q1828),
+	Q1830	= (reset[1] -> Q1821),
+	Q1831	= (reset[2] -> Q1832
+		  |reset[1] -> Q1833),
+	Q1832	= (reset[1] -> Q1826
+		  |in[2] -> Q1830),
+	Q1833	= (reset[2] -> Q1826
+		  |in[1] -> Q1834),
+	Q1834	= (reset[2] -> Q1827),
+	Q1835	= (reset[2] -> Q1574
+		  |clean[1] -> Q1710
+		  |hotSwapIn -> Q1788),
+	Q1836	= (reset[2] -> Q985
+		  |polishNOk[1] -> Q1648
+		  |hotSwapIn -> Q1650
+		  |polishOk[1] -> Q1709),
+	Q1837	= (stopOldSpec -> Q1838),
+	Q1838	= (reconfigure -> Q1839),
+	Q1839	= (out[2] -> Q1840),
+	Q1840	= (reset[2] -> Q1841
+		  |out[1] -> Q1853),
+	Q1841	= (in[2] -> Q1842
+		  |out[1] -> Q1848),
+	Q1842	= (out[1] -> Q1843),
+	Q1843	= (reset[1] -> Q1844),
+	Q1844	= (in[1] -> Q1845
+		  |startNewSpec -> Q1847),
+	Q1845	= (startNewSpec -> Q1846),
+	Q1846	= (hotSwapOut -> Q7),
+	Q1847	= (in[1] -> Q1846),
+	Q1848	= (reset[1] -> Q1849
+		  |in[2] -> Q1851),
+	Q1849	= (in[2] -> Q1844
+		  |in[1] -> Q1850),
+	Q1850	= (in[2] -> Q1845),
+	Q1851	= (reset[1] -> Q1844
+		  |startNewSpec -> Q1852),
+	Q1852	= (reset[1] -> Q1847),
+	Q1853	= (reset[2] -> Q1854
+		  |reset[1] -> Q1858),
+	Q1854	= (reset[1] -> Q1849
+		  |in[2] -> Q1851
+		  |startNewSpec -> Q1855),
+	Q1855	= (in[2] -> Q1852
+		  |reset[1] -> Q1856),
+	Q1856	= (in[2] -> Q1847
+		  |in[1] -> Q1857),
+	Q1857	= (in[2] -> Q1846),
+	Q1858	= (reset[2] -> Q1849
+		  |in[1] -> Q1859),
+	Q1859	= (reset[2] -> Q1850
+		  |startNewSpec -> Q1860),
+	Q1860	= (reset[2] -> Q1857),
+	Q1861	= (reset[2] -> Q984
+		  |polish[1] -> Q1649
+		  |hotSwapIn -> Q1797),
+	Q1862	= (drillNOk[1] -> Q981
+		  |reset[2] -> Q983
+		  |hotSwapIn -> Q1621
+		  |drillOk[1] -> Q1648),
+	Q1863	= (stopOldSpec -> Q1864),
+	Q1864	= (reconfigure -> Q1865),
+	Q1865	= (out[2] -> Q1866),
+	Q1866	= (reset[2] -> Q1867),
+	Q1867	= (in[2] -> Q1868),
+	Q1868	= (startNewSpec -> Q1869),
+	Q1869	= (hotSwapOut -> Q7),
+	Q1870	= (reset[2] -> Q92
+		  |drill[1] -> Q982
+		  |hotSwapIn -> Q1806),
+	Q1871	= (cleanOk[2] -> Q815
+		  |polish[1] -> Q1872
+		  |cleanNOk[2] -> Q1874
+		  |hotSwapIn -> Q1876),
+	Q1872	= (cleanOk[2] -> Q816
+		  |polishNOk[1] -> Q1871
+		  |cleanNOk[2] -> Q1873
+		  |hotSwapIn -> Q1955
+		  |polishOk[1] -> Q2143),
+	Q1873	= (polishNOk[1] -> Q1874
+		  |clean[2] -> Q1954
+		  |polishOk[1] -> Q2559
+		  |hotSwapIn -> Q2617),
+	Q1874	= (polish[1] -> Q1873
+		  |clean[2] -> Q1875
+		  |hotSwapIn -> Q1935),
+	Q1875	= (cleanOk[2] -> Q815
+		  |polish[1] -> Q1872
+		  |cleanNOk[2] -> Q1874
+		  |hotSwapIn -> Q1876),
+	Q1876	= (cleanNOk[2] -> Q1877
+		  |stopOldSpec -> Q1888
+		  |cleanOk[2] -> Q1914),
+	Q1877	= (stopOldSpec -> Q1878),
+	Q1878	= (reconfigure -> Q1879),
+	Q1879	= (out[2] -> Q1880),
+	Q1880	= (reset[2] -> Q1881),
+	Q1881	= (in[2] -> Q1882),
+	Q1882	= (out[1] -> Q1883),
+	Q1883	= (reset[1] -> Q1884),
+	Q1884	= (in[1] -> Q1885
+		  |startNewSpec -> Q1887),
+	Q1885	= (startNewSpec -> Q1886),
+	Q1886	= (hotSwapOut -> Q7),
+	Q1887	= (in[1] -> Q1886),
+	Q1888	= (cleanNOk[2] -> Q1889
+		  |cleanOk[2] -> Q1905),
+	Q1889	= (reconfigure -> Q1890),
+	Q1890	= (out[2] -> Q1891),
+	Q1891	= (reset[2] -> Q1892),
+	Q1892	= (in[2] -> Q1893
+		  |out[1] -> Q1898),
+	Q1893	= (out[1] -> Q1894),
+	Q1894	= (reset[1] -> Q1895),
+	Q1895	= (in[1] -> Q1896),
+	Q1896	= (startNewSpec -> Q1897),
+	Q1897	= (hotSwapOut -> Q7),
+	Q1898	= (reset[1] -> Q1899
+		  |in[2] -> Q1904),
+	Q1899	= (in[2] -> Q1895
+		  |in[1] -> Q1900
+		  |startNewSpec -> Q1901),
+	Q1900	= (in[2] -> Q1896),
+	Q1901	= (in[1] -> Q1902
+		  |in[2] -> Q1903),
+	Q1902	= (in[2] -> Q1897),
+	Q1903	= (in[1] -> Q1897),
+	Q1904	= (reset[1] -> Q1895),
+	Q1905	= (reconfigure -> Q1906),
+	Q1906	= (out[2] -> Q1907),
+	Q1907	= (reset[2] -> Q1892
+		  |out[1] -> Q1908),
+	Q1908	= (reset[2] -> Q1909
+		  |reset[1] -> Q1912),
+	Q1909	= (reset[1] -> Q1899
+		  |in[2] -> Q1904
+		  |startNewSpec -> Q1910),
+	Q1910	= (reset[1] -> Q1901
+		  |in[2] -> Q1911),
+	Q1911	= (reset[1] -> Q1903),
+	Q1912	= (reset[2] -> Q1899
+		  |in[1] -> Q1913),
+	Q1913	= (reset[2] -> Q1900),
+	Q1914	= (stopOldSpec -> Q1915),
+	Q1915	= (reconfigure -> Q1916),
+	Q1916	= (out[2] -> Q1917),
+	Q1917	= (reset[2] -> Q1918
+		  |out[1] -> Q1931),
+	Q1918	= (in[2] -> Q1919
+		  |out[1] -> Q1925),
+	Q1919	= (out[1] -> Q1920),
+	Q1920	= (reset[1] -> Q1921),
+	Q1921	= (in[1] -> Q1922
+		  |startNewSpec -> Q1924),
+	Q1922	= (startNewSpec -> Q1923),
+	Q1923	= (hotSwapOut -> Q7),
+	Q1924	= (in[1] -> Q1923),
+	Q1925	= (reset[1] -> Q1926
+		  |in[2] -> Q1930),
+	Q1926	= (in[2] -> Q1921
+		  |in[1] -> Q1927
+		  |startNewSpec -> Q1929),
+	Q1927	= (in[2] -> Q1922
+		  |startNewSpec -> Q1928),
+	Q1928	= (in[2] -> Q1923),
+	Q1929	= (in[2] -> Q1924
+		  |in[1] -> Q1928),
+	Q1930	= (reset[1] -> Q1921),
+	Q1931	= (reset[2] -> Q1932
+		  |reset[1] -> Q1933),
+	Q1932	= (reset[1] -> Q1926
+		  |in[2] -> Q1930),
+	Q1933	= (reset[2] -> Q1926
+		  |in[1] -> Q1934),
+	Q1934	= (reset[2] -> Q1927),
+	Q1935	= (stopOldSpec -> Q1936),
+	Q1936	= (reconfigure -> Q1937),
+	Q1937	= (out[2] -> Q1938),
+	Q1938	= (reset[2] -> Q1939),
+	Q1939	= (in[2] -> Q1940
+		  |out[1] -> Q1946),
+	Q1940	= (out[1] -> Q1941),
+	Q1941	= (reset[1] -> Q1942),
+	Q1942	= (in[1] -> Q1943
+		  |startNewSpec -> Q1945),
+	Q1943	= (startNewSpec -> Q1944),
+	Q1944	= (hotSwapOut -> Q7),
+	Q1945	= (in[1] -> Q1944),
+	Q1946	= (reset[1] -> Q1947
+		  |in[2] -> Q1951
+		  |startNewSpec -> Q1953),
+	Q1947	= (in[2] -> Q1942
+		  |in[1] -> Q1948
+		  |startNewSpec -> Q1950),
+	Q1948	= (in[2] -> Q1943
+		  |startNewSpec -> Q1949),
+	Q1949	= (in[2] -> Q1944),
+	Q1950	= (in[2] -> Q1945
+		  |in[1] -> Q1949),
+	Q1951	= (reset[1] -> Q1942
+		  |startNewSpec -> Q1952),
+	Q1952	= (reset[1] -> Q1945),
+	Q1953	= (reset[1] -> Q1950
+		  |in[2] -> Q1952),
+	Q1954	= (cleanOk[2] -> Q816
+		  |polishNOk[1] -> Q1871
+		  |cleanNOk[2] -> Q1873
+		  |hotSwapIn -> Q1955
+		  |polishOk[1] -> Q2143),
+	Q1955	= (polishNOk[1] -> Q1956
+		  |cleanNOk[2] -> Q2014
+		  |stopOldSpec -> Q2058
+		  |cleanOk[2] -> Q2086
+		  |polishOk[1] -> Q2125),
+	Q1956	= (cleanNOk[2] -> Q1957
+		  |stopOldSpec -> Q1975
+		  |cleanOk[2] -> Q1994),
+	Q1957	= (stopOldSpec -> Q1958),
+	Q1958	= (reconfigure -> Q1959),
+	Q1959	= (out[2] -> Q1960),
+	Q1960	= (reset[2] -> Q1961
+		  |out[1] -> Q1971),
+	Q1961	= (in[2] -> Q1962
+		  |out[1] -> Q1967),
+	Q1962	= (out[1] -> Q1963),
+	Q1963	= (reset[1] -> Q1964),
+	Q1964	= (in[1] -> Q1965),
+	Q1965	= (startNewSpec -> Q1966),
+	Q1966	= (hotSwapOut -> Q7),
+	Q1967	= (reset[1] -> Q1968
+		  |in[2] -> Q1970),
+	Q1968	= (in[2] -> Q1964
+		  |in[1] -> Q1969),
+	Q1969	= (in[2] -> Q1965),
+	Q1970	= (reset[1] -> Q1964),
+	Q1971	= (reset[2] -> Q1972
+		  |reset[1] -> Q1973),
+	Q1972	= (reset[1] -> Q1968
+		  |in[2] -> Q1970),
+	Q1973	= (reset[2] -> Q1968
+		  |in[1] -> Q1974),
+	Q1974	= (reset[2] -> Q1969),
+	Q1975	= (cleanNOk[2] -> Q1976
+		  |reconfigure -> Q1990
+		  |cleanOk[2] -> Q1993),
+	Q1976	= (reconfigure -> Q1977),
+	Q1977	= (out[2] -> Q1978),
+	Q1978	= (reset[2] -> Q1979),
+	Q1979	= (in[2] -> Q1980
+		  |out[1] -> Q1985),
+	Q1980	= (out[1] -> Q1981),
+	Q1981	= (reset[1] -> Q1982),
+	Q1982	= (in[1] -> Q1983),
+	Q1983	= (startNewSpec -> Q1984),
+	Q1984	= (hotSwapOut -> Q7),
+	Q1985	= (reset[1] -> Q1986
+		  |in[2] -> Q1989),
+	Q1986	= (in[2] -> Q1982
+		  |in[1] -> Q1987),
+	Q1987	= (in[2] -> Q1983
+		  |startNewSpec -> Q1988),
+	Q1988	= (in[2] -> Q1984),
+	Q1989	= (reset[1] -> Q1982),
+	Q1990	= (cleanNOk[2] -> Q1977
+		  |cleanOk[2] -> Q1991),
+	Q1991	= (out[2] -> Q1992),
+	Q1992	= (reset[2] -> Q1979),
+	Q1993	= (reconfigure -> Q1991),
+	Q1994	= (stopOldSpec -> Q1995),
+	Q1995	= (reconfigure -> Q1996),
+	Q1996	= (out[2] -> Q1997),
+	Q1997	= (reset[2] -> Q1998
+		  |out[1] -> Q2004),
+	Q1998	= (in[2] -> Q1999),
+	Q1999	= (out[1] -> Q2000),
+	Q2000	= (reset[1] -> Q2001),
+	Q2001	= (in[1] -> Q2002),
+	Q2002	= (startNewSpec -> Q2003),
+	Q2003	= (hotSwapOut -> Q7),
+	Q2004	= (reset[2] -> Q2005
+		  |reset[1] -> Q2012),
+	Q2005	= (reset[1] -> Q2006
+		  |in[2] -> Q2011),
+	Q2006	= (in[2] -> Q2001
+		  |in[1] -> Q2007
+		  |startNewSpec -> Q2008),
+	Q2007	= (in[2] -> Q2002),
+	Q2008	= (in[1] -> Q2009
+		  |in[2] -> Q2010),
+	Q2009	= (in[2] -> Q2003),
+	Q2010	= (in[1] -> Q2003),
+	Q2011	= (reset[1] -> Q2001),
+	Q2012	= (reset[2] -> Q2006
+		  |in[1] -> Q2013),
+	Q2013	= (reset[2] -> Q2007),
+	Q2014	= (polishNOk[1] -> Q1957
+		  |stopOldSpec -> Q2015
+		  |polishOk[1] -> Q2033),
+	Q2015	= ({polishNOk, polishOk}[1] -> Q2016),
+	Q2016	= (reconfigure -> Q2017),
+	Q2017	= (out[2] -> Q2018),
+	Q2018	= (reset[2] -> Q2019
+		  |out[1] -> Q2025),
+	Q2019	= (in[2] -> Q2020),
+	Q2020	= (out[1] -> Q2021),
+	Q2021	= (reset[1] -> Q2022),
+	Q2022	= (in[1] -> Q2023),
+	Q2023	= (startNewSpec -> Q2024),
+	Q2024	= (hotSwapOut -> Q7),
+	Q2025	= (reset[2] -> Q2026
+		  |reset[1] -> Q2031),
+	Q2026	= (reset[1] -> Q2027
+		  |in[2] -> Q2030),
+	Q2027	= (in[2] -> Q2022
+		  |in[1] -> Q2028),
+	Q2028	= (in[2] -> Q2023
+		  |startNewSpec -> Q2029),
+	Q2029	= (in[2] -> Q2024),
+	Q2030	= (reset[1] -> Q2022),
+	Q2031	= (reset[2] -> Q2027
+		  |in[1] -> Q2032),
+	Q2032	= (reset[2] -> Q2028),
+	Q2033	= (stopOldSpec -> Q2034),
+	Q2034	= (reconfigure -> Q2035),
+	Q2035	= (out[2] -> Q2036),
+	Q2036	= (reset[2] -> Q2037
+		  |out[1] -> Q2044),
+	Q2037	= (in[2] -> Q2038),
+	Q2038	= (out[1] -> Q2039),
+	Q2039	= (reset[1] -> Q2040),
+	Q2040	= (in[1] -> Q2041
+		  |startNewSpec -> Q2043),
+	Q2041	= (startNewSpec -> Q2042),
+	Q2042	= (hotSwapOut -> Q7),
+	Q2043	= (in[1] -> Q2042),
+	Q2044	= (reset[2] -> Q2045
+		  |reset[1] -> Q2053
+		  |startNewSpec -> Q2055),
+	Q2045	= (reset[1] -> Q2046
+		  |in[2] -> Q2049
+		  |startNewSpec -> Q2051),
+	Q2046	= (in[2] -> Q2040
+		  |in[1] -> Q2047),
+	Q2047	= (in[2] -> Q2041
+		  |startNewSpec -> Q2048),
+	Q2048	= (in[2] -> Q2042),
+	Q2049	= (reset[1] -> Q2040
+		  |startNewSpec -> Q2050),
+	Q2050	= (reset[1] -> Q2043),
+	Q2051	= (in[2] -> Q2050
+		  |reset[1] -> Q2052),
+	Q2052	= (in[2] -> Q2043
+		  |in[1] -> Q2048),
+	Q2053	= (reset[2] -> Q2046
+		  |in[1] -> Q2054),
+	Q2054	= (reset[2] -> Q2047),
+	Q2055	= (reset[2] -> Q2051
+		  |reset[1] -> Q2056),
+	Q2056	= (reset[2] -> Q2052
+		  |in[1] -> Q2057),
+	Q2057	= (reset[2] -> Q2048),
+	Q2058	= ({polishNOk, polishOk}[1] -> Q2059
+		  |reconfigure -> Q2076
+		  |cleanNOk[2] -> Q2084
+		  |cleanOk[2] -> Q2085),
+	Q2059	= (cleanNOk[2] -> Q2060
+		  |reconfigure -> Q2076
+		  |cleanOk[2] -> Q2083),
+	Q2060	= (reconfigure -> Q2061),
+	Q2061	= (out[2] -> Q2062),
+	Q2062	= (reset[2] -> Q2063),
+	Q2063	= (in[2] -> Q2064
+		  |out[1] -> Q2070),
+	Q2064	= (out[1] -> Q2065),
+	Q2065	= (reset[1] -> Q2066),
+	Q2066	= (in[1] -> Q2067
+		  |startNewSpec -> Q2069),
+	Q2067	= (startNewSpec -> Q2068),
+	Q2068	= (hotSwapOut -> Q7),
+	Q2069	= (in[1] -> Q2068),
+	Q2070	= (reset[1] -> Q2071
+		  |in[2] -> Q2075),
+	Q2071	= (in[2] -> Q2066
+		  |in[1] -> Q2072
+		  |startNewSpec -> Q2074),
+	Q2072	= (in[2] -> Q2067
+		  |startNewSpec -> Q2073),
+	Q2073	= (in[2] -> Q2068),
+	Q2074	= (in[2] -> Q2069
+		  |in[1] -> Q2073),
+	Q2075	= (reset[1] -> Q2066),
+	Q2076	= (cleanNOk[2] -> Q2061
+		  |cleanOk[2] -> Q2077),
+	Q2077	= (out[2] -> Q2078),
+	Q2078	= (reset[2] -> Q2063
+		  |out[1] -> Q2079),
+	Q2079	= (reset[2] -> Q2080
+		  |reset[1] -> Q2081),
+	Q2080	= (reset[1] -> Q2071
+		  |in[2] -> Q2075),
+	Q2081	= (reset[2] -> Q2071
+		  |in[1] -> Q2082),
+	Q2082	= (reset[2] -> Q2072),
+	Q2083	= (reconfigure -> Q2077),
+	Q2084	= ({polishNOk, polishOk}[1] -> Q2060
+		  |reconfigure -> Q2061),
+	Q2085	= ({polishNOk, polishOk}[1] -> Q2083),
+	Q2086	= (polishNOk[1] -> Q1994
+		  |stopOldSpec -> Q2087
+		  |polishOk[1] -> Q2106),
+	Q2087	= ({polishNOk, polishOk}[1] -> Q2088),
+	Q2088	= (reconfigure -> Q2089),
+	Q2089	= (out[2] -> Q2090),
+	Q2090	= (reset[2] -> Q2091
+		  |out[1] -> Q2102),
+	Q2091	= (in[2] -> Q2092
+		  |out[1] -> Q2097),
+	Q2092	= (out[1] -> Q2093),
+	Q2093	= (reset[1] -> Q2094),
+	Q2094	= (in[1] -> Q2095),
+	Q2095	= (startNewSpec -> Q2096),
+	Q2096	= (hotSwapOut -> Q7),
+	Q2097	= (reset[1] -> Q2098
+		  |in[2] -> Q2101),
+	Q2098	= (in[2] -> Q2094
+		  |in[1] -> Q2099),
+	Q2099	= (in[2] -> Q2095
+		  |startNewSpec -> Q2100),
+	Q2100	= (in[2] -> Q2096),
+	Q2101	= (reset[1] -> Q2094),
+	Q2102	= (reset[2] -> Q2103
+		  |reset[1] -> Q2104),
+	Q2103	= (reset[1] -> Q2098
+		  |in[2] -> Q2101),
+	Q2104	= (reset[2] -> Q2098
+		  |in[1] -> Q2105),
+	Q2105	= (reset[2] -> Q2099),
+	Q2106	= (stopOldSpec -> Q2107),
+	Q2107	= (reconfigure -> Q2108),
+	Q2108	= (out[2] -> Q2109),
+	Q2109	= (reset[2] -> Q2110
+		  |out[1] -> Q2121),
+	Q2110	= (in[2] -> Q2111
+		  |out[1] -> Q2116),
+	Q2111	= (out[1] -> Q2112),
+	Q2112	= (reset[1] -> Q2113),
+	Q2113	= (in[1] -> Q2114),
+	Q2114	= (startNewSpec -> Q2115),
+	Q2115	= (hotSwapOut -> Q7),
+	Q2116	= (reset[1] -> Q2117
+		  |in[2] -> Q2120),
+	Q2117	= (in[2] -> Q2113
+		  |in[1] -> Q2118),
+	Q2118	= (in[2] -> Q2114
+		  |startNewSpec -> Q2119),
+	Q2119	= (in[2] -> Q2115),
+	Q2120	= (reset[1] -> Q2113),
+	Q2121	= (reset[2] -> Q2122
+		  |reset[1] -> Q2123),
+	Q2122	= (reset[1] -> Q2117
+		  |in[2] -> Q2120),
+	Q2123	= (reset[2] -> Q2117
+		  |in[1] -> Q2124),
+	Q2124	= (reset[2] -> Q2118),
+	Q2125	= (cleanNOk[2] -> Q2033
+		  |cleanOk[2] -> Q2106
+		  |stopOldSpec -> Q2126),
+	Q2126	= (cleanNOk[2] -> Q2127
+		  |cleanOk[2] -> Q2140),
+	Q2127	= (reconfigure -> Q2128),
+	Q2128	= (out[2] -> Q2129),
+	Q2129	= (reset[2] -> Q2130),
+	Q2130	= (in[2] -> Q2131
+		  |out[1] -> Q2136),
+	Q2131	= (out[1] -> Q2132),
+	Q2132	= (reset[1] -> Q2133),
+	Q2133	= (in[1] -> Q2134),
+	Q2134	= (startNewSpec -> Q2135),
+	Q2135	= (hotSwapOut -> Q7),
+	Q2136	= (reset[1] -> Q2137
+		  |in[2] -> Q2139),
+	Q2137	= (in[2] -> Q2133
+		  |in[1] -> Q2138),
+	Q2138	= (in[2] -> Q2134),
+	Q2139	= (reset[1] -> Q2133),
+	Q2140	= (reconfigure -> Q2141),
+	Q2141	= (out[2] -> Q2142),
+	Q2142	= (reset[2] -> Q2130),
+	Q2143	= (cleanOk[2] -> Q865
+		  |clean[1] -> Q2144
+		  |cleanNOk[2] -> Q2559
+		  |hotSwapIn -> Q2562),
+	Q2144	= (cleanNOk[1] -> Q2143
+		  |cleanNOk[2] -> Q2145
+		  |hotSwapIn -> Q2147
+		  |cleanOk[2] -> Q2380
+		  |cleanOk[1] -> Q2381),
+	Q2145	= (clean[2] -> Q2146
+		  |cleanOk[1] -> Q2382
+		  |hotSwapIn -> Q2477
+		  |cleanNOk[1] -> Q2559),
+	Q2146	= (cleanNOk[1] -> Q2143
+		  |cleanNOk[2] -> Q2145
+		  |hotSwapIn -> Q2147
+		  |cleanOk[2] -> Q2380
+		  |cleanOk[1] -> Q2381),
+	Q2147	= (cleanNOk[2] -> Q2148
+		  |cleanNOk[1] -> Q2217
+		  |stopOldSpec -> Q2260
+		  |cleanOk[2] -> Q2310
+		  |cleanOk[1] -> Q2360),
+	Q2148	= (cleanNOk[1] -> Q2149
+		  |stopOldSpec -> Q2169
+		  |cleanOk[1] -> Q2198),
+	Q2149	= (stopOldSpec -> Q2150),
+	Q2150	= (reconfigure -> Q2151),
+	Q2151	= (out[2] -> Q2152),
+	Q2152	= (reset[2] -> Q2153
+		  |out[1] -> Q2160),
+	Q2153	= (in[2] -> Q2154),
+	Q2154	= (out[1] -> Q2155),
+	Q2155	= (reset[1] -> Q2156),
+	Q2156	= (in[1] -> Q2157
+		  |startNewSpec -> Q2159),
+	Q2157	= (startNewSpec -> Q2158),
+	Q2158	= (hotSwapOut -> Q7),
+	Q2159	= (in[1] -> Q2158),
+	Q2160	= (reset[2] -> Q2161
+		  |reset[1] -> Q2167),
+	Q2161	= (reset[1] -> Q2162
+		  |in[2] -> Q2166),
+	Q2162	= (in[2] -> Q2156
+		  |in[1] -> Q2163
+		  |startNewSpec -> Q2165),
+	Q2163	= (in[2] -> Q2157
+		  |startNewSpec -> Q2164),
+	Q2164	= (in[2] -> Q2158),
+	Q2165	= (in[2] -> Q2159
+		  |in[1] -> Q2164),
+	Q2166	= (reset[1] -> Q2156),
+	Q2167	= (reset[2] -> Q2162
+		  |in[1] -> Q2168),
+	Q2168	= (reset[2] -> Q2163),
+	Q2169	= (cleanNOk[1] -> Q2170
+		  |cleanOk[1] -> Q2187),
+	Q2170	= (reconfigure -> Q2171),
+	Q2171	= (out[2] -> Q2172),
+	Q2172	= (reset[2] -> Q2173
+		  |out[1] -> Q2183),
+	Q2173	= (in[2] -> Q2174
+		  |out[1] -> Q2179),
+	Q2174	= (out[1] -> Q2175),
+	Q2175	= (reset[1] -> Q2176),
+	Q2176	= (in[1] -> Q2177),
+	Q2177	= (startNewSpec -> Q2178),
+	Q2178	= (hotSwapOut -> Q7),
+	Q2179	= (reset[1] -> Q2180
+		  |in[2] -> Q2182),
+	Q2180	= (in[2] -> Q2176
+		  |in[1] -> Q2181),
+	Q2181	= (in[2] -> Q2177),
+	Q2182	= (reset[1] -> Q2176),
+	Q2183	= (reset[2] -> Q2184
+		  |reset[1] -> Q2185),
+	Q2184	= (reset[1] -> Q2180
+		  |in[2] -> Q2182),
+	Q2185	= (reset[2] -> Q2180
+		  |in[1] -> Q2186),
+	Q2186	= (reset[2] -> Q2181),
+	Q2187	= (reconfigure -> Q2188),
+	Q2188	= (out[2] -> Q2189),
+	Q2189	= (reset[2] -> Q2190
+		  |out[1] -> Q2193),
+	Q2190	= (in[2] -> Q2191),
+	Q2191	= (out[1] -> Q2192),
+	Q2192	= (reset[1] -> Q2176),
+	Q2193	= (reset[1] -> Q2185
+		  |reset[2] -> Q2194),
+	Q2194	= (reset[1] -> Q2180
+		  |in[2] -> Q2195),
+	Q2195	= (reset[1] -> Q2176
+		  |startNewSpec -> Q2196),
+	Q2196	= (reset[1] -> Q2197),
+	Q2197	= (in[1] -> Q2178),
+	Q2198	= (stopOldSpec -> Q2199),
+	Q2199	= (reconfigure -> Q2200),
+	Q2200	= (out[2] -> Q2201),
+	Q2201	= (reset[2] -> Q2202
+		  |out[1] -> Q2208),
+	Q2202	= (in[2] -> Q2203),
+	Q2203	= (out[1] -> Q2204),
+	Q2204	= (reset[1] -> Q2205),
+	Q2205	= (in[1] -> Q2206),
+	Q2206	= (startNewSpec -> Q2207),
+	Q2207	= (hotSwapOut -> Q7),
+	Q2208	= (reset[2] -> Q2209
+		  |reset[1] -> Q2215),
+	Q2209	= (reset[1] -> Q2210
+		  |in[2] -> Q2212),
+	Q2210	= (in[2] -> Q2205
+		  |in[1] -> Q2211),
+	Q2211	= (in[2] -> Q2206),
+	Q2212	= (reset[1] -> Q2205
+		  |startNewSpec -> Q2213),
+	Q2213	= (reset[1] -> Q2214),
+	Q2214	= (in[1] -> Q2207),
+	Q2215	= (reset[2] -> Q2210
+		  |in[1] -> Q2216),
+	Q2216	= (reset[2] -> Q2211),
+	Q2217	= (cleanNOk[2] -> Q2149
+		  |stopOldSpec -> Q2218
+		  |cleanOk[2] -> Q2236),
+	Q2218	= (cleanNOk[2] -> Q2219
+		  |cleanOk[2] -> Q2233),
+	Q2219	= (reconfigure -> Q2220),
+	Q2220	= (out[2] -> Q2221),
+	Q2221	= (reset[2] -> Q2222),
+	Q2222	= (in[2] -> Q2223
+		  |out[1] -> Q2228),
+	Q2223	= (out[1] -> Q2224),
+	Q2224	= (reset[1] -> Q2225),
+	Q2225	= (in[1] -> Q2226),
+	Q2226	= (startNewSpec -> Q2227),
+	Q2227	= (hotSwapOut -> Q7),
+	Q2228	= (reset[1] -> Q2229
+		  |in[2] -> Q2232),
+	Q2229	= (in[2] -> Q2225
+		  |in[1] -> Q2230),
+	Q2230	= (in[2] -> Q2226
+		  |startNewSpec -> Q2231),
+	Q2231	= (in[2] -> Q2227),
+	Q2232	= (reset[1] -> Q2225),
+	Q2233	= (reconfigure -> Q2234),
+	Q2234	= (out[2] -> Q2235),
+	Q2235	= (reset[2] -> Q2222),
+	Q2236	= (stopOldSpec -> Q2237),
+	Q2237	= (reconfigure -> Q2238),
+	Q2238	= (out[2] -> Q2239),
+	Q2239	= (reset[2] -> Q2240
+		  |out[1] -> Q2252),
+	Q2240	= (in[2] -> Q2241
+		  |out[1] -> Q2247),
+	Q2241	= (out[1] -> Q2242),
+	Q2242	= (reset[1] -> Q2243),
+	Q2243	= (in[1] -> Q2244
+		  |startNewSpec -> Q2246),
+	Q2244	= (startNewSpec -> Q2245),
+	Q2245	= (hotSwapOut -> Q7),
+	Q2246	= (in[1] -> Q2245),
+	Q2247	= (reset[1] -> Q2248
+		  |in[2] -> Q2250),
+	Q2248	= (in[2] -> Q2243
+		  |in[1] -> Q2249),
+	Q2249	= (in[2] -> Q2244),
+	Q2250	= (reset[1] -> Q2243
+		  |startNewSpec -> Q2251),
+	Q2251	= (reset[1] -> Q2246),
+	Q2252	= (reset[2] -> Q2253
+		  |reset[1] -> Q2257),
+	Q2253	= (reset[1] -> Q2248
+		  |in[2] -> Q2250
+		  |startNewSpec -> Q2254),
+	Q2254	= (in[2] -> Q2251
+		  |reset[1] -> Q2255),
+	Q2255	= (in[2] -> Q2246
+		  |in[1] -> Q2256),
+	Q2256	= (in[2] -> Q2245),
+	Q2257	= (reset[2] -> Q2248
+		  |in[1] -> Q2258),
+	Q2258	= (reset[2] -> Q2249
+		  |startNewSpec -> Q2259),
+	Q2259	= (reset[2] -> Q2256),
+	Q2260	= (cleanNOk[2] -> Q2261
+		  |cleanNOk[1] -> Q2288
+		  |reconfigure -> Q2293
+		  |cleanOk[2] -> Q2307
+		  |cleanOk[1] -> Q2309),
+	Q2261	= (cleanNOk[1] -> Q2262
+		  |cleanOk[1] -> Q2271),
+	Q2262	= (reconfigure -> Q2263),
+	Q2263	= (out[2] -> Q2264),
+	Q2264	= (reset[2] -> Q2265),
+	Q2265	= (in[2] -> Q2266),
+	Q2266	= (out[1] -> Q2267),
+	Q2267	= (reset[1] -> Q2268),
+	Q2268	= (in[1] -> Q2269),
+	Q2269	= (startNewSpec -> Q2270),
+	Q2270	= (hotSwapOut -> Q7),
+	Q2271	= (reconfigure -> Q2272),
+	Q2272	= (out[2] -> Q2273),
+	Q2273	= (reset[2] -> Q2274
+		  |out[1] -> Q2284),
+	Q2274	= (in[2] -> Q2275
+		  |out[1] -> Q2277),
+	Q2275	= (out[1] -> Q2276),
+	Q2276	= (reset[1] -> Q2268),
+	Q2277	= (reset[1] -> Q2278
+		  |in[2] -> Q2281),
+	Q2278	= (in[2] -> Q2268
+		  |in[1] -> Q2279),
+	Q2279	= (in[2] -> Q2269
+		  |startNewSpec -> Q2280),
+	Q2280	= (in[2] -> Q2270),
+	Q2281	= (reset[1] -> Q2268
+		  |startNewSpec -> Q2282),
+	Q2282	= (reset[1] -> Q2283),
+	Q2283	= (in[1] -> Q2270),
+	Q2284	= (reset[2] -> Q2285
+		  |reset[1] -> Q2286),
+	Q2285	= (reset[1] -> Q2278
+		  |in[2] -> Q2281),
+	Q2286	= (reset[2] -> Q2278
+		  |in[1] -> Q2287),
+	Q2287	= (reset[2] -> Q2279),
+	Q2288	= (cleanNOk[2] -> Q2262
+		  |reconfigure -> Q2289
+		  |cleanOk[2] -> Q2292),
+	Q2289	= (cleanNOk[2] -> Q2263
+		  |cleanOk[2] -> Q2290),
+	Q2290	= (out[2] -> Q2291),
+	Q2291	= (reset[2] -> Q2265),
+	Q2292	= (reconfigure -> Q2290),
+	Q2293	= (cleanNOk[1] -> Q2289
+		  |cleanNOk[2] -> Q2294
+		  |cleanOk[2] -> Q2300
+		  |cleanOk[1] -> Q2306),
+	Q2294	= (cleanNOk[1] -> Q2263
+		  |cleanOk[1] -> Q2272
+		  |out[2] -> Q2295),
+	Q2295	= (reset[2] -> Q2296
+		  |cleanNOk[1] -> Q2298
+		  |cleanOk[1] -> Q2299),
+	Q2296	= (cleanNOk[1] -> Q2265
+		  |cleanOk[1] -> Q2274
+		  |in[2] -> Q2297),
+	Q2297	= (cleanNOk[1] -> Q2266
+		  |cleanOk[1] -> Q2275),
+	Q2298	= (reset[2] -> Q2265),
+	Q2299	= (reset[2] -> Q2274
+		  |out[1] -> Q2284),
+	Q2300	= (cleanNOk[1] -> Q2290
+		  |cleanOk[1] -> Q2301),
+	Q2301	= (out[2] -> Q2302),
+	Q2302	= (reset[2] -> Q2274
+		  |out[1] -> Q2303),
+	Q2303	= (reset[2] -> Q2285
+		  |reset[1] -> Q2304),
+	Q2304	= (reset[2] -> Q2278
+		  |in[1] -> Q2305),
+	Q2305	= (reset[2] -> Q2279),
+	Q2306	= (cleanNOk[2] -> Q2272
+		  |cleanOk[2] -> Q2301),
+	Q2307	= (cleanNOk[1] -> Q2292
+		  |reconfigure -> Q2300
+		  |cleanOk[1] -> Q2308),
+	Q2308	= (reconfigure -> Q2301),
+	Q2309	= (cleanNOk[2] -> Q2271
+		  |cleanOk[2] -> Q2308),
+	Q2310	= (cleanNOk[1] -> Q2236
+		  |stopOldSpec -> Q2311
+		  |cleanOk[1] -> Q2342),
+	Q2311	= (cleanNOk[1] -> Q2312
+		  |cleanOk[1] -> Q2332),
+	Q2312	= (reconfigure -> Q2313),
+	Q2313	= (out[2] -> Q2314),
+	Q2314	= (reset[2] -> Q2315
+		  |out[1] -> Q2328),
+	Q2315	= (in[2] -> Q2316
+		  |out[1] -> Q2321),
+	Q2316	= (out[1] -> Q2317),
+	Q2317	= (reset[1] -> Q2318),
+	Q2318	= (in[1] -> Q2319),
+	Q2319	= (startNewSpec -> Q2320),
+	Q2320	= (hotSwapOut -> Q7),
+	Q2321	= (reset[1] -> Q2322
+		  |in[2] -> Q2327),
+	Q2322	= (in[2] -> Q2318
+		  |in[1] -> Q2323
+		  |startNewSpec -> Q2324),
+	Q2323	= (in[2] -> Q2319),
+	Q2324	= (in[1] -> Q2325
+		  |in[2] -> Q2326),
+	Q2325	= (in[2] -> Q2320),
+	Q2326	= (in[1] -> Q2320),
+	Q2327	= (reset[1] -> Q2318),
+	Q2328	= (reset[2] -> Q2329
+		  |reset[1] -> Q2330),
+	Q2329	= (reset[1] -> Q2322
+		  |in[2] -> Q2327),
+	Q2330	= (reset[2] -> Q2322
+		  |in[1] -> Q2331),
+	Q2331	= (reset[2] -> Q2323),
+	Q2332	= (reconfigure -> Q2333),
+	Q2333	= (out[2] -> Q2334),
+	Q2334	= (reset[2] -> Q2335
+		  |out[1] -> Q2340),
+	Q2335	= (in[2] -> Q2336
+		  |out[1] -> Q2338),
+	Q2336	= (out[1] -> Q2337),
+	Q2337	= (reset[1] -> Q2318),
+	Q2338	= (reset[1] -> Q2322
+		  |in[2] -> Q2339),
+	Q2339	= (reset[1] -> Q2318),
+	Q2340	= (reset[1] -> Q2330
+		  |reset[2] -> Q2341),
+	Q2341	= (reset[1] -> Q2322
+		  |in[2] -> Q2339),
+	Q2342	= (stopOldSpec -> Q2343),
+	Q2343	= (reconfigure -> Q2344),
+	Q2344	= (out[2] -> Q2345),
+	Q2345	= (reset[2] -> Q2346
+		  |out[1] -> Q2356),
+	Q2346	= (in[2] -> Q2347
+		  |out[1] -> Q2352),
+	Q2347	= (out[1] -> Q2348),
+	Q2348	= (reset[1] -> Q2349),
+	Q2349	= (in[1] -> Q2350),
+	Q2350	= (startNewSpec -> Q2351),
+	Q2351	= (hotSwapOut -> Q7),
+	Q2352	= (reset[1] -> Q2353
+		  |in[2] -> Q2355),
+	Q2353	= (in[2] -> Q2349
+		  |in[1] -> Q2354),
+	Q2354	= (in[2] -> Q2350),
+	Q2355	= (reset[1] -> Q2349),
+	Q2356	= (reset[2] -> Q2357
+		  |reset[1] -> Q2358),
+	Q2357	= (reset[1] -> Q2353
+		  |in[2] -> Q2355),
+	Q2358	= (reset[2] -> Q2353
+		  |in[1] -> Q2359),
+	Q2359	= (reset[2] -> Q2354),
+	Q2360	= (cleanNOk[2] -> Q2198
+		  |cleanOk[2] -> Q2342
+		  |stopOldSpec -> Q2361),
+	Q2361	= (cleanNOk[2] -> Q2362
+		  |reconfigure -> Q2376
+		  |cleanOk[2] -> Q2379),
+	Q2362	= (reconfigure -> Q2363),
+	Q2363	= (out[2] -> Q2364),
+	Q2364	= (reset[2] -> Q2365),
+	Q2365	= (in[2] -> Q2366
+		  |out[1] -> Q2371),
+	Q2366	= (out[1] -> Q2367),
+	Q2367	= (reset[1] -> Q2368),
+	Q2368	= (in[1] -> Q2369),
+	Q2369	= (startNewSpec -> Q2370),
+	Q2370	= (hotSwapOut -> Q7),
+	Q2371	= (reset[1] -> Q2372
+		  |in[2] -> Q2375),
+	Q2372	= (in[2] -> Q2368
+		  |in[1] -> Q2373),
+	Q2373	= (in[2] -> Q2369
+		  |startNewSpec -> Q2374),
+	Q2374	= (in[2] -> Q2370),
+	Q2375	= (reset[1] -> Q2368),
+	Q2376	= (cleanNOk[2] -> Q2363
+		  |cleanOk[2] -> Q2377),
+	Q2377	= (out[2] -> Q2378),
+	Q2378	= (reset[2] -> Q2365),
+	Q2379	= (reconfigure -> Q2377),
+	Q2380	= (cleanNOk[1] -> Q865
+		  |hotSwapIn -> Q867
+		  |cleanOk[1] -> Q943
+		  |out[2] -> Q1813),
+	Q2381	= (cleanOk[2] -> Q943
+		  |cleanNOk[2] -> Q2382
+		  |hotSwapIn -> Q2384
+		  |out[1] -> Q2453),
+	Q2382	= (clean[2] -> Q2383
+		  |hotSwapIn -> Q2454
+		  |out[1] -> Q2476),
+	Q2383	= (cleanOk[2] -> Q943
+		  |cleanNOk[2] -> Q2382
+		  |hotSwapIn -> Q2384
+		  |out[1] -> Q2453),
+	Q2384	= (cleanNOk[2] -> Q2385
+		  |stopOldSpec -> Q2407
+		  |cleanOk[2] -> Q2434),
+	Q2385	= (stopOldSpec -> Q2386),
+	Q2386	= (reconfigure -> Q2387),
+	Q2387	= (out[2] -> Q2388),
+	Q2388	= (reset[2] -> Q2389
+		  |out[1] -> Q2402),
+	Q2389	= (in[2] -> Q2390
+		  |out[1] -> Q2396),
+	Q2390	= (out[1] -> Q2391),
+	Q2391	= (reset[1] -> Q2392),
+	Q2392	= (in[1] -> Q2393
+		  |startNewSpec -> Q2395),
+	Q2393	= (startNewSpec -> Q2394),
+	Q2394	= (hotSwapOut -> Q7),
+	Q2395	= (in[1] -> Q2394),
+	Q2396	= (reset[1] -> Q2397
+		  |in[2] -> Q2401),
+	Q2397	= (in[2] -> Q2392
+		  |in[1] -> Q2398
+		  |startNewSpec -> Q2400),
+	Q2398	= (in[2] -> Q2393
+		  |startNewSpec -> Q2399),
+	Q2399	= (in[2] -> Q2394),
+	Q2400	= (in[2] -> Q2395
+		  |in[1] -> Q2399),
+	Q2401	= (reset[1] -> Q2392),
+	Q2402	= (reset[2] -> Q2403
+		  |reset[1] -> Q2404),
+	Q2403	= (reset[1] -> Q2397
+		  |in[2] -> Q2401),
+	Q2404	= (reset[2] -> Q2397
+		  |in[1] -> Q2405),
+	Q2405	= (reset[2] -> Q2398
+		  |startNewSpec -> Q2406),
+	Q2406	= (reset[2] -> Q2399),
+	Q2407	= (cleanNOk[2] -> Q2408
+		  |reconfigure -> Q2417
+		  |cleanOk[2] -> Q2433),
+	Q2408	= (reconfigure -> Q2409),
+	Q2409	= (out[2] -> Q2410),
+	Q2410	= (reset[2] -> Q2411),
+	Q2411	= (in[2] -> Q2412),
+	Q2412	= (out[1] -> Q2413),
+	Q2413	= (reset[1] -> Q2414),
+	Q2414	= (in[1] -> Q2415),
+	Q2415	= (startNewSpec -> Q2416),
+	Q2416	= (hotSwapOut -> Q7),
+	Q2417	= (cleanNOk[2] -> Q2409
+		  |cleanOk[2] -> Q2418),
+	Q2418	= (out[2] -> Q2419),
+	Q2419	= (reset[2] -> Q2411
+		  |out[1] -> Q2420),
+	Q2420	= (reset[2] -> Q2421
+		  |reset[1] -> Q2430),
+	Q2421	= (reset[1] -> Q2422
+		  |in[2] -> Q2427
+		  |startNewSpec -> Q2429),
+	Q2422	= (in[2] -> Q2414
+		  |in[1] -> Q2423
+		  |startNewSpec -> Q2425),
+	Q2423	= (in[2] -> Q2415
+		  |startNewSpec -> Q2424),
+	Q2424	= (in[2] -> Q2416),
+	Q2425	= (in[1] -> Q2424
+		  |in[2] -> Q2426),
+	Q2426	= (in[1] -> Q2416),
+	Q2427	= (reset[1] -> Q2414
+		  |startNewSpec -> Q2428),
+	Q2428	= (reset[1] -> Q2426),
+	Q2429	= (reset[1] -> Q2425
+		  |in[2] -> Q2428),
+	Q2430	= (reset[2] -> Q2422
+		  |in[1] -> Q2431),
+	Q2431	= (reset[2] -> Q2423
+		  |startNewSpec -> Q2432),
+	Q2432	= (reset[2] -> Q2424),
+	Q2433	= (reconfigure -> Q2418),
+	Q2434	= (stopOldSpec -> Q2435),
+	Q2435	= (reconfigure -> Q2436),
+	Q2436	= (out[2] -> Q2437),
+	Q2437	= (reset[2] -> Q2438
+		  |out[1] -> Q2449),
+	Q2438	= (in[2] -> Q2439
+		  |out[1] -> Q2444),
+	Q2439	= (out[1] -> Q2440),
+	Q2440	= (reset[1] -> Q2441),
+	Q2441	= (in[1] -> Q2442),
+	Q2442	= (startNewSpec -> Q2443),
+	Q2443	= (hotSwapOut -> Q7),
+	Q2444	= (reset[1] -> Q2445
+		  |in[2] -> Q2448),
+	Q2445	= (in[2] -> Q2441
+		  |in[1] -> Q2446),
+	Q2446	= (in[2] -> Q2442
+		  |startNewSpec -> Q2447),
+	Q2447	= (in[2] -> Q2443),
+	Q2448	= (reset[1] -> Q2441),
+	Q2449	= (reset[2] -> Q2450
+		  |reset[1] -> Q2451),
+	Q2450	= (reset[1] -> Q2445
+		  |in[2] -> Q2448),
+	Q2451	= (reset[2] -> Q2445
+		  |in[1] -> Q2452),
+	Q2452	= (reset[2] -> Q2446),
+	Q2453	= (cleanNOk[2] -> Q1346
+		  |reset[1] -> Q1348
+		  |hotSwapIn -> Q1349
+		  |cleanOk[2] -> Q1370),
+	Q2454	= (stopOldSpec -> Q2455),
+	Q2455	= (reconfigure -> Q2456),
+	Q2456	= (out[2] -> Q2457),
+	Q2457	= (reset[2] -> Q2458
+		  |out[1] -> Q2471),
+	Q2458	= (in[2] -> Q2459
+		  |out[1] -> Q2465),
+	Q2459	= (out[1] -> Q2460),
+	Q2460	= (reset[1] -> Q2461),
+	Q2461	= (in[1] -> Q2462
+		  |startNewSpec -> Q2464),
+	Q2462	= (startNewSpec -> Q2463),
+	Q2463	= (hotSwapOut -> Q7),
+	Q2464	= (in[1] -> Q2463),
+	Q2465	= (reset[1] -> Q2466
+		  |in[2] -> Q2470),
+	Q2466	= (in[2] -> Q2461
+		  |in[1] -> Q2467
+		  |startNewSpec -> Q2469),
+	Q2467	= (in[2] -> Q2462
+		  |startNewSpec -> Q2468),
+	Q2468	= (in[2] -> Q2463),
+	Q2469	= (in[2] -> Q2464
+		  |in[1] -> Q2468),
+	Q2470	= (reset[1] -> Q2461),
+	Q2471	= (reset[2] -> Q2472
+		  |reset[1] -> Q2473),
+	Q2472	= (reset[1] -> Q2466
+		  |in[2] -> Q2470),
+	Q2473	= (reset[2] -> Q2466
+		  |in[1] -> Q2474),
+	Q2474	= (reset[2] -> Q2467
+		  |startNewSpec -> Q2475),
+	Q2475	= (reset[2] -> Q2468),
+	Q2476	= (reset[1] -> Q604
+		  |clean[2] -> Q1347
+		  |hotSwapIn -> Q1435),
+	Q2477	= (cleanNOk[1] -> Q2478
+		  |stopOldSpec -> Q2501
+		  |cleanOk[1] -> Q2534),
+	Q2478	= (stopOldSpec -> Q2479),
+	Q2479	= (reconfigure -> Q2480),
+	Q2480	= (out[2] -> Q2481),
+	Q2481	= (reset[2] -> Q2482
+		  |out[1] -> Q2495),
+	Q2482	= (in[2] -> Q2483
+		  |out[1] -> Q2488),
+	Q2483	= (out[1] -> Q2484),
+	Q2484	= (reset[1] -> Q2485),
+	Q2485	= (in[1] -> Q2486),
+	Q2486	= (startNewSpec -> Q2487),
+	Q2487	= (hotSwapOut -> Q7),
+	Q2488	= (reset[1] -> Q2489
+		  |in[2] -> Q2492),
+	Q2489	= (in[2] -> Q2485
+		  |in[1] -> Q2490),
+	Q2490	= (in[2] -> Q2486
+		  |startNewSpec -> Q2491),
+	Q2491	= (in[2] -> Q2487),
+	Q2492	= (reset[1] -> Q2485
+		  |startNewSpec -> Q2493),
+	Q2493	= (reset[1] -> Q2494),
+	Q2494	= (in[1] -> Q2487),
+	Q2495	= (reset[2] -> Q2496
+		  |reset[1] -> Q2499),
+	Q2496	= (reset[1] -> Q2489
+		  |in[2] -> Q2492
+		  |startNewSpec -> Q2497),
+	Q2497	= (in[2] -> Q2493
+		  |reset[1] -> Q2498),
+	Q2498	= (in[1] -> Q2491
+		  |in[2] -> Q2494),
+	Q2499	= (reset[2] -> Q2489
+		  |in[1] -> Q2500),
+	Q2500	= (reset[2] -> Q2490),
+	Q2501	= (cleanNOk[1] -> Q2502
+		  |reconfigure -> Q2512
+		  |cleanOk[1] -> Q2533),
+	Q2502	= (reconfigure -> Q2503),
+	Q2503	= (out[2] -> Q2504),
+	Q2504	= (reset[2] -> Q2505),
+	Q2505	= (in[2] -> Q2506),
+	Q2506	= (out[1] -> Q2507),
+	Q2507	= (reset[1] -> Q2508),
+	Q2508	= (in[1] -> Q2509
+		  |startNewSpec -> Q2511),
+	Q2509	= (startNewSpec -> Q2510),
+	Q2510	= (hotSwapOut -> Q7),
+	Q2511	= (in[1] -> Q2510),
+	Q2512	= (cleanNOk[1] -> Q2503
+		  |cleanOk[1] -> Q2513),
+	Q2513	= (out[2] -> Q2514),
+	Q2514	= (reset[2] -> Q2515
+		  |out[1] -> Q2523),
+	Q2515	= (in[2] -> Q2516
+		  |out[1] -> Q2518),
+	Q2516	= (out[1] -> Q2517),
+	Q2517	= (reset[1] -> Q2508),
+	Q2518	= (reset[1] -> Q2519
+		  |in[2] -> Q2521),
+	Q2519	= (in[2] -> Q2508
+		  |in[1] -> Q2520),
+	Q2520	= (in[2] -> Q2509),
+	Q2521	= (reset[1] -> Q2508
+		  |startNewSpec -> Q2522),
+	Q2522	= (reset[1] -> Q2511),
+	Q2523	= (reset[2] -> Q2524
+		  |reset[1] -> Q2528
+		  |startNewSpec -> Q2531),
+	Q2524	= (reset[1] -> Q2519
+		  |in[2] -> Q2521
+		  |startNewSpec -> Q2525),
+	Q2525	= (in[2] -> Q2522
+		  |reset[1] -> Q2526),
+	Q2526	= (in[2] -> Q2511
+		  |in[1] -> Q2527),
+	Q2527	= (in[2] -> Q2510),
+	Q2528	= (reset[2] -> Q2519
+		  |in[1] -> Q2529),
+	Q2529	= (reset[2] -> Q2520
+		  |startNewSpec -> Q2530),
+	Q2530	= (reset[2] -> Q2527),
+	Q2531	= (reset[2] -> Q2525
+		  |reset[1] -> Q2532),
+	Q2532	= (reset[2] -> Q2526
+		  |in[1] -> Q2530),
+	Q2533	= (reconfigure -> Q2513),
+	Q2534	= (stopOldSpec -> Q2535),
+	Q2535	= (reconfigure -> Q2536),
+	Q2536	= (out[2] -> Q2537),
+	Q2537	= (reset[2] -> Q2538
+		  |out[1] -> Q2545),
+	Q2538	= (in[2] -> Q2539),
+	Q2539	= (out[1] -> Q2540),
+	Q2540	= (reset[1] -> Q2541),
+	Q2541	= (in[1] -> Q2542
+		  |startNewSpec -> Q2544),
+	Q2542	= (startNewSpec -> Q2543),
+	Q2543	= (hotSwapOut -> Q7),
+	Q2544	= (in[1] -> Q2543),
+	Q2545	= (reset[2] -> Q2546
+		  |reset[1] -> Q2554
+		  |startNewSpec -> Q2556),
+	Q2546	= (reset[1] -> Q2547
+		  |in[2] -> Q2549
+		  |startNewSpec -> Q2551),
+	Q2547	= (in[2] -> Q2541
+		  |in[1] -> Q2548),
+	Q2548	= (in[2] -> Q2542),
+	Q2549	= (reset[1] -> Q2541
+		  |startNewSpec -> Q2550),
+	Q2550	= (reset[1] -> Q2544),
+	Q2551	= (in[2] -> Q2550
+		  |reset[1] -> Q2552),
+	Q2552	= (in[2] -> Q2544
+		  |in[1] -> Q2553),
+	Q2553	= (in[2] -> Q2543),
+	Q2554	= (reset[2] -> Q2547
+		  |in[1] -> Q2555),
+	Q2555	= (reset[2] -> Q2548),
+	Q2556	= (reset[2] -> Q2551
+		  |reset[1] -> Q2557),
+	Q2557	= (reset[2] -> Q2552
+		  |in[1] -> Q2558),
+	Q2558	= (reset[2] -> Q2553),
+	Q2559	= (clean[1] -> Q2560
+		  |clean[2] -> Q2561
+		  |hotSwapIn -> Q2606),
+	Q2560	= (clean[2] -> Q2146
+		  |cleanOk[1] -> Q2382
+		  |hotSwapIn -> Q2477
+		  |cleanNOk[1] -> Q2559),
+	Q2561	= (cleanOk[2] -> Q865
+		  |clean[1] -> Q2144
+		  |cleanNOk[2] -> Q2559
+		  |hotSwapIn -> Q2562),
+	Q2562	= (cleanNOk[2] -> Q2563
+		  |cleanOk[2] -> Q2583),
+	Q2563	= (stopOldSpec -> Q2564),
+	Q2564	= (reconfigure -> Q2565),
+	Q2565	= (out[2] -> Q2566),
+	Q2566	= (reset[2] -> Q2567
+		  |out[1] -> Q2574),
+	Q2567	= (in[2] -> Q2568),
+	Q2568	= (out[1] -> Q2569),
+	Q2569	= (reset[1] -> Q2570),
+	Q2570	= (in[1] -> Q2571
+		  |startNewSpec -> Q2573),
+	Q2571	= (startNewSpec -> Q2572),
+	Q2572	= (hotSwapOut -> Q7),
+	Q2573	= (in[1] -> Q2572),
+	Q2574	= (reset[2] -> Q2575
+		  |reset[1] -> Q2581),
+	Q2575	= (reset[1] -> Q2576
+		  |in[2] -> Q2580),
+	Q2576	= (in[2] -> Q2570
+		  |in[1] -> Q2577
+		  |startNewSpec -> Q2579),
+	Q2577	= (in[2] -> Q2571
+		  |startNewSpec -> Q2578),
+	Q2578	= (in[2] -> Q2572),
+	Q2579	= (in[2] -> Q2573
+		  |in[1] -> Q2578),
+	Q2580	= (reset[1] -> Q2570),
+	Q2581	= (reset[2] -> Q2576
+		  |in[1] -> Q2582),
+	Q2582	= (reset[2] -> Q2577),
+	Q2583	= (stopOldSpec -> Q2584),
+	Q2584	= (reconfigure -> Q2585),
+	Q2585	= (out[2] -> Q2586),
+	Q2586	= (reset[2] -> Q2587
+		  |out[1] -> Q2600),
+	Q2587	= (in[2] -> Q2588
+		  |out[1] -> Q2593),
+	Q2588	= (out[1] -> Q2589),
+	Q2589	= (reset[1] -> Q2590),
+	Q2590	= (in[1] -> Q2591),
+	Q2591	= (startNewSpec -> Q2592),
+	Q2592	= (hotSwapOut -> Q7),
+	Q2593	= (reset[1] -> Q2594
+		  |in[2] -> Q2599),
+	Q2594	= (in[2] -> Q2590
+		  |in[1] -> Q2595
+		  |startNewSpec -> Q2596),
+	Q2595	= (in[2] -> Q2591),
+	Q2596	= (in[1] -> Q2597
+		  |in[2] -> Q2598),
+	Q2597	= (in[2] -> Q2592),
+	Q2598	= (in[1] -> Q2592),
+	Q2599	= (reset[1] -> Q2590),
+	Q2600	= (reset[2] -> Q2601
+		  |reset[1] -> Q2604),
+	Q2601	= (reset[1] -> Q2594
+		  |in[2] -> Q2599
+		  |startNewSpec -> Q2602),
+	Q2602	= (reset[1] -> Q2596
+		  |in[2] -> Q2603),
+	Q2603	= (reset[1] -> Q2598),
+	Q2604	= (reset[2] -> Q2594
+		  |in[1] -> Q2605),
+	Q2605	= (reset[2] -> Q2595),
+	Q2606	= (stopOldSpec -> Q2607),
+	Q2607	= (reconfigure -> Q2608),
+	Q2608	= (out[2] -> Q2609),
+	Q2609	= (reset[2] -> Q2610),
+	Q2610	= (in[2] -> Q2611),
+	Q2611	= (out[1] -> Q2612),
+	Q2612	= (reset[1] -> Q2613),
+	Q2613	= (in[1] -> Q2614
+		  |startNewSpec -> Q2616),
+	Q2614	= (startNewSpec -> Q2615),
+	Q2615	= (hotSwapOut -> Q7),
+	Q2616	= (in[1] -> Q2615),
+	Q2617	= (polishNOk[1] -> Q2618
+		  |stopOldSpec -> Q2632
+		  |polishOk[1] -> Q2649),
+	Q2618	= (stopOldSpec -> Q2619),
+	Q2619	= (reconfigure -> Q2620),
+	Q2620	= (out[2] -> Q2621),
+	Q2621	= (reset[2] -> Q2622),
+	Q2622	= (in[2] -> Q2623
+		  |out[1] -> Q2628),
+	Q2623	= (out[1] -> Q2624),
+	Q2624	= (reset[1] -> Q2625),
+	Q2625	= (in[1] -> Q2626),
+	Q2626	= (startNewSpec -> Q2627),
+	Q2627	= (hotSwapOut -> Q7),
+	Q2628	= (reset[1] -> Q2629
+		  |in[2] -> Q2631),
+	Q2629	= (in[2] -> Q2625
+		  |in[1] -> Q2630),
+	Q2630	= (in[2] -> Q2626),
+	Q2631	= (reset[1] -> Q2625),
+	Q2632	= ({polishNOk, polishOk}[1] -> Q2633),
+	Q2633	= (reconfigure -> Q2634),
+	Q2634	= (out[2] -> Q2635),
+	Q2635	= (reset[2] -> Q2636),
+	Q2636	= (in[2] -> Q2637
+		  |out[1] -> Q2643),
+	Q2637	= (out[1] -> Q2638),
+	Q2638	= (reset[1] -> Q2639),
+	Q2639	= (in[1] -> Q2640
+		  |startNewSpec -> Q2642),
+	Q2640	= (startNewSpec -> Q2641),
+	Q2641	= (hotSwapOut -> Q7),
+	Q2642	= (in[1] -> Q2641),
+	Q2643	= (reset[1] -> Q2644
+		  |in[2] -> Q2648),
+	Q2644	= (in[2] -> Q2639
+		  |in[1] -> Q2645
+		  |startNewSpec -> Q2647),
+	Q2645	= (in[2] -> Q2640
+		  |startNewSpec -> Q2646),
+	Q2646	= (in[2] -> Q2641),
+	Q2647	= (in[2] -> Q2642
+		  |in[1] -> Q2646),
+	Q2648	= (reset[1] -> Q2639),
+	Q2649	= (stopOldSpec -> Q2650),
+	Q2650	= (reconfigure -> Q2651),
+	Q2651	= (out[2] -> Q2652),
+	Q2652	= (reset[2] -> Q2653),
+	Q2653	= (in[2] -> Q2654
+		  |out[1] -> Q2660),
+	Q2654	= (out[1] -> Q2655),
+	Q2655	= (reset[1] -> Q2656),
+	Q2656	= (in[1] -> Q2657
+		  |startNewSpec -> Q2659),
+	Q2657	= (startNewSpec -> Q2658),
+	Q2658	= (hotSwapOut -> Q7),
+	Q2659	= (in[1] -> Q2658),
+	Q2660	= (reset[1] -> Q2661
+		  |in[2] -> Q2665),
+	Q2661	= (in[2] -> Q2656
+		  |in[1] -> Q2662
+		  |startNewSpec -> Q2664),
+	Q2662	= (in[2] -> Q2657
+		  |startNewSpec -> Q2663),
+	Q2663	= (in[2] -> Q2658),
+	Q2664	= (in[2] -> Q2659
+		  |in[1] -> Q2663),
+	Q2665	= (reset[1] -> Q2656),
+	Q2666	= (drillNOk[1] -> Q2667
+		  |stopOldSpec -> Q2674
+		  |drillOk[1] -> Q2692),
+	Q2667	= (stopOldSpec -> Q2668),
+	Q2668	= (reconfigure -> Q2669),
+	Q2669	= (out[2] -> Q2670),
+	Q2670	= (reset[2] -> Q2671),
+	Q2671	= (in[2] -> Q2672),
+	Q2672	= (startNewSpec -> Q2673),
+	Q2673	= (hotSwapOut -> Q7),
+	Q2674	= (drillNOk[1] -> Q2668
+		  |drillOk[1] -> Q2675),
+	Q2675	= (reconfigure -> Q2676),
+	Q2676	= (out[2] -> Q2677),
+	Q2677	= (reset[2] -> Q2678
+		  |out[1] -> Q2688),
+	Q2678	= (in[2] -> Q2679
+		  |out[1] -> Q2683),
+	Q2679	= (out[1] -> Q2680),
+	Q2680	= (reset[1] -> Q2681),
+	Q2681	= (in[1] -> Q2672
+		  |startNewSpec -> Q2682),
+	Q2682	= (in[1] -> Q2673),
+	Q2683	= (reset[1] -> Q2684
+		  |in[2] -> Q2687),
+	Q2684	= (in[1] -> Q2671
+		  |in[2] -> Q2681
+		  |startNewSpec -> Q2685),
+	Q2685	= (in[2] -> Q2682
+		  |in[1] -> Q2686),
+	Q2686	= (in[2] -> Q2673),
+	Q2687	= (reset[1] -> Q2681),
+	Q2688	= (reset[2] -> Q2689
+		  |reset[1] -> Q2690),
+	Q2689	= (reset[1] -> Q2684
+		  |in[2] -> Q2687),
+	Q2690	= (reset[2] -> Q2684
+		  |in[1] -> Q2691),
+	Q2691	= (reset[2] -> Q2671),
+	Q2692	= (stopOldSpec -> Q2693),
+	Q2693	= (reconfigure -> Q2694),
+	Q2694	= (out[2] -> Q2695),
+	Q2695	= (reset[2] -> Q2696),
+	Q2696	= (in[2] -> Q2697
+		  |out[1] -> Q2703),
+	Q2697	= (out[1] -> Q2698),
+	Q2698	= (reset[1] -> Q2699),
+	Q2699	= (in[1] -> Q2700
+		  |startNewSpec -> Q2702),
+	Q2700	= (startNewSpec -> Q2701),
+	Q2701	= (hotSwapOut -> Q7),
+	Q2702	= (in[1] -> Q2701),
+	Q2703	= (reset[1] -> Q2704
+		  |in[2] -> Q2708),
+	Q2704	= (in[2] -> Q2699
+		  |in[1] -> Q2705
+		  |startNewSpec -> Q2707),
+	Q2705	= (in[2] -> Q2700
+		  |startNewSpec -> Q2706),
+	Q2706	= (in[2] -> Q2701),
+	Q2707	= (in[2] -> Q2702
+		  |in[1] -> Q2706),
+	Q2708	= (reset[1] -> Q2699),
+	Q2709	= (drill[1] -> Q639
+		  |cleanNOk[2] -> Q641
+		  |cleanOk[2] -> Q764
+		  |hotSwapIn -> Q2710),
+	Q2710	= (cleanNOk[2] -> Q2711
+		  |stopOldSpec -> Q2718
+		  |cleanOk[2] -> Q2728),
+	Q2711	= (stopOldSpec -> Q2712),
+	Q2712	= (reconfigure -> Q2713),
+	Q2713	= (out[2] -> Q2714),
+	Q2714	= (reset[2] -> Q2715),
+	Q2715	= (in[2] -> Q2716),
+	Q2716	= (startNewSpec -> Q2717),
+	Q2717	= (hotSwapOut -> Q7),
+	Q2718	= (cleanNOk[2] -> Q2719
+		  |cleanOk[2] -> Q2725),
+	Q2719	= (reconfigure -> Q2720),
+	Q2720	= (out[2] -> Q2721),
+	Q2721	= (reset[2] -> Q2722),
+	Q2722	= (in[2] -> Q2723),
+	Q2723	= (startNewSpec -> Q2724),
+	Q2724	= (hotSwapOut -> Q7),
+	Q2725	= (reconfigure -> Q2726),
+	Q2726	= (out[2] -> Q2727),
+	Q2727	= (reset[2] -> Q2722),
+	Q2728	= (stopOldSpec -> Q2729),
+	Q2729	= (reconfigure -> Q2730),
+	Q2730	= (out[2] -> Q2731),
+	Q2731	= (reset[2] -> Q2732),
+	Q2732	= (in[2] -> Q2733),
+	Q2733	= (startNewSpec -> Q2734),
+	Q2734	= (hotSwapOut -> Q7),
+	Q2735	= (stopOldSpec -> Q2736),
+	Q2736	= (reconfigure -> Q2737),
+	Q2737	= (out[2] -> Q2738),
+	Q2738	= (reset[2] -> Q2739),
+	Q2739	= (in[2] -> Q2740),
+	Q2740	= (startNewSpec -> Q2741),
+	Q2741	= (hotSwapOut -> Q7),
+	Q2742	= (in[1] -> Q2743),
+	Q2743	= (stopOldSpec -> Q2744),
+	Q2744	= (reconfigure -> Q2745),
+	Q2745	= (out[2] -> Q2746),
+	Q2746	= (reset[2] -> Q2747),
+	Q2747	= (in[2] -> Q2748),
+	Q2748	= (startNewSpec -> Q2749),
+	Q2749	= (hotSwapOut -> Q7),
+	Q2750	= (in[1] -> Q2751),
+	Q2751	= (stopOldSpec -> Q2752),
+	Q2752	= (reconfigure -> Q2753),
+	Q2753	= (out[2] -> Q2754),
+	Q2754	= (reset[2] -> Q2755),
+	Q2755	= (in[2] -> Q2756),
+	Q2756	= (startNewSpec -> Q2757),
+	Q2757	= (hotSwapOut -> Q7),
+	Q2758	= (polish[2] -> Q193
+		  |drill[1] -> Q2759
+		  |hotSwapIn -> Q2778),
+	Q2759	= (polish[2] -> Q192
+		  |drillOk[1] -> Q295
+		  |drillNOk[1] -> Q2758
+		  |hotSwapIn -> Q2760),
+	Q2760	= (drillNOk[1] -> Q2761
+		  |drillOk[1] -> Q2768),
+	Q2761	= (stopOldSpec -> Q2762),
+	Q2762	= (reconfigure -> Q2763),
+	Q2763	= (out[2] -> Q2764),
+	Q2764	= (reset[2] -> Q2765),
+	Q2765	= (in[2] -> Q2766),
+	Q2766	= (startNewSpec -> Q2767),
+	Q2767	= (hotSwapOut -> Q7),
+	Q2768	= (stopOldSpec -> Q2769),
+	Q2769	= (reconfigure -> Q2770),
+	Q2770	= (out[2] -> Q2771),
+	Q2771	= (reset[2] -> Q2772),
+	Q2772	= (in[2] -> Q2773),
+	Q2773	= (out[1] -> Q2774),
+	Q2774	= (reset[1] -> Q2775),
+	Q2775	= (in[1] -> Q2776),
+	Q2776	= (startNewSpec -> Q2777),
+	Q2777	= (hotSwapOut -> Q7),
+	Q2778	= (stopOldSpec -> Q2779),
+	Q2779	= (reconfigure -> Q2780),
+	Q2780	= (out[2] -> Q2781),
+	Q2781	= (reset[2] -> Q2782),
+	Q2782	= (in[2] -> Q2783),
+	Q2783	= (startNewSpec -> Q2784),
+	Q2784	= (hotSwapOut -> Q7),
+	Q2785	= (polishNOk[2] -> Q2786
+		  |stopOldSpec -> Q2809
+		  |polishOk[2] -> Q2826),
+	Q2786	= (stopOldSpec -> Q2787),
+	Q2787	= (reconfigure -> Q2788),
+	Q2788	= (out[2] -> Q2789),
+	Q2789	= (reset[2] -> Q2790
+		  |out[1] -> Q2805),
+	Q2790	= (in[2] -> Q2791
+		  |out[1] -> Q2797),
+	Q2791	= (out[1] -> Q2792),
+	Q2792	= (reset[1] -> Q2793),
+	Q2793	= (in[1] -> Q2794
+		  |startNewSpec -> Q2796),
+	Q2794	= (startNewSpec -> Q2795),
+	Q2795	= (hotSwapOut -> Q7),
+	Q2796	= (in[1] -> Q2795),
+	Q2797	= (reset[1] -> Q2798
+		  |in[2] -> Q2802
+		  |startNewSpec -> Q2804),
+	Q2798	= (in[2] -> Q2793
+		  |in[1] -> Q2799
+		  |startNewSpec -> Q2801),
+	Q2799	= (in[2] -> Q2794
+		  |startNewSpec -> Q2800),
+	Q2800	= (in[2] -> Q2795),
+	Q2801	= (in[2] -> Q2796
+		  |in[1] -> Q2800),
+	Q2802	= (reset[1] -> Q2793
+		  |startNewSpec -> Q2803),
+	Q2803	= (reset[1] -> Q2796),
+	Q2804	= (reset[1] -> Q2801
+		  |in[2] -> Q2803),
+	Q2805	= (reset[2] -> Q2806
+		  |reset[1] -> Q2807),
+	Q2806	= (reset[1] -> Q2798
+		  |in[2] -> Q2802),
+	Q2807	= (reset[2] -> Q2798
+		  |in[1] -> Q2808),
+	Q2808	= (reset[2] -> Q2799),
+	Q2809	= ({polishNOk, polishOk}[2] -> Q2810),
+	Q2810	= (reconfigure -> Q2811),
+	Q2811	= (out[2] -> Q2812),
+	Q2812	= (reset[2] -> Q2813),
+	Q2813	= (in[2] -> Q2814
+		  |out[1] -> Q2819),
+	Q2814	= (out[1] -> Q2815),
+	Q2815	= (reset[1] -> Q2816),
+	Q2816	= (in[1] -> Q2817),
+	Q2817	= (startNewSpec -> Q2818),
+	Q2818	= (hotSwapOut -> Q7),
+	Q2819	= (reset[1] -> Q2820
+		  |in[2] -> Q2823),
+	Q2820	= (in[2] -> Q2816
+		  |in[1] -> Q2821),
+	Q2821	= (in[2] -> Q2817
+		  |startNewSpec -> Q2822),
+	Q2822	= (in[2] -> Q2818),
+	Q2823	= (reset[1] -> Q2816
+		  |startNewSpec -> Q2824),
+	Q2824	= (reset[1] -> Q2825),
+	Q2825	= (in[1] -> Q2818),
+	Q2826	= (stopOldSpec -> Q2827),
+	Q2827	= (reconfigure -> Q2828),
+	Q2828	= (out[2] -> Q2829),
+	Q2829	= (reset[2] -> Q2830),
+	Q2830	= (in[2] -> Q2831
+		  |out[1] -> Q2836),
+	Q2831	= (out[1] -> Q2832),
+	Q2832	= (reset[1] -> Q2833),
+	Q2833	= (in[1] -> Q2834),
+	Q2834	= (startNewSpec -> Q2835),
+	Q2835	= (hotSwapOut -> Q7),
+	Q2836	= (reset[1] -> Q2837
+		  |in[2] -> Q2840),
+	Q2837	= (in[2] -> Q2833
+		  |in[1] -> Q2838),
+	Q2838	= (in[2] -> Q2834
+		  |startNewSpec -> Q2839),
+	Q2839	= (in[2] -> Q2835),
+	Q2840	= (reset[1] -> Q2833
+		  |startNewSpec -> Q2841),
+	Q2841	= (reset[1] -> Q2842),
+	Q2842	= (in[1] -> Q2835),
+	Q2843	= (reset[1] -> Q576
+		  |polishNOk[2] -> Q1323
+		  |hotSwapIn -> Q1325
+		  |polishOk[2] -> Q1346),
+	Q2844	= (cleanNOk[1] -> Q2845
+		  |stopOldSpec -> Q2855
+		  |cleanOk[1] -> Q2877),
+	Q2845	= (stopOldSpec -> Q2846),
+	Q2846	= (reconfigure -> Q2847),
+	Q2847	= (out[2] -> Q2848),
+	Q2848	= (reset[2] -> Q2849),
+	Q2849	= (in[2] -> Q2850),
+	Q2850	= (out[1] -> Q2851),
+	Q2851	= (reset[1] -> Q2852),
+	Q2852	= (in[1] -> Q2853),
+	Q2853	= (startNewSpec -> Q2854),
+	Q2854	= (hotSwapOut -> Q7),
+	Q2855	= (cleanNOk[1] -> Q2856
+		  |cleanOk[1] -> Q2871),
+	Q2856	= (reconfigure -> Q2857),
+	Q2857	= (out[2] -> Q2858),
+	Q2858	= (reset[2] -> Q2859),
+	Q2859	= (in[2] -> Q2860
+		  |out[1] -> Q2866),
+	Q2860	= (out[1] -> Q2861),
+	Q2861	= (reset[1] -> Q2862),
+	Q2862	= (in[1] -> Q2863
+		  |startNewSpec -> Q2865),
+	Q2863	= (startNewSpec -> Q2864),
+	Q2864	= (hotSwapOut -> Q7),
+	Q2865	= (in[1] -> Q2864),
+	Q2866	= (reset[1] -> Q2867
+		  |in[2] -> Q2870),
+	Q2867	= (in[2] -> Q2862
+		  |in[1] -> Q2868),
+	Q2868	= (in[2] -> Q2863
+		  |startNewSpec -> Q2869),
+	Q2869	= (in[2] -> Q2864),
+	Q2870	= (reset[1] -> Q2862),
+	Q2871	= (reconfigure -> Q2872),
+	Q2872	= (out[2] -> Q2873),
+	Q2873	= (reset[2] -> Q2874),
+	Q2874	= (in[2] -> Q2875),
+	Q2875	= (out[1] -> Q2876),
+	Q2876	= (reset[1] -> Q2862),
+	Q2877	= (stopOldSpec -> Q2878),
+	Q2878	= (reconfigure -> Q2879),
+	Q2879	= (out[2] -> Q2880),
+	Q2880	= (reset[2] -> Q2881
+		  |out[1] -> Q2893),
+	Q2881	= (in[2] -> Q2882
+		  |out[1] -> Q2888),
+	Q2882	= (out[1] -> Q2883),
+	Q2883	= (reset[1] -> Q2884),
+	Q2884	= (in[1] -> Q2885
+		  |startNewSpec -> Q2887),
+	Q2885	= (startNewSpec -> Q2886),
+	Q2886	= (hotSwapOut -> Q7),
+	Q2887	= (in[1] -> Q2886),
+	Q2888	= (reset[1] -> Q2889
+		  |in[2] -> Q2891),
+	Q2889	= (in[2] -> Q2884
+		  |in[1] -> Q2890),
+	Q2890	= (in[2] -> Q2885),
+	Q2891	= (reset[1] -> Q2884
+		  |startNewSpec -> Q2892),
+	Q2892	= (reset[1] -> Q2887),
+	Q2893	= (reset[2] -> Q2894
+		  |reset[1] -> Q2895),
+	Q2894	= (reset[1] -> Q2889
+		  |in[2] -> Q2891),
+	Q2895	= (reset[2] -> Q2889
+		  |in[1] -> Q2896),
+	Q2896	= (reset[2] -> Q2890),
+	Q2897	= (polishNOk[2] -> Q2898
+		  |polishOk[2] -> Q2919),
+	Q2898	= (stopOldSpec -> Q2899),
+	Q2899	= (reconfigure -> Q2900),
+	Q2900	= (out[2] -> Q2901),
+	Q2901	= (reset[2] -> Q2902
+		  |out[1] -> Q2915),
+	Q2902	= (in[2] -> Q2903
+		  |out[1] -> Q2909),
+	Q2903	= (out[1] -> Q2904),
+	Q2904	= (reset[1] -> Q2905),
+	Q2905	= (in[1] -> Q2906
+		  |startNewSpec -> Q2908),
+	Q2906	= (startNewSpec -> Q2907),
+	Q2907	= (hotSwapOut -> Q7),
+	Q2908	= (in[1] -> Q2907),
+	Q2909	= (reset[1] -> Q2910
+		  |in[2] -> Q2914),
+	Q2910	= (in[2] -> Q2905
+		  |in[1] -> Q2911
+		  |startNewSpec -> Q2913),
+	Q2911	= (in[2] -> Q2906
+		  |startNewSpec -> Q2912),
+	Q2912	= (in[2] -> Q2907),
+	Q2913	= (in[2] -> Q2908
+		  |in[1] -> Q2912),
+	Q2914	= (reset[1] -> Q2905),
+	Q2915	= (reset[2] -> Q2916
+		  |reset[1] -> Q2917),
+	Q2916	= (reset[1] -> Q2910
+		  |in[2] -> Q2914),
+	Q2917	= (reset[2] -> Q2910
+		  |in[1] -> Q2918),
+	Q2918	= (reset[2] -> Q2911),
+	Q2919	= (stopOldSpec -> Q2920),
+	Q2920	= (reconfigure -> Q2921),
+	Q2921	= (out[2] -> Q2922),
+	Q2922	= (reset[2] -> Q2923),
+	Q2923	= (in[2] -> Q2924
+		  |out[1] -> Q2930),
+	Q2924	= (out[1] -> Q2925),
+	Q2925	= (reset[1] -> Q2926),
+	Q2926	= (in[1] -> Q2927
+		  |startNewSpec -> Q2929),
+	Q2927	= (startNewSpec -> Q2928),
+	Q2928	= (hotSwapOut -> Q7),
+	Q2929	= (in[1] -> Q2928),
+	Q2930	= (reset[1] -> Q2931
+		  |in[2] -> Q2934),
+	Q2931	= (in[2] -> Q2926
+		  |in[1] -> Q2932),
+	Q2932	= (in[2] -> Q2927
+		  |startNewSpec -> Q2933),
+	Q2933	= (in[2] -> Q2928),
+	Q2934	= (reset[1] -> Q2926),
+	Q2935	= (cleanNOk[1] -> Q366
+		  |polish[2] -> Q370
+		  |cleanOk[1] -> Q562
+		  |hotSwapIn -> Q2844),
+	Q2936	= (stopOldSpec -> Q2937),
+	Q2937	= (reconfigure -> Q2938),
+	Q2938	= (out[2] -> Q2939),
+	Q2939	= (reset[2] -> Q2940),
+	Q2940	= (in[2] -> Q2941
+		  |out[1] -> Q2946),
+	Q2941	= (out[1] -> Q2942),
+	Q2942	= (reset[1] -> Q2943),
+	Q2943	= (in[1] -> Q2944),
+	Q2944	= (startNewSpec -> Q2945),
+	Q2945	= (hotSwapOut -> Q7),
+	Q2946	= (reset[1] -> Q2947
+		  |in[2] -> Q2952),
+	Q2947	= (in[2] -> Q2943
+		  |in[1] -> Q2948
+		  |startNewSpec -> Q2949),
+	Q2948	= (in[2] -> Q2944),
+	Q2949	= (in[1] -> Q2950
+		  |in[2] -> Q2951),
+	Q2950	= (in[2] -> Q2945),
+	Q2951	= (in[1] -> Q2945),
+	Q2952	= (reset[1] -> Q2943),
+	Q2953	= (polishNOk[1] -> Q2954
+		  |polishNOk[2] -> Q3010
+		  |polishOk[1] -> Q3054
+		  |polishOk[2] -> Q3077),
+	Q2954	= (polishNOk[2] -> Q2955
+		  |stopOldSpec -> Q2976
+		  |polishOk[2] -> Q2992),
+	Q2955	= (stopOldSpec -> Q2956),
+	Q2956	= (reconfigure -> Q2957),
+	Q2957	= (out[2] -> Q2958),
+	Q2958	= (reset[2] -> Q2959
+		  |out[1] -> Q2972),
+	Q2959	= (in[2] -> Q2960
+		  |out[1] -> Q2966),
+	Q2960	= (out[1] -> Q2961),
+	Q2961	= (reset[1] -> Q2962),
+	Q2962	= (in[1] -> Q2963
+		  |startNewSpec -> Q2965),
+	Q2963	= (startNewSpec -> Q2964),
+	Q2964	= (hotSwapOut -> Q7),
+	Q2965	= (in[1] -> Q2964),
+	Q2966	= (reset[1] -> Q2967
+		  |in[2] -> Q2971),
+	Q2967	= (in[2] -> Q2962
+		  |in[1] -> Q2968
+		  |startNewSpec -> Q2970),
+	Q2968	= (in[2] -> Q2963
+		  |startNewSpec -> Q2969),
+	Q2969	= (in[2] -> Q2964),
+	Q2970	= (in[2] -> Q2965
+		  |in[1] -> Q2969),
+	Q2971	= (reset[1] -> Q2962),
+	Q2972	= (reset[2] -> Q2973
+		  |reset[1] -> Q2974),
+	Q2973	= (reset[1] -> Q2967
+		  |in[2] -> Q2971),
+	Q2974	= (reset[2] -> Q2967
+		  |in[1] -> Q2975),
+	Q2975	= (reset[2] -> Q2968),
+	Q2976	= ({polishNOk, polishOk}[2] -> Q2977),
+	Q2977	= (reconfigure -> Q2978),
+	Q2978	= (out[2] -> Q2979),
+	Q2979	= (reset[2] -> Q2980),
+	Q2980	= (in[2] -> Q2981
+		  |out[1] -> Q2987),
+	Q2981	= (out[1] -> Q2982),
+	Q2982	= (reset[1] -> Q2983),
+	Q2983	= (in[1] -> Q2984
+		  |startNewSpec -> Q2986),
+	Q2984	= (startNewSpec -> Q2985),
+	Q2985	= (hotSwapOut -> Q7),
+	Q2986	= (in[1] -> Q2985),
+	Q2987	= (reset[1] -> Q2988
+		  |in[2] -> Q2991),
+	Q2988	= (in[2] -> Q2983
+		  |in[1] -> Q2989),
+	Q2989	= (in[2] -> Q2984
+		  |startNewSpec -> Q2990),
+	Q2990	= (in[2] -> Q2985),
+	Q2991	= (reset[1] -> Q2983),
+	Q2992	= (stopOldSpec -> Q2993),
+	Q2993	= (reconfigure -> Q2994),
+	Q2994	= (out[2] -> Q2995),
+	Q2995	= (reset[2] -> Q2996
+		  |out[1] -> Q3002),
+	Q2996	= (in[2] -> Q2997),
+	Q2997	= (out[1] -> Q2998),
+	Q2998	= (reset[1] -> Q2999),
+	Q2999	= (in[1] -> Q3000),
+	Q3000	= (startNewSpec -> Q3001),
+	Q3001	= (hotSwapOut -> Q7),
+	Q3002	= (reset[2] -> Q3003
+		  |reset[1] -> Q3008),
+	Q3003	= (reset[1] -> Q3004
+		  |in[2] -> Q3007),
+	Q3004	= (in[2] -> Q2999
+		  |in[1] -> Q3005),
+	Q3005	= (in[2] -> Q3000
+		  |startNewSpec -> Q3006),
+	Q3006	= (in[2] -> Q3001),
+	Q3007	= (reset[1] -> Q2999),
+	Q3008	= (reset[2] -> Q3004
+		  |in[1] -> Q3009),
+	Q3009	= (reset[2] -> Q3005),
+	Q3010	= (polishNOk[1] -> Q2955
+		  |stopOldSpec -> Q3011
+		  |polishOk[1] -> Q3031),
+	Q3011	= ({polishNOk, polishOk}[1] -> Q3012),
+	Q3012	= (reconfigure -> Q3013),
+	Q3013	= (out[2] -> Q3014),
+	Q3014	= (reset[2] -> Q3015
+		  |out[1] -> Q3022),
+	Q3015	= (in[2] -> Q3016),
+	Q3016	= (out[1] -> Q3017),
+	Q3017	= (reset[1] -> Q3018),
+	Q3018	= (in[1] -> Q3019
+		  |startNewSpec -> Q3021),
+	Q3019	= (startNewSpec -> Q3020),
+	Q3020	= (hotSwapOut -> Q7),
+	Q3021	= (in[1] -> Q3020),
+	Q3022	= (reset[2] -> Q3023
+		  |reset[1] -> Q3029),
+	Q3023	= (reset[1] -> Q3024
+		  |in[2] -> Q3028),
+	Q3024	= (in[2] -> Q3018
+		  |in[1] -> Q3025
+		  |startNewSpec -> Q3027),
+	Q3025	= (in[2] -> Q3019
+		  |startNewSpec -> Q3026),
+	Q3026	= (in[2] -> Q3020),
+	Q3027	= (in[2] -> Q3021
+		  |in[1] -> Q3026),
+	Q3028	= (reset[1] -> Q3018),
+	Q3029	= (reset[2] -> Q3024
+		  |in[1] -> Q3030),
+	Q3030	= (reset[2] -> Q3025),
+	Q3031	= (stopOldSpec -> Q3032),
+	Q3032	= (reconfigure -> Q3033),
+	Q3033	= (out[2] -> Q3034),
+	Q3034	= (reset[2] -> Q3035
+		  |out[1] -> Q3048),
+	Q3035	= (in[2] -> Q3036
+		  |out[1] -> Q3041),
+	Q3036	= (out[1] -> Q3037),
+	Q3037	= (reset[1] -> Q3038),
+	Q3038	= (in[1] -> Q3039),
+	Q3039	= (startNewSpec -> Q3040),
+	Q3040	= (hotSwapOut -> Q7),
+	Q3041	= (reset[1] -> Q3042
+		  |in[2] -> Q3045),
+	Q3042	= (in[2] -> Q3038
+		  |in[1] -> Q3043),
+	Q3043	= (in[2] -> Q3039
+		  |startNewSpec -> Q3044),
+	Q3044	= (in[2] -> Q3040),
+	Q3045	= (reset[1] -> Q3038
+		  |startNewSpec -> Q3046),
+	Q3046	= (reset[1] -> Q3047),
+	Q3047	= (in[1] -> Q3040),
+	Q3048	= (reset[2] -> Q3049
+		  |reset[1] -> Q3052),
+	Q3049	= (reset[1] -> Q3042
+		  |in[2] -> Q3045
+		  |startNewSpec -> Q3050),
+	Q3050	= (in[2] -> Q3046
+		  |reset[1] -> Q3051),
+	Q3051	= (in[1] -> Q3044
+		  |in[2] -> Q3047),
+	Q3052	= (reset[2] -> Q3042
+		  |in[1] -> Q3053),
+	Q3053	= (reset[2] -> Q3043),
+	Q3054	= (polishNOk[2] -> Q3031
+		  |stopOldSpec -> Q3055
+		  |polishOk[2] -> Q3066),
+	Q3055	= ({polishNOk, polishOk}[2] -> Q3056),
+	Q3056	= (reconfigure -> Q3057),
+	Q3057	= (out[2] -> Q3058),
+	Q3058	= (reset[2] -> Q3059),
+	Q3059	= (in[2] -> Q3060),
+	Q3060	= (out[1] -> Q3061),
+	Q3061	= (reset[1] -> Q3062),
+	Q3062	= (in[1] -> Q3063
+		  |startNewSpec -> Q3065),
+	Q3063	= (startNewSpec -> Q3064),
+	Q3064	= (hotSwapOut -> Q7),
+	Q3065	= (in[1] -> Q3064),
+	Q3066	= (stopOldSpec -> Q3067),
+	Q3067	= (reconfigure -> Q3068),
+	Q3068	= (out[2] -> Q3069),
+	Q3069	= (reset[2] -> Q3070),
+	Q3070	= (in[2] -> Q3071),
+	Q3071	= (out[1] -> Q3072),
+	Q3072	= (reset[1] -> Q3073),
+	Q3073	= (in[1] -> Q3074
+		  |startNewSpec -> Q3076),
+	Q3074	= (startNewSpec -> Q3075),
+	Q3075	= (hotSwapOut -> Q7),
+	Q3076	= (in[1] -> Q3075),
+	Q3077	= (polishNOk[1] -> Q2992
+		  |polishOk[1] -> Q3066
+		  |stopOldSpec -> Q3078),
+	Q3078	= ({polishNOk, polishOk}[1] -> Q3079),
+	Q3079	= (reconfigure -> Q3080),
+	Q3080	= (out[2] -> Q3081),
+	Q3081	= (reset[2] -> Q3082),
+	Q3082	= (in[2] -> Q3083),
+	Q3083	= (out[1] -> Q3084),
+	Q3084	= (reset[1] -> Q3085),
+	Q3085	= (in[1] -> Q3086
+		  |startNewSpec -> Q3088),
+	Q3086	= (startNewSpec -> Q3087),
+	Q3087	= (hotSwapOut -> Q7),
+	Q3088	= (in[1] -> Q3087),
+	Q3089	= (polishNOk[2] -> Q3090
+		  |polishOk[2] -> Q3111),
+	Q3090	= (stopOldSpec -> Q3091),
+	Q3091	= (reconfigure -> Q3092),
+	Q3092	= (out[2] -> Q3093),
+	Q3093	= (reset[2] -> Q3094
+		  |out[1] -> Q3107),
+	Q3094	= (in[2] -> Q3095
+		  |out[1] -> Q3101),
+	Q3095	= (out[1] -> Q3096),
+	Q3096	= (reset[1] -> Q3097),
+	Q3097	= (in[1] -> Q3098
+		  |startNewSpec -> Q3100),
+	Q3098	= (startNewSpec -> Q3099),
+	Q3099	= (hotSwapOut -> Q7),
+	Q3100	= (in[1] -> Q3099),
+	Q3101	= (reset[1] -> Q3102
+		  |in[2] -> Q3106),
+	Q3102	= (in[2] -> Q3097
+		  |in[1] -> Q3103
+		  |startNewSpec -> Q3105),
+	Q3103	= (in[2] -> Q3098
+		  |startNewSpec -> Q3104),
+	Q3104	= (in[2] -> Q3099),
+	Q3105	= (in[2] -> Q3100
+		  |in[1] -> Q3104),
+	Q3106	= (reset[1] -> Q3097),
+	Q3107	= (reset[2] -> Q3108
+		  |reset[1] -> Q3109),
+	Q3108	= (reset[1] -> Q3102
+		  |in[2] -> Q3106),
+	Q3109	= (reset[2] -> Q3102
+		  |in[1] -> Q3110),
+	Q3110	= (reset[2] -> Q3103),
+	Q3111	= (stopOldSpec -> Q3112),
+	Q3112	= (reconfigure -> Q3113),
+	Q3113	= (out[2] -> Q3114),
+	Q3114	= (reset[2] -> Q3115),
+	Q3115	= (in[2] -> Q3116
+		  |out[1] -> Q3122),
+	Q3116	= (out[1] -> Q3117),
+	Q3117	= (reset[1] -> Q3118),
+	Q3118	= (in[1] -> Q3119
+		  |startNewSpec -> Q3121),
+	Q3119	= (startNewSpec -> Q3120),
+	Q3120	= (hotSwapOut -> Q7),
+	Q3121	= (in[1] -> Q3120),
+	Q3122	= (reset[1] -> Q3123
+		  |in[2] -> Q3126),
+	Q3123	= (in[2] -> Q3118
+		  |in[1] -> Q3124),
+	Q3124	= (in[2] -> Q3119
+		  |startNewSpec -> Q3125),
+	Q3125	= (in[2] -> Q3120),
+	Q3126	= (reset[1] -> Q3118),
+	Q3127	= (polishNOk[2] -> Q3128
+		  |stopOldSpec -> Q3135
+		  |polishOk[2] -> Q3142),
+	Q3128	= (stopOldSpec -> Q3129),
+	Q3129	= (reconfigure -> Q3130),
+	Q3130	= (out[2] -> Q3131),
+	Q3131	= (reset[2] -> Q3132),
+	Q3132	= (in[2] -> Q3133),
+	Q3133	= (startNewSpec -> Q3134),
+	Q3134	= (hotSwapOut -> Q7),
+	Q3135	= ({polishNOk, polishOk}[2] -> Q3136),
+	Q3136	= (reconfigure -> Q3137),
+	Q3137	= (out[2] -> Q3138),
+	Q3138	= (reset[2] -> Q3139),
+	Q3139	= (in[2] -> Q3140),
+	Q3140	= (startNewSpec -> Q3141),
+	Q3141	= (hotSwapOut -> Q7),
+	Q3142	= (stopOldSpec -> Q3143),
+	Q3143	= (reconfigure -> Q3144),
+	Q3144	= (out[2] -> Q3145),
+	Q3145	= (reset[2] -> Q3146),
+	Q3146	= (in[2] -> Q3147),
+	Q3147	= (startNewSpec -> Q3148),
+	Q3148	= (hotSwapOut -> Q7),
+	Q3149	= (drillNOk[2] -> Q3150
+		  |stopOldSpec -> Q3154
+		  |drillOk[2] -> Q3159),
+	Q3150	= (stopOldSpec -> Q3151),
+	Q3151	= (reconfigure -> Q3152),
+	Q3152	= (startNewSpec -> Q3153),
+	Q3153	= (hotSwapOut -> Q7),
+	Q3154	= (drillNOk[2] -> Q3151
+		  |drillOk[2] -> Q3155),
+	Q3155	= (reconfigure -> Q3156),
+	Q3156	= (out[2] -> Q3157),
+	Q3157	= (reset[2] -> Q3158),
+	Q3158	= (in[2] -> Q3152),
+	Q3159	= (stopOldSpec -> Q3160),
+	Q3160	= (reconfigure -> Q3161),
+	Q3161	= (out[2] -> Q3162),
+	Q3162	= (reset[2] -> Q3163),
+	Q3163	= (in[2] -> Q3164),
+	Q3164	= (startNewSpec -> Q3165),
+	Q3165	= (hotSwapOut -> Q7),
+	Q3166	= (drillNOk[1] -> Q3167
+		  |stopOldSpec -> Q3171
+		  |drillOk[1] -> Q3176),
+	Q3167	= (stopOldSpec -> Q3168),
+	Q3168	= (reconfigure -> Q3169),
+	Q3169	= (startNewSpec -> Q3170),
+	Q3170	= (hotSwapOut -> Q7),
+	Q3171	= (drillNOk[1] -> Q3168
+		  |drillOk[1] -> Q3172),
+	Q3172	= (reconfigure -> Q3173),
+	Q3173	= (out[1] -> Q3174),
+	Q3174	= (reset[1] -> Q3175),
+	Q3175	= (in[1] -> Q3169),
+	Q3176	= (stopOldSpec -> Q3177),
+	Q3177	= (reconfigure -> Q3178),
+	Q3178	= (out[1] -> Q3179),
+	Q3179	= (reset[1] -> Q3180),
+	Q3180	= (in[1] -> Q3181),
+	Q3181	= (startNewSpec -> Q3182),
+	Q3182	= (hotSwapOut -> Q7),
+	Q3183	= (drillNOk[2] -> Q110
+		  |drill[1] -> Q114
+		  |drillOk[2] -> Q2758
+		  |hotSwapIn -> Q3149),
+	Q3184	= (stopOldSpec -> Q3185),
+	Q3185	= (reconfigure -> Q3186),
+	Q3186	= (startNewSpec -> Q3187),
+	Q3187	= (hotSwapOut -> Q7),
+	Q3188	= (in[2] -> Q3189),
+	Q3189	= (stopOldSpec -> Q3190),
+	Q3190	= (reconfigure -> Q3191),
+	Q3191	= (startNewSpec -> Q3192),
+	Q3192	= (hotSwapOut -> Q7)+{{stamp, stampOk}[1..2].

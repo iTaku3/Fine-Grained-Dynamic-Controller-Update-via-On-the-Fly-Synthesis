@@ -1,0 +1,7 @@
+Game state size:57
+Winning state size:56
+6åé 27, 2026 4:13:02 åﬂëO MTSSynthesis.controller.util.GRGameBuilder validateActions
+åxçê: The following actions in the controller Goal does not belong to the mts action set.
+[weather]
+Game state size:69
+Winning state size:68

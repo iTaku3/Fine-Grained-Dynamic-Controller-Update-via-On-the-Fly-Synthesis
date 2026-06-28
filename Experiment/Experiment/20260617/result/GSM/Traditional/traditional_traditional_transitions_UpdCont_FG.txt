@@ -1,0 +1,125 @@
+Process:
+	UpdCont_FG
+States:
+	86
+Transitions:
+	UpdCont_FG = Q0,
+	Q0	= (shiftX -> Q50
+		  |hotSwapIn -> Q54),
+	Q1	= (startNewSpec_P_NEW_DECODE -> Q15),
+	Q2	= (shiftY -> Q75),
+	Q3	= (receive -> Q63
+		  |reconfigure_ENV -> Q74),
+	Q4	= (send -> Q74),
+	Q5	= (startNewSpec_P_NEW_DECODE -> Q32),
+	Q6	= (shiftZ -> Q67
+		  |reconfigure_ENV -> Q78),
+	Q7	= (shiftY -> Q78),
+	Q8	= (stopOldSpec_P_DECODE -> Q57),
+	Q9	= (shiftT -> Q34),
+	Q10	= (reconfigure_ENV -> Q74),
+	Q11	= (startNewSpec_P_NEW_DECODE -> Q65),
+	Q12	= (send -> Q56),
+	Q13	= (startNewSpec_P_NEW_DECODE -> Q41),
+	Q14	= (reconfigure_ENV -> Q80),
+	Q15	= (shiftT -> Q46),
+	Q16	= (reconfigure_ENV -> Q17
+		  |shiftY -> Q29
+		  |startNewSpec_P_NEW_DECODE -> Q35),
+	Q17	= (startNewSpec_P_NEW_DECODE -> Q7),
+	Q18	= (shiftZ -> Q77
+		  |hotSwapIn -> Q81),
+	Q19	= (shiftX -> Q22
+		  |reconfigure_ENV -> Q45
+		  |startNewSpec_P_NEW_DECODE -> Q61),
+	Q20	= (shiftY -> Q71),
+	Q21	= (reconfigure_ENV -> Q78),
+	Q22	= (startNewSpec_P_NEW_DECODE -> Q35),
+	Q23	= (hotSwapIn -> Q8
+		  |receive -> Q79),
+	Q24	= (startNewSpec_P_NEW_DECODE -> Q61),
+	Q25	= (shiftT -> Q30),
+	Q26	= (startNewSpec_P_NEW_DECODE -> Q6
+		  |reconfigure_ENV -> Q36
+		  |shiftZ -> Q83),
+	Q27	= (stopOldSpec_P_DECODE -> Q68),
+	Q28	= (stopOldSpec_P_DECODE -> Q16),
+	Q29	= (startNewSpec_P_NEW_DECODE -> Q6),
+	Q30	= (encode -> Q4),
+	Q31	= (decode[3] -> Q64),
+	Q32	= (send -> Q10
+		  |reconfigure_ENV -> Q12),
+	Q33	= (decode[2] -> Q11
+		  |reconfigure_ENV -> Q13
+		  |decode[3] -> Q43
+		  |startNewSpec_P_NEW_DECODE -> Q58),
+	Q34	= (encode -> Q12),
+	Q35	= (reconfigure_ENV -> Q20
+		  |shiftY -> Q21),
+	Q36	= (startNewSpec_P_NEW_DECODE -> Q75),
+	Q37	= (shiftX -> Q7),
+	Q38	= (stopOldSpec_P_DECODE -> Q85),
+	Q39	= (reconfigure_ENV -> Q12),
+	Q40	= (startNewSpec_P_NEW_DECODE -> Q58),
+	Q41	= (decode[3] -> Q76),
+	Q42	= (shiftX -> Q20),
+	Q43	= (startNewSpec_P_NEW_DECODE -> Q65),
+	Q44	= (decode[3] -> Q59),
+	Q45	= (startNewSpec_P_NEW_DECODE -> Q42),
+	Q46	= (encode -> Q84),
+	Q47	= (reconfigure_ENV -> Q20),
+	Q48	= (startNewSpec_P_NEW_DECODE -> Q66),
+	Q49	= (shiftX -> Q2),
+	Q50	= (shiftY -> Q18
+		  |hotSwapIn -> Q28),
+	Q51	= (output -> Q0
+		  |hotSwapIn -> Q27),
+	Q52	= (send -> Q23
+		  |hotSwapIn -> Q38),
+	Q53	= (startNewSpec_P_NEW_DECODE -> Q73),
+	Q54	= (stopOldSpec_P_DECODE -> Q19),
+	Q55	= (reconfigure_ENV -> Q25
+		  |encode -> Q39),
+	Q56	= (receive -> Q41),
+	Q57	= (startNewSpec_P_NEW_DECODE -> Q3
+		  |receive -> Q40
+		  |reconfigure_ENV -> Q48),
+	Q58	= (decode[3] -> Q14
+		  |reconfigure_ENV -> Q44),
+	Q59	= (output -> Q42),
+	Q60	= (startNewSpec_P_NEW_DECODE -> Q3),
+	Q61	= (shiftX -> Q47
+		  |reconfigure_ENV -> Q49),
+	Q62	= (stopOldSpec_P_DECODE -> Q82),
+	Q63	= (reconfigure_ENV -> Q44),
+	Q64	= (output -> Q49),
+	Q65	= (output -> Q69
+		  |reconfigure_ENV -> Q80),
+	Q66	= (receive -> Q44),
+	Q67	= (reconfigure_ENV -> Q25),
+	Q68	= (output -> Q24
+		  |reconfigure_ENV -> Q53
+		  |startNewSpec_P_NEW_DECODE -> Q65),
+	Q69	= (reconfigure_ENV -> Q49),
+	Q70	= (startNewSpec_P_NEW_DECODE -> Q4),
+	Q71	= (shiftZ -> Q15),
+	Q72	= (stopOldSpec_P_DECODE -> Q33),
+	Q73	= (output -> Q49),
+	Q74	= (receive -> Q31),
+	Q75	= (shiftZ -> Q25),
+	Q76	= (output -> Q37),
+	Q77	= (encode -> Q52
+		  |hotSwapIn -> Q62),
+	Q78	= (shiftZ -> Q9),
+	Q79	= (decode[2] -> Q51
+		  |hotSwapIn -> Q72),
+	Q80	= (output -> Q37),
+	Q81	= (stopOldSpec_P_DECODE -> Q26),
+	Q82	= (reconfigure_ENV -> Q1
+		  |encode -> Q5
+		  |startNewSpec_P_NEW_DECODE -> Q55),
+	Q83	= (startNewSpec_P_NEW_DECODE -> Q55),
+	Q84	= (send -> Q66),
+	Q85	= (startNewSpec_P_NEW_DECODE -> Q32
+		  |send -> Q60
+		  |reconfigure_ENV -> Q70).

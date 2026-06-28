@@ -1,0 +1,180 @@
+INFO: Registered Map Environment: MAP_MILESTONES
+INFO: Registered Map Environment: MAP_REQUEST_ATOMIC
+INFO: Registered Map Environment: MAP_TURNS
+INFO: Registered Map Environment: MAP_ANOTHER_REQUEST
+comp.compile time : 93ms
+Compiled: MILESTONES_OLD
+Compiled: REQUEST_ATOMIC_OLD
+Compiled: TURNS_OLD
+Compiled: ANOTHER_REQUEST_OLD
+Composition:OldEnv = OldEnv.MILESTONES_OLD || OldEnv.REQUEST_ATOMIC_OLD || OldEnv.TURNS_OLD || OldEnv.ANOTHER_REQUEST_OLD
+State Space: 5 * 2 * 2 * 1 = 2 ** 5
+Composing...
+-- States: 13 Transitions: 27 Memory used: 9812K
+Composed in 19ms
+Formula !P_BRAKE_DURING_LASTBRAKE = (true U (brake & LastEmergencyBrake))
+GBA 2 states 3 transitions
+Buchi automata:
+P_BRAKE_DURING_LASTBRAKE = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |brake&LastEmergencyBrake -> S1).
+Composition:P_BRAKE_DURING_LASTBRAKE = LastEmergencyBrake || brake || SYNC || P_BRAKE_DURING_LASTBRAKE
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 10227K
+Composed in 8ms
+After Tau elimination = 8 state
+Tau reduction ON
+P_BRAKE_DURING_LASTBRAKE minimising...
+Minimised States: 3 in 0ms
+make DFA(P_BRAKE_DURING_LASTBRAKE)
+DFA(P_BRAKE_DURING_LASTBRAKE) has 2 states.
+Tau reduction ON
+P_BRAKE_DURING_LASTBRAKE minimising...
+Minimised States: 2 in 0ms
+Formula !P_EBRAKE_DURING_ELASTBRAKE = (true U (emergencyBrake & NoReturn))
+GBA 2 states 3 transitions
+Buchi automata:
+P_EBRAKE_DURING_ELASTBRAKE = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |emergencyBrake&NoReturn -> S1).
+Composition:P_EBRAKE_DURING_ELASTBRAKE = NoReturn || emergencyBrake || SYNC || P_EBRAKE_DURING_ELASTBRAKE
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 10201K
+Composed in 7ms
+After Tau elimination = 8 state
+Tau reduction ON
+P_EBRAKE_DURING_ELASTBRAKE minimising...
+Minimised States: 3 in 0ms
+make DFA(P_EBRAKE_DURING_ELASTBRAKE)
+DFA(P_EBRAKE_DURING_ELASTBRAKE) has 2 states.
+Tau reduction ON
+P_EBRAKE_DURING_ELASTBRAKE minimising...
+Minimised States: 2 in 0ms
+Formula !P_NOT_CRASH = (true U ((CantEnter & NoReturn) | (NoReturn & !RequestedOnce)))
+GBA 2 states 4 transitions
+Buchi automata:
+P_NOT_CRASH = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |CantEnter&NoReturn -> S1 |NoReturn&!RequestedOnce -> S1).
+Composition:P_NOT_CRASH = CantEnter || NoReturn || RequestedOnce || SYNC || P_NOT_CRASH
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 99 Memory used: 10155K
+Composed in 8ms
+After Tau elimination = 16 state
+Tau reduction ON
+P_NOT_CRASH minimising....
+Minimised States: 7 in 0ms
+make DFA(P_NOT_CRASH)
+DFA(P_NOT_CRASH) has 4 states.
+Tau reduction ON
+P_NOT_CRASH minimising....
+Minimised States: 4 in 0ms
+Formula !P_BRAKE_ONLY_IF_IM_NOT_ALLOWED = (true U (brake & !CantEnter))
+GBA 2 states 3 transitions
+Buchi automata:
+P_BRAKE_ONLY_IF_IM_NOT_ALLOWED = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |brake&!CantEnter -> S1).
+Composition:P_BRAKE_ONLY_IF_IM_NOT_ALLOWED = CantEnter || brake || SYNC || P_BRAKE_ONLY_IF_IM_NOT_ALLOWED
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 10132K
+Composed in 8ms
+After Tau elimination = 8 state
+Tau reduction ON
+P_BRAKE_ONLY_IF_IM_NOT_ALLOWED minimising...
+Minimised States: 3 in 0ms
+make DFA(P_BRAKE_ONLY_IF_IM_NOT_ALLOWED)
+DFA(P_BRAKE_ONLY_IF_IM_NOT_ALLOWED) has 2 states.
+Tau reduction ON
+P_BRAKE_ONLY_IF_IM_NOT_ALLOWED minimising...
+Minimised States: 2 in 0ms
+Formula !P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED = (true U (emergencyBrake & !CantEnter))
+GBA 2 states 3 transitions
+Buchi automata:
+P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |emergencyBrake&!CantEnter -> S1).
+Composition:P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED = CantEnter || emergencyBrake || SYNC || P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 10101K
+Composed in 8ms
+After Tau elimination = 8 state
+Tau reduction ON
+P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED minimising...
+Minimised States: 3 in 0ms
+make DFA(P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED)
+DFA(P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED) has 2 states.
+Tau reduction ON
+P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED minimising...
+Minimised States: 2 in 0ms
+Composition:OldCont = OldEnv || P_NOT_CRASH || P_BRAKE_ONLY_IF_IM_NOT_ALLOWED || P_BRAKE_DURING_LASTBRAKE || P_EBRAKE_DURING_ELASTBRAKE || P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED
+State Space: 13 * 4 * 2 * 2 * 2 * 2 = 2 ** 10
+Composing...
+-- States: 28 Transitions: 56 Memory used: 10087K
+Composed in 8ms
+Solving the LTS control problem.
+Environment states: 29
+Game states: 29
+Game transitions: 87
+Analysis time: 61ms.
+Controller [21] generated successfully.
+Composition:OldCont = OldCont || P_NOT_CRASH || P_BRAKE_ONLY_IF_IM_NOT_ALLOWED || P_BRAKE_DURING_LASTBRAKE || P_EBRAKE_DURING_ELASTBRAKE || P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED
+State Space: 21 * 4 * 2 * 2 * 2 * 2 = 2 ** 11
+Composing...
+-- States: 21 Transitions: 29 Memory used: 12198K
+Composed in 15ms
+Compiled: OldCont
+Composition:OldEnv = OldEnv.MILESTONES_OLD || OldEnv.REQUEST_ATOMIC_OLD || OldEnv.TURNS_OLD || OldEnv.ANOTHER_REQUEST_OLD
+State Space: 5 * 2 * 2 * 1 = 2 ** 5
+Composing...
+-- States: 13 Transitions: 27 Memory used: 11089K
+Composed in 11ms
+ - Synthesizing Mapping Environment from lists (size=4)...
+INFO: Auto-compiling dependency: MILESTONES_NEW
+Generating Mapping Environment: MAP_MILESTONES_OLD_MILESTONES_NEW
+INFO: Auto-compiling dependency: REQUEST_ATOMIC_NEW
+Generating Mapping Environment: MAP_REQUEST_ATOMIC_OLD_REQUEST_ATOMIC_NEW
+INFO: Auto-compiling dependency: TURNS_NEW
+Generating Mapping Environment: MAP_TURNS_OLD_TURNS_NEW
+INFO: Auto-compiling dependency: ANOTHER_REQUEST
+Generating Mapping Environment: MAP_ANOTHER_REQUEST_OLD_ANOTHER_REQUEST
+Mode: Traditional Updating Controller Synthesis
+Composition:MAPPING_ENV = MAP_MILESTONES_OLD_MILESTONES_NEW || MAP_REQUEST_ATOMIC_OLD_REQUEST_ATOMIC_NEW || MAP_TURNS_OLD_TURNS_NEW || MAP_ANOTHER_REQUEST_OLD_ANOTHER_REQUEST
+State Space: 13 * 4 * 4 * 3 = 2 ** 10
+Composing...
+-- States: 302 Transitions: 1160 Memory used: 12808K
+Composed in 15ms
+comp.continueCompilation time : 273ms
+=========================================
+Mode: Traditional DUC (selective fine-grained update events)
+=========================================
+Processing formula for update: P_BRAKE_DURING_LASTBRAKE_UPD_OLD
+Processing formula for update: P_EBRAKE_DURING_ELASTBRAKE_UPD_OLD
+Processing formula for update: P_NOT_CRASH_UPD_OLD
+Processing formula for update: P_BRAKE_ONLY_IF_IM_NOT_ALLOWED_UPD_OLD
+Processing formula for update: P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED_UPD_OLD
+Processing formula for update: P_BRAKE_DURING_LASTBRAKE_UPD_NEW
+Processing formula for update: P_EBRAKE_DURING_ELASTBRAKE_UPD_NEW
+Processing formula for update: P_NEW_NOT_CRASH_UPD_NEW
+Processing formula for update: P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE_UPD_NEW
+Processing formula for update: P_BRAKE_IF_SOMETHING_BAD_UPD_NEW
+Processing formula for update: P_EBRAKE_IF_SOMETHING_BAD_UPD_NEW
+Processing formula for update: P_CHECK_STATUS_AFTER_APPROACHING_CROSSING_UPD_NEW
+Processing formula for update: R2_StopOldSpec_P_BRAKE_DURING_LASTBRAKE
+Processing formula for update: R2_StopOldSpec_P_EBRAKE_DURING_ELASTBRAKE
+Processing formula for update: R2_StopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED
+Processing formula for update: R2_StopOldSpec_P_NOT_CRASH
+Processing formula for update: R2_StopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED
+Processing formula for update: R2_StartNewSpec_P_EBRAKE_DURING_ELASTBRAKE
+Processing formula for update: R2_StartNewSpec_P_EBRAKE_IF_SOMETHING_BAD
+Processing formula for update: R2_StartNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING
+Processing formula for update: R2_StartNewSpec_P_BRAKE_DURING_LASTBRAKE
+Processing formula for update: R2_StartNewSpec_P_BRAKE_IF_SOMETHING_BAD
+Processing formula for update: R2_StartNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE
+Environment states:6123462
+Solving safety goals for the controller synthesis

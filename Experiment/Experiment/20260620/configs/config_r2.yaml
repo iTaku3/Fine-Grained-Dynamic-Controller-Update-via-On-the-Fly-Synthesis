@@ -1,0 +1,234 @@
+outputDir: Experiment/20260620/result_r2
+timeoutHours: 1
+
+javaOptions:
+  - -Dmtsa.evaluation.enabled=true
+  - -Dotfduc.nondet.belief.repair=true
+  - -Xmx220G
+  # If the experiment PC has enough memory, uncomment and adjust this:
+  # - -Xmx240G
+
+cases:
+# On-the-fly (minimum) + abstruction
+  - id: gsm_otf_minimum_abstruction_r2
+    example: "GSM"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/GSM_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: industry_otf_minimum_abstruction_r2
+    example: "Industry"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/Industry_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: metasocket_otf_minimum_abstruction_r2
+    example: "MetaSocket"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: powerplant_otf_minimum_abstruction_r2
+    example: "PowerPlant"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: railcab_otf_minimum_abstruction_r2
+    example: "Railcab"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: surveillance_otf_minimum_abstruction_r2
+    example: "Surveillance"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: workflow_otf_minimum_abstruction_r2
+    example: "Workflow"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/Workflow_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: productioncell_arm1_otf_minimum_abstruction_r2
+    example: "ProductionCell_Arms=1"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+  - id: productioncell_arm2_otf_minimum_abstruction_r2
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+# On-the-fly (minimum)
+  - id: gsm_otf_minimum_r2
+    example: "GSM"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/GSM_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: industry_otf_minimum_r2
+    example: "Industry"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/Industry_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: metasocket_otf_minimum_r2
+    example: "MetaSocket"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: powerplant_otf_minimum_r2
+    example: "PowerPlant"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: railcab_otf_minimum_r2
+    example: "Railcab"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/Railcab_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: surveillance_otf_minimum_r2
+    example: "Surveillance"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: workflow_otf_minimum_r2
+    example: "Workflow"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/Workflow_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: productioncell_arm1_otf_minimum_r2
+    example: "ProductionCell_Arms=1"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_OTF_FG_R2
+  - id: productioncell_arm2_otf_minimum_r2
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_FG_R2
+
+# traditional (monolithic) + abstruction
+  - id: gsm_traditional_abstruction_r2
+    example: "GSM"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/GSM_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: industry_traditional_abstruction_r2
+    example: "Industry"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Industry_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: metasocket_traditional_abstruction_r2
+    example: "MetaSocket"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/MetaSocket_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: powerplant_traditional_abstruction_r2
+    example: "PowerPlant"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/PowerPlant_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: railcab_traditional_abstruction_r2
+    example: "Railcab"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Railcab_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: surveillance_traditional_abstruction_r2
+    example: "Surveillance"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Surveillance_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: workflow_traditional_abstruction_r2
+    example: "Workflow"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Workflow_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: productioncell_arm1_traditional_abstruction_r2
+    example: "ProductionCell_Arms=1"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_SFG_R2
+  - id: productioncell_arm2_traditional_abstruction_r2
+    example: "ProductionCell_Arms=2"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_SFG_R2
+
+# traditional (monolithic)
+  - id: gsm_traditional_r2
+    example: "GSM"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/GSM_FG.lts"
+    target: UpdCont_FG_R2
+  - id: industry_traditional_r2
+    example: "Industry"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Industry_FG.lts"
+    target: UpdCont_FG_R2
+  - id: metasocket_traditional_r2
+    example: "MetaSocket"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/MetaSocket_FG.lts"
+    target: UpdCont_FG_R2
+  - id: powerplant_traditional_r2
+    example: "PowerPlant"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/PowerPlant_FG.lts"
+    target: UpdCont_FG_R2
+  - id: railcab_traditional_r2
+    example: "Railcab"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Railcab_FG.lts"
+    target: UpdCont_FG_R2
+  - id: surveillance_traditional_r2
+    example: "Surveillance"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Surveillance_FG.lts"
+    target: UpdCont_FG_R2
+  - id: workflow_traditional_r2
+    example: "Workflow"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/Workflow_FG.lts"
+    target: UpdCont_FG_R2
+  - id: productioncell_arm1_traditional_r2
+    example: "ProductionCell_Arms=1"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_FG_R2
+  - id: productioncell_arm2_traditional_r2
+    example: "ProductionCell_Arms=2"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260620/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_FG_R2

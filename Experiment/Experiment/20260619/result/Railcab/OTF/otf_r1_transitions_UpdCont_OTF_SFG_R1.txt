@@ -1,0 +1,256 @@
+Process:
+	UpdCont_OTF_SFG_R1
+States:
+	197
+Transitions:
+	UpdCont_OTF_SFG_R1 = Q0,
+	Q0	= (endOfTS -> Q1
+		  |hotSwapIn -> Q196),
+	Q1	= (requestEnter -> Q2
+		  |hotSwapIn -> Q84
+		  |idle_c -> Q181),
+	Q2	= (hotSwapIn -> Q3
+		  |enterAllowed[0] -> Q80
+		  |enterAllowed[1] -> Q134),
+	Q3	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q4
+		  |enterAllowed[0] -> Q76
+		  |enterAllowed[1] -> Q78),
+	Q4	= (enterAllowed[0] -> Q5
+		  |enterAllowed[1] -> Q56),
+	Q5	= (lastBrake -> Q6),
+	Q6	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q7),
+	Q7	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q8),
+	Q8	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q9),
+	Q9	= (stopOldSpec_P_NOT_CRASH -> Q10),
+	Q10	= (reconfigure -> Q11),
+	Q11	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q12),
+	Q12	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q13),
+	Q13	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q14),
+	Q14	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q15),
+	Q15	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q16),
+	Q16	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q17),
+	Q17	= (startNewSpec_P_NEW_NOT_CRASH -> Q18),
+	Q18	= (brake -> Q19),
+	Q19	= (endOfTS -> Q20),
+	Q20	= (hotSwapOut -> Q21),
+	Q21	= (requestEnter -> Q22
+		  |idle_c -> Q51),
+	Q22	= (enterAllowed[0] -> Q23
+		  |enterAllowed[1] -> Q35),
+	Q23	= (approachingCrossing -> Q24),
+	Q24	= ({brake, emergencyBrake} -> Q25
+		  |requestEnter -> Q26
+		  |idle_c -> Q27
+		  |checkCrossingStatus -> Q34),
+	Q25	= (endOfTS -> Q21),
+	Q26	= (enterAllowed[0..1] -> Q27),
+	Q27	= (lastBrake -> Q28),
+	Q28	= ({brake, emergencyBrake} -> Q25
+		  |requestEnter -> Q29
+		  |idle_c -> Q30
+		  |checkCrossingStatus -> Q33),
+	Q29	= (enterAllowed[0..1] -> Q30),
+	Q30	= (lastEmergencyBrake -> Q31),
+	Q31	= (emergencyBrake -> Q32),
+	Q32	= (endOfTS -> Q21),
+	Q33	= ({notWorking, working} -> Q30),
+	Q34	= ({notWorking, working} -> Q27),
+	Q35	= (approachingCrossing -> Q36),
+	Q36	= (requestEnter -> Q37
+		  |idle_c -> Q38
+		  |checkCrossingStatus -> Q47),
+	Q37	= (enterAllowed[0] -> Q27
+		  |enterAllowed[1] -> Q38),
+	Q38	= (lastBrake -> Q39),
+	Q39	= (checkCrossingStatus -> Q40),
+	Q40	= (notWorking -> Q30
+		  |working -> Q41),
+	Q41	= (lastEmergencyBrake -> Q42),
+	Q42	= (idle_c -> Q43),
+	Q43	= (noReturn -> Q44),
+	Q44	= (idle_c -> Q45),
+	Q45	= (enterCrossing -> Q46),
+	Q46	= (endOfTS -> Q21),
+	Q47	= (notWorking -> Q27
+		  |working -> Q48),
+	Q48	= (lastBrake -> Q49),
+	Q49	= (checkCrossingStatus -> Q40
+		  |idle_c -> Q41
+		  |requestEnter -> Q50),
+	Q50	= (enterAllowed[0] -> Q30
+		  |enterAllowed[1] -> Q41),
+	Q51	= (approachingCrossing -> Q52),
+	Q52	= (requestEnter -> Q37
+		  |checkCrossingStatus -> Q53),
+	Q53	= (notWorking -> Q27
+		  |working -> Q54),
+	Q54	= (lastBrake -> Q55),
+	Q55	= (requestEnter -> Q50),
+	Q56	= (lastBrake -> Q57),
+	Q57	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q58),
+	Q58	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q59),
+	Q59	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q60),
+	Q60	= (stopOldSpec_P_NOT_CRASH -> Q61),
+	Q61	= (reconfigure -> Q62),
+	Q62	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q63),
+	Q63	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q64),
+	Q64	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q65),
+	Q65	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q66),
+	Q66	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q67),
+	Q67	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q68),
+	Q68	= (idle_c -> Q69),
+	Q69	= (lastEmergencyBrake -> Q70),
+	Q70	= (idle_c -> Q71),
+	Q71	= (noReturn -> Q72),
+	Q72	= (idle_c -> Q73),
+	Q73	= (enterCrossing -> Q74),
+	Q74	= (endOfTS -> Q75),
+	Q75	= (startNewSpec_P_NEW_NOT_CRASH -> Q20),
+	Q76	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q5
+		  |lastBrake -> Q77),
+	Q77	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q6),
+	Q78	= (lastBrake -> Q79),
+	Q79	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q57),
+	Q80	= (hotSwapIn -> Q76
+		  |lastBrake -> Q81),
+	Q81	= (hotSwapIn -> Q77
+		  |emergencyBrake -> Q82
+		  |requestEnter -> Q110
+		  |idle_c -> Q129
+		  |brake -> Q133),
+	Q82	= (endOfTS -> Q1
+		  |hotSwapIn -> Q83),
+	Q83	= (endOfTS -> Q84),
+	Q84	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q85),
+	Q85	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q86),
+	Q86	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q87),
+	Q87	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q88),
+	Q88	= (stopOldSpec_P_NOT_CRASH -> Q89),
+	Q89	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q90),
+	Q90	= (reconfigure -> Q91
+		  |reconfigure -> Q96),
+	Q91	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q92),
+	Q92	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q93),
+	Q93	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q94),
+	Q94	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q95),
+	Q95	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q75),
+	Q96	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q97),
+	Q97	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q98),
+	Q98	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q99),
+	Q99	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q100),
+	Q100	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q101),
+	Q101	= (idle_c -> Q102),
+	Q102	= (lastBrake -> Q103),
+	Q103	= (idle_c -> Q104),
+	Q104	= (lastEmergencyBrake -> Q105),
+	Q105	= (idle_c -> Q106),
+	Q106	= (noReturn -> Q107),
+	Q107	= (idle_c -> Q108),
+	Q108	= (enterCrossing -> Q109),
+	Q109	= (endOfTS -> Q75),
+	Q110	= (hotSwapIn -> Q111
+		  |enterAllowed[0..1] -> Q129),
+	Q111	= (enterAllowed[0..1] -> Q112),
+	Q112	= (lastEmergencyBrake -> Q113),
+	Q113	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q114),
+	Q114	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q115),
+	Q115	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q116),
+	Q116	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q117),
+	Q117	= (stopOldSpec_P_NOT_CRASH -> Q118),
+	Q118	= (reconfigure -> Q119),
+	Q119	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q120),
+	Q120	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q121),
+	Q121	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q122),
+	Q122	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q123),
+	Q123	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q124),
+	Q124	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q125),
+	Q125	= (startNewSpec_P_NEW_NOT_CRASH -> Q126),
+	Q126	= (idle_c -> Q127),
+	Q127	= (approachingCrossing -> Q128),
+	Q128	= (hotSwapOut -> Q31),
+	Q129	= (hotSwapIn -> Q112
+		  |lastEmergencyBrake -> Q130),
+	Q130	= (hotSwapIn -> Q113
+		  |emergencyBrake -> Q131),
+	Q131	= (endOfTS -> Q1
+		  |hotSwapIn -> Q132),
+	Q132	= (endOfTS -> Q84),
+	Q133	= (endOfTS -> Q1
+		  |hotSwapIn -> Q83),
+	Q134	= (hotSwapIn -> Q78
+		  |lastBrake -> Q135),
+	Q135	= (hotSwapIn -> Q79
+		  |requestEnter -> Q136
+		  |idle_c -> Q158),
+	Q136	= (enterAllowed[0] -> Q129
+		  |hotSwapIn -> Q137
+		  |enterAllowed[1] -> Q158),
+	Q137	= (enterAllowed[0] -> Q112
+		  |enterAllowed[1] -> Q138),
+	Q138	= (lastEmergencyBrake -> Q139),
+	Q139	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q140),
+	Q140	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q141),
+	Q141	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q142),
+	Q142	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q143),
+	Q143	= (stopOldSpec_P_NOT_CRASH -> Q144),
+	Q144	= (reconfigure -> Q145),
+	Q145	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q146),
+	Q146	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q147),
+	Q147	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q148),
+	Q148	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q149),
+	Q149	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q150),
+	Q150	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q151),
+	Q151	= (idle_c -> Q152),
+	Q152	= (approachingCrossing -> Q153),
+	Q153	= (idle_c -> Q154),
+	Q154	= (noReturn -> Q155),
+	Q155	= (idle_c -> Q156),
+	Q156	= (enterCrossing -> Q157),
+	Q157	= (endOfTS -> Q75),
+	Q158	= (hotSwapIn -> Q138
+		  |lastEmergencyBrake -> Q159),
+	Q159	= (hotSwapIn -> Q139
+		  |idle_c -> Q160),
+	Q160	= (hotSwapIn -> Q161
+		  |noReturn -> Q176),
+	Q161	= (noReturn -> Q162),
+	Q162	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q163),
+	Q163	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q164),
+	Q164	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q165),
+	Q165	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q166),
+	Q166	= (stopOldSpec_P_NOT_CRASH -> Q167),
+	Q167	= (reconfigure -> Q168),
+	Q168	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q169),
+	Q169	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q170),
+	Q170	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q171),
+	Q171	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q172),
+	Q172	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q173),
+	Q173	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q174),
+	Q174	= (idle_c -> Q175),
+	Q175	= (approachingCrossing -> Q155),
+	Q176	= (hotSwapIn -> Q162
+		  |idle_c -> Q177),
+	Q177	= (enterCrossing -> Q178
+		  |hotSwapIn -> Q180),
+	Q178	= (endOfTS -> Q1
+		  |hotSwapIn -> Q179),
+	Q179	= (endOfTS -> Q84),
+	Q180	= (enterCrossing -> Q179),
+	Q181	= (hotSwapIn -> Q182
+		  |lastBrake -> Q195),
+	Q182	= (lastBrake -> Q183),
+	Q183	= (stopOldSpec_P_BRAKE_DURING_LASTBRAKE -> Q184),
+	Q184	= (stopOldSpec_P_BRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q185),
+	Q185	= (stopOldSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q186),
+	Q186	= (stopOldSpec_P_EBRAKE_ONLY_IF_IM_NOT_ALLOWED -> Q187),
+	Q187	= (stopOldSpec_P_NOT_CRASH -> Q188),
+	Q188	= (reconfigure -> Q189),
+	Q189	= (startNewSpec_P_BRAKE_DURING_LASTBRAKE -> Q190),
+	Q190	= (startNewSpec_P_BRAKE_IF_SOMETHING_BAD -> Q191),
+	Q191	= (startNewSpec_P_CHECK_STATUS_AFTER_APPROACHING_CROSSING -> Q192),
+	Q192	= (startNewSpec_P_CHECK_STATUS_BEFORE_LAST_EMERGENCY_BRAKE -> Q193),
+	Q193	= (startNewSpec_P_EBRAKE_DURING_ELASTBRAKE -> Q194),
+	Q194	= (startNewSpec_P_EBRAKE_IF_SOMETHING_BAD -> Q103),
+	Q195	= (requestEnter -> Q136
+		  |hotSwapIn -> Q183),
+	Q196	= (endOfTS -> Q84).

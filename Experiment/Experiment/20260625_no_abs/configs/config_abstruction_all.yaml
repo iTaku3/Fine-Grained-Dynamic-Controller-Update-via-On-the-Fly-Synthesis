@@ -1,0 +1,354 @@
+outputDir: Experiment/20260623/result
+timeoutHours: 1
+
+javaOptions:
+  - -Dmtsa.evaluation.enabled=true
+  - -Dotfduc.nondet.belief.repair=true
+  - -Xmx220G
+  # If the experiment PC has enough memory, uncomment and adjust this:
+  # - -Xmx240G
+
+cases:
+# On-the-fly (minimum) + abstruction
+  - id: gsm_otf_minimum_abstruction
+    example: "GSM"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: gsm_otf_minimum_abstruction_r1
+    example: "GSM"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: gsm_otf_minimum_abstruction_r2
+    example: "GSM"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: industry_otf_minimum_abstruction
+    example: "Industry"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: industry_otf_minimum_abstruction_r1
+    example: "Industry"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: industry_otf_minimum_abstruction_r2
+    example: "Industry"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: metasocket_otf_minimum_abstruction
+    example: "MetaSocket"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: metasocket_otf_minimum_abstruction_r1
+    example: "MetaSocket"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: metasocket_otf_minimum_abstruction_r2
+    example: "MetaSocket"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: powerplant_otf_minimum_abstruction
+    example: "PowerPlant"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: powerplant_otf_minimum_abstruction_r1
+    example: "PowerPlant"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: powerplant_otf_minimum_abstruction_r2
+    example: "PowerPlant"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: railcab_otf_minimum_abstruction
+    example: "Railcab"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: railcab_otf_minimum_abstruction_r1
+    example: "Railcab"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: railcab_otf_minimum_abstruction_r2
+    example: "Railcab"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: surveillance_otf_minimum_abstruction
+    example: "Surveillance"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: surveillance_otf_minimum_abstruction_r1
+    example: "Surveillance"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: surveillance_otf_minimum_abstruction_r2
+    example: "Surveillance"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: workflow_otf_minimum_abstruction
+    example: "Workflow"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: workflow_otf_minimum_abstruction_r1
+    example: "Workflow"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: workflow_otf_minimum_abstruction_r2
+    example: "Workflow"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: productioncell_arm1_otf_minimum_abstruction
+    example: "ProductionCell_Arms=1"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: productioncell_arm1_otf_minimum_abstruction_r1
+    example: "ProductionCell_Arms=1"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: productioncell_arm1_otf_minimum_abstruction_r2
+    example: "ProductionCell_Arms=1"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+  - id: productioncell_arm2_otf_minimum_abstruction
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: none
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_SFG
+  - id: productioncell_arm2_otf_minimum_abstruction_r1
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R1
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+  - id: productioncell_arm2_otf_minimum_abstruction_r2
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: R2
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_SFG_R2
+
+# traditional (monolithic) + abstruction
+  - id: gsm_traditional_abstruction
+    example: "GSM"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_SFG
+  - id: gsm_traditional_abstruction_r1
+    example: "GSM"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: gsm_traditional_abstruction_r2
+    example: "GSM"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/GSM_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: industry_traditional_abstruction
+    example: "Industry"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_SFG
+  - id: industry_traditional_abstruction_r1
+    example: "Industry"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: industry_traditional_abstruction_r2
+    example: "Industry"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/Industry_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: metasocket_traditional_abstruction
+    example: "MetaSocket"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_SFG
+  - id: metasocket_traditional_abstruction_r1
+    example: "MetaSocket"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: metasocket_traditional_abstruction_r2
+    example: "MetaSocket"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/MetaSocket_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: powerplant_traditional_abstruction
+    example: "PowerPlant"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_SFG
+  - id: powerplant_traditional_abstruction_r1
+    example: "PowerPlant"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: powerplant_traditional_abstruction_r2
+    example: "PowerPlant"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/PowerPlant_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: railcab_traditional_abstruction
+    example: "Railcab"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_SFG
+  - id: railcab_traditional_abstruction_r1
+    example: "Railcab"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: railcab_traditional_abstruction_r2
+    example: "Railcab"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/Railcab_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: surveillance_traditional_abstruction
+    example: "Surveillance"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_SFG
+  - id: surveillance_traditional_abstruction_r1
+    example: "Surveillance"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: surveillance_traditional_abstruction_r2
+    example: "Surveillance"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/Surveillance_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: workflow_traditional_abstruction
+    example: "Workflow"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_SFG
+  - id: workflow_traditional_abstruction_r1
+    example: "Workflow"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: workflow_traditional_abstruction_r2
+    example: "Workflow"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/Workflow_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: productioncell_arm1_traditional_abstruction
+    example: "ProductionCell_Arms=1"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_SFG
+  - id: productioncell_arm1_traditional_abstruction_r1
+    example: "ProductionCell_Arms=1"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: productioncell_arm1_traditional_abstruction_r2
+    example: "ProductionCell_Arms=1"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/ProductionCell_Arms=1_FG.lts"
+    target: UpdCont_SFG_R2
+
+  - id: productioncell_arm2_traditional_abstruction
+    example: "ProductionCell_Arms=2"
+    method: Traditional
+    variant: none
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_SFG
+  - id: productioncell_arm2_traditional_abstruction_r1
+    example: "ProductionCell_Arms=2"
+    method: Traditional
+    variant: R1
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_SFG_R1
+  - id: productioncell_arm2_traditional_abstruction_r2
+    example: "ProductionCell_Arms=2"
+    method: Traditional
+    variant: R2
+    lts: "Experiment/20260623/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_SFG_R2

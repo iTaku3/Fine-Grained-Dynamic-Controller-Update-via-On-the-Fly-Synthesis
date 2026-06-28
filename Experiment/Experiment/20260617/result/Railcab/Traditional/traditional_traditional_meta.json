@@ -1,0 +1,22 @@
+{
+  "status": "TIMEOUT",
+  "id": "railcab_traditional",
+  "example": "Railcab",
+  "method": "Traditional",
+  "variant": "traditional",
+  "target": "UpdCont_FG",
+  "lts": "Experiment\\20260617\\models\\Railcab_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_output.txt",
+  "transitions": "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_transitions_UpdCont_FG.txt",
+  "stdout": "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_stdout.txt",
+  "stderr": "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_stderr.txt",
+  "startedAt": "2026-06-17T21:25:51.7375841+09:00",
+  "endedAt": "2026-06-18T09:25:51.754929+09:00",
+  "timeoutMillis": 43200000,
+  "exitCode": null,
+  "timedOut": true,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260617\\models\\Railcab_FG.lts", "--target", "UpdCont_FG", "--output", "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_output.txt", "--transitions", "Experiment\\20260617\\result\\Railcab\\Traditional\\traditional_traditional_transitions_UpdCont_FG.txt"]
+}

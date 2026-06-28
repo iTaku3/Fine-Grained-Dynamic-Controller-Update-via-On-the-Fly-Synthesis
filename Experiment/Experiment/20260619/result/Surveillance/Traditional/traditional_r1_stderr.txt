@@ -1,0 +1,19 @@
+Game state size:57
+Winning state size:56
+java.lang.UnsupportedOperationException
+	at ltsa.lts.ltl.FormulaTransformerVisitor.visit(FormulaTransformerVisitor.java:138)
+	at ltsa.lts.ltl.Next.accept(Formula.java:187)
+	at ltsa.lts.ltl.FormulaTransformerVisitor.visit(FormulaTransformerVisitor.java:95)
+	at ltsa.lts.ltl.And.accept(Formula.java:214)
+	at ltsa.lts.chart.util.FormulaUtils.adaptFormulaAndCreateFluents(FormulaUtils.java:26)
+	at ltsa.updatingControllers.synthesis.UpdatingControllerSynthesizer.adaptFormulaWithoutLeadingTemporalOperators(UpdatingControllerSynthesizer.java:687)
+	at ltsa.updatingControllers.synthesis.UpdatingControllerSynthesizer.adaptTransitionRequirementFormula(UpdatingControllerSynthesizer.java:675)
+	at ltsa.updatingControllers.synthesis.UpdatingControllerSynthesizer.getSafetyFormulas(UpdatingControllerSynthesizer.java:599)
+	at ltsa.updatingControllers.synthesis.UpdatingControllerSynthesizer.solveControlProblem(UpdatingControllerSynthesizer.java:258)
+	at ltsa.updatingControllers.synthesis.UpdatingControllerSynthesizer.generateController(UpdatingControllerSynthesizer.java:166)
+	at ltsa.dispatcher.TransitionSystemDispatcher.applyUpdatingController(TransitionSystemDispatcher.java:280)
+	at ltsa.dispatcher.TransitionSystemDispatcher.compose(TransitionSystemDispatcher.java:264)
+	at ltsa.dispatcher.TransitionSystemDispatcher.applyComposition(TransitionSystemDispatcher.java:209)
+	at ltsa.updatingControllers.CompositionEvaluationRunner.run(CompositionEvaluationRunner.java:170)
+	at ltsa.updatingControllers.cli.SingleCompositionRunner.runMain(SingleCompositionRunner.java:64)
+	at ltsa.updatingControllers.cli.SingleCompositionRunner.main(SingleCompositionRunner.java:30)

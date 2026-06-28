@@ -1,0 +1,220 @@
+Process:
+	UpdCont_OTF_SFG_R1
+States:
+	165
+Transitions:
+	UpdCont_OTF_SFG_R1 = Q0,
+	Q0	= (orderEntry -> Q1
+		  |hotSwapIn -> Q164),
+	Q1	= (hotSwapIn -> Q2
+		  |initCredit -> Q32
+		  |initInventory -> Q146),
+	Q2	= (stopOldSpec_P_ARCHIVE_POLICY -> Q3),
+	Q3	= (stopOldSpec_P_AVOID_ROLLBACK -> Q4),
+	Q4	= (stopOldSpec_P_DONT_INIT_TWICE -> Q5),
+	Q5	= (stopOldSpec_P_EVAL_POLICY -> Q6),
+	Q6	= (stopOldSpec_P_INITS_POLICY -> Q7),
+	Q7	= (reconfigure -> Q8),
+	Q8	= (startNewSpec_P_ARCHIVE_POLICY -> Q9),
+	Q9	= (startNewSpec_P_AVOID_ROLLBACK -> Q10),
+	Q10	= (startNewSpec_P_DONT_INIT_TWICE -> Q11),
+	Q11	= (startNewSpec_P_EVAL_POLICY -> Q12),
+	Q12	= (startNewSpec_P_INITS_POLICY -> Q13),
+	Q13	= (startNewSpec_P_SEQUENTIAL -> Q14),
+	Q14	= (hotSwapOut -> Q15),
+	Q15	= (initCredit -> Q16
+		  |initInventory -> Q30),
+	Q16	= (endCredit -> Q17
+		  |initInventory -> Q28),
+	Q17	= (initInventory -> Q18),
+	Q18	= (endInventory -> Q19),
+	Q19	= (eval -> Q20),
+	Q20	= (approve -> Q21
+		  |reject -> Q27),
+	Q21	= (initBilling -> Q22),
+	Q22	= (endBilling -> Q23),
+	Q23	= (initShipping -> Q24),
+	Q24	= (endShipping -> Q25),
+	Q25	= (archive -> Q26),
+	Q26	= (orderEntry -> Q15),
+	Q27	= (orderEntry -> Q15),
+	Q28	= (endCredit -> Q18
+		  |endInventory -> Q29),
+	Q29	= (endCredit -> Q19),
+	Q30	= (initCredit -> Q28
+		  |endInventory -> Q31),
+	Q31	= (initCredit -> Q29),
+	Q32	= (hotSwapIn -> Q33
+		  |endCredit -> Q47
+		  |initInventory -> Q140),
+	Q33	= (endCredit -> Q34),
+	Q34	= (stopOldSpec_P_ARCHIVE_POLICY -> Q35),
+	Q35	= (stopOldSpec_P_AVOID_ROLLBACK -> Q36),
+	Q36	= (stopOldSpec_P_DONT_INIT_TWICE -> Q37),
+	Q37	= (stopOldSpec_P_EVAL_POLICY -> Q38),
+	Q38	= (stopOldSpec_P_INITS_POLICY -> Q39),
+	Q39	= (reconfigure -> Q40),
+	Q40	= (startNewSpec_P_ARCHIVE_POLICY -> Q41),
+	Q41	= (startNewSpec_P_AVOID_ROLLBACK -> Q42),
+	Q42	= (startNewSpec_P_DONT_INIT_TWICE -> Q43),
+	Q43	= (startNewSpec_P_EVAL_POLICY -> Q44),
+	Q44	= (startNewSpec_P_INITS_POLICY -> Q45),
+	Q45	= (startNewSpec_P_SEQUENTIAL -> Q46),
+	Q46	= (hotSwapOut -> Q17),
+	Q47	= (hotSwapIn -> Q34
+		  |initInventory -> Q48),
+	Q48	= (hotSwapIn -> Q49
+		  |endInventory -> Q64),
+	Q49	= (stopOldSpec_P_ARCHIVE_POLICY -> Q50
+		  |endInventory -> Q63),
+	Q50	= (endInventory -> Q51),
+	Q51	= (stopOldSpec_P_AVOID_ROLLBACK -> Q52),
+	Q52	= (stopOldSpec_P_DONT_INIT_TWICE -> Q53),
+	Q53	= (stopOldSpec_P_EVAL_POLICY -> Q54),
+	Q54	= (stopOldSpec_P_INITS_POLICY -> Q55),
+	Q55	= (reconfigure -> Q56),
+	Q56	= (startNewSpec_P_ARCHIVE_POLICY -> Q57),
+	Q57	= (startNewSpec_P_AVOID_ROLLBACK -> Q58),
+	Q58	= (startNewSpec_P_DONT_INIT_TWICE -> Q59),
+	Q59	= (startNewSpec_P_EVAL_POLICY -> Q60),
+	Q60	= (startNewSpec_P_INITS_POLICY -> Q61),
+	Q61	= (startNewSpec_P_SEQUENTIAL -> Q62),
+	Q62	= (hotSwapOut -> Q19),
+	Q63	= (stopOldSpec_P_ARCHIVE_POLICY -> Q51),
+	Q64	= (hotSwapIn -> Q63
+		  |eval -> Q65),
+	Q65	= (approve -> Q66
+		  |hotSwapIn -> Q137
+		  |reject -> Q139),
+	Q66	= (initBilling -> Q67
+		  |hotSwapIn -> Q106
+		  |initShipping -> Q119),
+	Q67	= (endBilling -> Q68
+		  |hotSwapIn -> Q100
+		  |initShipping -> Q101),
+	Q68	= (hotSwapIn -> Q69
+		  |initShipping -> Q82),
+	Q69	= (stopOldSpec_P_ARCHIVE_POLICY -> Q70),
+	Q70	= (stopOldSpec_P_AVOID_ROLLBACK -> Q71),
+	Q71	= (stopOldSpec_P_DONT_INIT_TWICE -> Q72),
+	Q72	= (stopOldSpec_P_EVAL_POLICY -> Q73),
+	Q73	= (stopOldSpec_P_INITS_POLICY -> Q74),
+	Q74	= (reconfigure -> Q75),
+	Q75	= (startNewSpec_P_ARCHIVE_POLICY -> Q76),
+	Q76	= (startNewSpec_P_AVOID_ROLLBACK -> Q77),
+	Q77	= (startNewSpec_P_DONT_INIT_TWICE -> Q78),
+	Q78	= (startNewSpec_P_EVAL_POLICY -> Q79),
+	Q79	= (startNewSpec_P_INITS_POLICY -> Q80),
+	Q80	= (startNewSpec_P_SEQUENTIAL -> Q81),
+	Q81	= (hotSwapOut -> Q23),
+	Q82	= (endShipping -> Q83
+		  |hotSwapIn -> Q99),
+	Q83	= (archive -> Q84
+		  |hotSwapIn -> Q86),
+	Q84	= (orderEntry -> Q1
+		  |hotSwapIn -> Q85),
+	Q85	= (orderEntry -> Q2),
+	Q86	= (stopOldSpec_P_ARCHIVE_POLICY -> Q87),
+	Q87	= (stopOldSpec_P_AVOID_ROLLBACK -> Q88),
+	Q88	= (stopOldSpec_P_DONT_INIT_TWICE -> Q89),
+	Q89	= (stopOldSpec_P_EVAL_POLICY -> Q90),
+	Q90	= (stopOldSpec_P_INITS_POLICY -> Q91),
+	Q91	= (reconfigure -> Q92),
+	Q92	= (startNewSpec_P_ARCHIVE_POLICY -> Q93),
+	Q93	= (startNewSpec_P_AVOID_ROLLBACK -> Q94),
+	Q94	= (startNewSpec_P_DONT_INIT_TWICE -> Q95),
+	Q95	= (startNewSpec_P_EVAL_POLICY -> Q96),
+	Q96	= (startNewSpec_P_INITS_POLICY -> Q97),
+	Q97	= (startNewSpec_P_SEQUENTIAL -> Q98),
+	Q98	= (hotSwapOut -> Q25),
+	Q99	= (endShipping -> Q86),
+	Q100	= (endBilling -> Q69),
+	Q101	= (endShipping -> Q102
+		  |endBilling -> Q104
+		  |hotSwapIn -> Q105),
+	Q102	= (endBilling -> Q83
+		  |hotSwapIn -> Q103),
+	Q103	= (endBilling -> Q86),
+	Q104	= (endShipping -> Q83
+		  |hotSwapIn -> Q99),
+	Q105	= (endBilling -> Q99
+		  |endShipping -> Q103),
+	Q106	= (stopOldSpec_P_ARCHIVE_POLICY -> Q107),
+	Q107	= (stopOldSpec_P_AVOID_ROLLBACK -> Q108),
+	Q108	= (stopOldSpec_P_DONT_INIT_TWICE -> Q109),
+	Q109	= (stopOldSpec_P_EVAL_POLICY -> Q110),
+	Q110	= (stopOldSpec_P_INITS_POLICY -> Q111),
+	Q111	= (reconfigure -> Q112),
+	Q112	= (startNewSpec_P_ARCHIVE_POLICY -> Q113),
+	Q113	= (startNewSpec_P_AVOID_ROLLBACK -> Q114),
+	Q114	= (startNewSpec_P_DONT_INIT_TWICE -> Q115),
+	Q115	= (startNewSpec_P_EVAL_POLICY -> Q116),
+	Q116	= (startNewSpec_P_INITS_POLICY -> Q117),
+	Q117	= (startNewSpec_P_SEQUENTIAL -> Q118),
+	Q118	= (hotSwapOut -> Q21),
+	Q119	= (endShipping -> Q120
+		  |initBilling -> Q135
+		  |hotSwapIn -> Q136),
+	Q120	= (initBilling -> Q121
+		  |hotSwapIn -> Q122),
+	Q121	= (endBilling -> Q83
+		  |hotSwapIn -> Q103),
+	Q122	= (stopOldSpec_P_ARCHIVE_POLICY -> Q123),
+	Q123	= (stopOldSpec_P_AVOID_ROLLBACK -> Q124),
+	Q124	= (stopOldSpec_P_DONT_INIT_TWICE -> Q125),
+	Q125	= (stopOldSpec_P_EVAL_POLICY -> Q126),
+	Q126	= (stopOldSpec_P_INITS_POLICY -> Q127),
+	Q127	= (reconfigure -> Q128),
+	Q128	= (startNewSpec_P_ARCHIVE_POLICY -> Q129),
+	Q129	= (startNewSpec_P_AVOID_ROLLBACK -> Q130),
+	Q130	= (startNewSpec_P_DONT_INIT_TWICE -> Q131),
+	Q131	= (startNewSpec_P_EVAL_POLICY -> Q132),
+	Q132	= (startNewSpec_P_INITS_POLICY -> Q133),
+	Q133	= (initBilling -> Q134),
+	Q134	= (endBilling -> Q97),
+	Q135	= (endShipping -> Q102
+		  |endBilling -> Q104
+		  |hotSwapIn -> Q105),
+	Q136	= (endShipping -> Q122),
+	Q137	= (approve -> Q106
+		  |reject -> Q138),
+	Q138	= (orderEntry -> Q2),
+	Q139	= (orderEntry -> Q1
+		  |hotSwapIn -> Q138),
+	Q140	= (hotSwapIn -> Q141
+		  |endCredit -> Q144
+		  |endInventory -> Q145),
+	Q141	= (endCredit -> Q49
+		  |endInventory -> Q142),
+	Q142	= (endCredit -> Q63
+		  |stopOldSpec_P_ARCHIVE_POLICY -> Q143),
+	Q143	= (endCredit -> Q51),
+	Q144	= (hotSwapIn -> Q49
+		  |endInventory -> Q64),
+	Q145	= (endCredit -> Q64
+		  |hotSwapIn -> Q142),
+	Q146	= (hotSwapIn -> Q147
+		  |initCredit -> Q161
+		  |endInventory -> Q162),
+	Q147	= (endInventory -> Q148),
+	Q148	= (stopOldSpec_P_ARCHIVE_POLICY -> Q149),
+	Q149	= (stopOldSpec_P_AVOID_ROLLBACK -> Q150),
+	Q150	= (stopOldSpec_P_DONT_INIT_TWICE -> Q151),
+	Q151	= (stopOldSpec_P_EVAL_POLICY -> Q152),
+	Q152	= (stopOldSpec_P_INITS_POLICY -> Q153),
+	Q153	= (reconfigure -> Q154),
+	Q154	= (startNewSpec_P_ARCHIVE_POLICY -> Q155),
+	Q155	= (startNewSpec_P_AVOID_ROLLBACK -> Q156),
+	Q156	= (startNewSpec_P_DONT_INIT_TWICE -> Q157),
+	Q157	= (startNewSpec_P_EVAL_POLICY -> Q158),
+	Q158	= (startNewSpec_P_INITS_POLICY -> Q159),
+	Q159	= (startNewSpec_P_SEQUENTIAL -> Q160),
+	Q160	= (hotSwapOut -> Q31),
+	Q161	= (hotSwapIn -> Q141
+		  |endCredit -> Q144
+		  |endInventory -> Q145),
+	Q162	= (hotSwapIn -> Q148
+		  |initCredit -> Q163),
+	Q163	= (endCredit -> Q64
+		  |hotSwapIn -> Q142),
+	Q164	= (orderEntry -> Q2)+{rollback.

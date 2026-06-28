@@ -1,0 +1,32 @@
+outputDir: Experiment/20260626_timeout1/result
+timeoutHours: 12
+
+javaOptions:
+  - -Dmtsa.evaluation.enabled=true
+  - -Dotfduc.nondet.belief.repair=false
+  - -Xmx220G
+  # If the experiment PC has enough memory, uncomment and adjust this:
+  # - -Xmx240G
+
+cases:
+# On-the-fly (minimum) / TIMEOUT only
+  - id: railcab_otf_minimum_r1
+    example: "Railcab"
+    method: OTF-MINIMUM
+    variant: R1
+    lts: "Experiment/20260626_no_abs/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+
+  - id: surveillance_otf_minimum_r1
+    example: "Surveillance"
+    method: OTF-MINIMUM
+    variant: R1
+    lts: "Experiment/20260626_no_abs/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG_R1
+
+  - id: productioncell_arm2_otf_minimum
+    example: "ProductionCell_Arms=2"
+    method: OTF-MINIMUM
+    variant: none
+    lts: "Experiment/20260626_no_abs/models/ProductionCell_Arms=2_FG.lts"
+    target: UpdCont_OTF_SFG

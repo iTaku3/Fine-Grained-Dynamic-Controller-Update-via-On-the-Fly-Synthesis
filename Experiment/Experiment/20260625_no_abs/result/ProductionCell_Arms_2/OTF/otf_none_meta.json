@@ -1,0 +1,22 @@
+{
+  "status": "TIMEOUT",
+  "id": "productioncell_arm2_otf_minimum",
+  "example": "ProductionCell_Arms=2",
+  "method": "OTF-MINIMUM",
+  "variant": "none",
+  "target": "UpdCont_OTF_FG",
+  "lts": "Experiment\\20260625_no_abs\\models\\ProductionCell_Arms=2_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_output.txt",
+  "transitions": "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt",
+  "stdout": "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_stdout.txt",
+  "stderr": "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_stderr.txt",
+  "startedAt": "2026-06-26T06:25:35.7906739+09:00",
+  "endedAt": "2026-06-26T07:25:35.8017982+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": null,
+  "timedOut": true,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260625_no_abs\\models\\ProductionCell_Arms=2_FG.lts", "--target", "UpdCont_OTF_FG", "--output", "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_output.txt", "--transitions", "Experiment\\20260625_no_abs\\result\\ProductionCell_Arms_2\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt"]
+}

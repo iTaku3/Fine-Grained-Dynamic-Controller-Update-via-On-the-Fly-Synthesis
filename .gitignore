@@ -1,0 +1,14 @@
+.DS_Store
+**/.DS_Store
+
+# Maven build output
+**/target/
+**/dependency-reduced-pom.xml
+
+# Java build output
+*.class
+
+# Large generated artifacts. Publish these as GitHub Release assets.
+Experiment/mtsa.jar
+Experiment/Experiment/result/**/All/extracted_rows_full.csv
+Experiment/Experiment/result/**/All/runs_compact.csv

@@ -1,0 +1,201 @@
+Process:
+	UpdCont_SFG
+States:
+	97
+Transitions:
+	UpdCont_SFG = Q0,
+	Q0	= (hotSwapIn -> Q27
+		  |input -> Q92),
+	Q1	= (des128 -> Q33),
+	Q2	= (des128 -> Q36),
+	Q3	= (des128 -> Q5
+		  |startNewSpec_P_DES128 -> Q38
+		  |input -> Q42),
+	Q4	= (input -> Q9),
+	Q5	= (startNewSpec_P_DES128 -> Q38
+		  |input -> Q42),
+	Q6	= (reconfigure_IO -> Q40
+		  |input -> Q41),
+	Q7	= (startNewSpec_P_DES128 -> Q41
+		  |output -> Q45
+		  |reconfigure_IO -> Q48
+		  |reconfigure_others -> Q65
+		  |des64 -> Q76),
+	Q8	= (des128 -> Q13
+		  |output -> Q43),
+	Q9	= (des128 -> Q30),
+	Q10	= (des128 -> Q30
+		  |output -> Q63),
+	Q11	= (des64 -> Q24
+		  |reconfigure_others -> Q39
+		  |startNewSpec_P_DES128 -> Q46
+		  |input -> Q53),
+	Q12	= (reconfigure_IO -> Q48),
+	Q13	= (des128 -> Q15
+		  |output -> Q50),
+	Q14	= (input -> Q96),
+	Q15	= (des128 -> Q20
+		  |output -> Q54),
+	Q16	= (reconfigure_IO -> Q52),
+	Q17	= (reconfigure_others -> Q55),
+	Q18	= (input -> Q9),
+	Q19	= (reconfigure_IO -> Q56
+		  |input -> Q65),
+	Q20	= (des128 -> Q8
+		  |output -> Q37),
+	Q21	= (input -> Q53
+		  |reconfigure_others -> Q58),
+	Q22	= (input -> Q96),
+	Q23	= (des128 -> Q8
+		  |output -> Q37),
+	Q24	= (input -> Q53
+		  |reconfigure_others -> Q58),
+	Q25	= (input -> Q96),
+	Q26	= (reconfigure_others -> Q16
+		  |startNewSpec_P_DES128 -> Q49
+		  |reconfigure_IO -> Q61
+		  |des64 -> Q76
+		  |output -> Q85),
+	Q27	= (stopOldSpec_P_DES64 -> Q66
+		  |input -> Q81),
+	Q28	= (stopOldSpec_P_DES64 -> Q26),
+	Q29	= (hotSwapIn -> Q28
+		  |des64 -> Q29
+		  |output -> Q62),
+	Q30	= (des128 -> Q32
+		  |output -> Q64),
+	Q31	= (startNewSpec_P_DES128 -> Q2
+		  |des128 -> Q68
+		  |output -> Q70),
+	Q32	= (des128 -> Q33
+		  |output -> Q67),
+	Q33	= (des128 -> Q36
+		  |output -> Q72),
+	Q34	= (des128 -> Q3
+		  |startNewSpec_P_DES128 -> Q4
+		  |input -> Q35),
+	Q35	= (startNewSpec_P_DES128 -> Q9
+		  |des128 -> Q71
+		  |output -> Q73),
+	Q36	= (des128 -> Q30
+		  |output -> Q63),
+	Q37	= (input -> Q1),
+	Q38	= (input -> Q96),
+	Q39	= (des128 -> Q5
+		  |startNewSpec_P_DES128 -> Q14
+		  |input -> Q42),
+	Q40	= (reconfigure_others -> Q4
+		  |input -> Q75
+		  |des64 -> Q79),
+	Q41	= (reconfigure_IO -> Q74),
+	Q42	= (startNewSpec_P_DES128 -> Q9),
+	Q43	= (input -> Q2),
+	Q44	= (startNewSpec_P_DES128 -> Q38
+		  |input -> Q42),
+	Q45	= (reconfigure_IO -> Q11
+		  |input -> Q12),
+	Q46	= (reconfigure_others -> Q4
+		  |input -> Q75),
+	Q47	= (reconfigure_others -> Q77),
+	Q48	= (des64 -> Q17
+		  |reconfigure_others -> Q35
+		  |startNewSpec_P_DES128 -> Q75
+		  |output -> Q86),
+	Q49	= (reconfigure_IO -> Q78),
+	Q50	= (input -> Q9),
+	Q51	= (input -> Q41
+		  |reconfigure_IO -> Q83),
+	Q52	= (output -> Q57
+		  |startNewSpec_P_DES128 -> Q77
+		  |des128 -> Q82),
+	Q53	= (reconfigure_others -> Q35),
+	Q54	= (input -> Q96),
+	Q55	= (output -> Q60
+		  |startNewSpec_P_DES128 -> Q84
+		  |des128 -> Q91),
+	Q56	= (startNewSpec_P_DES128 -> Q18
+		  |input -> Q35
+		  |des128 -> Q87),
+	Q57	= (startNewSpec_P_DES128 -> Q22
+		  |input -> Q42
+		  |des128 -> Q90),
+	Q58	= (startNewSpec_P_DES128 -> Q22
+		  |input -> Q42
+		  |des128 -> Q90),
+	Q59	= (startNewSpec_P_DES128 -> Q25
+		  |input -> Q42),
+	Q60	= (startNewSpec_P_DES128 -> Q22
+		  |input -> Q42),
+	Q61	= (des64 -> Q17
+		  |output -> Q21
+		  |reconfigure_others -> Q55
+		  |startNewSpec_P_DES128 -> Q89),
+	Q62	= (input -> Q92
+		  |hotSwapIn -> Q95),
+	Q63	= (input -> Q1),
+	Q64	= (input -> Q2),
+	Q65	= (reconfigure_IO -> Q31),
+	Q66	= (startNewSpec_P_DES128 -> Q6
+		  |reconfigure_IO -> Q11
+		  |input -> Q12
+		  |reconfigure_others -> Q69
+		  |des64 -> Q80),
+	Q67	= (input -> Q9),
+	Q68	= (startNewSpec_P_DES128 -> Q10
+		  |output -> Q44
+		  |des128 -> Q71),
+	Q69	= (reconfigure_IO -> Q34
+		  |input -> Q65),
+	Q70	= (des128 -> Q5
+		  |startNewSpec_P_DES128 -> Q14
+		  |input -> Q42),
+	Q71	= (startNewSpec_P_DES128 -> Q10),
+	Q72	= (input -> Q96),
+	Q73	= (startNewSpec_P_DES128 -> Q14
+		  |input -> Q42),
+	Q74	= (reconfigure_others -> Q2
+		  |des64 -> Q47),
+	Q75	= (reconfigure_others -> Q2),
+	Q76	= (reconfigure_IO -> Q61),
+	Q77	= (des128 -> Q20),
+	Q78	= (des64 -> Q47
+		  |reconfigure_others -> Q77),
+	Q79	= (reconfigure_others -> Q18
+		  |input -> Q75),
+	Q80	= (input -> Q12
+		  |reconfigure_IO -> Q94),
+	Q81	= (stopOldSpec_P_DES64 -> Q7),
+	Q82	= (startNewSpec_P_DES128 -> Q23
+		  |output -> Q59
+		  |des128 -> Q91),
+	Q83	= (reconfigure_others -> Q18
+		  |input -> Q75
+		  |des64 -> Q79),
+	Q84	= (des128 -> Q8),
+	Q85	= (input -> Q12
+		  |reconfigure_IO -> Q94),
+	Q86	= (reconfigure_others -> Q39
+		  |input -> Q53),
+	Q87	= (startNewSpec_P_DES128 -> Q25
+		  |input -> Q42
+		  |des128 -> Q90),
+	Q88	= (reconfigure_others -> Q18
+		  |input -> Q75),
+	Q89	= (reconfigure_others -> Q77),
+	Q90	= (startNewSpec_P_DES128 -> Q25
+		  |input -> Q42),
+	Q91	= (startNewSpec_P_DES128 -> Q23),
+	Q92	= (des64 -> Q29
+		  |hotSwapIn -> Q81),
+	Q93	= (input -> Q12
+		  |reconfigure_others -> Q19
+		  |startNewSpec_P_DES128 -> Q51
+		  |des64 -> Q80
+		  |reconfigure_IO -> Q94),
+	Q94	= (des64 -> Q24
+		  |input -> Q53
+		  |reconfigure_others -> Q58
+		  |startNewSpec_P_DES128 -> Q88),
+	Q95	= (input -> Q81
+		  |stopOldSpec_P_DES64 -> Q93),
+	Q96	= (des128 -> Q32).

@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "surveillance_otf_minimum",
+  "example": "Surveillance",
+  "method": "OTF-MINIMUM",
+  "variant": "none",
+  "target": "UpdCont_OTF_FG",
+  "lts": "Experiment\\20260626_no_abs\\models\\Surveillance_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_output.txt",
+  "transitions": "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt",
+  "stdout": "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_stdout.txt",
+  "stderr": "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_stderr.txt",
+  "startedAt": "2026-06-27T03:12:59.2700443+09:00",
+  "endedAt": "2026-06-27T03:13:01.5755903+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=false", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=false", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260626_no_abs\\models\\Surveillance_FG.lts", "--target", "UpdCont_OTF_FG", "--output", "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_output.txt", "--transitions", "Experiment\\20260626_no_abs\\result\\Surveillance\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt"]
+}

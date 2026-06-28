@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "powerplant_traditional_abstruction",
+  "example": "PowerPlant",
+  "method": "Traditional",
+  "variant": "traditional-abstruction",
+  "target": "UpdCont_SFG",
+  "lts": "Experiment\\20260617\\models\\PowerPlant_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_output.txt",
+  "transitions": "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_transitions_UpdCont_SFG.txt",
+  "stdout": "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_stdout.txt",
+  "stderr": "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_stderr.txt",
+  "startedAt": "2026-06-17T05:18:30.3402329+09:00",
+  "endedAt": "2026-06-17T05:18:31.5260805+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260617\\models\\PowerPlant_FG.lts", "--target", "UpdCont_SFG", "--output", "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_output.txt", "--transitions", "Experiment\\20260617\\result\\PowerPlant\\Traditional\\traditional_traditional_abstruction_transitions_UpdCont_SFG.txt"]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "EXCEPTION",
+  "id": "railcab_otf_minimum_r2",
+  "example": "Railcab",
+  "method": "OTF-MINIMUM",
+  "variant": "R2",
+  "target": "UpdCont_OTF_FG_R2",
+  "lts": "Experiment\\20260620\\models\\Railcab_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_output.txt",
+  "transitions": "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_transitions_UpdCont_OTF_FG_R2.txt",
+  "stdout": "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_stdout.txt",
+  "stderr": "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_stderr.txt",
+  "startedAt": "2026-06-22T12:47:51.9125747+09:00",
+  "endedAt": "2026-06-22T12:47:52.2107829+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 4,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260620\\models\\Railcab_FG.lts", "--target", "UpdCont_OTF_FG_R2", "--output", "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_output.txt", "--transitions", "Experiment\\20260620\\result_r2\\Railcab\\OTF\\otf_r2_transitions_UpdCont_OTF_FG_R2.txt"]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "gsm_otf_minimum",
+  "example": "GSM",
+  "method": "OTF-MINIMUM",
+  "variant": "none",
+  "target": "UpdCont_OTF_FG",
+  "lts": "Experiment\\20260623\\models\\GSM_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_output.txt",
+  "transitions": "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt",
+  "stdout": "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_stdout.txt",
+  "stderr": "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_stderr.txt",
+  "startedAt": "2026-06-23T23:37:48.7727508+09:00",
+  "endedAt": "2026-06-23T23:37:49.6611238+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260623\\models\\GSM_FG.lts", "--target", "UpdCont_OTF_FG", "--output", "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_output.txt", "--transitions", "Experiment\\20260623\\result\\GSM\\OTF\\otf_none_transitions_UpdCont_OTF_FG.txt"]
+}

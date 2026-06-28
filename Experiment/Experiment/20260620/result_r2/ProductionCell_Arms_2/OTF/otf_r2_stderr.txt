@@ -1,0 +1,13 @@
+ltsa.lts.LTSException: } expected
+	at ltsa.lts.Diagnostics.fatal(Diagnostics.java:28)
+	at ltsa.lts.LTSCompiler.error(LTSCompiler.java:114)
+	at ltsa.lts.LTSCompiler.current_is(LTSCompiler.java:119)
+	at ltsa.lts.LTSCompiler.setValueHavingConsumedLCURLY(LTSCompiler.java:1195)
+	at ltsa.lts.LTSCompiler.setValue(LTSCompiler.java:1183)
+	at ltsa.lts.LTSCompiler.setDefinition(LTSCompiler.java:1156)
+	at ltsa.lts.LTSCompiler.doparse(LTSCompiler.java:392)
+	at ltsa.lts.LTSCompiler.compile(LTSCompiler.java:151)
+	at ltsa.updatingControllers.CompositionEvaluationRunner$1.compile(CompositionEvaluationRunner.java:366)
+	at ltsa.updatingControllers.CompositionEvaluationRunner.run(CompositionEvaluationRunner.java:135)
+	at ltsa.updatingControllers.cli.SingleCompositionRunner.runMain(SingleCompositionRunner.java:64)
+	at ltsa.updatingControllers.cli.SingleCompositionRunner.main(SingleCompositionRunner.java:30)

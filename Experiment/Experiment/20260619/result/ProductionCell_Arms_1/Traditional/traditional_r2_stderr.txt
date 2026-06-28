@@ -1,0 +1,28 @@
+Game state size:10
+Winning state size:9
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 8:18:24 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet

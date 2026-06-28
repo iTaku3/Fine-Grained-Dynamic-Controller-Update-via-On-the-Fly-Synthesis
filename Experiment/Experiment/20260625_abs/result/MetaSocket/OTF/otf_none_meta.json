@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "metasocket_otf_minimum_abstruction",
+  "example": "MetaSocket",
+  "method": "OTF-MINIMUM-ABSTRUCTION",
+  "variant": "none",
+  "target": "UpdCont_OTF_SFG",
+  "lts": "Experiment\\20260625_abs\\models\\MetaSocket_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_output.txt",
+  "transitions": "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_transitions_UpdCont_OTF_SFG.txt",
+  "stdout": "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_stdout.txt",
+  "stderr": "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_stderr.txt",
+  "startedAt": "2026-06-25T18:38:00.5449838+09:00",
+  "endedAt": "2026-06-25T18:38:01.4362074+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260625_abs\\models\\MetaSocket_FG.lts", "--target", "UpdCont_OTF_SFG", "--output", "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_output.txt", "--transitions", "Experiment\\20260625_abs\\result\\MetaSocket\\OTF\\otf_none_transitions_UpdCont_OTF_SFG.txt"]
+}

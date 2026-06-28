@@ -1,0 +1,22 @@
+{
+  "status": "EXCEPTION",
+  "id": "surveillance_traditional",
+  "example": "Surveillance",
+  "method": "Traditional",
+  "variant": "none",
+  "target": "UpdCont_FG",
+  "lts": "Experiment\\20260623\\models\\Surveillance_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_output.txt",
+  "transitions": "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_transitions_UpdCont_FG.txt",
+  "stdout": "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_stdout.txt",
+  "stderr": "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_stderr.txt",
+  "startedAt": "2026-06-24T10:26:24.8551331+09:00",
+  "endedAt": "2026-06-24T10:26:29.6191336+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 1,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260623\\models\\Surveillance_FG.lts", "--target", "UpdCont_FG", "--output", "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_output.txt", "--transitions", "Experiment\\20260623\\result\\Surveillance\\Traditional\\traditional_none_transitions_UpdCont_FG.txt"]
+}

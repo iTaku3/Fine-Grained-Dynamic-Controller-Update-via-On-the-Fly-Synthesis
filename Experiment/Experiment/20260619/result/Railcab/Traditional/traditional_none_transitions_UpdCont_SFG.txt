@@ -1,0 +1,1049 @@
+Process:
+	UpdCont_SFG
+States:
+	614
+Transitions:
+	UpdCont_SFG = Q0,
+	Q0	= (hotSwapIn -> Q340
+		  |endOfTS -> Q562),
+	Q1	= (emergencyBrake -> Q192),
+	Q2	= (startNewSpec -> Q224),
+	Q3	= (notWorking -> Q229
+		  |working -> Q232),
+	Q4	= ({notWorking, working} -> Q369),
+	Q5	= (reconfigure -> Q511),
+	Q6	= (enterAllowed[0..1] -> Q179),
+	Q7	= (endOfTS -> Q548),
+	Q8	= (enterAllowed[0] -> Q227
+		  |enterAllowed[1] -> Q248),
+	Q9	= (notWorking -> Q202
+		  |working -> Q215),
+	Q10	= (brake -> Q25
+		  |idle_c -> Q180
+		  |checkCrossingStatus -> Q236
+		  |emergencyBrake -> Q239
+		  |requestEnter -> Q432),
+	Q11	= (brake -> Q27
+		  |idle_c -> Q194
+		  |emergencyBrake -> Q242
+		  |requestEnter -> Q447
+		  |checkCrossingStatus -> Q584),
+	Q12	= (endOfTS -> Q533),
+	Q13	= (enterAllowed[0] -> Q244
+		  |enterAllowed[1] -> Q254),
+	Q14	= (endOfTS -> Q544),
+	Q15	= (brake -> Q32
+		  |idle_c -> Q199
+		  |emergencyBrake -> Q247
+		  |checkCrossingStatus -> Q252
+		  |requestEnter -> Q450),
+	Q16	= (endOfTS -> Q298),
+	Q17	= (endOfTS -> Q544),
+	Q18	= ({notWorking, working} -> Q356),
+	Q19	= (approachingCrossing -> Q497),
+	Q20	= (enterAllowed[0..1] -> Q188),
+	Q21	= (reconfigure -> Q19
+		  |enterCrossing -> Q230),
+	Q22	= (endOfTS -> Q544),
+	Q23	= (enterAllowed[0] -> Q219
+		  |enterAllowed[1] -> Q240),
+	Q24	= (reconfigure -> Q443
+		  |endOfTS -> Q610),
+	Q25	= (endOfTS -> Q548),
+	Q26	= (working -> Q35
+		  |notWorking -> Q253),
+	Q27	= (endOfTS -> Q548),
+	Q28	= (lastBrake -> Q255),
+	Q29	= (enterAllowed[0..1] -> Q170),
+	Q30	= (brake -> Q40
+		  |idle_c -> Q203
+		  |emergencyBrake -> Q250
+		  |requestEnter -> Q452
+		  |checkCrossingStatus -> Q593),
+	Q31	= (reconfigure -> Q443
+		  |endOfTS -> Q610),
+	Q32	= (endOfTS -> Q533),
+	Q33	= (working -> Q45
+		  |notWorking -> Q256),
+	Q34	= (brake -> Q14
+		  |idle_c -> Q173
+		  |emergencyBrake -> Q222
+		  |checkCrossingStatus -> Q228
+		  |requestEnter -> Q423),
+	Q35	= (lastBrake -> Q257),
+	Q36	= (brake -> Q17
+		  |idle_c -> Q186
+		  |emergencyBrake -> Q234
+		  |requestEnter -> Q425
+		  |checkCrossingStatus -> Q577),
+	Q37	= (endOfTS -> Q548),
+	Q38	= (working -> Q28
+		  |notWorking -> Q237),
+	Q39	= (approachingCrossing -> Q497),
+	Q40	= (endOfTS -> Q533),
+	Q41	= (reconfigure -> Q465),
+	Q42	= (endOfTS -> Q533),
+	Q43	= (stopOldSpec -> Q592),
+	Q44	= (stopOldSpec -> Q595),
+	Q45	= (lastBrake -> Q249),
+	Q46	= (approachingCrossing -> Q216
+		  |startNewSpec -> Q460
+		  |lastBrake -> Q566),
+	Q47	= (approachingCrossing -> Q304),
+	Q48	= (reconfigure -> Q270
+		  |requestEnter -> Q435
+		  |idle_c -> Q446),
+	Q49	= (stopOldSpec -> Q48),
+	Q50	= (reconfigure -> Q270),
+	Q51	= (enterAllowed[0..1] -> Q39),
+	Q52	= (working -> Q58
+		  |notWorking -> Q275),
+	Q53	= (idle_c -> Q47
+		  |checkCrossingStatus -> Q278
+		  |requestEnter -> Q279),
+	Q54	= (approachingCrossing -> Q519),
+	Q55	= (enterAllowed[0..1] -> Q265),
+	Q56	= (approachingCrossing -> Q519),
+	Q57	= (endOfTS -> Q544),
+	Q58	= (approachingCrossing -> Q118
+		  |startNewSpec -> Q274),
+	Q59	= (endOfTS -> Q298
+		  |startNewSpec -> Q431),
+	Q60	= (enterAllowed[0..1] -> Q262),
+	Q61	= (endOfTS -> Q548),
+	Q62	= (approachingCrossing -> Q556),
+	Q63	= (endOfTS -> Q533),
+	Q64	= (reconfigure -> Q70),
+	Q65	= (approachingCrossing -> Q297
+		  |lastBrake -> Q515),
+	Q66	= (idle_c -> Q277
+		  |requestEnter -> Q288
+		  |emergencyBrake -> Q292
+		  |brake -> Q480),
+	Q67	= (endOfTS -> Q544),
+	Q68	= (approachingCrossing -> Q297
+		  |lastBrake -> Q515),
+	Q69	= (enterAllowed[0..1] -> Q273
+		  |reconfigure -> Q288),
+	Q70	= (idle_c -> Q282
+		  |requestEnter -> Q291
+		  |emergencyBrake -> Q294
+		  |brake -> Q482),
+	Q71	= (idle_c -> Q272
+		  |requestEnter -> Q286
+		  |emergencyBrake -> Q287
+		  |brake -> Q478),
+	Q72	= (endOfTS -> Q548),
+	Q73	= (stopOldSpec -> Q296),
+	Q74	= (endOfTS -> Q298
+		  |startNewSpec -> Q352),
+	Q75	= (endOfTS -> Q298
+		  |startNewSpec -> Q431),
+	Q76	= (endOfTS -> Q533),
+	Q77	= (reconfigure -> Q87
+		  |startNewSpec -> Q273
+		  |lastEmergencyBrake -> Q302),
+	Q78	= (endOfTS -> Q533),
+	Q79	= (reconfigure -> Q87
+		  |lastEmergencyBrake -> Q302),
+	Q80	= (endOfTS -> Q298),
+	Q81	= (enterCrossing -> Q308),
+	Q82	= (startNewSpec -> Q60
+		  |enterAllowed[0..1] -> Q266),
+	Q83	= (startNewSpec -> Q307
+		  |approachingCrossing -> Q541),
+	Q84	= (working -> Q83
+		  |notWorking -> Q309
+		  |startNewSpec -> Q495),
+	Q85	= (enterCrossing -> Q308),
+	Q86	= (stopOldSpec -> Q310),
+	Q87	= (startNewSpec -> Q282
+		  |lastEmergencyBrake -> Q306),
+	Q88	= (startNewSpec -> Q60
+		  |enterAllowed[0..1] -> Q266),
+	Q89	= (lastEmergencyBrake -> Q315
+		  |reconfigure -> Q503),
+	Q90	= (startNewSpec -> Q282
+		  |lastEmergencyBrake -> Q306),
+	Q91	= (idle_c -> Q81
+		  |requestEnter -> Q303
+		  |checkCrossingStatus -> Q316),
+	Q92	= (idle_c -> Q85
+		  |requestEnter -> Q305
+		  |checkCrossingStatus -> Q317),
+	Q93	= (enterCrossing -> Q311),
+	Q94	= (approachingCrossing -> Q413),
+	Q95	= (lastEmergencyBrake -> Q315
+		  |reconfigure -> Q503),
+	Q96	= (idle_c -> Q65
+		  |checkCrossingStatus -> Q246
+		  |emergencyBrake -> Q490
+		  |brake -> Q596
+		  |requestEnter -> Q600),
+	Q97	= (idle_c -> Q85),
+	Q98	= (reconfigure -> Q499
+		  |endOfTS -> Q610),
+	Q99	= (approachingCrossing -> Q406),
+	Q100	= (startNewSpec -> Q78
+		  |endOfTS -> Q298),
+	Q101	= (approachingCrossing -> Q147
+		  |startNewSpec -> Q321),
+	Q102	= (endOfTS -> Q298),
+	Q103	= (idle_c -> Q293),
+	Q104	= (enterCrossing -> Q320
+		  |startNewSpec -> Q578),
+	Q105	= (idle_c -> Q295),
+	Q106	= (emergencyBrake -> Q323
+		  |brake -> Q506),
+	Q107	= (idle_c -> Q290),
+	Q108	= (endOfTS -> Q544),
+	Q109	= (idle_c -> Q313),
+	Q110	= (endOfTS -> Q548),
+	Q111	= (idle_c -> Q93),
+	Q112	= (working -> Q121
+		  |notWorking -> Q328),
+	Q113	= (endOfTS -> Q298
+		  |startNewSpec -> Q332),
+	Q114	= (startNewSpec -> Q64
+		  |idle_c -> Q79
+		  |brake -> Q124
+		  |requestEnter -> Q334
+		  |emergencyBrake -> Q335
+		  |reconfigure -> Q339),
+	Q115	= (endOfTS -> Q533),
+	Q116	= (stopOldSpec -> Q114),
+	Q117	= (startNewSpec -> Q120
+		  |endOfTS -> Q298),
+	Q118	= (startNewSpec -> Q386),
+	Q119	= (reconfigure -> Q339),
+	Q120	= (endOfTS -> Q533),
+	Q121	= (lastEmergencyBrake -> Q329),
+	Q122	= (emergencyBrake -> Q337
+		  |brake -> Q344),
+	Q123	= (emergencyBrake -> Q342),
+	Q124	= (reconfigure -> Q125
+		  |endOfTS -> Q610),
+	Q125	= (endOfTS -> Q298
+		  |startNewSpec -> Q481),
+	Q126	= (endOfTS -> Q298
+		  |startNewSpec -> Q481),
+	Q127	= (emergencyBrake -> Q345),
+	Q128	= (lastEmergencyBrake -> Q127),
+	Q129	= (emergencyBrake -> Q338),
+	Q130	= (startNewSpec -> Q401),
+	Q131	= (idle_c -> Q95
+		  |reconfigure -> Q138
+		  |emergencyBrake -> Q347
+		  |requestEnter -> Q488
+		  |brake -> Q554),
+	Q132	= (lastEmergencyBrake -> Q129),
+	Q133	= (endOfTS -> Q544),
+	Q134	= (startNewSpec -> Q129),
+	Q135	= (lastEmergencyBrake -> Q123),
+	Q136	= (endOfTS -> Q548),
+	Q137	= (notWorking -> Q128
+		  |working -> Q534),
+	Q138	= (checkCrossingStatus -> Q153
+		  |requestEnter -> Q324
+		  |emergencyBrake -> Q358
+		  |idle_c -> Q507
+		  |brake -> Q558),
+	Q139	= (emergencyBrake -> Q360),
+	Q140	= (endOfTS -> Q533),
+	Q141	= (endOfTS -> Q544),
+	Q142	= (reconfigure -> Q138),
+	Q143	= (emergencyBrake -> Q358
+		  |brake -> Q558),
+	Q144	= (emergencyBrake -> Q362),
+	Q145	= (endOfTS -> Q533),
+	Q146	= (lastEmergencyBrake -> Q144),
+	Q147	= (startNewSpec -> Q1),
+	Q148	= (endOfTS -> Q548),
+	Q149	= (endOfTS -> Q544),
+	Q150	= (lastEmergencyBrake -> Q160),
+	Q151	= (lastEmergencyBrake -> Q159),
+	Q152	= (endOfTS -> Q533),
+	Q153	= (notWorking -> Q364
+		  |working -> Q368
+		  |startNewSpec -> Q372),
+	Q154	= (idle_c -> Q512),
+	Q155	= (enterAllowed[0] -> Q132
+		  |enterAllowed[1] -> Q150),
+	Q156	= (endOfTS -> Q548),
+	Q157	= (lastEmergencyBrake -> Q139),
+	Q158	= (lastEmergencyBrake -> Q166),
+	Q159	= (idle_c -> Q516),
+	Q160	= (emergencyBrake -> Q354),
+	Q161	= (endOfTS -> Q544),
+	Q162	= (enterAllowed[0] -> Q135
+		  |enterAllowed[1] -> Q157),
+	Q163	= (endOfTS -> Q533),
+	Q164	= (lastEmergencyBrake -> Q154),
+	Q165	= (noReturn -> Q378),
+	Q166	= (idle_c -> Q502),
+	Q167	= (endOfTS -> Q544),
+	Q168	= (enterAllowed[0..1] -> Q357),
+	Q169	= (noReturn -> Q386),
+	Q170	= (lastBrake -> Q387),
+	Q171	= (lastEmergencyBrake -> Q400
+		  |hotSwapIn -> Q484),
+	Q172	= (requestEnter -> Q402
+		  |hotSwapIn -> Q542
+		  |idle_c -> Q574),
+	Q173	= (lastEmergencyBrake -> Q390),
+	Q174	= (endOfTS -> Q548),
+	Q175	= (endOfTS -> Q548),
+	Q176	= (endOfTS -> Q43
+		  |stopOldSpec -> Q483),
+	Q177	= (emergencyBrake -> Q7
+		  |idle_c -> Q221
+		  |requestEnter -> Q394
+		  |brake -> Q421
+		  |checkCrossingStatus -> Q601),
+	Q178	= (noReturn -> Q367),
+	Q179	= (lastBrake -> Q398),
+	Q180	= (lastEmergencyBrake -> Q401),
+	Q181	= (hotSwapIn -> Q374
+		  |endOfTS -> Q562),
+	Q182	= (endOfTS -> Q533),
+	Q183	= (endOfTS -> Q533),
+	Q184	= (enterAllowed[0..1] -> Q361),
+	Q185	= (hotSwapIn -> Q327
+		  |enterAllowed[0] -> Q370
+		  |enterAllowed[1] -> Q576),
+	Q186	= (lastEmergencyBrake -> Q393),
+	Q187	= (enterAllowed[0] -> Q128
+		  |enterAllowed[1] -> Q146),
+	Q188	= (lastBrake -> Q373),
+	Q189	= (checkCrossingStatus -> Q3
+		  |idle_c -> Q223
+		  |requestEnter -> Q405),
+	Q190	= (checkCrossingStatus -> Q204),
+	Q191	= (emergencyBrake -> Q12
+		  |idle_c -> Q229
+		  |requestEnter -> Q407
+		  |brake -> Q426
+		  |checkCrossingStatus -> Q606),
+	Q192	= (endOfTS -> Q544),
+	Q193	= (enterAllowed[0..1] -> Q353),
+	Q194	= (lastEmergencyBrake -> Q410),
+	Q195	= (working -> Q206
+		  |notWorking -> Q404),
+	Q196	= (checkCrossingStatus -> Q213),
+	Q197	= (hotSwapIn -> Q86
+		  |idle_c -> Q388),
+	Q198	= (lastEmergencyBrake -> Q413),
+	Q199	= (lastEmergencyBrake -> Q380),
+	Q200	= (checkCrossingStatus -> Q9
+		  |idle_c -> Q232
+		  |requestEnter -> Q414),
+	Q201	= (hotSwapIn -> Q44
+		  |requestEnter -> Q402),
+	Q202	= (lastBrake -> Q416),
+	Q203	= (lastEmergencyBrake -> Q385),
+	Q204	= (working -> Q226
+		  |notWorking -> Q417),
+	Q205	= (hotSwapIn -> Q259
+		  |enterCrossing -> Q382),
+	Q206	= (lastEmergencyBrake -> Q420),
+	Q207	= (reconfigure -> Q74
+		  |endOfTS -> Q610),
+	Q208	= (enterAllowed[0] -> Q180
+		  |enterAllowed[1] -> Q404),
+	Q209	= (reconfigure -> Q280
+		  |lastEmergencyBrake -> Q411),
+	Q210	= (endOfTS -> Q548),
+	Q211	= (enterAllowed[0] -> Q194
+		  |enterAllowed[1] -> Q206),
+	Q212	= (lastBrake -> Q143
+		  |approachingCrossing -> Q587),
+	Q213	= (working -> Q198
+		  |notWorking -> Q395),
+	Q214	= (idle_c -> Q202
+		  |requestEnter -> Q391
+		  |brake -> Q415
+		  |checkCrossingStatus -> Q590
+		  |emergencyBrake -> Q604),
+	Q215	= (lastBrake -> Q424),
+	Q216	= (startNewSpec -> Q214),
+	Q217	= (checkCrossingStatus -> Q195),
+	Q218	= (enterAllowed[0] -> Q199
+		  |enterAllowed[1] -> Q417),
+	Q219	= (approachingCrossing -> Q427),
+	Q220	= (endOfTS -> Q533),
+	Q221	= (lastBrake -> Q430),
+	Q222	= (endOfTS -> Q544),
+	Q223	= (lastBrake -> Q434),
+	Q224	= (idle_c -> Q215
+		  |requestEnter -> Q396
+		  |checkCrossingStatus -> Q608),
+	Q225	= (notWorking -> Q436
+		  |working -> Q440),
+	Q226	= (lastEmergencyBrake -> Q406),
+	Q227	= (approachingCrossing -> Q439),
+	Q228	= ({notWorking, working} -> Q180),
+	Q229	= (lastBrake -> Q409),
+	Q230	= (reconfigure -> Q16
+		  |endOfTS -> Q610),
+	Q231	= (enterAllowed[0] -> Q203
+		  |enterAllowed[1] -> Q226),
+	Q232	= (lastBrake -> Q412),
+	Q233	= (notWorking -> Q445
+		  |working -> Q448),
+	Q234	= (endOfTS -> Q544),
+	Q235	= (enterAllowed[0] -> Q173
+		  |enterAllowed[1] -> Q395),
+	Q236	= ({notWorking, working} -> Q199),
+	Q237	= (lastBrake -> Q449),
+	Q238	= (enterAllowed[0] -> Q186
+		  |enterAllowed[1] -> Q198),
+	Q239	= (endOfTS -> Q548),
+	Q240	= (approachingCrossing -> Q444),
+	Q241	= (notWorking -> Q419
+		  |working -> Q429),
+	Q242	= (endOfTS -> Q548),
+	Q243	= (endOfTS -> Q544),
+	Q244	= (approachingCrossing -> Q422),
+	Q245	= (lastBrake -> Q143
+		  |approachingCrossing -> Q587),
+	Q246	= (notWorking -> Q46
+		  |startNewSpec -> Q281
+		  |working -> Q468),
+	Q247	= (endOfTS -> Q533),
+	Q248	= (approachingCrossing -> Q458),
+	Q249	= (checkCrossingStatus -> Q204
+		  |idle_c -> Q206
+		  |requestEnter -> Q231),
+	Q250	= (endOfTS -> Q533),
+	Q251	= (endOfTS -> Q548),
+	Q252	= ({notWorking, working} -> Q173),
+	Q253	= (lastBrake -> Q455),
+	Q254	= (approachingCrossing -> Q433),
+	Q255	= (checkCrossingStatus -> Q213
+		  |idle_c -> Q226
+		  |requestEnter -> Q238),
+	Q256	= (lastBrake -> Q441),
+	Q257	= (checkCrossingStatus -> Q195
+		  |idle_c -> Q198
+		  |requestEnter -> Q211),
+	Q258	= (approachingCrossing -> Q200
+		  |lastBrake -> Q389),
+	Q259	= (reconfigure -> Q261
+		  |stopOldSpec -> Q437
+		  |enterCrossing -> Q463),
+	Q260	= (endOfTS -> Q533),
+	Q261	= (stopOldSpec -> Q428
+		  |approachingCrossing -> Q505),
+	Q262	= (approachingCrossing -> Q557),
+	Q263	= (reconfigure -> Q276
+		  |enterAllowed[0] -> Q459
+		  |enterAllowed[1] -> Q467),
+	Q264	= (startNewSpec -> Q271
+		  |approachingCrossing -> Q509),
+	Q265	= (approachingCrossing -> Q560),
+	Q266	= (startNewSpec -> Q271
+		  |approachingCrossing -> Q509),
+	Q267	= (approachingCrossing -> Q109),
+	Q268	= (approachingCrossing -> Q189
+		  |lastBrake -> Q379),
+	Q269	= (working -> Q267
+		  |notWorking -> Q469),
+	Q270	= (checkCrossingStatus -> Q52
+		  |requestEnter -> Q456
+		  |idle_c -> Q462),
+	Q271	= (approachingCrossing -> Q547),
+	Q272	= (lastEmergencyBrake -> Q474),
+	Q273	= (reconfigure -> Q277
+		  |lastEmergencyBrake -> Q471),
+	Q274	= (approachingCrossing -> Q367),
+	Q275	= (approachingCrossing -> Q529),
+	Q276	= (enterAllowed[1] -> Q56
+		  |enterAllowed[0] -> Q266),
+	Q277	= (lastEmergencyBrake -> Q475),
+	Q278	= (working -> Q285
+		  |notWorking -> Q473),
+	Q279	= (enterAllowed[1] -> Q56
+		  |enterAllowed[0] -> Q266),
+	Q280	= (lastEmergencyBrake -> Q477),
+	Q281	= (working -> Q258
+		  |notWorking -> Q442),
+	Q282	= (lastEmergencyBrake -> Q470),
+	Q283	= (lastEmergencyBrake -> Q477),
+	Q284	= (endOfTS -> Q533),
+	Q285	= (approachingCrossing -> Q122),
+	Q286	= (enterAllowed[0..1] -> Q277),
+	Q287	= (endOfTS -> Q544),
+	Q288	= (enterAllowed[0..1] -> Q282),
+	Q289	= (enterAllowed[0] -> Q484
+		  |stopOldSpec -> Q485
+		  |enterAllowed[1] -> Q489),
+	Q290	= (enterCrossing -> Q72),
+	Q291	= (enterAllowed[0..1] -> Q272),
+	Q292	= (endOfTS -> Q548),
+	Q293	= (enterCrossing -> Q76),
+	Q294	= (endOfTS -> Q533),
+	Q295	= (enterCrossing -> Q67),
+	Q296	= (brake -> Q299
+		  |idle_c -> Q459
+		  |startNewSpec -> Q471
+		  |emergencyBrake -> Q487
+		  |reconfigure -> Q491
+		  |requestEnter -> Q493),
+	Q297	= (startNewSpec -> Q552),
+	Q298	= (startNewSpec -> Q548),
+	Q299	= (reconfigure -> Q301
+		  |endOfTS -> Q610),
+	Q300	= (approachingCrossing -> Q393),
+	Q301	= (startNewSpec -> Q284
+		  |endOfTS -> Q298),
+	Q302	= (reconfigure -> Q491),
+	Q303	= (enterAllowed[1] -> Q85
+		  |enterAllowed[0] -> Q494),
+	Q304	= (brake -> Q100
+		  |emergencyBrake -> Q492),
+	Q305	= (enterAllowed[1] -> Q85
+		  |enterAllowed[0] -> Q494),
+	Q306	= (startNewSpec -> Q475),
+	Q307	= (approachingCrossing -> Q385),
+	Q308	= (endOfTS -> Q298),
+	Q309	= (approachingCrossing -> Q130
+		  |startNewSpec -> Q496),
+	Q310	= (brake -> Q98
+		  |requestEnter -> Q263
+		  |reconfigure -> Q312
+		  |idle_c -> Q467
+		  |emergencyBrake -> Q500),
+	Q311	= (endOfTS -> Q298),
+	Q312	= (idle_c -> Q56
+		  |requestEnter -> Q279
+		  |checkCrossingStatus -> Q501),
+	Q313	= (enterCrossing -> Q498),
+	Q314	= (approachingCrossing -> Q607),
+	Q315	= (reconfigure -> Q312),
+	Q316	= (working -> Q104
+		  |notWorking -> Q504),
+	Q317	= (working -> Q104
+		  |notWorking -> Q504),
+	Q318	= (endOfTS -> Q533),
+	Q319	= (working -> Q94
+		  |notWorking -> Q314),
+	Q320	= (startNewSpec -> Q183
+		  |endOfTS -> Q298),
+	Q321	= (approachingCrossing -> Q597),
+	Q322	= (enterAllowed[0] -> Q90
+		  |enterAllowed[1] -> Q507),
+	Q323	= (endOfTS -> Q298
+		  |startNewSpec -> Q318),
+	Q324	= (enterAllowed[0] -> Q90
+		  |enterAllowed[1] -> Q507),
+	Q325	= (enterAllowed[0] -> Q523
+		  |enterAllowed[1] -> Q549
+		  |reconfigure -> Q613),
+	Q326	= (lastBrake -> Q71
+		  |approachingCrossing -> Q439),
+	Q327	= (stopOldSpec -> Q325
+		  |enterAllowed[1] -> Q349
+		  |enterAllowed[0] -> Q513),
+	Q328	= (lastEmergencyBrake -> Q514
+		  |startNewSpec -> Q527),
+	Q329	= (brake -> Q117
+		  |emergencyBrake -> Q526),
+	Q330	= (startNewSpec -> Q69
+		  |enterAllowed[0..1] -> Q79
+		  |reconfigure -> Q530),
+	Q331	= (lastBrake -> Q66
+		  |approachingCrossing -> Q422),
+	Q332	= (endOfTS -> Q533),
+	Q333	= (startNewSpec -> Q565),
+	Q334	= (enterAllowed[0..1] -> Q79
+		  |reconfigure -> Q530),
+	Q335	= (reconfigure -> Q125
+		  |endOfTS -> Q610),
+	Q336	= (enterAllowed[0] -> Q523
+		  |enterAllowed[1] -> Q549
+		  |reconfigure -> Q613),
+	Q337	= (endOfTS -> Q298
+		  |startNewSpec -> Q531),
+	Q338	= (endOfTS -> Q544),
+	Q339	= (startNewSpec -> Q71
+		  |idle_c -> Q90
+		  |brake -> Q126
+		  |checkCrossingStatus -> Q341
+		  |requestEnter -> Q532
+		  |emergencyBrake -> Q539),
+	Q340	= (endOfTS -> Q43
+		  |stopOldSpec -> Q535),
+	Q341	= (startNewSpec -> Q137
+		  |working -> Q350
+		  |notWorking -> Q537),
+	Q342	= (endOfTS -> Q548),
+	Q343	= (startNewSpec -> Q71),
+	Q344	= (endOfTS -> Q298
+		  |startNewSpec -> Q531),
+	Q345	= (endOfTS -> Q533),
+	Q346	= (approachingCrossing -> Q543),
+	Q347	= (reconfigure -> Q355
+		  |endOfTS -> Q610),
+	Q348	= (approachingCrossing -> Q552),
+	Q349	= (lastBrake -> Q542
+		  |stopOldSpec -> Q545),
+	Q350	= (lastEmergencyBrake -> Q550
+		  |startNewSpec -> Q553),
+	Q351	= (approachingCrossing -> Q538),
+	Q352	= (endOfTS -> Q533),
+	Q353	= (lastEmergencyBrake -> Q557),
+	Q354	= (endOfTS -> Q544),
+	Q355	= (startNewSpec -> Q145
+		  |endOfTS -> Q298),
+	Q356	= (lastEmergencyBrake -> Q559),
+	Q357	= (lastEmergencyBrake -> Q560),
+	Q358	= (startNewSpec -> Q145
+		  |endOfTS -> Q298),
+	Q359	= (startNewSpec -> Q420),
+	Q360	= (endOfTS -> Q548),
+	Q361	= (lastEmergencyBrake -> Q547),
+	Q362	= (endOfTS -> Q533),
+	Q363	= (lastEmergencyBrake -> Q565),
+	Q364	= (startNewSpec -> Q157
+		  |lastEmergencyBrake -> Q555),
+	Q365	= (endOfTS -> Q544),
+	Q366	= (reconfigure -> Q74
+		  |endOfTS -> Q610),
+	Q367	= (idle_c -> Q570),
+	Q368	= (startNewSpec -> Q164
+		  |lastEmergencyBrake -> Q561),
+	Q369	= (lastEmergencyBrake -> Q556),
+	Q370	= (hotSwapIn -> Q513
+		  |lastBrake -> Q586),
+	Q371	= (startNewSpec -> Q331
+		  |lastBrake -> Q343
+		  |approachingCrossing -> Q375),
+	Q372	= (notWorking -> Q146
+		  |working -> Q151),
+	Q373	= (requestEnter -> Q184
+		  |idle_c -> Q357
+		  |brake -> Q383
+		  |emergencyBrake -> Q580
+		  |checkCrossingStatus -> Q584),
+	Q374	= (endOfTS -> Q43
+		  |stopOldSpec -> Q525),
+	Q375	= (startNewSpec -> Q439),
+	Q376	= (startNewSpec -> Q331
+		  |lastBrake -> Q343
+		  |approachingCrossing -> Q375),
+	Q377	= (endOfTS -> Q544),
+	Q378	= (idle_c -> Q578),
+	Q379	= (requestEnter -> Q573),
+	Q380	= (emergencyBrake -> Q591),
+	Q381	= (endOfTS -> Q548),
+	Q382	= (hotSwapIn -> Q463
+		  |endOfTS -> Q562),
+	Q383	= (endOfTS -> Q548),
+	Q384	= (startNewSpec -> Q399),
+	Q385	= (emergencyBrake -> Q594),
+	Q386	= (idle_c -> Q564),
+	Q387	= (requestEnter -> Q193
+		  |idle_c -> Q361
+		  |brake -> Q403
+		  |checkCrossingStatus -> Q593
+		  |emergencyBrake -> Q598),
+	Q388	= (hotSwapIn -> Q457
+		  |noReturn -> Q579),
+	Q389	= (requestEnter -> Q603),
+	Q390	= (emergencyBrake -> Q599),
+	Q391	= (enterAllowed[1] -> Q253
+		  |enterAllowed[0] -> Q436),
+	Q392	= (endOfTS -> Q533),
+	Q393	= (emergencyBrake -> Q605),
+	Q394	= (enterAllowed[1] -> Q256
+		  |enterAllowed[0] -> Q445),
+	Q395	= (lastEmergencyBrake -> Q607),
+	Q396	= (enterAllowed[1] -> Q35
+		  |enterAllowed[0] -> Q440),
+	Q397	= (hotSwapIn -> Q374
+		  |endOfTS -> Q562),
+	Q398	= (requestEnter -> Q168
+		  |idle_c -> Q353
+		  |brake -> Q377
+		  |emergencyBrake -> Q571
+		  |checkCrossingStatus -> Q577),
+	Q399	= (requestEnter -> Q568),
+	Q400	= (hotSwapIn -> Q73
+		  |emergencyBrake -> Q588),
+	Q401	= (emergencyBrake -> Q572),
+	Q402	= (enterAllowed[0] -> Q171
+		  |hotSwapIn -> Q289
+		  |enterAllowed[1] -> Q574),
+	Q403	= (endOfTS -> Q533),
+	Q404	= (lastEmergencyBrake -> Q1),
+	Q405	= (enterAllowed[1] -> Q45
+		  |enterAllowed[0] -> Q448),
+	Q406	= (idle_c -> Q169),
+	Q407	= (enterAllowed[1] -> Q237
+		  |enterAllowed[0] -> Q419),
+	Q408	= (lastBrake -> Q5
+		  |reconfigure -> Q68),
+	Q409	= (checkCrossingStatus -> Q4
+		  |emergencyBrake -> Q7
+		  |requestEnter -> Q218
+		  |idle_c -> Q363
+		  |brake -> Q421),
+	Q410	= (emergencyBrake -> Q585),
+	Q411	= (reconfigure -> Q53),
+	Q412	= (requestEnter -> Q231),
+	Q413	= (idle_c -> Q178),
+	Q414	= (enterAllowed[1] -> Q28
+		  |enterAllowed[0] -> Q429),
+	Q415	= (endOfTS -> Q544),
+	Q416	= (emergencyBrake -> Q12
+		  |checkCrossingStatus -> Q18
+		  |requestEnter -> Q235
+		  |idle_c -> Q369
+		  |brake -> Q426),
+	Q417	= (lastEmergencyBrake -> Q597),
+	Q418	= (lastBrake -> Q5
+		  |reconfigure -> Q68),
+	Q419	= (lastBrake -> Q15),
+	Q420	= (idle_c -> Q165),
+	Q421	= (endOfTS -> Q548),
+	Q422	= (requestEnter -> Q20
+		  |idle_c -> Q179
+		  |checkCrossingStatus -> Q233
+		  |brake -> Q383
+		  |emergencyBrake -> Q580),
+	Q423	= (enterAllowed[0..1] -> Q180),
+	Q424	= (requestEnter -> Q238),
+	Q425	= (enterAllowed[0..1] -> Q194),
+	Q426	= (endOfTS -> Q533),
+	Q427	= (requestEnter -> Q29
+		  |idle_c -> Q188
+		  |checkCrossingStatus -> Q241
+		  |brake -> Q403
+		  |emergencyBrake -> Q598),
+	Q428	= (approachingCrossing -> Q92),
+	Q429	= (lastBrake -> Q30),
+	Q430	= (requestEnter -> Q208
+		  |idle_c -> Q356
+		  |brake -> Q415
+		  |emergencyBrake -> Q604
+		  |checkCrossingStatus -> Q611),
+	Q431	= (endOfTS -> Q533),
+	Q432	= (enterAllowed[0..1] -> Q199),
+	Q433	= (checkCrossingStatus -> Q33
+		  |requestEnter -> Q581
+		  |idle_c -> Q602),
+	Q434	= (requestEnter -> Q211),
+	Q435	= (enterAllowed[0] -> Q21
+		  |enterAllowed[1] -> Q446
+		  |reconfigure -> Q453),
+	Q436	= (lastBrake -> Q34),
+	Q437	= (enterCrossing -> Q31
+		  |reconfigure -> Q451),
+	Q438	= ({notWorking, working} -> Q404),
+	Q439	= (requestEnter -> Q6
+		  |idle_c -> Q170
+		  |checkCrossingStatus -> Q225
+		  |brake -> Q377
+		  |emergencyBrake -> Q571),
+	Q440	= (lastBrake -> Q36),
+	Q441	= (emergencyBrake -> Q37
+		  |requestEnter -> Q218
+		  |brake -> Q251
+		  |idle_c -> Q404
+		  |checkCrossingStatus -> Q454),
+	Q442	= (approachingCrossing -> Q191
+		  |lastBrake -> Q569),
+	Q443	= (endOfTS -> Q298),
+	Q444	= (checkCrossingStatus -> Q38
+		  |requestEnter -> Q589
+		  |idle_c -> Q612),
+	Q445	= (lastBrake -> Q10),
+	Q446	= (enterCrossing -> Q31
+		  |reconfigure -> Q451),
+	Q447	= (enterAllowed[0..1] -> Q203),
+	Q448	= (lastBrake -> Q11),
+	Q449	= (emergencyBrake -> Q42
+		  |requestEnter -> Q235
+		  |brake -> Q260
+		  |idle_c -> Q417
+		  |checkCrossingStatus -> Q461),
+	Q450	= (enterAllowed[0..1] -> Q173),
+	Q451	= (approachingCrossing -> Q97),
+	Q452	= (enterAllowed[0..1] -> Q186),
+	Q453	= (enterAllowed[0] -> Q39
+		  |enterAllowed[1] -> Q462),
+	Q454	= ({notWorking, working} -> Q417),
+	Q455	= (emergencyBrake -> Q22
+		  |requestEnter -> Q208
+		  |brake -> Q243
+		  |idle_c -> Q395
+		  |checkCrossingStatus -> Q438),
+	Q456	= (enterAllowed[0] -> Q39
+		  |enterAllowed[1] -> Q462),
+	Q457	= (noReturn -> Q49
+		  |stopOldSpec -> Q466),
+	Q458	= (checkCrossingStatus -> Q26
+		  |requestEnter -> Q567
+		  |idle_c -> Q582),
+	Q459	= (noReturn -> Q41
+		  |reconfigure -> Q264),
+	Q460	= (approachingCrossing -> Q177
+		  |lastBrake -> Q563),
+	Q461	= ({notWorking, working} -> Q395),
+	Q462	= (approachingCrossing -> Q97),
+	Q463	= (stopOldSpec -> Q24
+		  |endOfTS -> Q43),
+	Q464	= (lastBrake -> Q44
+		  |stopOldSpec -> Q408),
+	Q465	= (idle_c -> Q39
+		  |requestEnter -> Q51
+		  |checkCrossingStatus -> Q269),
+	Q466	= (noReturn -> Q50
+		  |reconfigure -> Q54),
+	Q467	= (noReturn -> Q50
+		  |reconfigure -> Q54),
+	Q468	= (approachingCrossing -> Q2
+		  |startNewSpec -> Q268
+		  |lastBrake -> Q384),
+	Q469	= (approachingCrossing -> Q111),
+	Q470	= (emergencyBrake -> Q61),
+	Q471	= (reconfigure -> Q472),
+	Q472	= (requestEnter -> Q60
+		  |idle_c -> Q271),
+	Q473	= (startNewSpec -> Q62
+		  |approachingCrossing -> Q333),
+	Q474	= (emergencyBrake -> Q63),
+	Q475	= (emergencyBrake -> Q57),
+	Q476	= (requestEnter -> Q55
+		  |idle_c -> Q262),
+	Q477	= (emergencyBrake -> Q59
+		  |brake -> Q75),
+	Q478	= (endOfTS -> Q544),
+	Q479	= (lastBrake -> Q64
+		  |reconfigure -> Q326),
+	Q480	= (endOfTS -> Q548),
+	Q481	= (endOfTS -> Q533),
+	Q482	= (endOfTS -> Q533),
+	Q483	= (reconfigure -> Q301
+		  |endOfTS -> Q610),
+	Q484	= (lastEmergencyBrake -> Q73
+		  |stopOldSpec -> Q77),
+	Q485	= (enterAllowed[0] -> Q79
+		  |enterAllowed[1] -> Q95
+		  |reconfigure -> Q322),
+	Q486	= (approachingCrossing -> Q390),
+	Q487	= (reconfigure -> Q301
+		  |endOfTS -> Q610),
+	Q488	= (enterAllowed[0] -> Q79
+		  |enterAllowed[1] -> Q95
+		  |reconfigure -> Q322),
+	Q489	= (lastEmergencyBrake -> Q86
+		  |stopOldSpec -> Q89),
+	Q490	= (endOfTS -> Q298
+		  |startNewSpec -> Q352),
+	Q491	= (checkCrossingStatus -> Q84
+		  |requestEnter -> Q88
+		  |idle_c -> Q266
+		  |startNewSpec -> Q476),
+	Q492	= (startNewSpec -> Q78
+		  |endOfTS -> Q298),
+	Q493	= (reconfigure -> Q82
+		  |enterAllowed[0..1] -> Q459),
+	Q494	= (enterCrossing -> Q80),
+	Q495	= (working -> Q300
+		  |notWorking -> Q486),
+	Q496	= (approachingCrossing -> Q380),
+	Q497	= (idle_c -> Q494),
+	Q498	= (endOfTS -> Q298),
+	Q499	= (endOfTS -> Q298
+		  |startNewSpec -> Q318),
+	Q500	= (reconfigure -> Q499
+		  |endOfTS -> Q610),
+	Q501	= (notWorking -> Q101
+		  |startNewSpec -> Q319
+		  |working -> Q508),
+	Q502	= (noReturn -> Q105),
+	Q503	= (lastEmergencyBrake -> Q106),
+	Q504	= (enterCrossing -> Q102),
+	Q505	= (stopOldSpec -> Q91),
+	Q506	= (endOfTS -> Q298
+		  |startNewSpec -> Q318),
+	Q507	= (lastEmergencyBrake -> Q106),
+	Q508	= (startNewSpec -> Q99
+		  |approachingCrossing -> Q359),
+	Q509	= (startNewSpec -> Q560),
+	Q510	= (emergencyBrake -> Q110),
+	Q511	= (checkCrossingStatus -> Q112
+		  |idle_c -> Q283
+		  |requestEnter -> Q324
+		  |emergencyBrake -> Q490
+		  |brake -> Q596),
+	Q512	= (noReturn -> Q107),
+	Q513	= (lastBrake -> Q116
+		  |stopOldSpec -> Q520),
+	Q514	= (startNewSpec -> Q521),
+	Q515	= (emergencyBrake -> Q490
+		  |brake -> Q596),
+	Q516	= (noReturn -> Q103),
+	Q517	= (emergencyBrake -> Q115),
+	Q518	= (lastEmergencyBrake -> Q517),
+	Q519	= (emergencyBrake -> Q113
+		  |brake -> Q528),
+	Q520	= (lastBrake -> Q119
+		  |reconfigure -> Q376
+		  |startNewSpec -> Q479),
+	Q521	= (emergencyBrake -> Q108),
+	Q522	= (lastEmergencyBrake -> Q521),
+	Q523	= (lastBrake -> Q119
+		  |reconfigure -> Q376),
+	Q524	= (stopOldSpec -> Q330
+		  |enterAllowed[0..1] -> Q484),
+	Q525	= (reconfigure -> Q125
+		  |endOfTS -> Q610),
+	Q526	= (startNewSpec -> Q120
+		  |endOfTS -> Q298),
+	Q527	= (lastEmergencyBrake -> Q510),
+	Q528	= (endOfTS -> Q298
+		  |startNewSpec -> Q332),
+	Q529	= (idle_c -> Q504),
+	Q530	= (enterAllowed[0..1] -> Q90
+		  |startNewSpec -> Q291),
+	Q531	= (endOfTS -> Q533),
+	Q532	= (enterAllowed[0..1] -> Q90
+		  |startNewSpec -> Q291),
+	Q533	= (requestEnter -> Q13
+		  |idle_c -> Q348),
+	Q534	= (lastEmergencyBrake -> Q540),
+	Q535	= (reconfigure -> Q74
+		  |endOfTS -> Q610),
+	Q536	= (emergencyBrake -> Q136),
+	Q537	= (lastEmergencyBrake -> Q134
+		  |startNewSpec -> Q135),
+	Q538	= (checkCrossingStatus -> Q3
+		  |requestEnter -> Q581),
+	Q539	= (endOfTS -> Q298
+		  |startNewSpec -> Q481),
+	Q540	= (emergencyBrake -> Q140),
+	Q541	= (startNewSpec -> Q410),
+	Q542	= (stopOldSpec -> Q131),
+	Q543	= (checkCrossingStatus -> Q9
+		  |requestEnter -> Q589),
+	Q544	= (requestEnter -> Q23
+		  |idle_c -> Q351),
+	Q545	= (lastBrake -> Q142
+		  |reconfigure -> Q212),
+	Q546	= (emergencyBrake -> Q133),
+	Q547	= (emergencyBrake -> Q148),
+	Q548	= (requestEnter -> Q8
+		  |idle_c -> Q346),
+	Q549	= (lastBrake -> Q142
+		  |reconfigure -> Q212),
+	Q550	= (startNewSpec -> Q546),
+	Q551	= (lastEmergencyBrake -> Q546),
+	Q552	= (requestEnter -> Q567
+		  |checkCrossingStatus -> Q608),
+	Q553	= (lastEmergencyBrake -> Q536),
+	Q554	= (reconfigure -> Q355
+		  |endOfTS -> Q610),
+	Q555	= (startNewSpec -> Q160),
+	Q556	= (emergencyBrake -> Q156),
+	Q557	= (emergencyBrake -> Q152),
+	Q558	= (startNewSpec -> Q145
+		  |endOfTS -> Q298),
+	Q559	= (emergencyBrake -> Q163),
+	Q560	= (emergencyBrake -> Q141),
+	Q561	= (startNewSpec -> Q166),
+	Q562	= (hotSwapIn -> Q43
+		  |requestEnter -> Q185
+		  |idle_c -> Q609),
+	Q563	= (requestEnter -> Q162
+		  |emergencyBrake -> Q174
+		  |brake -> Q381
+		  |idle_c -> Q522),
+	Q564	= (enterCrossing -> Q175),
+	Q565	= (emergencyBrake -> Q149),
+	Q566	= (startNewSpec -> Q575),
+	Q567	= (enterAllowed[0] -> Q179
+		  |enterAllowed[1] -> Q602),
+	Q568	= (enterAllowed[1] -> Q158
+		  |enterAllowed[0] -> Q551),
+	Q569	= (emergencyBrake -> Q182
+		  |requestEnter -> Q187
+		  |brake -> Q392
+		  |idle_c -> Q527),
+	Q570	= (enterCrossing -> Q183),
+	Q571	= (endOfTS -> Q544),
+	Q572	= (endOfTS -> Q544),
+	Q573	= (enterAllowed[1] -> Q164
+		  |enterAllowed[0] -> Q553),
+	Q574	= (lastEmergencyBrake -> Q197
+		  |hotSwapIn -> Q489),
+	Q575	= (requestEnter -> Q155
+		  |emergencyBrake -> Q167
+		  |brake -> Q365
+		  |idle_c -> Q518),
+	Q576	= (lastBrake -> Q172
+		  |hotSwapIn -> Q349),
+	Q577	= (notWorking -> Q180
+		  |working -> Q194),
+	Q578	= (enterCrossing -> Q161),
+	Q579	= (hotSwapIn -> Q49
+		  |idle_c -> Q205),
+	Q580	= (endOfTS -> Q548),
+	Q581	= (enterAllowed[0] -> Q188
+		  |enterAllowed[1] -> Q612),
+	Q582	= (lastBrake -> Q196),
+	Q583	= (enterAllowed[0..1] -> Q171
+		  |hotSwapIn -> Q524),
+	Q584	= (notWorking -> Q199
+		  |working -> Q203),
+	Q585	= (endOfTS -> Q544),
+	Q586	= (hotSwapIn -> Q116
+		  |idle_c -> Q171
+		  |brake -> Q181
+		  |emergencyBrake -> Q397
+		  |requestEnter -> Q583),
+	Q587	= (startNewSpec -> Q458),
+	Q588	= (hotSwapIn -> Q176
+		  |endOfTS -> Q562),
+	Q589	= (enterAllowed[0] -> Q170
+		  |enterAllowed[1] -> Q582),
+	Q590	= ({notWorking, working} -> Q221),
+	Q591	= (endOfTS -> Q548),
+	Q592	= (reconfigure -> Q96
+		  |emergencyBrake -> Q207
+		  |requestEnter -> Q336
+		  |brake -> Q366
+		  |idle_c -> Q418),
+	Q593	= (notWorking -> Q173
+		  |working -> Q186),
+	Q594	= (endOfTS -> Q548),
+	Q595	= (emergencyBrake -> Q207
+		  |idle_c -> Q209
+		  |brake -> Q366
+		  |requestEnter -> Q488
+		  |reconfigure -> Q511),
+	Q596	= (endOfTS -> Q298
+		  |startNewSpec -> Q352),
+	Q597	= (emergencyBrake -> Q210),
+	Q598	= (endOfTS -> Q533),
+	Q599	= (endOfTS -> Q533),
+	Q600	= (enterAllowed[1] -> Q245
+		  |enterAllowed[0] -> Q371),
+	Q601	= ({notWorking, working} -> Q229),
+	Q602	= (lastBrake -> Q217),
+	Q603	= (enterAllowed[1] -> Q151
+		  |enterAllowed[0] -> Q534),
+	Q604	= (endOfTS -> Q544),
+	Q605	= (endOfTS -> Q533),
+	Q606	= ({notWorking, working} -> Q202),
+	Q607	= (emergencyBrake -> Q220),
+	Q608	= (notWorking -> Q221
+		  |working -> Q223),
+	Q609	= (lastBrake -> Q201
+		  |hotSwapIn -> Q464),
+	Q610	= (reconfigure -> Q96),
+	Q611	= ({notWorking, working} -> Q363),
+	Q612	= (lastBrake -> Q190),
+	Q613	= (enterAllowed[1] -> Q245
+		  |enterAllowed[0] -> Q371).

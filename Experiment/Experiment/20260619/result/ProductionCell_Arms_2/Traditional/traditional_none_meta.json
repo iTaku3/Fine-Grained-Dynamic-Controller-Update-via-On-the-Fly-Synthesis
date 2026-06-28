@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "productioncell_arm2_traditional_abstruction",
+  "example": "ProductionCell_Arms=2",
+  "method": "Traditional",
+  "variant": "none",
+  "target": "UpdCont_SFG",
+  "lts": "Experiment\\20260619\\models\\ProductionCell_Arms=2_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_output.txt",
+  "transitions": "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_transitions_UpdCont_SFG.txt",
+  "stdout": "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_stdout.txt",
+  "stderr": "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_stderr.txt",
+  "startedAt": "2026-06-21T09:13:02.7919691+09:00",
+  "endedAt": "2026-06-21T11:20:39.2330143+09:00",
+  "timeoutMillis": 43200000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260619\\models\\ProductionCell_Arms=2_FG.lts", "--target", "UpdCont_SFG", "--output", "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_output.txt", "--transitions", "Experiment\\20260619\\result\\ProductionCell_Arms_2\\Traditional\\traditional_none_transitions_UpdCont_SFG.txt"]
+}

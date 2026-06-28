@@ -1,0 +1,67 @@
+Process:
+	UpdCont_OTF_SFG_R1
+States:
+	42
+Transitions:
+	UpdCont_OTF_SFG_R1 = Q0,
+	Q0	= (stopPump -> Q1
+		  |request -> Q14
+		  |hotSwapIn -> Q41),
+	Q1	= (startPump -> Q0
+		  |hotSwapIn -> Q2
+		  |request -> Q13),
+	Q2	= (request -> Q3),
+	Q3	= (stopOldSpec_P_PROCEDURE_WHILE_STOPPED -> Q4),
+	Q4	= (reconfigure -> Q5),
+	Q5	= (startNewSpec_P_NEVER_STOP -> Q6),
+	Q6	= (stopOldSpec_others -> Q7),
+	Q7	= (startNewSpec_others -> Q8),
+	Q8	= (startPump -> Q9),
+	Q9	= (hotSwapOut -> Q10),
+	Q10	= (procedure -> Q11),
+	Q11	= (procedure -> Q11
+		  |endProcedure -> Q12),
+	Q12	= (request -> Q10),
+	Q13	= (hotSwapIn -> Q3
+		  |startPump -> Q14
+		  |procedure -> Q16),
+	Q14	= (stopPump -> Q15
+		  |hotSwapIn -> Q36),
+	Q15	= (hotSwapIn -> Q3
+		  |startPump -> Q14
+		  |procedure -> Q16),
+	Q16	= (procedure -> Q16
+		  |hotSwapIn -> Q17
+		  |startPump -> Q24),
+	Q17	= (stopOldSpec_P_PROCEDURE_WHILE_STOPPED -> Q18),
+	Q18	= (reconfigure -> Q19),
+	Q19	= (startNewSpec_P_NEVER_STOP -> Q20),
+	Q20	= (stopOldSpec_others -> Q21),
+	Q21	= (startNewSpec_others -> Q22),
+	Q22	= (endProcedure -> Q23),
+	Q23	= (request -> Q8),
+	Q24	= (hotSwapIn -> Q25
+		  |endProcedure -> Q31),
+	Q25	= (stopOldSpec_P_PROCEDURE_WHILE_STOPPED -> Q26),
+	Q26	= (reconfigure -> Q27),
+	Q27	= (startNewSpec_P_NEVER_STOP -> Q28),
+	Q28	= (stopOldSpec_others -> Q29),
+	Q29	= (startNewSpec_others -> Q30),
+	Q30	= (hotSwapOut -> Q11),
+	Q31	= (request -> Q14
+		  |stopPump -> Q32
+		  |hotSwapIn -> Q35),
+	Q32	= (request -> Q13
+		  |hotSwapIn -> Q33
+		  |startPump -> Q34),
+	Q33	= (request -> Q3),
+	Q34	= (request -> Q14
+		  |stopPump -> Q32
+		  |hotSwapIn -> Q35),
+	Q35	= (request -> Q36),
+	Q36	= (stopOldSpec_P_PROCEDURE_WHILE_STOPPED -> Q37),
+	Q37	= (reconfigure -> Q38),
+	Q38	= (startNewSpec_P_NEVER_STOP -> Q39),
+	Q39	= (stopOldSpec_others -> Q40),
+	Q40	= (startNewSpec_others -> Q9),
+	Q41	= (request -> Q36).

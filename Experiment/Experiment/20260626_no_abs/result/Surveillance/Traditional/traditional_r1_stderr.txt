@@ -1,0 +1,4 @@
+Game state size:57
+Winning state size:56
+6åé 27, 2026 10:09:47 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: weather is not in MTS alphabet

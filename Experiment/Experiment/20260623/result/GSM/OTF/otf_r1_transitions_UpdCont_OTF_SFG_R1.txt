@@ -1,0 +1,63 @@
+Process:
+	UpdCont_OTF_SFG_R1
+States:
+	49
+Transitions:
+	UpdCont_OTF_SFG_R1 = Q0,
+	Q0	= (shiftX -> Q1
+		  |hotSwapIn -> Q45),
+	Q1	= (shiftY -> Q2
+		  |hotSwapIn -> Q41),
+	Q2	= (hotSwapIn -> Q3
+		  |shiftZ -> Q16),
+	Q3	= (stopOldSpec -> Q4),
+	Q4	= (reconfigure -> Q5),
+	Q5	= (startNewSpec -> Q6),
+	Q6	= (hotSwapOut -> Q7),
+	Q7	= (shiftZ -> Q8),
+	Q8	= (shiftT -> Q9),
+	Q9	= (encode -> Q10),
+	Q10	= (send -> Q11),
+	Q11	= (receive -> Q12),
+	Q12	= (decode[3] -> Q13),
+	Q13	= (output -> Q14),
+	Q14	= (shiftX -> Q15),
+	Q15	= (shiftY -> Q7),
+	Q16	= (hotSwapIn -> Q17
+		  |encode -> Q21),
+	Q17	= (stopOldSpec -> Q18),
+	Q18	= (reconfigure -> Q19),
+	Q19	= (startNewSpec -> Q20),
+	Q20	= (hotSwapOut -> Q8),
+	Q21	= (send -> Q22
+		  |hotSwapIn -> Q37),
+	Q22	= (hotSwapIn -> Q23
+		  |receive -> Q27),
+	Q23	= (stopOldSpec -> Q24),
+	Q24	= (reconfigure -> Q25),
+	Q25	= (startNewSpec -> Q26),
+	Q26	= (hotSwapOut -> Q11),
+	Q27	= (hotSwapIn -> Q28
+		  |decode[2] -> Q32),
+	Q28	= (stopOldSpec -> Q29),
+	Q29	= (reconfigure -> Q30),
+	Q30	= (startNewSpec -> Q31),
+	Q31	= (hotSwapOut -> Q12),
+	Q32	= (output -> Q0
+		  |hotSwapIn -> Q33),
+	Q33	= (stopOldSpec -> Q34),
+	Q34	= (reconfigure -> Q35),
+	Q35	= (startNewSpec -> Q36),
+	Q36	= (hotSwapOut -> Q13),
+	Q37	= (stopOldSpec -> Q38),
+	Q38	= (reconfigure -> Q39),
+	Q39	= (startNewSpec -> Q40),
+	Q40	= (hotSwapOut -> Q10),
+	Q41	= (stopOldSpec -> Q42),
+	Q42	= (reconfigure -> Q43),
+	Q43	= (startNewSpec -> Q44),
+	Q44	= (hotSwapOut -> Q15),
+	Q45	= (stopOldSpec -> Q46),
+	Q46	= (reconfigure -> Q47),
+	Q47	= (startNewSpec -> Q48),
+	Q48	= (hotSwapOut -> Q14).

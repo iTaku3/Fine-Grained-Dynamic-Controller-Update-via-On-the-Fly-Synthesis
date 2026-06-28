@@ -1,0 +1,3314 @@
+Process:
+	UpdCont_SFG_R1
+States:
+	1071
+Transitions:
+	UpdCont_SFG_R1 = Q0,
+	Q0	= (hotSwapIn -> Q121
+		  |takeoff -> Q271
+		  |weather -> Q466),
+	Q1	= (takeoff -> Q480
+		  |weather -> Q1062),
+	Q2	= (scan.val[1] -> Q300
+		  |lowBattery -> Q875
+		  |scan.val[0] -> Q1023),
+	Q3	= (scan -> Q160
+		  |weather -> Q169
+		  |low -> Q521
+		  |move -> Q1057),
+	Q4	= (weather -> Q7
+		  |return2base -> Q903),
+	Q5	= (weather -> Q5
+		  |lowBattery -> Q329
+		  |hotSwapIn -> Q1056),
+	Q6	= (scan.val[1] -> Q135
+		  |scan.val[0] -> Q472
+		  |weather -> Q1055),
+	Q7	= (return2base -> Q893
+		  |weather -> Q1070),
+	Q8	= (hotSwapIn -> Q171
+		  |scan -> Q173
+		  |weather -> Q572
+		  |move -> Q883
+		  |high -> Q918),
+	Q9	= (scan -> Q165
+		  |weather -> Q170
+		  |low -> Q528
+		  |move -> Q1068),
+	Q10	= (weather -> Q557
+		  |return2base -> Q895),
+	Q11	= (scan -> Q154
+		  |weather -> Q167
+		  |low -> Q512
+		  |move -> Q1049),
+	Q12	= (scan.val[1] -> Q786
+		  |scan.val[0] -> Q948),
+	Q13	= (return2base -> Q666),
+	Q14	= (weather -> Q14
+		  |move -> Q453
+		  |high -> Q740
+		  |hotSwapIn -> Q757),
+	Q15	= (weather -> Q566
+		  |return2base -> Q903),
+	Q16	= (low -> Q9
+		  |weather -> Q20
+		  |move -> Q519
+		  |scan -> Q729),
+	Q17	= (weather -> Q553
+		  |return2base -> Q893),
+	Q18	= (weather -> Q18
+		  |move -> Q276
+		  |scan -> Q326
+		  |high -> Q336
+		  |hotSwapIn -> Q754),
+	Q19	= (high -> Q163
+		  |hotSwapIn -> Q185
+		  |picture -> Q511
+		  |weather -> Q568),
+	Q20	= (low -> Q11
+		  |weather -> Q22
+		  |move -> Q526
+		  |scan -> Q733),
+	Q21	= (lowBattery -> Q15
+		  |weather -> Q183),
+	Q22	= (low -> Q3
+		  |weather -> Q16
+		  |move -> Q500
+		  |scan -> Q720),
+	Q23	= (lowBattery -> Q17
+		  |weather -> Q191),
+	Q24	= (weather -> Q24
+		  |scan.val[0] -> Q361
+		  |scan.val[1] -> Q363
+		  |hotSwapIn -> Q769),
+	Q25	= (move -> Q8
+		  |weather -> Q25
+		  |high -> Q724
+		  |hotSwapIn -> Q773),
+	Q26	= (weather -> Q31
+		  |low -> Q194
+		  |follow -> Q755),
+	Q27	= (lowBattery -> Q15
+		  |weather -> Q196),
+	Q28	= (lowBattery -> Q10
+		  |weather -> Q179),
+	Q29	= (high -> Q688),
+	Q30	= (high -> Q184
+		  |move -> Q825),
+	Q31	= (weather -> Q38
+		  |low -> Q199
+		  |follow -> Q759),
+	Q32	= (lowBattery -> Q17
+		  |weather -> Q200),
+	Q33	= (scan.val[1] -> Q143
+		  |hotSwapIn -> Q175
+		  |scan.val[0] -> Q180
+		  |weather -> Q581),
+	Q34	= (weather -> Q41
+		  |low -> Q201
+		  |move -> Q1054),
+	Q35	= (lowBattery -> Q10
+		  |weather -> Q186),
+	Q36	= (weather -> Q36
+		  |hotSwapIn -> Q339
+		  |high -> Q356
+		  |move -> Q883),
+	Q37	= (high -> Q231
+		  |move -> Q372),
+	Q38	= (weather -> Q26
+		  |low -> Q189
+		  |follow -> Q753),
+	Q39	= (weather -> Q39
+		  |high -> Q403
+		  |hotSwapIn -> Q415
+		  |move -> Q787),
+	Q40	= (scan.val[1] -> Q786
+		  |scan.val[0] -> Q1001),
+	Q41	= (weather -> Q43
+		  |low -> Q207
+		  |move -> Q1060),
+	Q42	= (low -> Q32
+		  |weather -> Q45
+		  |follow -> Q738
+		  |picture -> Q931),
+	Q43	= (weather -> Q34
+		  |low -> Q198
+		  |move -> Q1047),
+	Q44	= (move -> Q8
+		  |high -> Q218
+		  |weather -> Q939
+		  |hotSwapIn -> Q1001),
+	Q45	= (low -> Q35
+		  |weather -> Q46
+		  |follow -> Q741
+		  |picture -> Q932),
+	Q46	= (low -> Q27
+		  |weather -> Q42
+		  |follow -> Q727
+		  |picture -> Q929),
+	Q47	= (scan.val[1] -> Q190
+		  |scan.val[0] -> Q197
+		  |hotSwapIn -> Q620
+		  |weather -> Q957),
+	Q48	= (low -> Q194
+		  |follow -> Q219
+		  |weather -> Q615),
+	Q49	= (weather -> Q49
+		  |move -> Q118
+		  |hotSwapIn -> Q236
+		  |high -> Q381),
+	Q50	= (low -> Q32
+		  |weather -> Q53
+		  |follow -> Q366
+		  |picture -> Q931),
+	Q51	= (move -> Q8
+		  |high -> Q218
+		  |hotSwapIn -> Q232
+		  |weather -> Q612),
+	Q52	= (move -> Q278
+		  |high -> Q552),
+	Q53	= (low -> Q35
+		  |weather -> Q54
+		  |follow -> Q373
+		  |picture -> Q932),
+	Q54	= (low -> Q27
+		  |weather -> Q50
+		  |follow -> Q364
+		  |picture -> Q929),
+	Q55	= (picture -> Q230
+		  |weather -> Q249
+		  |high -> Q628
+		  |hotSwapIn -> Q682),
+	Q56	= (low -> Q199
+		  |follow -> Q227
+		  |weather -> Q617),
+	Q57	= (follow -> Q416
+		  |weather -> Q629
+		  |low -> Q809),
+	Q58	= (move -> Q118
+		  |scan -> Q182
+		  |high -> Q195
+		  |weather -> Q209
+		  |hotSwapIn -> Q578),
+	Q59	= (low -> Q201
+		  |weather -> Q407
+		  |move -> Q1054),
+	Q60	= (low -> Q189
+		  |follow -> Q214
+		  |weather -> Q613),
+	Q61	= (move -> Q172
+		  |high -> Q551),
+	Q62	= (high -> Q235
+		  |hotSwapIn -> Q871
+		  |weather -> Q956
+		  |move -> Q1011),
+	Q63	= (follow -> Q418
+		  |weather -> Q634
+		  |low -> Q813),
+	Q64	= (high -> Q61
+		  |move -> Q812),
+	Q65	= (low -> Q207
+		  |weather -> Q413
+		  |move -> Q1060),
+	Q66	= (low -> Q77
+		  |picture -> Q237
+		  |weather -> Q979),
+	Q67	= (low -> Q82
+		  |picture -> Q238
+		  |weather -> Q981),
+	Q68	= (pictureOk[1] -> Q67
+		  |weather -> Q74
+		  |pictureOk[0] -> Q803),
+	Q69	= (high -> Q235
+		  |hotSwapIn -> Q245
+		  |weather -> Q623
+		  |move -> Q1011),
+	Q70	= (picture -> Q384
+		  |weather -> Q420
+		  |low -> Q610),
+	Q71	= (pictureOk[0] -> Q55
+		  |pictureOk[1] -> Q241
+		  |weather -> Q256
+		  |hotSwapIn -> Q989),
+	Q72	= (low -> Q198
+		  |weather -> Q401
+		  |move -> Q1047),
+	Q73	= (low -> Q70
+		  |picture -> Q233
+		  |weather -> Q977),
+	Q74	= (pictureOk[1] -> Q73
+		  |weather -> Q85
+		  |pictureOk[0] -> Q806),
+	Q75	= (follow -> Q410
+		  |weather -> Q624
+		  |low -> Q804),
+	Q76	= (scan -> Q47
+		  |high -> Q58
+		  |weather -> Q76
+		  |hotSwapIn -> Q395
+		  |move -> Q1011),
+	Q77	= (picture -> Q393
+		  |weather -> Q424
+		  |low -> Q611),
+	Q78	= (weather -> Q91
+		  |low -> Q243
+		  |move -> Q502
+		  |scan -> Q991),
+	Q79	= (pictureOk[0] -> Q86
+		  |pictureOk[1] -> Q1063),
+	Q80	= (weather -> Q80
+		  |picture -> Q374
+		  |high -> Q781
+		  |hotSwapIn -> Q816),
+	Q81	= (weather -> Q87
+		  |follow -> Q219
+		  |picture -> Q775
+		  |low -> Q958),
+	Q82	= (picture -> Q378
+		  |weather -> Q411
+		  |low -> Q606),
+	Q83	= (weather -> Q638
+		  |low -> Q818
+		  |move -> Q1051),
+	Q84	= (weather -> Q84
+		  |high -> Q419
+		  |move -> Q787
+		  |hotSwapIn -> Q797
+		  |scan -> Q799),
+	Q85	= (pictureOk[1] -> Q66
+		  |weather -> Q68
+		  |pictureOk[0] -> Q795),
+	Q86	= (high -> Q841),
+	Q87	= (weather -> Q93
+		  |follow -> Q227
+		  |picture -> Q779
+		  |low -> Q962),
+	Q88	= (picture -> Q71
+		  |weather -> Q88
+		  |hotSwapIn -> Q215
+		  |high -> Q447),
+	Q89	= (weather -> Q641
+		  |low -> Q823
+		  |move -> Q1058),
+	Q90	= (weather -> Q111
+		  |picture -> Q251
+		  |low -> Q257
+		  |follow -> Q416),
+	Q91	= (weather -> Q96
+		  |low -> Q248
+		  |move -> Q510
+		  |scan -> Q1000),
+	Q92	= (low -> Q65
+		  |weather -> Q97
+		  |move -> Q505),
+	Q93	= (weather -> Q81
+		  |follow -> Q214
+		  |picture -> Q770
+		  |low -> Q953),
+	Q94	= (pictureOk[0..1] -> Q67
+		  |weather -> Q101),
+	Q95	= (weather -> Q632
+		  |low -> Q811
+		  |move -> Q1039),
+	Q96	= (weather -> Q78
+		  |low -> Q240
+		  |move -> Q494
+		  |scan -> Q986),
+	Q97	= (low -> Q72
+		  |weather -> Q99
+		  |move -> Q524),
+	Q98	= (weather -> Q98
+		  |scan.val[1] -> Q363
+		  |scan.val[0] -> Q805
+		  |hotSwapIn -> Q807),
+	Q99	= (low -> Q59
+		  |weather -> Q92
+		  |move -> Q497),
+	Q100	= (weather -> Q111
+		  |picture -> Q251
+		  |low -> Q257
+		  |follow -> Q416),
+	Q101	= (pictureOk[0..1] -> Q73
+		  |weather -> Q105),
+	Q102	= (weather -> Q115
+		  |picture -> Q258
+		  |low -> Q268
+		  |follow -> Q418),
+	Q103	= (high -> Q224
+		  |hotSwapIn -> Q263
+		  |move -> Q616
+		  |weather -> Q636),
+	Q104	= (low -> Q77
+		  |weather -> Q108
+		  |picture -> Q237),
+	Q105	= (pictureOk[0..1] -> Q66
+		  |weather -> Q94),
+	Q106	= (high -> Q772
+		  |move -> Q1018),
+	Q107	= (weather -> Q100
+		  |picture -> Q247
+		  |low -> Q253
+		  |follow -> Q410),
+	Q108	= (low -> Q82
+		  |weather -> Q110
+		  |picture -> Q238),
+	Q109	= (move -> Q172
+		  |high -> Q551),
+	Q110	= (low -> Q70
+		  |weather -> Q104
+		  |picture -> Q233),
+	Q111	= (weather -> Q115
+		  |picture -> Q258
+		  |low -> Q268
+		  |follow -> Q418),
+	Q112	= (weather -> Q281
+		  |takeoff -> Q480),
+	Q113	= (weather -> Q116
+		  |low -> Q243
+		  |move -> Q502
+		  |scan -> Q991),
+	Q114	= (weather -> Q270
+		  |takeoff -> Q495),
+	Q115	= (weather -> Q100
+		  |picture -> Q247
+		  |low -> Q253
+		  |follow -> Q410),
+	Q116	= (weather -> Q122
+		  |low -> Q248
+		  |move -> Q510
+		  |scan -> Q1000),
+	Q117	= (high -> Q688),
+	Q118	= (weather -> Q18
+		  |move -> Q276
+		  |scan -> Q326
+		  |high -> Q336
+		  |hotSwapIn -> Q754),
+	Q119	= (high -> Q205
+		  |move -> Q273),
+	Q120	= (picture -> Q251
+		  |low -> Q257
+		  |weather -> Q282
+		  |follow -> Q416),
+	Q121	= (stopOldSpec -> Q440),
+	Q122	= (weather -> Q113
+		  |low -> Q240
+		  |move -> Q494
+		  |scan -> Q986),
+	Q123	= (weather -> Q123
+		  |hotSwapIn -> Q300
+		  |lowBattery -> Q872),
+	Q124	= (weather -> Q290
+		  |lowBattery -> Q677
+		  |hotSwapIn -> Q1017),
+	Q125	= (picture -> Q258
+		  |low -> Q268
+		  |weather -> Q287
+		  |follow -> Q418),
+	Q126	= (weather -> Q292
+		  |hotSwapIn -> Q676
+		  |return2base -> Q876),
+	Q127	= (follow -> Q289
+		  |low -> Q443
+		  |weather -> Q680),
+	Q128	= (weather -> Q130
+		  |picture -> Q251
+		  |low -> Q257
+		  |follow -> Q653),
+	Q129	= (picture -> Q247
+		  |low -> Q253
+		  |weather -> Q272
+		  |follow -> Q410),
+	Q130	= (weather -> Q133
+		  |picture -> Q258
+		  |low -> Q268
+		  |follow -> Q657),
+	Q131	= (low -> Q454
+		  |weather -> Q483
+		  |move -> Q502),
+	Q132	= (follow -> Q293
+		  |low -> Q445
+		  |weather -> Q683),
+	Q133	= (weather -> Q128
+		  |picture -> Q247
+		  |low -> Q253
+		  |follow -> Q649),
+	Q134	= (weather -> Q134
+		  |scan.val[1] -> Q143
+		  |scan.val[0] -> Q151
+		  |hotSwapIn -> Q888),
+	Q135	= (follow -> Q498
+		  |weather -> Q700
+		  |low -> Q891),
+	Q136	= (follow -> Q284
+		  |low -> Q441
+		  |weather -> Q679),
+	Q137	= (hotSwapIn -> Q12
+		  |scan.val[1] -> Q302
+		  |scan.val[0] -> Q308
+		  |weather -> Q323),
+	Q138	= (low -> Q462
+		  |weather -> Q499
+		  |picture -> Q667),
+	Q139	= (lowBattery -> Q672),
+	Q140	= (follow -> Q507
+		  |weather -> Q716
+		  |low -> Q897),
+	Q141	= (low -> Q456
+		  |weather -> Q493
+		  |move -> Q510),
+	Q142	= (low -> Q152
+		  |picture -> Q309
+		  |weather -> Q1050),
+	Q143	= (picture -> Q288
+		  |hotSwapIn -> Q320
+		  |weather -> Q691
+		  |high -> Q1029),
+	Q144	= (pictureOk[1] -> Q147
+		  |weather -> Q150
+		  |pictureOk[0] -> Q882),
+	Q145	= (follow -> Q487
+		  |weather -> Q696
+		  |low -> Q890),
+	Q146	= (low -> Q448
+		  |weather -> Q481
+		  |move -> Q494),
+	Q147	= (low -> Q159
+		  |picture -> Q315
+		  |weather -> Q1053),
+	Q148	= (pictureOk[0] -> Q300
+		  |pictureOk[1] -> Q735
+		  |lowBattery -> Q926),
+	Q149	= (low -> Q138
+		  |picture -> Q303
+		  |weather -> Q1041),
+	Q150	= (pictureOk[1] -> Q149
+		  |weather -> Q155
+		  |pictureOk[0] -> Q889),
+	Q151	= (high -> Q285
+		  |hotSwapIn -> Q509
+		  |move -> Q849
+		  |weather -> Q1031),
+	Q152	= (low -> Q467
+		  |weather -> Q513
+		  |picture -> Q674),
+	Q153	= (weather -> Q158
+		  |lowBattery -> Q538),
+	Q154	= (scan.val[0] -> Q318
+		  |weather -> Q328
+		  |scan.val[1] -> Q535
+		  |lowBattery -> Q546),
+	Q155	= (pictureOk[1] -> Q142
+		  |weather -> Q144
+		  |pictureOk[0] -> Q877),
+	Q156	= (weather -> Q161
+		  |follow -> Q289
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q157	= (scan -> Q137
+		  |weather -> Q157
+		  |move -> Q453
+		  |high -> Q556
+		  |hotSwapIn -> Q901),
+	Q158	= (weather -> Q162
+		  |lowBattery -> Q547),
+	Q159	= (low -> Q461
+		  |weather -> Q492
+		  |picture -> Q663),
+	Q160	= (scan.val[0] -> Q322
+		  |weather -> Q334
+		  |scan.val[1] -> Q541
+		  |lowBattery -> Q550),
+	Q161	= (weather -> Q164
+		  |follow -> Q293
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q162	= (weather -> Q153
+		  |lowBattery -> Q523),
+	Q163	= (picture -> Q288
+		  |hotSwapIn -> Q327
+		  |weather -> Q710
+		  |high -> Q1029),
+	Q164	= (weather -> Q156
+		  |follow -> Q284
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q165	= (scan.val[0] -> Q313
+		  |weather -> Q325
+		  |scan.val[1] -> Q530
+		  |lowBattery -> Q540),
+	Q166	= (weather -> Q166
+		  |high -> Q522
+		  |move -> Q664
+		  |hotSwapIn -> Q948),
+	Q167	= (scan -> Q160
+		  |weather -> Q169
+		  |low -> Q521
+		  |move -> Q1057),
+	Q168	= (weather -> Q168
+		  |move -> Q883
+		  |high -> Q908
+		  |hotSwapIn -> Q922),
+	Q169	= (scan -> Q165
+		  |weather -> Q170
+		  |low -> Q528
+		  |move -> Q1068),
+	Q170	= (scan -> Q154
+		  |weather -> Q167
+		  |low -> Q512
+		  |move -> Q1049),
+	Q171	= (move -> Q372
+		  |high -> Q852),
+	Q172	= (high -> Q184
+		  |move -> Q825),
+	Q173	= (hotSwapIn -> Q2
+		  |scan.val[0] -> Q342
+		  |lowBattery -> Q345
+		  |scan.val[1] -> Q675
+		  |weather -> Q728),
+	Q174	= (weather -> Q174
+		  |high -> Q522
+		  |move -> Q664
+		  |hotSwapIn -> Q896),
+	Q175	= (scan.val[1] -> Q320
+		  |scan.val[0] -> Q339),
+	Q176	= (weather -> Q177
+		  |low -> Q349
+		  |move -> Q519),
+	Q177	= (weather -> Q181
+		  |low -> Q350
+		  |move -> Q526),
+	Q178	= (weather -> Q178
+		  |move -> Q276
+		  |high -> Q559
+		  |hotSwapIn -> Q705),
+	Q179	= (lowBattery -> Q15
+		  |weather -> Q183),
+	Q180	= (weather -> Q36
+		  |hotSwapIn -> Q339
+		  |high -> Q356
+		  |move -> Q883),
+	Q181	= (weather -> Q176
+		  |low -> Q344
+		  |move -> Q500),
+	Q182	= (weather -> Q24
+		  |scan.val[0] -> Q361
+		  |scan.val[1] -> Q363
+		  |hotSwapIn -> Q769),
+	Q183	= (lowBattery -> Q17
+		  |weather -> Q191),
+	Q184	= (move -> Q372
+		  |high -> Q852),
+	Q185	= (high -> Q246),
+	Q186	= (lowBattery -> Q15
+		  |weather -> Q196),
+	Q187	= (pictureOk[0] -> Q23
+		  |weather -> Q192
+		  |pictureOk[1] -> Q351
+		  |lowBattery -> Q362),
+	Q188	= (weather -> Q188
+		  |scan.val[1] -> Q542
+		  |scan.val[0] -> Q549
+		  |hotSwapIn -> Q911),
+	Q189	= (follow -> Q366
+		  |low -> Q739
+		  |weather -> Q768),
+	Q190	= (hotSwapIn -> Q86
+		  |picture -> Q374
+		  |weather -> Q399
+		  |high -> Q781),
+	Q191	= (lowBattery -> Q10
+		  |weather -> Q179),
+	Q192	= (pictureOk[0] -> Q28
+		  |weather -> Q193
+		  |pictureOk[1] -> Q355
+		  |lowBattery -> Q370),
+	Q193	= (pictureOk[0] -> Q21
+		  |weather -> Q187
+		  |pictureOk[1] -> Q346
+		  |lowBattery -> Q352),
+	Q194	= (follow -> Q373
+		  |low -> Q750
+		  |weather -> Q774),
+	Q195	= (move -> Q276
+		  |scan -> Q326
+		  |high -> Q336
+		  |weather -> Q377
+		  |hotSwapIn -> Q754),
+	Q196	= (lowBattery -> Q17
+		  |weather -> Q200),
+	Q197	= (weather -> Q49
+		  |move -> Q118
+		  |hotSwapIn -> Q236
+		  |high -> Q381),
+	Q198	= (low -> Q349
+		  |move -> Q519
+		  |weather -> Q601),
+	Q199	= (follow -> Q364
+		  |low -> Q734
+		  |weather -> Q763),
+	Q200	= (lowBattery -> Q10
+		  |weather -> Q186),
+	Q201	= (low -> Q350
+		  |move -> Q526
+		  |weather -> Q603),
+	Q202	= (high -> Q694
+		  |move -> Q825),
+	Q203	= (weather -> Q203
+		  |high -> Q584
+		  |hotSwapIn -> Q925
+		  |move -> Q934),
+	Q204	= (low -> Q56
+		  |follow -> Q605
+		  |weather -> Q964),
+	Q205	= (move -> Q662
+		  |high -> Q673),
+	Q206	= (weather -> Q206
+		  |picture -> Q561
+		  |high -> Q950
+		  |hotSwapIn -> Q963),
+	Q207	= (low -> Q344
+		  |move -> Q500
+		  |weather -> Q593),
+	Q208	= (picture -> Q384
+		  |weather -> Q388
+		  |low -> Q610),
+	Q209	= (move -> Q118
+		  |scan -> Q182
+		  |high -> Q195
+		  |weather -> Q209
+		  |hotSwapIn -> Q578),
+	Q210	= (low -> Q60
+		  |follow -> Q609
+		  |weather -> Q966),
+	Q211	= (low -> Q48
+		  |follow -> Q591
+		  |weather -> Q959),
+	Q212	= (pictureOk[1] -> Q415
+		  |pictureOk[0] -> Q543),
+	Q213	= (weather -> Q392
+		  |picture -> Q393
+		  |low -> Q611),
+	Q214	= (low -> Q32
+		  |follow -> Q366
+		  |weather -> Q396
+		  |picture -> Q931),
+	Q215	= (high -> Q997),
+	Q216	= (weather -> Q216
+		  |high -> Q599
+		  |move -> Q934
+		  |scan -> Q944
+		  |hotSwapIn -> Q965),
+	Q217	= (picture -> Q378
+		  |weather -> Q386
+		  |low -> Q606),
+	Q218	= (high -> Q356
+		  |hotSwapIn -> Q367
+		  |weather -> Q789
+		  |move -> Q883),
+	Q219	= (low -> Q35
+		  |follow -> Q373
+		  |weather -> Q402
+		  |picture -> Q932),
+	Q220	= (high -> Q688),
+	Q221	= (scan.val[1] -> Q210
+		  |weather -> Q222
+		  |scan.val[0] -> Q590),
+	Q222	= (scan.val[1] -> Q211
+		  |weather -> Q226
+		  |scan.val[0] -> Q598),
+	Q223	= (move -> Q660
+		  |high -> Q743),
+	Q224	= (high -> Q403
+		  |hotSwapIn -> Q412
+		  |move -> Q787
+		  |weather -> Q794),
+	Q225	= (scan.val[1] -> Q63
+		  |scan.val[0] -> Q409
+		  |weather -> Q992),
+	Q226	= (scan.val[1] -> Q204
+		  |weather -> Q221
+		  |scan.val[0] -> Q585),
+	Q227	= (low -> Q27
+		  |follow -> Q364
+		  |weather -> Q391
+		  |picture -> Q929),
+	Q228	= (weather -> Q228
+		  |scan.val[1] -> Q542
+		  |scan.val[0] -> Q980
+		  |hotSwapIn -> Q982),
+	Q229	= (scan.val[1] -> Q75
+		  |scan.val[0] -> Q414
+		  |weather -> Q996),
+	Q230	= (hotSwapIn -> Q79
+		  |pictureOk[0] -> Q190
+		  |pictureOk[1] -> Q389
+		  |weather -> Q417),
+	Q231	= (lowBattery -> Q13),
+	Q232	= (move -> Q825
+		  |high -> Q984),
+	Q233	= (pictureOk[0..1] -> Q213
+		  |weather -> Q421),
+	Q234	= (scan.val[1] -> Q57
+		  |scan.val[0] -> Q397
+		  |weather -> Q988),
+	Q235	= (move -> Q118
+		  |high -> Q381
+		  |hotSwapIn -> Q387
+		  |weather -> Q802),
+	Q236	= (high -> Q223
+		  |move -> Q278),
+	Q237	= (pictureOk[0..1] -> Q217
+		  |weather -> Q425),
+	Q238	= (pictureOk[0..1] -> Q208
+		  |weather -> Q408),
+	Q239	= (low -> Q56
+		  |weather -> Q244
+		  |follow -> Q985),
+	Q240	= (scan -> Q229
+		  |weather -> Q428
+		  |low -> Q618
+		  |move -> Q1051),
+	Q241	= (high -> Q103
+		  |move -> Q432
+		  |hotSwapIn -> Q595
+		  |weather -> Q833),
+	Q242	= (move -> Q662
+		  |high -> Q673),
+	Q243	= (scan -> Q234
+		  |weather -> Q431
+		  |low -> Q621
+		  |move -> Q1058),
+	Q244	= (low -> Q60
+		  |weather -> Q250
+		  |follow -> Q990),
+	Q245	= (high -> Q887
+		  |move -> Q1013),
+	Q246	= (high -> Q933),
+	Q247	= (pictureOk[0] -> Q434
+		  |pictureOk[1] -> Q830
+		  |weather -> Q832),
+	Q248	= (scan -> Q225
+		  |weather -> Q427
+		  |low -> Q614
+		  |move -> Q1039),
+	Q249	= (picture -> Q230
+		  |weather -> Q249
+		  |high -> Q628
+		  |hotSwapIn -> Q682),
+	Q250	= (low -> Q48
+		  |weather -> Q239
+		  |follow -> Q983),
+	Q251	= (pictureOk[0] -> Q437
+		  |pictureOk[1] -> Q835
+		  |weather -> Q836),
+	Q252	= (scan.val[1] -> Q215
+		  |scan.val[0] -> Q379),
+	Q253	= (weather -> Q439
+		  |picture -> Q622
+		  |low -> Q630
+		  |follow -> Q985),
+	Q254	= (reconfigure -> Q435
+		  |startNewSpec -> Q857),
+	Q255	= (high -> Q262
+		  |move -> Q1018),
+	Q256	= (pictureOk[0] -> Q55
+		  |pictureOk[1] -> Q241
+		  |weather -> Q256
+		  |hotSwapIn -> Q989),
+	Q257	= (weather -> Q442
+		  |picture -> Q627
+		  |low -> Q633
+		  |follow -> Q990),
+	Q258	= (pictureOk[0] -> Q433
+		  |pictureOk[1] -> Q824
+		  |weather -> Q831),
+	Q259	= (follow -> Q102
+		  |weather -> Q260
+		  |low -> Q443),
+	Q260	= (follow -> Q107
+		  |weather -> Q265
+		  |low -> Q445),
+	Q261	= (high -> Q419
+		  |weather -> Q430
+		  |move -> Q787
+		  |hotSwapIn -> Q797
+		  |scan -> Q799),
+	Q262	= (move -> Q283
+		  |high -> Q951),
+	Q263	= (move -> Q305
+		  |high -> Q340),
+	Q264	= (weather -> Q269
+		  |low -> Q454
+		  |move -> Q502),
+	Q265	= (follow -> Q90
+		  |weather -> Q259
+		  |low -> Q441),
+	Q266	= (lowBattery -> Q676),
+	Q267	= (return2base -> Q666),
+	Q268	= (weather -> Q436
+		  |picture -> Q619
+		  |low -> Q626
+		  |follow -> Q983),
+	Q269	= (weather -> Q277
+		  |low -> Q456
+		  |move -> Q510),
+	Q270	= (weather -> Q281
+		  |takeoff -> Q480),
+	Q271	= (high -> Q451
+		  |hotSwapIn -> Q658
+		  |weather -> Q1006),
+	Q272	= (picture -> Q251
+		  |low -> Q257
+		  |weather -> Q282
+		  |follow -> Q416),
+	Q273	= (move -> Q662
+		  |high -> Q673),
+	Q274	= (weather -> Q270
+		  |takeoff -> Q495),
+	Q275	= (weather -> Q280
+		  |low -> Q462
+		  |picture -> Q667),
+	Q276	= (scan -> Q137
+		  |weather -> Q157
+		  |move -> Q453
+		  |high -> Q556
+		  |hotSwapIn -> Q901),
+	Q277	= (weather -> Q264
+		  |low -> Q448
+		  |move -> Q494),
+	Q278	= (high -> Q106
+		  |move -> Q660),
+	Q279	= (reconfigure -> Q1014
+		  |startNewSpec -> Q1026),
+	Q280	= (weather -> Q286
+		  |low -> Q467
+		  |picture -> Q674),
+	Q281	= (weather -> Q274
+		  |takeoff -> Q488),
+	Q282	= (picture -> Q258
+		  |low -> Q268
+		  |weather -> Q287
+		  |follow -> Q418),
+	Q283	= (move -> Q668
+		  |high -> Q874),
+	Q284	= (picture -> Q251
+		  |low -> Q257
+		  |weather -> Q471
+		  |follow -> Q653),
+	Q285	= (lowBattery -> Q126
+		  |hotSwapIn -> Q490
+		  |weather -> Q864),
+	Q286	= (weather -> Q275
+		  |low -> Q461
+		  |picture -> Q663),
+	Q287	= (picture -> Q247
+		  |low -> Q253
+		  |weather -> Q272
+		  |follow -> Q410),
+	Q288	= (hotSwapIn -> Q148
+		  |lowBattery -> Q473
+		  |pictureOk[1] -> Q479
+		  |pictureOk[0] -> Q675
+		  |weather -> Q894),
+	Q289	= (picture -> Q258
+		  |low -> Q268
+		  |weather -> Q476
+		  |follow -> Q657),
+	Q290	= (weather -> Q290
+		  |lowBattery -> Q677
+		  |hotSwapIn -> Q1017),
+	Q291	= (weather -> Q296
+		  |scan.val[1] -> Q458
+		  |scan.val[0] -> Q848),
+	Q292	= (weather -> Q292
+		  |hotSwapIn -> Q676
+		  |return2base -> Q876),
+	Q293	= (picture -> Q247
+		  |low -> Q253
+		  |weather -> Q470
+		  |follow -> Q649),
+	Q294	= (scan.val[1] -> Q140
+		  |scan.val[0] -> Q478
+		  |weather -> Q1069),
+	Q295	= (scan.val[0] -> Q266
+		  |scan.val[1] -> Q300
+		  |lowBattery -> Q477),
+	Q296	= (weather -> Q297
+		  |scan.val[1] -> Q465
+		  |scan.val[0] -> Q855),
+	Q297	= (weather -> Q291
+		  |scan.val[1] -> Q446
+		  |scan.val[0] -> Q843),
+	Q298	= (takeoff -> Q271
+		  |weather -> Q298
+		  |hotSwapIn -> Q1020),
+	Q299	= (weather -> Q6
+		  |scan.val[1] -> Q145
+		  |scan.val[0] -> Q496),
+	Q300	= (lowBattery -> Q672),
+	Q301	= (takeoff -> Q495
+		  |weather -> Q534),
+	Q302	= (high -> Q163
+		  |picture -> Q511
+		  |hotSwapIn -> Q786
+		  |weather -> Q905),
+	Q303	= (pictureOk[0..1] -> Q457
+		  |weather -> Q506),
+	Q304	= (scan.val[1] -> Q135
+		  |scan.val[0] -> Q472
+		  |weather -> Q1055),
+	Q305	= (high -> Q310
+		  |move -> Q812),
+	Q306	= (takeoff -> Q480
+		  |weather -> Q527),
+	Q307	= (move -> Q668
+		  |high -> Q874),
+	Q308	= (weather -> Q166
+		  |high -> Q522
+		  |move -> Q664
+		  |hotSwapIn -> Q948),
+	Q309	= (pictureOk[0..1] -> Q463
+		  |weather -> Q514),
+	Q310	= (move -> Q172
+		  |high -> Q817),
+	Q311	= (scan -> Q160
+		  |weather -> Q316
+		  |low -> Q521
+		  |move -> Q1057),
+	Q312	= (low -> Q132
+		  |weather -> Q317
+		  |follow -> Q1064),
+	Q313	= (weather -> Q525
+		  |lowBattery -> Q709),
+	Q314	= (high -> Q124
+		  |hotSwapIn -> Q485
+		  |weather -> Q531
+		  |move -> Q849
+		  |scan -> Q880),
+	Q315	= (pictureOk[0..1] -> Q449
+		  |weather -> Q486),
+	Q316	= (scan -> Q165
+		  |weather -> Q321
+		  |low -> Q528
+		  |move -> Q1068),
+	Q317	= (low -> Q136
+		  |weather -> Q324
+		  |follow -> Q1066),
+	Q318	= (weather -> Q536
+		  |lowBattery -> Q714),
+	Q319	= (hotSwapIn -> Q255
+		  |weather -> Q319
+		  |move -> Q453
+		  |high -> Q740),
+	Q320	= (high -> Q933),
+	Q321	= (scan -> Q154
+		  |weather -> Q311
+		  |low -> Q512
+		  |move -> Q1049),
+	Q322	= (weather -> Q516
+		  |lowBattery -> Q703),
+	Q323	= (hotSwapIn -> Q12
+		  |scan.val[1] -> Q302
+		  |scan.val[0] -> Q308
+		  |weather -> Q323),
+	Q324	= (low -> Q127
+		  |weather -> Q312
+		  |follow -> Q1059),
+	Q325	= (scan.val[0] -> Q318
+		  |weather -> Q328
+		  |scan.val[1] -> Q535
+		  |lowBattery -> Q546),
+	Q326	= (weather -> Q188
+		  |scan.val[1] -> Q542
+		  |scan.val[0] -> Q549
+		  |hotSwapIn -> Q911),
+	Q327	= (high -> Q933),
+	Q328	= (scan.val[0] -> Q322
+		  |weather -> Q334
+		  |scan.val[1] -> Q541
+		  |lowBattery -> Q550),
+	Q329	= (weather -> Q518
+		  |hotSwapIn -> Q790
+		  |return2base -> Q876),
+	Q330	= (weather -> Q333
+		  |low -> Q554
+		  |move -> Q1057),
+	Q331	= (weather -> Q331
+		  |lowBattery -> Q692
+		  |hotSwapIn -> Q1045),
+	Q332	= (weather -> Q564
+		  |follow -> Q738
+		  |low -> Q739),
+	Q333	= (weather -> Q337
+		  |low -> Q560
+		  |move -> Q1068),
+	Q334	= (scan.val[0] -> Q313
+		  |weather -> Q325
+		  |scan.val[1] -> Q530
+		  |lowBattery -> Q540),
+	Q335	= (weather -> Q569
+		  |follow -> Q741
+		  |low -> Q750),
+	Q336	= (scan -> Q137
+		  |move -> Q453
+		  |high -> Q556
+		  |weather -> Q563
+		  |hotSwapIn -> Q901),
+	Q337	= (weather -> Q330
+		  |low -> Q544
+		  |move -> Q1049),
+	Q338	= (move -> Q8
+		  |weather -> Q338
+		  |hotSwapIn -> Q438
+		  |high -> Q724),
+	Q339	= (high -> Q365
+		  |move -> Q372),
+	Q340	= (move -> Q812
+		  |high -> Q829),
+	Q341	= (weather -> Q555
+		  |follow -> Q727
+		  |low -> Q734),
+	Q342	= (lowBattery -> Q545
+		  |weather -> Q923
+		  |hotSwapIn -> Q1023),
+	Q343	= (weather -> Q31
+		  |low -> Q194
+		  |follow -> Q755),
+	Q344	= (low -> Q554
+		  |weather -> Q749
+		  |move -> Q1057),
+	Q345	= (weather -> Q539
+		  |scan.val[0] -> Q545
+		  |scan.val[1] -> Q872
+		  |hotSwapIn -> Q875),
+	Q346	= (weather -> Q575
+		  |lowBattery -> Q762),
+	Q347	= (move -> Q8
+		  |hotSwapIn -> Q30
+		  |scan -> Q33
+		  |weather -> Q347
+		  |high -> Q747),
+	Q348	= (pictureOk[0] -> Q117
+		  |pictureOk[1] -> Q925),
+	Q349	= (low -> Q560
+		  |weather -> Q761
+		  |move -> Q1068),
+	Q350	= (low -> Q544
+		  |weather -> Q745
+		  |move -> Q1049),
+	Q351	= (weather -> Q579
+		  |lowBattery -> Q764),
+	Q352	= (pictureOk[0] -> Q15
+		  |weather -> Q580
+		  |pictureOk[1] -> Q762),
+	Q353	= (weather -> Q38
+		  |low -> Q199
+		  |follow -> Q759),
+	Q354	= (weather -> Q359
+		  |return2base -> Q895),
+	Q355	= (weather -> Q574
+		  |lowBattery -> Q756),
+	Q356	= (lowBattery -> Q545
+		  |hotSwapIn -> Q586
+		  |weather -> Q935),
+	Q357	= (high -> Q841),
+	Q358	= (weather -> Q26
+		  |low -> Q189
+		  |follow -> Q753),
+	Q359	= (weather -> Q360
+		  |return2base -> Q903),
+	Q360	= (weather -> Q354
+		  |return2base -> Q893),
+	Q361	= (weather -> Q178
+		  |move -> Q276
+		  |high -> Q559
+		  |hotSwapIn -> Q705),
+	Q362	= (pictureOk[0] -> Q17
+		  |weather -> Q588
+		  |pictureOk[1] -> Q764),
+	Q363	= (hotSwapIn -> Q543
+		  |picture -> Q561
+		  |weather -> Q576
+		  |high -> Q950),
+	Q364	= (lowBattery -> Q15
+		  |weather -> Q589),
+	Q365	= (lowBattery -> Q267),
+	Q366	= (lowBattery -> Q17
+		  |weather -> Q596),
+	Q367	= (high -> Q365
+		  |move -> Q372),
+	Q368	= (scan.val[1] -> Q210
+		  |weather -> Q222
+		  |scan.val[0] -> Q590),
+	Q369	= (scan.val[1] -> Q353
+		  |weather -> Q376
+		  |scan.val[0] -> Q752),
+	Q370	= (pictureOk[0] -> Q10
+		  |weather -> Q577
+		  |pictureOk[1] -> Q756),
+	Q371	= (hotSwapIn -> Q40
+		  |scan.val[0] -> Q44
+		  |scan.val[1] -> Q302
+		  |weather -> Q371),
+	Q372	= (lowBattery -> Q790),
+	Q373	= (lowBattery -> Q10
+		  |weather -> Q583),
+	Q374	= (hotSwapIn -> Q212
+		  |pictureOk[0] -> Q363
+		  |weather -> Q594
+		  |pictureOk[1] -> Q602),
+	Q375	= (scan.val[1] -> Q211
+		  |weather -> Q226
+		  |scan.val[0] -> Q598),
+	Q376	= (scan.val[1] -> Q358
+		  |weather -> Q380
+		  |scan.val[0] -> Q758),
+	Q377	= (move -> Q276
+		  |scan -> Q326
+		  |high -> Q336
+		  |weather -> Q377
+		  |hotSwapIn -> Q754),
+	Q378	= (pictureOk[0..1] -> Q351
+		  |weather -> Q604
+		  |lowBattery -> Q777),
+	Q379	= (high -> Q382
+		  |move -> Q662),
+	Q380	= (scan.val[1] -> Q343
+		  |weather -> Q369
+		  |scan.val[0] -> Q746),
+	Q381	= (move -> Q276
+		  |high -> Q559
+		  |hotSwapIn -> Q608
+		  |weather -> Q942),
+	Q382	= (high -> Q887
+		  |move -> Q1013),
+	Q383	= (high -> Q19
+		  |hotSwapIn -> Q29
+		  |weather -> Q383
+		  |picture -> Q732),
+	Q384	= (pictureOk[0..1] -> Q355
+		  |weather -> Q607
+		  |lowBattery -> Q782),
+	Q385	= (scan.val[1] -> Q204
+		  |weather -> Q221
+		  |scan.val[0] -> Q585),
+	Q386	= (picture -> Q384
+		  |weather -> Q388
+		  |low -> Q610),
+	Q387	= (high -> Q223
+		  |move -> Q278),
+	Q388	= (weather -> Q392
+		  |picture -> Q393
+		  |low -> Q611),
+	Q389	= (high -> Q224
+		  |move -> Q616
+		  |weather -> Q974
+		  |hotSwapIn -> Q1063),
+	Q390	= (pictureOk[1] -> Q213
+		  |weather -> Q394
+		  |pictureOk[0] -> Q949),
+	Q391	= (low -> Q32
+		  |follow -> Q366
+		  |weather -> Q396
+		  |picture -> Q931),
+	Q392	= (picture -> Q378
+		  |weather -> Q386
+		  |low -> Q606),
+	Q393	= (pictureOk[0..1] -> Q346
+		  |weather -> Q597
+		  |lowBattery -> Q776),
+	Q394	= (pictureOk[1] -> Q217
+		  |weather -> Q400
+		  |pictureOk[0] -> Q954),
+	Q395	= (high -> Q52
+		  |move -> Q1013),
+	Q396	= (low -> Q35
+		  |follow -> Q373
+		  |weather -> Q402
+		  |picture -> Q932),
+	Q397	= (low -> Q65
+		  |move -> Q505
+		  |weather -> Q971),
+	Q398	= (scan -> Q229
+		  |weather -> Q404
+		  |low -> Q618
+		  |move -> Q1051),
+	Q399	= (hotSwapIn -> Q86
+		  |picture -> Q374
+		  |weather -> Q399
+		  |high -> Q781),
+	Q400	= (pictureOk[1] -> Q208
+		  |weather -> Q390
+		  |pictureOk[0] -> Q947),
+	Q401	= (low -> Q201
+		  |weather -> Q407
+		  |move -> Q1054),
+	Q402	= (low -> Q27
+		  |follow -> Q364
+		  |weather -> Q391
+		  |picture -> Q929),
+	Q403	= (high -> Q584
+		  |hotSwapIn -> Q592
+		  |move -> Q934
+		  |weather -> Q968),
+	Q404	= (scan -> Q234
+		  |weather -> Q405
+		  |low -> Q621
+		  |move -> Q1058),
+	Q405	= (scan -> Q225
+		  |weather -> Q398
+		  |low -> Q614
+		  |move -> Q1039),
+	Q406	= (scan.val[1] -> Q682
+		  |scan.val[0] -> Q871),
+	Q407	= (low -> Q207
+		  |weather -> Q413
+		  |move -> Q1060),
+	Q408	= (pictureOk[0..1] -> Q213
+		  |weather -> Q421),
+	Q409	= (low -> Q72
+		  |move -> Q524
+		  |weather -> Q973),
+	Q410	= (weather -> Q423
+		  |follow -> Q605
+		  |picture -> Q622
+		  |low -> Q630),
+	Q411	= (picture -> Q384
+		  |weather -> Q420
+		  |low -> Q610),
+	Q412	= (move -> Q812
+		  |high -> Q829),
+	Q413	= (low -> Q198
+		  |weather -> Q401
+		  |move -> Q1047),
+	Q414	= (low -> Q59
+		  |move -> Q497
+		  |weather -> Q967),
+	Q415	= (move -> Q812
+		  |high -> Q829),
+	Q416	= (weather -> Q426
+		  |follow -> Q609
+		  |picture -> Q627
+		  |low -> Q633),
+	Q417	= (hotSwapIn -> Q79
+		  |pictureOk[0] -> Q190
+		  |pictureOk[1] -> Q389
+		  |weather -> Q417),
+	Q418	= (weather -> Q422
+		  |follow -> Q591
+		  |picture -> Q619
+		  |low -> Q626),
+	Q419	= (high -> Q599
+		  |weather -> Q631
+		  |move -> Q934
+		  |scan -> Q944
+		  |hotSwapIn -> Q965),
+	Q420	= (picture -> Q393
+		  |weather -> Q424
+		  |low -> Q611),
+	Q421	= (pictureOk[0..1] -> Q217
+		  |weather -> Q425),
+	Q422	= (weather -> Q423
+		  |follow -> Q605
+		  |picture -> Q622
+		  |low -> Q630),
+	Q423	= (weather -> Q426
+		  |follow -> Q609
+		  |picture -> Q627
+		  |low -> Q633),
+	Q424	= (picture -> Q378
+		  |weather -> Q411
+		  |low -> Q606),
+	Q425	= (pictureOk[0..1] -> Q208
+		  |weather -> Q408),
+	Q426	= (weather -> Q422
+		  |follow -> Q591
+		  |picture -> Q619
+		  |low -> Q626),
+	Q427	= (scan -> Q229
+		  |weather -> Q428
+		  |low -> Q618
+		  |move -> Q1051),
+	Q428	= (scan -> Q234
+		  |weather -> Q431
+		  |low -> Q621
+		  |move -> Q1058),
+	Q429	= (high -> Q51
+		  |hotSwapIn -> Q109
+		  |weather -> Q429
+		  |move -> Q934),
+	Q430	= (high -> Q419
+		  |weather -> Q430
+		  |move -> Q787
+		  |hotSwapIn -> Q797
+		  |scan -> Q799),
+	Q431	= (scan -> Q225
+		  |weather -> Q427
+		  |low -> Q614
+		  |move -> Q1039),
+	Q432	= (high -> Q261
+		  |move -> Q616
+		  |hotSwapIn -> Q642
+		  |scan -> Q645
+		  |weather -> Q987),
+	Q433	= (follow -> Q605
+		  |picture -> Q622
+		  |low -> Q630
+		  |weather -> Q643),
+	Q434	= (follow -> Q609
+		  |picture -> Q627
+		  |low -> Q633
+		  |weather -> Q644),
+	Q435	= (startNewSpec -> Q306),
+	Q436	= (weather -> Q439
+		  |picture -> Q622
+		  |low -> Q630
+		  |follow -> Q985),
+	Q437	= (follow -> Q591
+		  |picture -> Q619
+		  |low -> Q626
+		  |weather -> Q640),
+	Q438	= (high -> Q694
+		  |move -> Q825),
+	Q439	= (weather -> Q442
+		  |picture -> Q627
+		  |low -> Q633
+		  |follow -> Q990),
+	Q440	= (reconfigure -> Q468
+		  |startNewSpec -> Q860),
+	Q441	= (follow -> Q653
+		  |low -> Q809
+		  |weather -> Q1004),
+	Q442	= (weather -> Q436
+		  |picture -> Q619
+		  |low -> Q626
+		  |follow -> Q983),
+	Q443	= (follow -> Q657
+		  |low -> Q813
+		  |weather -> Q1008),
+	Q444	= (hotSwapIn -> Q119
+		  |weather -> Q444
+		  |move -> Q656
+		  |scan -> Q815
+		  |high -> Q827),
+	Q445	= (follow -> Q649
+		  |low -> Q804
+		  |weather -> Q1002),
+	Q446	= (low -> Q132
+		  |follow -> Q850
+		  |weather -> Q1030),
+	Q447	= (picture -> Q230
+		  |high -> Q628
+		  |hotSwapIn -> Q639
+		  |weather -> Q1009),
+	Q448	= (low -> Q818
+		  |weather -> Q854
+		  |move -> Q1051),
+	Q449	= (weather -> Q280
+		  |low -> Q462
+		  |picture -> Q667),
+	Q450	= (weather -> Q450
+		  |hotSwapIn -> Q460
+		  |return2base -> Q876),
+	Q451	= (hotSwapIn -> Q119
+		  |weather -> Q444
+		  |move -> Q656
+		  |scan -> Q815
+		  |high -> Q827),
+	Q452	= (weather -> Q670
+		  |low -> Q885),
+	Q453	= (high -> Q314
+		  |move -> Q664
+		  |hotSwapIn -> Q685
+		  |scan -> Q1035
+		  |weather -> Q1061),
+	Q454	= (low -> Q823
+		  |weather -> Q859
+		  |move -> Q1058),
+	Q455	= (lowBattery -> Q126
+		  |hotSwapIn -> Q266
+		  |weather -> Q455),
+	Q456	= (low -> Q811
+		  |weather -> Q842
+		  |move -> Q1039),
+	Q457	= (weather -> Q286
+		  |low -> Q467
+		  |picture -> Q674),
+	Q458	= (low -> Q136
+		  |follow -> Q858
+		  |weather -> Q1033),
+	Q459	= (weather -> Q651
+		  |low -> Q878),
+	Q460	= (return2base -> Q666),
+	Q461	= (low -> Q828
+		  |weather -> Q865
+		  |picture -> Q999),
+	Q462	= (low -> Q838
+		  |weather -> Q869
+		  |picture -> Q1003),
+	Q463	= (weather -> Q275
+		  |low -> Q461
+		  |picture -> Q663),
+	Q464	= (pictureOk[0] -> Q125
+		  |pictureOk[1] -> Q457
+		  |weather -> Q469),
+	Q465	= (low -> Q127
+		  |follow -> Q844
+		  |weather -> Q1025),
+	Q466	= (hotSwapIn -> Q121
+		  |takeoff -> Q271
+		  |weather -> Q466),
+	Q467	= (low -> Q822
+		  |weather -> Q851
+		  |picture -> Q993),
+	Q468	= (startNewSpec -> Q112),
+	Q469	= (pictureOk[0] -> Q129
+		  |pictureOk[1] -> Q463
+		  |weather -> Q475),
+	Q470	= (picture -> Q251
+		  |low -> Q257
+		  |weather -> Q471
+		  |follow -> Q653),
+	Q471	= (picture -> Q258
+		  |low -> Q268
+		  |weather -> Q476
+		  |follow -> Q657),
+	Q472	= (low -> Q141
+		  |weather -> Q1037
+		  |move -> Q1042),
+	Q473	= (weather -> Q687
+		  |pictureOk[1] -> Q692
+		  |pictureOk[0] -> Q872
+		  |hotSwapIn -> Q926),
+	Q474	= (scan -> Q299
+		  |weather -> Q482
+		  |move -> Q491
+		  |low -> Q686),
+	Q475	= (pictureOk[0] -> Q120
+		  |pictureOk[1] -> Q449
+		  |weather -> Q464),
+	Q476	= (picture -> Q247
+		  |low -> Q253
+		  |weather -> Q470
+		  |follow -> Q649),
+	Q477	= (scan.val[1] -> Q672
+		  |scan.val[0] -> Q676),
+	Q478	= (low -> Q146
+		  |weather -> Q1043
+		  |move -> Q1048),
+	Q479	= (lowBattery -> Q692
+		  |hotSwapIn -> Q735
+		  |weather -> Q1027),
+	Q480	= (weather -> Q690
+		  |low -> Q881),
+	Q481	= (low -> Q454
+		  |weather -> Q483
+		  |move -> Q502),
+	Q482	= (scan -> Q304
+		  |weather -> Q489
+		  |move -> Q508
+		  |low -> Q689),
+	Q483	= (low -> Q456
+		  |weather -> Q493
+		  |move -> Q510),
+	Q484	= (scan -> Q655
+		  |weather -> Q840
+		  |low -> Q1010
+		  |move -> Q1042),
+	Q485	= (move -> Q668
+		  |high -> Q874),
+	Q486	= (pictureOk[0..1] -> Q457
+		  |weather -> Q506),
+	Q487	= (weather -> Q517
+		  |picture -> Q693
+		  |low -> Q702
+		  |follow -> Q850),
+	Q488	= (weather -> Q695
+		  |low -> Q885),
+	Q489	= (scan -> Q294
+		  |weather -> Q474
+		  |move -> Q484
+		  |low -> Q678),
+	Q490	= (lowBattery -> Q676),
+	Q491	= (scan -> Q659
+		  |weather -> Q845
+		  |low -> Q1012
+		  |move -> Q1048),
+	Q492	= (low -> Q462
+		  |weather -> Q499
+		  |picture -> Q667),
+	Q493	= (low -> Q448
+		  |weather -> Q481
+		  |move -> Q494),
+	Q494	= (scan -> Q229
+		  |weather -> Q404
+		  |low -> Q618
+		  |move -> Q1051),
+	Q495	= (weather -> Q681
+		  |low -> Q878),
+	Q496	= (low -> Q131
+		  |weather -> Q1032
+		  |move -> Q1036),
+	Q497	= (scan -> Q570
+		  |weather -> Q744
+		  |low -> Q927
+		  |move -> Q1054),
+	Q498	= (weather -> Q520
+		  |picture -> Q699
+		  |low -> Q711
+		  |follow -> Q858),
+	Q499	= (low -> Q467
+		  |weather -> Q513
+		  |picture -> Q674),
+	Q500	= (scan -> Q160
+		  |weather -> Q316
+		  |low -> Q521
+		  |move -> Q1057),
+	Q501	= (move -> Q172
+		  |high -> Q551),
+	Q502	= (scan -> Q234
+		  |weather -> Q405
+		  |low -> Q621
+		  |move -> Q1058),
+	Q503	= (hotSwapIn -> Q37
+		  |weather -> Q503
+		  |move -> Q883
+		  |high -> Q908),
+	Q504	= (weather -> Q517
+		  |picture -> Q693
+		  |low -> Q702
+		  |follow -> Q850),
+	Q505	= (scan -> Q571
+		  |weather -> Q748
+		  |low -> Q928
+		  |move -> Q1060),
+	Q506	= (pictureOk[0..1] -> Q463
+		  |weather -> Q514),
+	Q507	= (weather -> Q504
+		  |picture -> Q684
+		  |low -> Q698
+		  |follow -> Q844),
+	Q508	= (scan -> Q654
+		  |weather -> Q839
+		  |low -> Q1007
+		  |move -> Q1036),
+	Q509	= (high -> Q515
+		  |move -> Q668),
+	Q510	= (scan -> Q225
+		  |weather -> Q398
+		  |low -> Q614
+		  |move -> Q1039),
+	Q511	= (pictureOk[0] -> Q143
+		  |hotSwapIn -> Q706
+		  |pictureOk[1] -> Q721
+		  |weather -> Q1052),
+	Q512	= (lowBattery -> Q538
+		  |weather -> Q707),
+	Q513	= (low -> Q461
+		  |weather -> Q492
+		  |picture -> Q663),
+	Q514	= (pictureOk[0..1] -> Q449
+		  |weather -> Q486),
+	Q515	= (lowBattery -> Q676),
+	Q516	= (weather -> Q525
+		  |lowBattery -> Q709),
+	Q517	= (weather -> Q520
+		  |picture -> Q699
+		  |low -> Q711
+		  |follow -> Q858),
+	Q518	= (weather -> Q518
+		  |hotSwapIn -> Q790
+		  |return2base -> Q876),
+	Q519	= (scan -> Q165
+		  |weather -> Q321
+		  |low -> Q528
+		  |move -> Q1068),
+	Q520	= (weather -> Q504
+		  |picture -> Q684
+		  |low -> Q698
+		  |follow -> Q844),
+	Q521	= (lowBattery -> Q547
+		  |weather -> Q713),
+	Q522	= (high -> Q285
+		  |hotSwapIn -> Q717
+		  |move -> Q849
+		  |weather -> Q1065),
+	Q523	= (weather -> Q4
+		  |return2base -> Q895),
+	Q524	= (scan -> Q565
+		  |weather -> Q742
+		  |low -> Q921
+		  |move -> Q1047),
+	Q525	= (weather -> Q536
+		  |lowBattery -> Q714),
+	Q526	= (scan -> Q154
+		  |weather -> Q311
+		  |low -> Q512
+		  |move -> Q1049),
+	Q527	= (takeoff -> Q488
+		  |weather -> Q533),
+	Q528	= (lowBattery -> Q523
+		  |weather -> Q697),
+	Q529	= (hotSwapIn -> Q139
+		  |weather -> Q529
+		  |lowBattery -> Q872),
+	Q530	= (weather -> Q719
+		  |lowBattery -> Q902),
+	Q531	= (high -> Q124
+		  |hotSwapIn -> Q485
+		  |weather -> Q531
+		  |move -> Q849
+		  |scan -> Q880),
+	Q532	= (weather -> Q537
+		  |return2base -> Q895),
+	Q533	= (takeoff -> Q495
+		  |weather -> Q534),
+	Q534	= (takeoff -> Q480
+		  |weather -> Q527),
+	Q535	= (weather -> Q725
+		  |lowBattery -> Q909),
+	Q536	= (weather -> Q516
+		  |lowBattery -> Q703),
+	Q537	= (weather -> Q548
+		  |return2base -> Q903),
+	Q538	= (weather -> Q7
+		  |return2base -> Q903),
+	Q539	= (weather -> Q539
+		  |scan.val[0] -> Q545
+		  |scan.val[1] -> Q872
+		  |hotSwapIn -> Q875),
+	Q540	= (scan.val[0] -> Q709
+		  |weather -> Q723
+		  |scan.val[1] -> Q902),
+	Q541	= (weather -> Q708
+		  |lowBattery -> Q899),
+	Q542	= (high -> Q19
+		  |hotSwapIn -> Q117
+		  |picture -> Q732
+		  |weather -> Q760),
+	Q543	= (high -> Q220),
+	Q544	= (lowBattery -> Q709
+		  |weather -> Q730),
+	Q545	= (hotSwapIn -> Q267
+		  |weather -> Q737
+		  |return2base -> Q876),
+	Q546	= (scan.val[0] -> Q714
+		  |weather -> Q731
+		  |scan.val[1] -> Q909),
+	Q547	= (return2base -> Q893
+		  |weather -> Q1070),
+	Q548	= (weather -> Q532
+		  |return2base -> Q893),
+	Q549	= (hotSwapIn -> Q255
+		  |weather -> Q319
+		  |move -> Q453
+		  |high -> Q740),
+	Q550	= (scan.val[0] -> Q703
+		  |weather -> Q718
+		  |scan.val[1] -> Q899),
+	Q551	= (move -> Q825
+		  |high -> Q984),
+	Q552	= (high -> Q106
+		  |move -> Q660),
+	Q553	= (weather -> Q557
+		  |return2base -> Q895),
+	Q554	= (lowBattery -> Q714
+		  |weather -> Q736),
+	Q555	= (weather -> Q564
+		  |follow -> Q738
+		  |low -> Q739),
+	Q556	= (high -> Q314
+		  |move -> Q664
+		  |hotSwapIn -> Q685
+		  |weather -> Q701
+		  |scan -> Q1035),
+	Q557	= (weather -> Q566
+		  |return2base -> Q903),
+	Q558	= (scan.val[1] -> Q335
+		  |weather -> Q562
+		  |scan.val[0] -> Q910),
+	Q559	= (weather -> Q14
+		  |move -> Q453
+		  |high -> Q740
+		  |hotSwapIn -> Q757),
+	Q560	= (lowBattery -> Q703
+		  |weather -> Q726),
+	Q561	= (hotSwapIn -> Q348
+		  |pictureOk[0] -> Q542
+		  |pictureOk[1] -> Q751
+		  |weather -> Q767),
+	Q562	= (scan.val[1] -> Q341
+		  |weather -> Q567
+		  |scan.val[0] -> Q916),
+	Q563	= (scan -> Q137
+		  |move -> Q453
+		  |high -> Q556
+		  |weather -> Q563
+		  |hotSwapIn -> Q901),
+	Q564	= (weather -> Q569
+		  |follow -> Q741
+		  |low -> Q750),
+	Q565	= (scan.val[1] -> Q353
+		  |weather -> Q376
+		  |scan.val[0] -> Q752),
+	Q566	= (weather -> Q553
+		  |return2base -> Q893),
+	Q567	= (scan.val[1] -> Q332
+		  |weather -> Q558
+		  |scan.val[0] -> Q906),
+	Q568	= (high -> Q163
+		  |hotSwapIn -> Q185
+		  |picture -> Q511
+		  |weather -> Q568),
+	Q569	= (weather -> Q555
+		  |follow -> Q727
+		  |low -> Q734),
+	Q570	= (scan.val[1] -> Q358
+		  |weather -> Q380
+		  |scan.val[0] -> Q758),
+	Q571	= (scan.val[1] -> Q343
+		  |weather -> Q369
+		  |scan.val[0] -> Q746),
+	Q572	= (hotSwapIn -> Q171
+		  |scan -> Q173
+		  |weather -> Q572
+		  |move -> Q883
+		  |high -> Q918),
+	Q573	= (pictureOk[1] -> Q438
+		  |pictureOk[0] -> Q786),
+	Q574	= (weather -> Q575
+		  |lowBattery -> Q762),
+	Q575	= (weather -> Q579
+		  |lowBattery -> Q764),
+	Q576	= (hotSwapIn -> Q543
+		  |picture -> Q561
+		  |weather -> Q576
+		  |high -> Q950),
+	Q577	= (pictureOk[0] -> Q15
+		  |weather -> Q580
+		  |pictureOk[1] -> Q762),
+	Q578	= (move -> Q278
+		  |high -> Q552),
+	Q579	= (weather -> Q574
+		  |lowBattery -> Q756),
+	Q580	= (pictureOk[0] -> Q17
+		  |weather -> Q588
+		  |pictureOk[1] -> Q764),
+	Q581	= (scan.val[1] -> Q143
+		  |hotSwapIn -> Q175
+		  |scan.val[0] -> Q180
+		  |weather -> Q581),
+	Q582	= (scan -> Q375
+		  |move -> Q505
+		  |weather -> Q587
+		  |low -> Q766),
+	Q583	= (lowBattery -> Q15
+		  |weather -> Q589),
+	Q584	= (move -> Q8
+		  |weather -> Q25
+		  |high -> Q724
+		  |hotSwapIn -> Q773),
+	Q585	= (weather -> Q41
+		  |low -> Q201
+		  |move -> Q1054),
+	Q586	= (lowBattery -> Q267),
+	Q587	= (scan -> Q385
+		  |move -> Q524
+		  |weather -> Q600
+		  |low -> Q771),
+	Q588	= (pictureOk[0] -> Q10
+		  |weather -> Q577
+		  |pictureOk[1] -> Q756),
+	Q589	= (lowBattery -> Q17
+		  |weather -> Q596),
+	Q590	= (weather -> Q43
+		  |low -> Q207
+		  |move -> Q1060),
+	Q591	= (follow -> Q755
+		  |picture -> Q775
+		  |weather -> Q784
+		  |low -> Q958),
+	Q592	= (move -> Q172
+		  |high -> Q202),
+	Q593	= (low -> Q349
+		  |move -> Q519
+		  |weather -> Q601),
+	Q594	= (hotSwapIn -> Q212
+		  |pictureOk[0] -> Q363
+		  |weather -> Q594
+		  |pictureOk[1] -> Q602),
+	Q595	= (move -> Q943
+		  |high -> Q976),
+	Q596	= (lowBattery -> Q10
+		  |weather -> Q583),
+	Q597	= (pictureOk[0..1] -> Q351
+		  |weather -> Q604
+		  |lowBattery -> Q777),
+	Q598	= (weather -> Q34
+		  |low -> Q198
+		  |move -> Q1047),
+	Q599	= (move -> Q8
+		  |hotSwapIn -> Q30
+		  |scan -> Q33
+		  |high -> Q747
+		  |weather -> Q783),
+	Q600	= (scan -> Q368
+		  |move -> Q497
+		  |weather -> Q582
+		  |low -> Q765),
+	Q601	= (low -> Q350
+		  |move -> Q526
+		  |weather -> Q603),
+	Q602	= (weather -> Q39
+		  |high -> Q403
+		  |hotSwapIn -> Q415
+		  |move -> Q787),
+	Q603	= (low -> Q344
+		  |move -> Q500
+		  |weather -> Q593),
+	Q604	= (pictureOk[0..1] -> Q355
+		  |weather -> Q607
+		  |lowBattery -> Q782),
+	Q605	= (follow -> Q759
+		  |picture -> Q779
+		  |weather -> Q793
+		  |low -> Q962),
+	Q606	= (lowBattery -> Q762
+		  |weather -> Q785),
+	Q607	= (pictureOk[0..1] -> Q346
+		  |weather -> Q597
+		  |lowBattery -> Q776),
+	Q608	= (move -> Q660
+		  |high -> Q743),
+	Q609	= (follow -> Q753
+		  |picture -> Q770
+		  |weather -> Q778
+		  |low -> Q953),
+	Q610	= (lowBattery -> Q764
+		  |weather -> Q791),
+	Q611	= (lowBattery -> Q756
+		  |weather -> Q780),
+	Q612	= (move -> Q8
+		  |high -> Q218
+		  |hotSwapIn -> Q232
+		  |weather -> Q612),
+	Q613	= (low -> Q194
+		  |follow -> Q219
+		  |weather -> Q615),
+	Q614	= (scan -> Q375
+		  |move -> Q505
+		  |low -> Q766
+		  |weather -> Q792),
+	Q615	= (low -> Q199
+		  |follow -> Q227
+		  |weather -> Q617),
+	Q616	= (weather -> Q84
+		  |high -> Q419
+		  |move -> Q787
+		  |hotSwapIn -> Q797
+		  |scan -> Q799),
+	Q617	= (low -> Q189
+		  |follow -> Q214
+		  |weather -> Q613),
+	Q618	= (scan -> Q385
+		  |move -> Q524
+		  |low -> Q771
+		  |weather -> Q798),
+	Q619	= (pictureOk[1] -> Q67
+		  |weather -> Q74
+		  |pictureOk[0] -> Q803),
+	Q620	= (scan.val[1] -> Q86
+		  |scan.val[0] -> Q236),
+	Q621	= (scan -> Q368
+		  |move -> Q497
+		  |low -> Q765
+		  |weather -> Q788),
+	Q622	= (pictureOk[1] -> Q73
+		  |weather -> Q85
+		  |pictureOk[0] -> Q806),
+	Q623	= (high -> Q235
+		  |hotSwapIn -> Q245
+		  |weather -> Q623
+		  |move -> Q1011),
+	Q624	= (follow -> Q416
+		  |weather -> Q629
+		  |low -> Q809),
+	Q625	= (hotSwapIn -> Q242
+		  |weather -> Q625
+		  |move -> Q847
+		  |scan -> Q960
+		  |high -> Q972),
+	Q626	= (follow -> Q219
+		  |picture -> Q775
+		  |weather -> Q810
+		  |low -> Q958),
+	Q627	= (pictureOk[1] -> Q66
+		  |weather -> Q68
+		  |pictureOk[0] -> Q795),
+	Q628	= (weather -> Q80
+		  |picture -> Q374
+		  |high -> Q781
+		  |hotSwapIn -> Q816),
+	Q629	= (follow -> Q418
+		  |weather -> Q634
+		  |low -> Q813),
+	Q630	= (follow -> Q227
+		  |picture -> Q779
+		  |weather -> Q814
+		  |low -> Q962),
+	Q631	= (high -> Q599
+		  |weather -> Q631
+		  |move -> Q934
+		  |scan -> Q944
+		  |hotSwapIn -> Q965),
+	Q632	= (weather -> Q638
+		  |low -> Q818
+		  |move -> Q1051),
+	Q633	= (follow -> Q214
+		  |picture -> Q770
+		  |weather -> Q801
+		  |low -> Q953),
+	Q634	= (follow -> Q410
+		  |weather -> Q624
+		  |low -> Q804),
+	Q635	= (hotSwapIn -> Q252
+		  |weather -> Q635
+		  |scan.val[1] -> Q994
+		  |scan.val[0] -> Q998),
+	Q636	= (high -> Q224
+		  |hotSwapIn -> Q263
+		  |move -> Q616
+		  |weather -> Q636),
+	Q637	= (weather -> Q647
+		  |low -> Q828
+		  |picture -> Q999),
+	Q638	= (weather -> Q641
+		  |low -> Q823
+		  |move -> Q1058),
+	Q639	= (high -> Q357),
+	Q640	= (follow -> Q605
+		  |picture -> Q622
+		  |low -> Q630
+		  |weather -> Q643),
+	Q641	= (weather -> Q632
+		  |low -> Q811
+		  |move -> Q1039),
+	Q642	= (move -> Q305
+		  |high -> Q969),
+	Q643	= (follow -> Q609
+		  |picture -> Q627
+		  |low -> Q633
+		  |weather -> Q644),
+	Q644	= (follow -> Q591
+		  |picture -> Q619
+		  |low -> Q626
+		  |weather -> Q640),
+	Q645	= (weather -> Q98
+		  |scan.val[1] -> Q363
+		  |scan.val[0] -> Q805
+		  |hotSwapIn -> Q807),
+	Q646	= (hotSwapIn -> Q64
+		  |weather -> Q646
+		  |move -> Q787
+		  |high -> Q995),
+	Q647	= (weather -> Q650
+		  |low -> Q838
+		  |picture -> Q1003),
+	Q648	= (scan.val[0] -> Q89
+		  |weather -> Q652
+		  |scan.val[1] -> Q821),
+	Q649	= (picture -> Q622
+		  |low -> Q630
+		  |weather -> Q837
+		  |follow -> Q985),
+	Q650	= (weather -> Q637
+		  |low -> Q822
+		  |picture -> Q993),
+	Q651	= (weather -> Q665
+		  |low -> Q881),
+	Q652	= (scan.val[0] -> Q95
+		  |weather -> Q661
+		  |scan.val[1] -> Q826),
+	Q653	= (picture -> Q627
+		  |low -> Q633
+		  |weather -> Q846
+		  |follow -> Q990),
+	Q654	= (weather -> Q296
+		  |scan.val[1] -> Q458
+		  |scan.val[0] -> Q848),
+	Q655	= (weather -> Q297
+		  |scan.val[1] -> Q465
+		  |scan.val[0] -> Q855),
+	Q656	= (hotSwapIn -> Q242
+		  |weather -> Q625
+		  |move -> Q847
+		  |scan -> Q960
+		  |high -> Q972),
+	Q657	= (picture -> Q619
+		  |low -> Q626
+		  |weather -> Q834
+		  |follow -> Q983),
+	Q658	= (stopOldSpec -> Q279),
+	Q659	= (weather -> Q291
+		  |scan.val[1] -> Q446
+		  |scan.val[0] -> Q843),
+	Q660	= (high -> Q772
+		  |move -> Q1018),
+	Q661	= (scan.val[0] -> Q83
+		  |weather -> Q648
+		  |scan.val[1] -> Q820),
+	Q662	= (high -> Q52
+		  |move -> Q1013),
+	Q663	= (pictureOk[0..1] -> Q830
+		  |weather -> Q861),
+	Q664	= (high -> Q124
+		  |hotSwapIn -> Q485
+		  |move -> Q849
+		  |weather -> Q870
+		  |scan -> Q880),
+	Q665	= (weather -> Q670
+		  |low -> Q885),
+	Q666	= (stopOldSpec -> Q254),
+	Q667	= (pictureOk[0..1] -> Q835
+		  |weather -> Q862),
+	Q668	= (lowBattery -> Q460),
+	Q669	= (scan.val[0] -> Q126
+		  |hotSwapIn -> Q477
+		  |weather -> Q867
+		  |scan.val[1] -> Q872),
+	Q670	= (weather -> Q651
+		  |low -> Q878),
+	Q671	= (weather -> Q671
+		  |lowBattery -> Q677
+		  |hotSwapIn -> Q1017),
+	Q672	= (return2base -> Q666),
+	Q673	= (high -> Q52
+		  |move -> Q1013),
+	Q674	= (pictureOk[0..1] -> Q824
+		  |weather -> Q853),
+	Q675	= (weather -> Q123
+		  |hotSwapIn -> Q300
+		  |lowBattery -> Q872),
+	Q676	= (return2base -> Q666),
+	Q677	= (weather -> Q450
+		  |hotSwapIn -> Q460
+		  |return2base -> Q876),
+	Q678	= (scan -> Q655
+		  |weather -> Q873
+		  |low -> Q1010
+		  |move -> Q1042),
+	Q679	= (follow -> Q289
+		  |low -> Q443
+		  |weather -> Q680),
+	Q680	= (follow -> Q293
+		  |low -> Q445
+		  |weather -> Q683),
+	Q681	= (weather -> Q690
+		  |low -> Q881),
+	Q682	= (high -> Q357),
+	Q683	= (follow -> Q284
+		  |low -> Q441
+		  |weather -> Q679),
+	Q684	= (pictureOk[1] -> Q147
+		  |weather -> Q150
+		  |pictureOk[0] -> Q882),
+	Q685	= (move -> Q283
+		  |high -> Q307),
+	Q686	= (scan -> Q659
+		  |weather -> Q879
+		  |low -> Q1012
+		  |move -> Q1048),
+	Q687	= (weather -> Q687
+		  |pictureOk[1] -> Q692
+		  |pictureOk[0] -> Q872
+		  |hotSwapIn -> Q926),
+	Q688	= (high -> Q246),
+	Q689	= (scan -> Q654
+		  |weather -> Q866
+		  |low -> Q1007
+		  |move -> Q1036),
+	Q690	= (weather -> Q695
+		  |low -> Q885),
+	Q691	= (picture -> Q288
+		  |hotSwapIn -> Q320
+		  |weather -> Q691
+		  |high -> Q1029),
+	Q692	= (hotSwapIn -> Q13
+		  |return2base -> Q876
+		  |weather -> Q892),
+	Q693	= (pictureOk[1] -> Q149
+		  |weather -> Q155
+		  |pictureOk[0] -> Q889),
+	Q694	= (high -> Q231
+		  |move -> Q372),
+	Q695	= (weather -> Q681
+		  |low -> Q878),
+	Q696	= (follow -> Q498
+		  |weather -> Q700
+		  |low -> Q891),
+	Q697	= (lowBattery -> Q538
+		  |weather -> Q707),
+	Q698	= (follow -> Q289
+		  |weather -> Q886
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q699	= (pictureOk[1] -> Q142
+		  |weather -> Q144
+		  |pictureOk[0] -> Q877),
+	Q700	= (follow -> Q507
+		  |weather -> Q716
+		  |low -> Q897),
+	Q701	= (high -> Q314
+		  |move -> Q664
+		  |hotSwapIn -> Q685
+		  |weather -> Q701
+		  |scan -> Q1035),
+	Q702	= (follow -> Q293
+		  |weather -> Q898
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q703	= (weather -> Q712
+		  |return2base -> Q895),
+	Q704	= (weather -> Q712
+		  |return2base -> Q895),
+	Q705	= (move -> Q660
+		  |high -> Q743),
+	Q706	= (pictureOk[1] -> Q37
+		  |pictureOk[0] -> Q320),
+	Q707	= (lowBattery -> Q547
+		  |weather -> Q713),
+	Q708	= (weather -> Q719
+		  |lowBattery -> Q902),
+	Q709	= (weather -> Q722
+		  |return2base -> Q903),
+	Q710	= (picture -> Q288
+		  |hotSwapIn -> Q327
+		  |weather -> Q710
+		  |high -> Q1029),
+	Q711	= (follow -> Q284
+		  |weather -> Q884
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q712	= (weather -> Q722
+		  |return2base -> Q903),
+	Q713	= (lowBattery -> Q523
+		  |weather -> Q697),
+	Q714	= (weather -> Q704
+		  |return2base -> Q893),
+	Q715	= (lowBattery -> Q329
+		  |weather -> Q715
+		  |hotSwapIn -> Q1056),
+	Q716	= (follow -> Q487
+		  |weather -> Q696
+		  |low -> Q890),
+	Q717	= (high -> Q515
+		  |move -> Q668),
+	Q718	= (scan.val[0] -> Q709
+		  |weather -> Q723
+		  |scan.val[1] -> Q902),
+	Q719	= (weather -> Q725
+		  |lowBattery -> Q909),
+	Q720	= (scan.val[1] -> Q335
+		  |weather -> Q562
+		  |scan.val[0] -> Q910),
+	Q721	= (hotSwapIn -> Q37
+		  |weather -> Q503
+		  |move -> Q883
+		  |high -> Q908),
+	Q722	= (weather -> Q704
+		  |return2base -> Q893),
+	Q723	= (scan.val[0] -> Q714
+		  |weather -> Q731
+		  |scan.val[1] -> Q909),
+	Q724	= (weather -> Q168
+		  |move -> Q883
+		  |high -> Q908
+		  |hotSwapIn -> Q922),
+	Q725	= (weather -> Q708
+		  |lowBattery -> Q899),
+	Q726	= (lowBattery -> Q709
+		  |weather -> Q730),
+	Q727	= (lowBattery -> Q15
+		  |weather -> Q915),
+	Q728	= (hotSwapIn -> Q2
+		  |scan.val[0] -> Q342
+		  |lowBattery -> Q345
+		  |scan.val[1] -> Q675
+		  |weather -> Q728),
+	Q729	= (scan.val[1] -> Q341
+		  |weather -> Q567
+		  |scan.val[0] -> Q916),
+	Q730	= (lowBattery -> Q714
+		  |weather -> Q736),
+	Q731	= (scan.val[0] -> Q703
+		  |weather -> Q718
+		  |scan.val[1] -> Q899),
+	Q732	= (pictureOk[0] -> Q302
+		  |hotSwapIn -> Q573
+		  |pictureOk[1] -> Q900
+		  |weather -> Q917),
+	Q733	= (scan.val[1] -> Q332
+		  |weather -> Q558
+		  |scan.val[0] -> Q906),
+	Q734	= (lowBattery -> Q902
+		  |weather -> Q920),
+	Q735	= (lowBattery -> Q13),
+	Q736	= (lowBattery -> Q703
+		  |weather -> Q726),
+	Q737	= (hotSwapIn -> Q267
+		  |weather -> Q737
+		  |return2base -> Q876),
+	Q738	= (lowBattery -> Q17
+		  |weather -> Q919),
+	Q739	= (lowBattery -> Q909
+		  |weather -> Q924),
+	Q740	= (weather -> Q174
+		  |high -> Q522
+		  |move -> Q664
+		  |hotSwapIn -> Q896),
+	Q741	= (lowBattery -> Q10
+		  |weather -> Q913),
+	Q742	= (scan -> Q570
+		  |weather -> Q744
+		  |low -> Q927
+		  |move -> Q1054),
+	Q743	= (high -> Q262
+		  |move -> Q1018),
+	Q744	= (scan -> Q571
+		  |weather -> Q748
+		  |low -> Q928
+		  |move -> Q1060),
+	Q745	= (low -> Q554
+		  |weather -> Q749
+		  |move -> Q1057),
+	Q746	= (weather -> Q177
+		  |low -> Q349
+		  |move -> Q519),
+	Q747	= (hotSwapIn -> Q171
+		  |scan -> Q173
+		  |move -> Q883
+		  |high -> Q918
+		  |weather -> Q930),
+	Q748	= (scan -> Q565
+		  |weather -> Q742
+		  |low -> Q921
+		  |move -> Q1047),
+	Q749	= (low -> Q560
+		  |weather -> Q761
+		  |move -> Q1068),
+	Q750	= (lowBattery -> Q899
+		  |weather -> Q914),
+	Q751	= (weather -> Q203
+		  |high -> Q584
+		  |hotSwapIn -> Q925
+		  |move -> Q934),
+	Q752	= (weather -> Q181
+		  |low -> Q350
+		  |move -> Q526),
+	Q753	= (low -> Q32
+		  |follow -> Q738
+		  |picture -> Q931
+		  |weather -> Q937),
+	Q754	= (high -> Q106
+		  |move -> Q660),
+	Q755	= (low -> Q35
+		  |follow -> Q741
+		  |picture -> Q932
+		  |weather -> Q938),
+	Q756	= (weather -> Q359
+		  |return2base -> Q895),
+	Q757	= (high -> Q262
+		  |move -> Q1018),
+	Q758	= (weather -> Q176
+		  |low -> Q344
+		  |move -> Q500),
+	Q759	= (low -> Q27
+		  |follow -> Q727
+		  |picture -> Q929
+		  |weather -> Q936),
+	Q760	= (high -> Q19
+		  |hotSwapIn -> Q117
+		  |picture -> Q732
+		  |weather -> Q760),
+	Q761	= (low -> Q544
+		  |weather -> Q745
+		  |move -> Q1049),
+	Q762	= (weather -> Q360
+		  |return2base -> Q903),
+	Q763	= (follow -> Q366
+		  |low -> Q739
+		  |weather -> Q768),
+	Q764	= (weather -> Q354
+		  |return2base -> Q893),
+	Q765	= (scan -> Q570
+		  |low -> Q927
+		  |weather -> Q941
+		  |move -> Q1054),
+	Q766	= (scan -> Q571
+		  |low -> Q928
+		  |weather -> Q945
+		  |move -> Q1060),
+	Q767	= (hotSwapIn -> Q348
+		  |pictureOk[0] -> Q542
+		  |pictureOk[1] -> Q751
+		  |weather -> Q767),
+	Q768	= (follow -> Q373
+		  |low -> Q750
+		  |weather -> Q774),
+	Q769	= (scan.val[1] -> Q543
+		  |scan.val[0] -> Q705),
+	Q770	= (pictureOk[1] -> Q213
+		  |weather -> Q394
+		  |pictureOk[0] -> Q949),
+	Q771	= (scan -> Q565
+		  |low -> Q921
+		  |weather -> Q940
+		  |move -> Q1047),
+	Q772	= (move -> Q283
+		  |high -> Q307),
+	Q773	= (high -> Q694
+		  |move -> Q825),
+	Q774	= (follow -> Q364
+		  |low -> Q734
+		  |weather -> Q763),
+	Q775	= (pictureOk[1] -> Q217
+		  |weather -> Q400
+		  |pictureOk[0] -> Q954),
+	Q776	= (pictureOk[0..1] -> Q762
+		  |weather -> Q955),
+	Q777	= (pictureOk[0..1] -> Q764
+		  |weather -> Q961),
+	Q778	= (follow -> Q755
+		  |picture -> Q775
+		  |weather -> Q784
+		  |low -> Q958),
+	Q779	= (pictureOk[1] -> Q208
+		  |weather -> Q390
+		  |pictureOk[0] -> Q947),
+	Q780	= (lowBattery -> Q762
+		  |weather -> Q785),
+	Q781	= (weather -> Q206
+		  |picture -> Q561
+		  |high -> Q950
+		  |hotSwapIn -> Q963),
+	Q782	= (pictureOk[0..1] -> Q756
+		  |weather -> Q952),
+	Q783	= (move -> Q8
+		  |hotSwapIn -> Q30
+		  |scan -> Q33
+		  |high -> Q747
+		  |weather -> Q783),
+	Q784	= (follow -> Q759
+		  |picture -> Q779
+		  |weather -> Q793
+		  |low -> Q962),
+	Q785	= (lowBattery -> Q764
+		  |weather -> Q791),
+	Q786	= (high -> Q246),
+	Q787	= (weather -> Q216
+		  |high -> Q599
+		  |move -> Q934
+		  |scan -> Q944
+		  |hotSwapIn -> Q965),
+	Q788	= (scan -> Q375
+		  |move -> Q505
+		  |low -> Q766
+		  |weather -> Q792),
+	Q789	= (high -> Q356
+		  |hotSwapIn -> Q367
+		  |weather -> Q789
+		  |move -> Q883),
+	Q790	= (return2base -> Q666),
+	Q791	= (lowBattery -> Q756
+		  |weather -> Q780),
+	Q792	= (scan -> Q385
+		  |move -> Q524
+		  |low -> Q771
+		  |weather -> Q798),
+	Q793	= (follow -> Q753
+		  |picture -> Q770
+		  |weather -> Q778
+		  |low -> Q953),
+	Q794	= (high -> Q403
+		  |hotSwapIn -> Q412
+		  |move -> Q787
+		  |weather -> Q794),
+	Q795	= (follow -> Q755
+		  |picture -> Q775
+		  |low -> Q958
+		  |weather -> Q975),
+	Q796	= (high -> Q51
+		  |hotSwapIn -> Q501
+		  |weather -> Q796
+		  |move -> Q934),
+	Q797	= (high -> Q310
+		  |move -> Q812),
+	Q798	= (scan -> Q368
+		  |move -> Q497
+		  |low -> Q765
+		  |weather -> Q788),
+	Q799	= (weather -> Q228
+		  |scan.val[1] -> Q542
+		  |scan.val[0] -> Q980
+		  |hotSwapIn -> Q982),
+	Q800	= (scan -> Q47
+		  |high -> Q58
+		  |hotSwapIn -> Q395
+		  |weather -> Q800
+		  |move -> Q1011),
+	Q801	= (follow -> Q219
+		  |picture -> Q775
+		  |weather -> Q810
+		  |low -> Q958),
+	Q802	= (move -> Q118
+		  |high -> Q381
+		  |hotSwapIn -> Q387
+		  |weather -> Q802),
+	Q803	= (follow -> Q759
+		  |picture -> Q779
+		  |low -> Q962
+		  |weather -> Q978),
+	Q804	= (low -> Q56
+		  |weather -> Q244
+		  |follow -> Q985),
+	Q805	= (hotSwapIn -> Q64
+		  |weather -> Q646
+		  |move -> Q787
+		  |high -> Q995),
+	Q806	= (follow -> Q753
+		  |picture -> Q770
+		  |low -> Q953
+		  |weather -> Q970),
+	Q807	= (scan.val[0] -> Q64
+		  |scan.val[1] -> Q543),
+	Q808	= (high -> Q69
+		  |hotSwapIn -> Q379
+		  |weather -> Q808
+		  |move -> Q847),
+	Q809	= (low -> Q60
+		  |weather -> Q250
+		  |follow -> Q990),
+	Q810	= (follow -> Q227
+		  |picture -> Q779
+		  |weather -> Q814
+		  |low -> Q962),
+	Q811	= (low -> Q65
+		  |weather -> Q97
+		  |move -> Q505),
+	Q812	= (move -> Q172
+		  |high -> Q817),
+	Q813	= (low -> Q48
+		  |weather -> Q239
+		  |follow -> Q983),
+	Q814	= (follow -> Q214
+		  |picture -> Q770
+		  |weather -> Q801
+		  |low -> Q953),
+	Q815	= (hotSwapIn -> Q252
+		  |weather -> Q635
+		  |scan.val[1] -> Q994
+		  |scan.val[0] -> Q998),
+	Q816	= (high -> Q841),
+	Q817	= (high -> Q184
+		  |move -> Q825),
+	Q818	= (low -> Q72
+		  |weather -> Q99
+		  |move -> Q524),
+	Q819	= (scan.val[1] -> Q55
+		  |scan.val[0] -> Q62
+		  |hotSwapIn -> Q406
+		  |weather -> Q819),
+	Q820	= (follow -> Q102
+		  |weather -> Q260
+		  |low -> Q443),
+	Q821	= (follow -> Q107
+		  |weather -> Q265
+		  |low -> Q445),
+	Q822	= (low -> Q77
+		  |weather -> Q108
+		  |picture -> Q237),
+	Q823	= (low -> Q59
+		  |weather -> Q92
+		  |move -> Q497),
+	Q824	= (weather -> Q647
+		  |low -> Q828
+		  |picture -> Q999),
+	Q825	= (move -> Q372
+		  |high -> Q852),
+	Q826	= (follow -> Q90
+		  |weather -> Q259
+		  |low -> Q441),
+	Q827	= (hotSwapIn -> Q242
+		  |move -> Q847
+		  |scan -> Q960
+		  |high -> Q972
+		  |weather -> Q1005),
+	Q828	= (low -> Q82
+		  |weather -> Q110
+		  |picture -> Q238),
+	Q829	= (move -> Q172
+		  |high -> Q202),
+	Q830	= (weather -> Q650
+		  |low -> Q838
+		  |picture -> Q1003),
+	Q831	= (pictureOk[0] -> Q434
+		  |pictureOk[1] -> Q830
+		  |weather -> Q832),
+	Q832	= (pictureOk[0] -> Q437
+		  |pictureOk[1] -> Q835
+		  |weather -> Q836),
+	Q833	= (high -> Q103
+		  |move -> Q432
+		  |hotSwapIn -> Q595
+		  |weather -> Q833),
+	Q834	= (picture -> Q622
+		  |low -> Q630
+		  |weather -> Q837
+		  |follow -> Q985),
+	Q835	= (weather -> Q637
+		  |low -> Q822
+		  |picture -> Q993),
+	Q836	= (pictureOk[0] -> Q433
+		  |pictureOk[1] -> Q824
+		  |weather -> Q831),
+	Q837	= (picture -> Q627
+		  |low -> Q633
+		  |weather -> Q846
+		  |follow -> Q990),
+	Q838	= (low -> Q70
+		  |weather -> Q104
+		  |picture -> Q233),
+	Q839	= (scan -> Q655
+		  |weather -> Q840
+		  |low -> Q1010
+		  |move -> Q1042),
+	Q840	= (scan -> Q659
+		  |weather -> Q845
+		  |low -> Q1012
+		  |move -> Q1048),
+	Q841	= (high -> Q220),
+	Q842	= (low -> Q818
+		  |weather -> Q854
+		  |move -> Q1051),
+	Q843	= (weather -> Q269
+		  |low -> Q454
+		  |move -> Q502),
+	Q844	= (follow -> Q102
+		  |weather -> Q863
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q845	= (scan -> Q654
+		  |weather -> Q839
+		  |low -> Q1007
+		  |move -> Q1036),
+	Q846	= (picture -> Q619
+		  |low -> Q626
+		  |weather -> Q834
+		  |follow -> Q983),
+	Q847	= (scan -> Q47
+		  |high -> Q58
+		  |hotSwapIn -> Q395
+		  |weather -> Q800
+		  |move -> Q1011),
+	Q848	= (weather -> Q277
+		  |low -> Q456
+		  |move -> Q510),
+	Q849	= (weather -> Q671
+		  |lowBattery -> Q677
+		  |hotSwapIn -> Q1017),
+	Q850	= (follow -> Q107
+		  |weather -> Q868
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q851	= (low -> Q828
+		  |weather -> Q865
+		  |picture -> Q999),
+	Q852	= (lowBattery -> Q790),
+	Q853	= (pictureOk[0..1] -> Q830
+		  |weather -> Q861),
+	Q854	= (low -> Q823
+		  |weather -> Q859
+		  |move -> Q1058),
+	Q855	= (weather -> Q264
+		  |low -> Q448
+		  |move -> Q494),
+	Q856	= (follow -> Q102
+		  |weather -> Q863
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q857	= (reconfigure -> Q301),
+	Q858	= (follow -> Q90
+		  |weather -> Q856
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q859	= (low -> Q811
+		  |weather -> Q842
+		  |move -> Q1039),
+	Q860	= (reconfigure -> Q114),
+	Q861	= (pictureOk[0..1] -> Q835
+		  |weather -> Q862),
+	Q862	= (pictureOk[0..1] -> Q824
+		  |weather -> Q853),
+	Q863	= (follow -> Q107
+		  |weather -> Q868
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q864	= (lowBattery -> Q126
+		  |hotSwapIn -> Q490
+		  |weather -> Q864),
+	Q865	= (low -> Q838
+		  |weather -> Q869
+		  |picture -> Q1003),
+	Q866	= (scan -> Q655
+		  |weather -> Q873
+		  |low -> Q1010
+		  |move -> Q1042),
+	Q867	= (scan.val[0] -> Q126
+		  |hotSwapIn -> Q477
+		  |weather -> Q867
+		  |scan.val[1] -> Q872),
+	Q868	= (follow -> Q90
+		  |weather -> Q856
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q869	= (low -> Q822
+		  |weather -> Q851
+		  |picture -> Q993),
+	Q870	= (high -> Q124
+		  |hotSwapIn -> Q485
+		  |move -> Q849
+		  |weather -> Q870
+		  |scan -> Q880),
+	Q871	= (high -> Q887
+		  |move -> Q1013),
+	Q872	= (hotSwapIn -> Q672
+		  |return2base -> Q876
+		  |weather -> Q1040),
+	Q873	= (scan -> Q659
+		  |weather -> Q879
+		  |low -> Q1012
+		  |move -> Q1048),
+	Q874	= (lowBattery -> Q460),
+	Q875	= (scan.val[0] -> Q267
+		  |scan.val[1] -> Q672),
+	Q876	= (takeoff -> Q271
+		  |weather -> Q298
+		  |hotSwapIn -> Q1020),
+	Q877	= (follow -> Q102
+		  |picture -> Q1019
+		  |low -> Q1024
+		  |weather -> Q1038),
+	Q878	= (scan -> Q299
+		  |weather -> Q482
+		  |move -> Q491
+		  |low -> Q686),
+	Q879	= (scan -> Q654
+		  |weather -> Q866
+		  |low -> Q1007
+		  |move -> Q1036),
+	Q880	= (hotSwapIn -> Q295
+		  |lowBattery -> Q669
+		  |scan.val[1] -> Q675
+		  |scan.val[0] -> Q1015
+		  |weather -> Q1044),
+	Q881	= (scan -> Q304
+		  |weather -> Q489
+		  |move -> Q508
+		  |low -> Q689),
+	Q882	= (follow -> Q107
+		  |picture -> Q1021
+		  |low -> Q1028
+		  |weather -> Q1046),
+	Q883	= (lowBattery -> Q329
+		  |weather -> Q715
+		  |hotSwapIn -> Q1056),
+	Q884	= (follow -> Q289
+		  |weather -> Q886
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q885	= (scan -> Q294
+		  |weather -> Q474
+		  |move -> Q484
+		  |low -> Q678),
+	Q886	= (follow -> Q293
+		  |weather -> Q898
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q887	= (high -> Q223
+		  |move -> Q278),
+	Q888	= (scan.val[1] -> Q320
+		  |scan.val[0] -> Q509),
+	Q889	= (follow -> Q90
+		  |picture -> Q1016
+		  |low -> Q1022
+		  |weather -> Q1034),
+	Q890	= (low -> Q132
+		  |weather -> Q317
+		  |follow -> Q1064),
+	Q891	= (low -> Q136
+		  |weather -> Q324
+		  |follow -> Q1066),
+	Q892	= (hotSwapIn -> Q13
+		  |return2base -> Q876
+		  |weather -> Q892),
+	Q893	= (takeoff -> Q488
+		  |weather -> Q1067),
+	Q894	= (hotSwapIn -> Q148
+		  |lowBattery -> Q473
+		  |pictureOk[1] -> Q479
+		  |pictureOk[0] -> Q675
+		  |weather -> Q894),
+	Q895	= (weather -> Q1
+		  |takeoff -> Q495),
+	Q896	= (move -> Q283
+		  |high -> Q951),
+	Q897	= (low -> Q127
+		  |weather -> Q312
+		  |follow -> Q1059),
+	Q898	= (follow -> Q284
+		  |weather -> Q884
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q899	= (weather -> Q537
+		  |return2base -> Q895),
+	Q900	= (move -> Q8
+		  |weather -> Q338
+		  |hotSwapIn -> Q438
+		  |high -> Q724),
+	Q901	= (high -> Q772
+		  |move -> Q1018),
+	Q902	= (weather -> Q548
+		  |return2base -> Q903),
+	Q903	= (takeoff -> Q480
+		  |weather -> Q1062),
+	Q904	= (low -> Q9
+		  |move -> Q519
+		  |scan -> Q729
+		  |weather -> Q907),
+	Q905	= (high -> Q163
+		  |picture -> Q511
+		  |hotSwapIn -> Q786
+		  |weather -> Q905),
+	Q906	= (weather -> Q333
+		  |low -> Q554
+		  |move -> Q1057),
+	Q907	= (low -> Q11
+		  |move -> Q526
+		  |scan -> Q733
+		  |weather -> Q912),
+	Q908	= (weather -> Q331
+		  |lowBattery -> Q692
+		  |hotSwapIn -> Q1045),
+	Q909	= (weather -> Q532
+		  |return2base -> Q893),
+	Q910	= (weather -> Q337
+		  |low -> Q560
+		  |move -> Q1068),
+	Q911	= (scan.val[1] -> Q117
+		  |scan.val[0] -> Q255),
+	Q912	= (low -> Q3
+		  |move -> Q500
+		  |scan -> Q720
+		  |weather -> Q904),
+	Q913	= (lowBattery -> Q15
+		  |weather -> Q915),
+	Q914	= (lowBattery -> Q902
+		  |weather -> Q920),
+	Q915	= (lowBattery -> Q17
+		  |weather -> Q919),
+	Q916	= (weather -> Q330
+		  |low -> Q544
+		  |move -> Q1049),
+	Q917	= (pictureOk[0] -> Q302
+		  |hotSwapIn -> Q573
+		  |pictureOk[1] -> Q900
+		  |weather -> Q917),
+	Q918	= (weather -> Q5
+		  |lowBattery -> Q329
+		  |hotSwapIn -> Q1056),
+	Q919	= (lowBattery -> Q10
+		  |weather -> Q913),
+	Q920	= (lowBattery -> Q909
+		  |weather -> Q924),
+	Q921	= (low -> Q9
+		  |weather -> Q20
+		  |move -> Q519
+		  |scan -> Q729),
+	Q922	= (high -> Q231
+		  |move -> Q372),
+	Q923	= (lowBattery -> Q545
+		  |weather -> Q923
+		  |hotSwapIn -> Q1023),
+	Q924	= (lowBattery -> Q899
+		  |weather -> Q914),
+	Q925	= (move -> Q172
+		  |high -> Q202),
+	Q926	= (pictureOk[1] -> Q13
+		  |pictureOk[0] -> Q672),
+	Q927	= (low -> Q11
+		  |weather -> Q22
+		  |move -> Q526
+		  |scan -> Q733),
+	Q928	= (low -> Q3
+		  |weather -> Q16
+		  |move -> Q500
+		  |scan -> Q720),
+	Q929	= (pictureOk[0] -> Q23
+		  |weather -> Q192
+		  |pictureOk[1] -> Q351
+		  |lowBattery -> Q362),
+	Q930	= (hotSwapIn -> Q171
+		  |scan -> Q173
+		  |move -> Q883
+		  |high -> Q918
+		  |weather -> Q930),
+	Q931	= (pictureOk[0] -> Q28
+		  |weather -> Q193
+		  |pictureOk[1] -> Q355
+		  |lowBattery -> Q370),
+	Q932	= (pictureOk[0] -> Q21
+		  |weather -> Q187
+		  |pictureOk[1] -> Q346
+		  |lowBattery -> Q352),
+	Q933	= (lowBattery -> Q672),
+	Q934	= (move -> Q8
+		  |hotSwapIn -> Q30
+		  |scan -> Q33
+		  |weather -> Q347
+		  |high -> Q747),
+	Q935	= (lowBattery -> Q545
+		  |hotSwapIn -> Q586
+		  |weather -> Q935),
+	Q936	= (low -> Q32
+		  |follow -> Q738
+		  |picture -> Q931
+		  |weather -> Q937),
+	Q937	= (low -> Q35
+		  |follow -> Q741
+		  |picture -> Q932
+		  |weather -> Q938),
+	Q938	= (low -> Q27
+		  |follow -> Q727
+		  |picture -> Q929
+		  |weather -> Q936),
+	Q939	= (move -> Q8
+		  |high -> Q218
+		  |weather -> Q939
+		  |hotSwapIn -> Q1001),
+	Q940	= (scan -> Q570
+		  |low -> Q927
+		  |weather -> Q941
+		  |move -> Q1054),
+	Q941	= (scan -> Q571
+		  |low -> Q928
+		  |weather -> Q945
+		  |move -> Q1060),
+	Q942	= (move -> Q276
+		  |high -> Q559
+		  |hotSwapIn -> Q608
+		  |weather -> Q942),
+	Q943	= (move -> Q305
+		  |high -> Q969),
+	Q944	= (hotSwapIn -> Q40
+		  |scan.val[0] -> Q44
+		  |scan.val[1] -> Q302
+		  |weather -> Q371),
+	Q945	= (scan -> Q565
+		  |low -> Q921
+		  |weather -> Q940
+		  |move -> Q1047),
+	Q946	= (move -> Q118
+		  |scan -> Q182
+		  |high -> Q195
+		  |hotSwapIn -> Q578
+		  |weather -> Q946),
+	Q947	= (low -> Q32
+		  |weather -> Q45
+		  |follow -> Q738
+		  |picture -> Q931),
+	Q948	= (move -> Q283
+		  |high -> Q951),
+	Q949	= (low -> Q35
+		  |weather -> Q46
+		  |follow -> Q741
+		  |picture -> Q932),
+	Q950	= (high -> Q19
+		  |hotSwapIn -> Q29
+		  |weather -> Q383
+		  |picture -> Q732),
+	Q951	= (high -> Q515
+		  |move -> Q668),
+	Q952	= (pictureOk[0..1] -> Q762
+		  |weather -> Q955),
+	Q953	= (low -> Q32
+		  |weather -> Q53
+		  |follow -> Q366
+		  |picture -> Q931),
+	Q954	= (low -> Q27
+		  |weather -> Q42
+		  |follow -> Q727
+		  |picture -> Q929),
+	Q955	= (pictureOk[0..1] -> Q764
+		  |weather -> Q961),
+	Q956	= (high -> Q235
+		  |hotSwapIn -> Q871
+		  |weather -> Q956
+		  |move -> Q1011),
+	Q957	= (scan.val[1] -> Q190
+		  |scan.val[0] -> Q197
+		  |hotSwapIn -> Q620
+		  |weather -> Q957),
+	Q958	= (low -> Q35
+		  |weather -> Q54
+		  |follow -> Q373
+		  |picture -> Q932),
+	Q959	= (low -> Q56
+		  |follow -> Q605
+		  |weather -> Q964),
+	Q960	= (scan.val[1] -> Q55
+		  |scan.val[0] -> Q62
+		  |hotSwapIn -> Q406
+		  |weather -> Q819),
+	Q961	= (pictureOk[0..1] -> Q756
+		  |weather -> Q952),
+	Q962	= (low -> Q27
+		  |weather -> Q50
+		  |follow -> Q364
+		  |picture -> Q929),
+	Q963	= (high -> Q220),
+	Q964	= (low -> Q60
+		  |follow -> Q609
+		  |weather -> Q966),
+	Q965	= (move -> Q172
+		  |high -> Q817),
+	Q966	= (low -> Q48
+		  |follow -> Q591
+		  |weather -> Q959),
+	Q967	= (low -> Q65
+		  |move -> Q505
+		  |weather -> Q971),
+	Q968	= (high -> Q584
+		  |hotSwapIn -> Q592
+		  |move -> Q934
+		  |weather -> Q968),
+	Q969	= (high -> Q310
+		  |move -> Q812),
+	Q970	= (follow -> Q755
+		  |picture -> Q775
+		  |low -> Q958
+		  |weather -> Q975),
+	Q971	= (low -> Q72
+		  |move -> Q524
+		  |weather -> Q973),
+	Q972	= (scan -> Q47
+		  |high -> Q58
+		  |weather -> Q76
+		  |hotSwapIn -> Q395
+		  |move -> Q1011),
+	Q973	= (low -> Q59
+		  |move -> Q497
+		  |weather -> Q967),
+	Q974	= (high -> Q224
+		  |move -> Q616
+		  |weather -> Q974
+		  |hotSwapIn -> Q1063),
+	Q975	= (follow -> Q759
+		  |picture -> Q779
+		  |low -> Q962
+		  |weather -> Q978),
+	Q976	= (move -> Q305
+		  |high -> Q340),
+	Q977	= (low -> Q77
+		  |picture -> Q237
+		  |weather -> Q979),
+	Q978	= (follow -> Q753
+		  |picture -> Q770
+		  |low -> Q953
+		  |weather -> Q970),
+	Q979	= (low -> Q82
+		  |picture -> Q238
+		  |weather -> Q981),
+	Q980	= (high -> Q51
+		  |hotSwapIn -> Q501
+		  |weather -> Q796
+		  |move -> Q934),
+	Q981	= (low -> Q70
+		  |picture -> Q233
+		  |weather -> Q977),
+	Q982	= (scan.val[1] -> Q117
+		  |scan.val[0] -> Q501),
+	Q983	= (weather -> Q87
+		  |follow -> Q219
+		  |picture -> Q775
+		  |low -> Q958),
+	Q984	= (high -> Q365
+		  |move -> Q372),
+	Q985	= (weather -> Q93
+		  |follow -> Q227
+		  |picture -> Q779
+		  |low -> Q962),
+	Q986	= (scan.val[0] -> Q89
+		  |weather -> Q652
+		  |scan.val[1] -> Q821),
+	Q987	= (high -> Q261
+		  |move -> Q616
+		  |hotSwapIn -> Q642
+		  |scan -> Q645
+		  |weather -> Q987),
+	Q988	= (scan.val[1] -> Q63
+		  |scan.val[0] -> Q409
+		  |weather -> Q992),
+	Q989	= (pictureOk[1] -> Q595
+		  |pictureOk[0] -> Q682),
+	Q990	= (weather -> Q81
+		  |follow -> Q214
+		  |picture -> Q770
+		  |low -> Q953),
+	Q991	= (scan.val[0] -> Q95
+		  |weather -> Q661
+		  |scan.val[1] -> Q826),
+	Q992	= (scan.val[1] -> Q75
+		  |scan.val[0] -> Q414
+		  |weather -> Q996),
+	Q993	= (pictureOk[0..1] -> Q67
+		  |weather -> Q101),
+	Q994	= (picture -> Q71
+		  |weather -> Q88
+		  |hotSwapIn -> Q215
+		  |high -> Q447),
+	Q995	= (high -> Q51
+		  |hotSwapIn -> Q109
+		  |weather -> Q429
+		  |move -> Q934),
+	Q996	= (scan.val[1] -> Q57
+		  |scan.val[0] -> Q397
+		  |weather -> Q988),
+	Q997	= (high -> Q357),
+	Q998	= (high -> Q69
+		  |hotSwapIn -> Q379
+		  |weather -> Q808
+		  |move -> Q847),
+	Q999	= (pictureOk[0..1] -> Q73
+		  |weather -> Q105),
+	Q1000	= (scan.val[0] -> Q83
+		  |weather -> Q648
+		  |scan.val[1] -> Q820),
+	Q1001	= (move -> Q825
+		  |high -> Q984),
+	Q1002	= (follow -> Q653
+		  |low -> Q809
+		  |weather -> Q1004),
+	Q1003	= (pictureOk[0..1] -> Q66
+		  |weather -> Q94),
+	Q1004	= (follow -> Q657
+		  |low -> Q813
+		  |weather -> Q1008),
+	Q1005	= (hotSwapIn -> Q242
+		  |move -> Q847
+		  |scan -> Q960
+		  |high -> Q972
+		  |weather -> Q1005),
+	Q1006	= (high -> Q451
+		  |hotSwapIn -> Q658
+		  |weather -> Q1006),
+	Q1007	= (weather -> Q116
+		  |low -> Q243
+		  |move -> Q502
+		  |scan -> Q991),
+	Q1008	= (follow -> Q649
+		  |low -> Q804
+		  |weather -> Q1002),
+	Q1009	= (picture -> Q230
+		  |high -> Q628
+		  |hotSwapIn -> Q639
+		  |weather -> Q1009),
+	Q1010	= (weather -> Q122
+		  |low -> Q248
+		  |move -> Q510
+		  |scan -> Q1000),
+	Q1011	= (move -> Q118
+		  |scan -> Q182
+		  |high -> Q195
+		  |hotSwapIn -> Q578
+		  |weather -> Q946),
+	Q1012	= (weather -> Q113
+		  |low -> Q240
+		  |move -> Q494
+		  |scan -> Q986),
+	Q1013	= (move -> Q278
+		  |high -> Q552),
+	Q1014	= (startNewSpec -> Q459),
+	Q1015	= (lowBattery -> Q126
+		  |hotSwapIn -> Q266
+		  |weather -> Q455),
+	Q1016	= (pictureOk[0] -> Q125
+		  |pictureOk[1] -> Q457
+		  |weather -> Q469),
+	Q1017	= (lowBattery -> Q460),
+	Q1018	= (move -> Q283
+		  |high -> Q307),
+	Q1019	= (pictureOk[0] -> Q129
+		  |pictureOk[1] -> Q463
+		  |weather -> Q475),
+	Q1020	= (stopOldSpec -> Q254),
+	Q1021	= (pictureOk[0] -> Q120
+		  |pictureOk[1] -> Q449
+		  |weather -> Q464),
+	Q1022	= (weather -> Q130
+		  |picture -> Q251
+		  |low -> Q257
+		  |follow -> Q653),
+	Q1023	= (lowBattery -> Q267),
+	Q1024	= (weather -> Q133
+		  |picture -> Q258
+		  |low -> Q268
+		  |follow -> Q657),
+	Q1025	= (low -> Q132
+		  |follow -> Q850
+		  |weather -> Q1030),
+	Q1026	= (reconfigure -> Q452),
+	Q1027	= (lowBattery -> Q692
+		  |hotSwapIn -> Q735
+		  |weather -> Q1027),
+	Q1028	= (weather -> Q128
+		  |picture -> Q247
+		  |low -> Q253
+		  |follow -> Q649),
+	Q1029	= (hotSwapIn -> Q139
+		  |weather -> Q529
+		  |lowBattery -> Q872),
+	Q1030	= (low -> Q136
+		  |follow -> Q858
+		  |weather -> Q1033),
+	Q1031	= (high -> Q285
+		  |hotSwapIn -> Q509
+		  |move -> Q849
+		  |weather -> Q1031),
+	Q1032	= (low -> Q141
+		  |weather -> Q1037
+		  |move -> Q1042),
+	Q1033	= (low -> Q127
+		  |follow -> Q844
+		  |weather -> Q1025),
+	Q1034	= (follow -> Q102
+		  |picture -> Q1019
+		  |low -> Q1024
+		  |weather -> Q1038),
+	Q1035	= (weather -> Q134
+		  |scan.val[1] -> Q143
+		  |scan.val[0] -> Q151
+		  |hotSwapIn -> Q888),
+	Q1036	= (weather -> Q91
+		  |low -> Q243
+		  |move -> Q502
+		  |scan -> Q991),
+	Q1037	= (low -> Q146
+		  |weather -> Q1043
+		  |move -> Q1048),
+	Q1038	= (follow -> Q107
+		  |picture -> Q1021
+		  |low -> Q1028
+		  |weather -> Q1046),
+	Q1039	= (scan -> Q375
+		  |move -> Q505
+		  |weather -> Q587
+		  |low -> Q766),
+	Q1040	= (hotSwapIn -> Q672
+		  |return2base -> Q876
+		  |weather -> Q1040),
+	Q1041	= (low -> Q152
+		  |picture -> Q309
+		  |weather -> Q1050),
+	Q1042	= (weather -> Q96
+		  |low -> Q248
+		  |move -> Q510
+		  |scan -> Q1000),
+	Q1043	= (low -> Q131
+		  |weather -> Q1032
+		  |move -> Q1036),
+	Q1044	= (hotSwapIn -> Q295
+		  |lowBattery -> Q669
+		  |scan.val[1] -> Q675
+		  |scan.val[0] -> Q1015
+		  |weather -> Q1044),
+	Q1045	= (lowBattery -> Q13),
+	Q1046	= (follow -> Q90
+		  |picture -> Q1016
+		  |low -> Q1022
+		  |weather -> Q1034),
+	Q1047	= (low -> Q9
+		  |move -> Q519
+		  |scan -> Q729
+		  |weather -> Q907),
+	Q1048	= (weather -> Q78
+		  |low -> Q240
+		  |move -> Q494
+		  |scan -> Q986),
+	Q1049	= (weather -> Q158
+		  |lowBattery -> Q538),
+	Q1050	= (low -> Q159
+		  |picture -> Q315
+		  |weather -> Q1053),
+	Q1051	= (scan -> Q385
+		  |move -> Q524
+		  |weather -> Q600
+		  |low -> Q771),
+	Q1052	= (pictureOk[0] -> Q143
+		  |hotSwapIn -> Q706
+		  |pictureOk[1] -> Q721
+		  |weather -> Q1052),
+	Q1053	= (low -> Q138
+		  |picture -> Q303
+		  |weather -> Q1041),
+	Q1054	= (low -> Q11
+		  |move -> Q526
+		  |scan -> Q733
+		  |weather -> Q912),
+	Q1055	= (scan.val[1] -> Q140
+		  |scan.val[0] -> Q478
+		  |weather -> Q1069),
+	Q1056	= (lowBattery -> Q790),
+	Q1057	= (weather -> Q162
+		  |lowBattery -> Q547),
+	Q1058	= (scan -> Q368
+		  |move -> Q497
+		  |weather -> Q582
+		  |low -> Q765),
+	Q1059	= (weather -> Q161
+		  |follow -> Q289
+		  |picture -> Q1019
+		  |low -> Q1024),
+	Q1060	= (low -> Q3
+		  |move -> Q500
+		  |scan -> Q720
+		  |weather -> Q904),
+	Q1061	= (high -> Q314
+		  |move -> Q664
+		  |hotSwapIn -> Q685
+		  |scan -> Q1035
+		  |weather -> Q1061),
+	Q1062	= (takeoff -> Q488
+		  |weather -> Q1067),
+	Q1063	= (move -> Q305
+		  |high -> Q340),
+	Q1064	= (weather -> Q164
+		  |follow -> Q293
+		  |picture -> Q1021
+		  |low -> Q1028),
+	Q1065	= (high -> Q285
+		  |hotSwapIn -> Q717
+		  |move -> Q849
+		  |weather -> Q1065),
+	Q1066	= (weather -> Q156
+		  |follow -> Q284
+		  |picture -> Q1016
+		  |low -> Q1022),
+	Q1067	= (weather -> Q1
+		  |takeoff -> Q495),
+	Q1068	= (weather -> Q153
+		  |lowBattery -> Q523),
+	Q1069	= (weather -> Q6
+		  |scan.val[1] -> Q145
+		  |scan.val[0] -> Q496),
+	Q1070	= (weather -> Q4
+		  |return2base -> Q895)+{mid.

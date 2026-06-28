@@ -1,0 +1,22 @@
+{
+  "status": "EXCEPTION",
+  "id": "workflow_traditional",
+  "example": "Workflow",
+  "method": "Traditional",
+  "variant": "traditional",
+  "target": "UpdCont_FG",
+  "lts": "Experiment\\20260617\\models\\Workflow_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_output.txt",
+  "transitions": "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_transitions_UpdCont_FG.txt",
+  "stdout": "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_stdout.txt",
+  "stderr": "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_stderr.txt",
+  "startedAt": "2026-06-18T09:25:56.2499298+09:00",
+  "endedAt": "2026-06-18T09:26:02.0809309+09:00",
+  "timeoutMillis": 43200000,
+  "exitCode": 1,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260617\\models\\Workflow_FG.lts", "--target", "UpdCont_FG", "--output", "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_output.txt", "--transitions", "Experiment\\20260617\\result\\Workflow\\Traditional\\traditional_traditional_transitions_UpdCont_FG.txt"]
+}

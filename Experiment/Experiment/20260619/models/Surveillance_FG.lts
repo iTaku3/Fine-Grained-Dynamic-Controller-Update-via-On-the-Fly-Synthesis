@@ -1,0 +1,440 @@
+// -----------------------------COMMENTS-------------------------------
+
+// - To execute the solution for update controllers select in the dropdown menu 
+// the "UPDATE_CONTROLLER" label, and then press the compose button (||).
+// - In the section of UPDATING CONTROLLER SPEC, in this file, you can spec
+// different transition requeriments presented in the paper.
+// - You can animate the controller obtained pressing the blue A in the top bar
+// - After composing, you can validate that the controller obtained satisfy 
+// each updating controller goal formula by modelchecking.
+
+// ---------------------------ENVIRONMENTS-----------------------------
+
+const LOWBAT = 1
+const MAXBAT = 10
+const MAXWEATHER = 2
+
+set ControllableActions = {return2base, move, low, mid, high, scan, picture, takeoff}
+set NewControllableActions = {ControllableActions, follow, weather}
+//set NewControllableActions = {ControllableActions, follow}
+set AlphabetOld = {return2base, move, low, mid, high, scan, picture, takeoff,
+				 scan.val[0..1], pictureOk[0..1], lowBattery}
+set AlphabetNew = {return2base, move, low, mid, high, scan, picture, follow, takeoff,
+				 scan.val[0..1], pictureOk[0..1], lowBattery}
+set EnergyConsumingActionsOld = {move, high, mid, low, scan, picture}
+set EnergyConsumingActionsNew = {move, high, mid, low, scan, picture, follow}
+set AnyActionSet = {return2base, move, low, mid, high, scan, picture, follow, lowBattery, pictureOk[0..1], scan.val[0..1]}
+
+//oldEnvironment
+MISSION			= (takeoff -> HEIGHT),
+HEIGHT			= ({low,mid,high} -> UAV),
+UAV				= ({move,low,mid,high} -> UAV
+				| return2base -> MISSION
+				| picture -> TAKING_PICTURE
+				| scan -> SCANING),
+TAKING_PICTURE	= (pictureOk[0..1] -> UAV),
+SCANING		= (scan.val[0..1] -> UAV).
+
+BATTERY_COUNTER(N=MAXBAT)	= BAT[N],
+BAT[i:0..N]					= (when (i==LOWBAT) lowBattery -> BAT[i-1]
+							|  when (i>LOWBAT) {move,high,mid,low, scan, picture} -> BAT[i-1]
+							|  when (i == 0) {move,high,mid,low, scan, picture} -> BAT[0]
+							|  return2base -> BAT[N]).
+
+//newEnvironment
+NEW_MISSION     = (takeoff -> HEIGHT),
+HEIGHT			= ({high,mid,low} -> UAV),
+UAV             = ({follow,move,high,mid,low} -> UAV 
+                | return2base -> NEW_MISSION 
+				| picture -> TAKING_PICTURE
+                | scan -> SCANING),
+TAKING_PICTURE	= (pictureOk[0..1] -> UAV),
+SCANING		= (scan.val[0..1] -> UAV).
+
+NEW_BATTERY_COUNTER(N=MAXBAT)	= BAT[N],
+BAT[i:0..N]						= (when (i==LOWBAT) lowBattery -> BAT[i-1]
+								|  when (i>LOWBAT) {move,high,mid,low, scan, picture, follow} -> BAT[i-1]
+								|  when (i == 0) {move,high,mid,low, scan, picture, follow} -> BAT[0]
+								|  return2base -> BAT[N]).
+
+//relation
+relation R_MISSION = {MISSION@MISSION		 = reconfigure -> NEW_MISSION@NEW_MISSION,
+					  HEIGHT@MISSION		 = reconfigure -> HEIGHT@NEW_MISSION,
+					  UAV@MISSION			 = reconfigure -> UAV@NEW_MISSION,
+					  TAKING_PICTURE@MISSION = reconfigure -> TAKING_PICTURE@NEW_MISSION,
+					  SCANING@MISSION		 = reconfigure -> SCANING@NEW_MISSION}
+
+relation R_MISSION_FG = {MISSION@MISSION	    = reconfigure_MISSION -> NEW_MISSION@NEW_MISSION,
+						 HEIGHT@MISSION		    = reconfigure_MISSION -> HEIGHT@NEW_MISSION,
+						 UAV@MISSION			= reconfigure_MISSION -> UAV@NEW_MISSION,
+						 TAKING_PICTURE@MISSION = reconfigure_MISSION -> TAKING_PICTURE@NEW_MISSION,
+						 SCANING@MISSION		= reconfigure_MISSION -> SCANING@NEW_MISSION}
+
+relation R_BATTERY_COUNTER = {forall [i:0..MAXBAT] BAT[i]@BATTERY_COUNTER= reconfigure -> BAT[i]@NEW_BATTERY_COUNTER}
+
+relation R_BATTERY_COUNTER_FG = {forall [i:0..MAXBAT] BAT[i]@BATTERY_COUNTER= reconfigure_BATTERY_COUNTER -> BAT[i]@NEW_BATTERY_COUNTER}
+
+map MAP_MISSION = {MISSION, NEW_MISSION, R_MISSION}.
+
+map MAP_BATTERY_COUNTER = {BATTERY_COUNTER, NEW_BATTERY_COUNTER, R_BATTERY_COUNTER}.
+
+||OldEnvironment = (MISSION || BATTERY_COUNTER).
+||NewEnvironment = (NEW_MISSION || NEW_BATTERY_COUNTER).
+||MapEnvironment = (MAP_MISSION || MAP_BATTERY_COUNTER).
+
+// ---------------------------OLD CONTROLLER SPEC-----------------------------
+
+//Fluents declaration
+fluent FlyingHigh = <high,{mid,low,return2base}>
+fluent FlyingMid = <mid,{high,low,return2base}>
+fluent FlyingLow = <low,{mid,high,return2base}>
+fluent ScanPending	  = <scan,scan.val[0..1]>
+fluent ZoneScaned = <{scan.val[0], scan.val[1]},{move,return2base}>
+fluent SuspiciousActivityDetected = <scan.val[1],{move,return2base}>
+fluent NewSuspiciousActivityDetected = <scan.val[1],{return2base}>
+fluent ScanProcessing	= <scan,{scan.val[0],pictureOk[1],return2base}>
+fluent PictureSent		= <pictureOk[1],{move,return2base}>
+fluent NoBattery        = <lowBattery,takeoff>
+fluent Following = <follow,return2base>
+fluent HeightSet = <{high,mid,low},return2base>
+fluent MissionStarted = <takeoff,return2base>
+fluent ScanFailed	  = <scan.val[0],{move,return2base}>
+fluent PicturePending   = <picture,pictureOk[0..1]>
+
+fluent BatteryIsEmpty = <lowBattery, return2base>
+fluent JustDidEnergyActionOld = <EnergyConsumingActionsOld, {AlphabetOld}\{EnergyConsumingActionsOld}>
+fluent JustDidEnergyActionNew = <EnergyConsumingActionsNew, {AlphabetNew}\{EnergyConsumingActionsNew}>
+
+assert DONT_SCAN_TWICE			= (scan ->!ZoneScaned)
+assert ALWAYS_FLY_HIGH 			= (MissionStarted -> (!FlyingLow && !FlyingMid))
+assert HOW_TO_MOVE				= ((move-> !ScanProcessing) )
+assert DONT_PICTURE_TWICE		= (picture -> !PictureSent)
+assert DETECTED_ACTIONS  		= ((picture-> SuspiciousActivityDetected) && (scan -> !SuspiciousActivityDetected))
+assert HIGH_PRIORITY_TO_MISSION = (return2base-> NoBattery)
+
+assert NoActionWhenEmptyOld = !(BatteryIsEmpty && JustDidEnergyActionOld)
+ltl_property P_BATTERY_SAFETY_OLD = []NoActionWhenEmptyOld
+
+ltl_property P_DONT_SCAN_TWICE = []DONT_SCAN_TWICE
+ltl_property P_ALWAYS_FLY_HIGH = []ALWAYS_FLY_HIGH 
+ltl_property P_HOW_TO_MOVE = []HOW_TO_MOVE
+ltl_property P_DONT_PICTURE_TWICE = []DONT_PICTURE_TWICE
+ltl_property P_DETECTED_ACTIONS = []DETECTED_ACTIONS
+ltl_property P_HIGH_PRIORITY_TO_MISSION = []HIGH_PRIORITY_TO_MISSION
+
+controllerSpec OldSpec = {
+    safety = {P_ALWAYS_FLY_HIGH, P_DETECTED_ACTIONS, P_HIGH_PRIORITY_TO_MISSION, P_HOW_TO_MOVE, P_DONT_PICTURE_TWICE, P_DONT_SCAN_TWICE, P_BATTERY_SAFETY_OLD}
+    controllable = {ControllableActions}
+}
+
+controller ||OldController = OldEnvironment~{OldSpec}.
+||OldC = OldController.
+||EnvironmentAndController = (OldController || OldEnvironment).
+
+// ---------------------------NEW CONTROLLER SPEC-----------------------------
+
+assert ALWAYS_FLY_LOW = (MissionStarted -> (!FlyingHigh && !FlyingMid))
+assert NEW_HOW_TO_MOVE = ((move -> !Following) && (move-> !NewSuspiciousActivityDetected))
+assert FOLLOWING_ACTIONS = ((picture -> Following) && (scan -> !Following) &&
+					 (scan-> !SuspiciousActivityDetected) && (PictureSent -> !follow))
+assert NO_FOLLOW_BEFORE_SCAN = (follow -> SuspiciousActivityDetected)
+
+assert NoActionWhenEmptyNew = !(BatteryIsEmpty && JustDidEnergyActionNew)
+ltl_property P_BATTERY_SAFETY_NEW = []NoActionWhenEmptyNew
+
+ltl_property P_ALWAYS_FLY_LOW = []ALWAYS_FLY_LOW
+ltl_property P_NEW_HOW_TO_MOVE = []NEW_HOW_TO_MOVE
+ltl_property P_FOLLOWING_ACTIONS = []FOLLOWING_ACTIONS
+ltl_property P_NO_FOLLOW_BEFORE_SCAN = []NO_FOLLOW_BEFORE_SCAN
+
+controllerSpec NewSpec = {
+    safety = {P_ALWAYS_FLY_LOW, P_FOLLOWING_ACTIONS, P_NO_FOLLOW_BEFORE_SCAN, P_HIGH_PRIORITY_TO_MISSION,
+			 P_NEW_HOW_TO_MOVE, P_DONT_SCAN_TWICE, P_BATTERY_SAFETY_NEW}
+    controllable = {NewControllableActions}
+}
+
+controller ||NewController = NewEnvironment~{NewSpec}.
+||NewControllerAndNewEnvironment = (NewController || NewEnvironment).
+
+// ---------------------------UPDATING CONTROLLER SPEC-----------------------------
+
+/*
+assert AnyAction = (return2base || move|| low|| mid|| high||  scan || picture|| follow|| lowBattery|| pictureOk[0]|| 
+					pictureOk[1]|| scan.val[0]|| scan.val[1])
+
+ltl_property R1 = []((StopOldSpec && !StartNewSpec) -> !{return2base, move, low, mid, high,  scan, picture, follow, lowBattery, pictureOk[0],
+																pictureOk[1], scan.val[0], scan.val[1]})
+ltl_property R6 = [](move -> (!((StopOldSpec && !StartNewSpec)  || (StartNewSpec && !StopOldSpec) )))
+ltl_property R7 = [](picture -> (!((StopOldSpec && !StartNewSpec)  || (StartNewSpec && !StopOldSpec) )))
+
+
+fluent StopOldSpec = <stopOldSpec, hotSwapIn>
+fluent StartNewSpec = <startNewSpec, hotSwapIn>
+fluent Reconfigure = <reconfigure, hotSwapIn>
+
+// Selective fine-grained transition requirement.
+//ltl_property SFG_REFERENCE = []({stopOldSpec_P_ALWAYS_FLY_HIGH, reconfigure_MISSION, startNewSpec_P_ALWAYS_FLY_LOW} -> {stopOldSpec_P_ALWAYS_FLY_HIGH, reconfigure_MISSION, startNewSpec_P_ALWAYS_FLY_LOW})
+*/
+
+// Update Requirement for Fine-Grained
+// T1: 更新中であるならば，更新先制御器の制御可能事象を実行しない
+// T2: 各環境モデルを更新（reconfigure）する前に，必ず該当のstopOldSpecとstartNewSpecを実施する
+set StopOldSpecActions = {stopOldSpec_P_ALWAYS_FLY_HIGH, stopOldSpec_P_DETECTED_ACTIONS, stopOldSpec_P_HIGH_PRIORITY_TO_MISSION, stopOldSpec_P_HOW_TO_MOVE, stopOldSpec_P_DONT_PICTURE_TWICE, stopOldSpec_P_DONT_SCAN_TWICE, stopOldSpec_P_BATTERY_SAFETY_OLD}
+set StartNewSpecActions = {startNewSpec_P_ALWAYS_FLY_LOW, startNewSpec_P_FOLLOWING_ACTIONS, startNewSpec_P_NO_FOLLOW_BEFORE_SCAN, startNewSpec_P_HIGH_PRIORITY_TO_MISSION, startNewSpec_P_NEW_HOW_TO_MOVE, startNewSpec_P_DONT_SCAN_TWICE, startNewSpec_P_BATTERY_SAFETY_NEW}
+set ReconfigureActions = {reconfigure_MISSION, reconfigure_BATTERY_COUNTER}
+
+fluent Updating = <hotSwapIn,hotSwapOut>
+
+fluent Done_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION = <stopOldSpec_P_HIGH_PRIORITY_TO_MISSION,hotSwapOut>
+fluent Done_StopOldSpec_P_DONT_SCAN_TWICE = <stopOldSpec_P_DONT_SCAN_TWICE,hotSwapOut>
+fluent Done_StopOldSpec_P_ALWAYS_FLY_HIGH = <stopOldSpec_P_ALWAYS_FLY_HIGH,hotSwapOut>
+fluent Done_StopOldSpec_P_DETECTED_ACTIONS = <stopOldSpec_P_DETECTED_ACTIONS,hotSwapOut>
+fluent Done_StopOldSpec_P_HOW_TO_MOVE = <stopOldSpec_P_HOW_TO_MOVE,hotSwapOut>
+fluent Done_StopOldSpec_P_DONT_PICTURE_TWICE = <stopOldSpec_P_DONT_PICTURE_TWICE,hotSwapOut>
+fluent Done_StopOldSpec_P_BATTERY_SAFETY_OLD = <stopOldSpec_P_BATTERY_SAFETY_OLD,hotSwapOut>
+
+fluent Done_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION = <startNewSpec_P_HIGH_PRIORITY_TO_MISSION,hotSwapOut>
+fluent Done_StartNewSpec_P_ALWAYS_FLY_LOW = <startNewSpec_P_ALWAYS_FLY_LOW,hotSwapOut>
+fluent Done_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN = <startNewSpec_P_NO_FOLLOW_BEFORE_SCAN,hotSwapOut>
+fluent Done_StartNewSpec_P_NEW_HOW_TO_MOVE = <startNewSpec_P_NEW_HOW_TO_MOVE,hotSwapOut>
+fluent Done_StartNewSpec_P_DONT_SCAN_TWICE = <startNewSpec_P_DONT_SCAN_TWICE,hotSwapOut>
+fluent Done_StartNewSpec_P_FOLLOWING_ACTIONS = <startNewSpec_P_FOLLOWING_ACTIONS,hotSwapOut>
+fluent Done_StartNewSpec_P_BATTERY_SAFETY_NEW = <startNewSpec_P_BATTERY_SAFETY_NEW,hotSwapOut>
+
+fluent Done_Reconfigure_MISSION = <reconfigure_MISSION,hotSwapOut>
+fluent Done_Reconfigure_BATTERY_COUNTER = <reconfigure_BATTERY_COUNTER,hotSwapOut>
+
+//ltl_property T1 = [](Updating -> !{return2base, move, low, mid, high, scan, picture, takeoff, follow, weather})
+ltl_property R1 = []({stopOldSpec_P_ALWAYS_FLY_HIGH, stopOldSpec_P_DETECTED_ACTIONS, stopOldSpec_P_HIGH_PRIORITY_TO_MISSION, stopOldSpec_P_HOW_TO_MOVE, stopOldSpec_P_DONT_PICTURE_TWICE, stopOldSpec_P_DONT_SCAN_TWICE, stopOldSpec_P_BATTERY_SAFETY_OLD} -> X(!{return2base, move, low, mid, high, scan, picture, takeoff, follow, weather} W {startNewSpec_P_ALWAYS_FLY_LOW, startNewSpec_P_FOLLOWING_ACTIONS, startNewSpec_P_NO_FOLLOW_BEFORE_SCAN, startNewSpec_P_HIGH_PRIORITY_TO_MISSION, startNewSpec_P_NEW_HOW_TO_MOVE, startNewSpec_P_DONT_SCAN_TWICE, startNewSpec_P_BATTERY_SAFETY_NEW}))
+
+ltl_property R2_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION)
+ltl_property R2_StopOldSpec_P_DONT_SCAN_TWICE = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_DONT_SCAN_TWICE)
+ltl_property R2_StopOldSpec_P_ALWAYS_FLY_HIGH = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_ALWAYS_FLY_HIGH)
+ltl_property R2_StopOldSpec_P_DETECTED_ACTIONS = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_DETECTED_ACTIONS)
+ltl_property R2_StopOldSpec_P_HOW_TO_MOVE = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_HOW_TO_MOVE)
+ltl_property R2_StopOldSpec_P_DONT_PICTURE_TWICE = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_DONT_PICTURE_TWICE)
+ltl_property R2_StopOldSpec_P_BATTERY_SAFETY_OLD = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StopOldSpec_P_BATTERY_SAFETY_OLD)
+
+ltl_property R2_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION)
+ltl_property R2_StartNewSpec_P_ALWAYS_FLY_LOW = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_ALWAYS_FLY_LOW)
+ltl_property R2_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN)
+ltl_property R2_StartNewSpec_P_NEW_HOW_TO_MOVE = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_NEW_HOW_TO_MOVE)
+ltl_property R2_StartNewSpec_P_DONT_SCAN_TWICE = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_DONT_SCAN_TWICE)
+ltl_property R2_StartNewSpec_P_FOLLOWING_ACTIONS = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_FOLLOWING_ACTIONS)
+ltl_property R2_StartNewSpec_P_BATTERY_SAFETY_NEW = []((Done_Reconfigure_MISSION || Done_Reconfigure_BATTERY_COUNTER) -> Done_StartNewSpec_P_BATTERY_SAFETY_NEW)
+
+
+// --------------------------- NOT On-The-Fly -----------------------------
+
+updatingController UpdCont_FG = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	nonblocking,
+	fine_grained
+}
+||UPDATE_CONTROLLER_FG = UpdCont_FG.
+
+updatingController UpdCont_FG_R1 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R1,
+	nonblocking,
+	fine_grained
+}
+||UPDATE_CONTROLLER_FG_R1 = UpdCont_FG_R1.
+
+updatingController UpdCont_FG_R2 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R2_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StopOldSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StopOldSpec_P_ALWAYS_FLY_HIGH,
+	transition = R2_StopOldSpec_P_DETECTED_ACTIONS,
+	transition = R2_StopOldSpec_P_HOW_TO_MOVE,
+	transition = R2_StopOldSpec_P_DONT_PICTURE_TWICE,
+	transition = R2_StopOldSpec_P_BATTERY_SAFETY_OLD,
+	transition = R2_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StartNewSpec_P_ALWAYS_FLY_LOW,
+	transition = R2_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN,
+	transition = R2_StartNewSpec_P_NEW_HOW_TO_MOVE,
+	transition = R2_StartNewSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StartNewSpec_P_FOLLOWING_ACTIONS,
+	transition = R2_StartNewSpec_P_BATTERY_SAFETY_NEW,
+	nonblocking,
+	fine_grained
+}
+||UPDATE_CONTROLLER_FG_R2 = UpdCont_FG_R2.
+
+updatingController UpdCont_SFG = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	nonblocking,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_SFG = UpdCont_SFG.
+
+updatingController UpdCont_SFG_R1 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R1,
+	nonblocking,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_SFG_R1 = UpdCont_SFG_R1.
+
+updatingController UpdCont_SFG_R2 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R2_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StopOldSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StopOldSpec_P_ALWAYS_FLY_HIGH,
+	transition = R2_StopOldSpec_P_DETECTED_ACTIONS,
+	transition = R2_StopOldSpec_P_HOW_TO_MOVE,
+	transition = R2_StopOldSpec_P_DONT_PICTURE_TWICE,
+	transition = R2_StopOldSpec_P_BATTERY_SAFETY_OLD,
+	transition = R2_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StartNewSpec_P_ALWAYS_FLY_LOW,
+	transition = R2_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN,
+	transition = R2_StartNewSpec_P_NEW_HOW_TO_MOVE,
+	transition = R2_StartNewSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StartNewSpec_P_FOLLOWING_ACTIONS,
+	transition = R2_StartNewSpec_P_BATTERY_SAFETY_NEW,
+	nonblocking,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_SFG_R2 = UpdCont_SFG_R2.
+
+// --------------------------- Apply On-The-Fly -----------------------------
+
+updatingController UpdCont_OTF_FG = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	nonblocking,
+	on_the_fly,
+	fine_grained
+}
+||UPDATE_CONTROLLER_OTF_FG = UpdCont_OTF_FG.
+
+updatingController UpdCont_OTF_FG_R1 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R1,
+	nonblocking,
+	on_the_fly,
+	fine_grained
+}
+||UPDATE_CONTROLLER_OTF_FG_R1 = UpdCont_OTF_FG_R1.
+
+updatingController UpdCont_OTF_FG_R2 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R2_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StopOldSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StopOldSpec_P_ALWAYS_FLY_HIGH,
+	transition = R2_StopOldSpec_P_DETECTED_ACTIONS,
+	transition = R2_StopOldSpec_P_HOW_TO_MOVE,
+	transition = R2_StopOldSpec_P_DONT_PICTURE_TWICE,
+	transition = R2_StopOldSpec_P_BATTERY_SAFETY_OLD,
+	transition = R2_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StartNewSpec_P_ALWAYS_FLY_LOW,
+	transition = R2_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN,
+	transition = R2_StartNewSpec_P_NEW_HOW_TO_MOVE,
+	transition = R2_StartNewSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StartNewSpec_P_FOLLOWING_ACTIONS,
+	transition = R2_StartNewSpec_P_BATTERY_SAFETY_NEW,
+	nonblocking,
+	on_the_fly,
+	fine_grained
+}
+||UPDATE_CONTROLLER_OTF_FG_R2 = UpdCont_OTF_FG_R2.
+
+updatingController UpdCont_OTF_SFG = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	nonblocking,
+	on_the_fly,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_OTF_SFG = UpdCont_OTF_SFG.
+
+updatingController UpdCont_OTF_SFG_R1 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R1,
+	nonblocking,
+	on_the_fly,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_OTF_SFG_R1 = UpdCont_OTF_SFG_R1.
+
+updatingController UpdCont_OTF_SFG_R2 = {
+    oldController = EnvironmentAndController,
+	oldEnvironment = {MISSION, BATTERY_COUNTER},
+	newEnvironment = {NEW_MISSION, NEW_BATTERY_COUNTER},
+	mapRelation = {R_MISSION_FG, R_BATTERY_COUNTER_FG},
+    oldGoal = OldSpec,
+    newGoal = NewSpec,
+	transition = R2_StopOldSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StopOldSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StopOldSpec_P_ALWAYS_FLY_HIGH,
+	transition = R2_StopOldSpec_P_DETECTED_ACTIONS,
+	transition = R2_StopOldSpec_P_HOW_TO_MOVE,
+	transition = R2_StopOldSpec_P_DONT_PICTURE_TWICE,
+	transition = R2_StopOldSpec_P_BATTERY_SAFETY_OLD,
+	transition = R2_StartNewSpec_P_HIGH_PRIORITY_TO_MISSION,
+	transition = R2_StartNewSpec_P_ALWAYS_FLY_LOW,
+	transition = R2_StartNewSpec_P_NO_FOLLOW_BEFORE_SCAN,
+	transition = R2_StartNewSpec_P_NEW_HOW_TO_MOVE,
+	transition = R2_StartNewSpec_P_DONT_SCAN_TWICE,
+	transition = R2_StartNewSpec_P_FOLLOWING_ACTIONS,
+	transition = R2_StartNewSpec_P_BATTERY_SAFETY_NEW,
+	nonblocking,
+	on_the_fly,
+	selective_fine_grained
+}
+||UPDATE_CONTROLLER_OTF_SFG_R2 = UpdCont_OTF_SFG_R2.
+

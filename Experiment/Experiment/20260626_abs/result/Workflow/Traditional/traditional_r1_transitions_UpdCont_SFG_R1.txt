@@ -1,0 +1,371 @@
+Process:
+	UpdCont_SFG_R1
+States:
+	210
+Transitions:
+	UpdCont_SFG_R1 = Q0,
+	Q0	= (hotSwapIn -> Q59
+		  |orderEntry -> Q199),
+	Q1	= (initInventory -> Q107
+		  |endCredit -> Q156),
+	Q2	= (endCredit -> Q19
+		  |initInventory -> Q75
+		  |hotSwapIn -> Q152),
+	Q3	= (startNewSpec -> Q45
+		  |reconfigure -> Q179),
+	Q4	= (orderEntry -> Q40
+		  |reconfigure -> Q69),
+	Q5	= (endCredit -> Q43
+		  |reconfigure -> Q76),
+	Q6	= (endShipping -> Q17),
+	Q7	= (endInventory -> Q29
+		  |endCredit -> Q34
+		  |stopOldSpec -> Q90),
+	Q8	= (orderEntry -> Q104
+		  |startNewSpec -> Q143),
+	Q9	= (initBilling -> Q155),
+	Q10	= (endInventory -> Q13
+		  |startNewSpec -> Q83
+		  |reconfigure -> Q172),
+	Q11	= (startNewSpec -> Q121
+		  |reconfigure -> Q181),
+	Q12	= (stopOldSpec -> Q87
+		  |orderEntry -> Q124),
+	Q13	= (reconfigure -> Q179),
+	Q14	= (stopOldSpec -> Q3),
+	Q15	= (initBilling -> Q170),
+	Q16	= (endInventory -> Q13
+		  |reconfigure -> Q172),
+	Q17	= (archive -> Q94),
+	Q18	= (endCredit -> Q45
+		  |reconfigure -> Q105),
+	Q19	= (initInventory -> Q72
+		  |hotSwapIn -> Q207),
+	Q20	= (initInventory -> Q95
+		  |endCredit -> Q133),
+	Q21	= (initBilling -> Q147),
+	Q22	= (archive -> Q98),
+	Q23	= (startNewSpec -> Q40
+		  |reconfigure -> Q101),
+	Q24	= (archive -> Q80),
+	Q25	= (startNewSpec -> Q84
+		  |orderEntry -> Q104),
+	Q26	= (endInventory -> Q151),
+	Q27	= (reconfigure -> Q181),
+	Q28	= (reconfigure -> Q101),
+	Q29	= (endCredit -> Q14
+		  |stopOldSpec -> Q97),
+	Q30	= (endInventory -> Q18
+		  |endCredit -> Q83
+		  |reconfigure -> Q149),
+	Q31	= (endInventory -> Q159),
+	Q32	= (endShipping -> Q109
+		  |endBilling -> Q115
+		  |reconfigure -> Q197),
+	Q33	= (endCredit -> Q31
+		  |endInventory -> Q105),
+	Q34	= (stopOldSpec -> Q10
+		  |endInventory -> Q14),
+	Q35	= (startNewSpec -> Q167
+		  |endCredit -> Q186
+		  |endInventory -> Q191),
+	Q36	= (endCredit -> Q151),
+	Q37	= (endCredit -> Q39
+		  |endInventory -> Q111),
+	Q38	= (endCredit -> Q159),
+	Q39	= (endInventory -> Q145),
+	Q40	= (reconfigure -> Q142),
+	Q41	= (orderEntry -> Q104
+		  |startNewSpec -> Q163),
+	Q42	= (endCredit -> Q145),
+	Q43	= (reconfigure -> Q139),
+	Q44	= (endCredit -> Q26
+		  |endInventory -> Q100),
+	Q45	= (reconfigure -> Q151),
+	Q46	= (endBilling -> Q49
+		  |startNewSpec -> Q135),
+	Q47	= (startNewSpec -> Q169),
+	Q48	= (orderEntry -> Q104
+		  |startNewSpec -> Q163),
+	Q49	= (startNewSpec -> Q169),
+	Q50	= (orderEntry -> Q40
+		  |reconfigure -> Q157),
+	Q51	= (endBilling -> Q132),
+	Q52	= (reject -> Q12
+		  |stopOldSpec -> Q81
+		  |approve -> Q161),
+	Q53	= (startNewSpec -> Q194),
+	Q54	= (stopOldSpec -> Q108
+		  |endShipping -> Q192),
+	Q55	= (hotSwapIn -> Q29
+		  |endCredit -> Q126),
+	Q56	= (endInventory -> Q60
+		  |startNewSpec -> Q99),
+	Q57	= (hotSwapIn -> Q117
+		  |initCredit -> Q138
+		  |endInventory -> Q198),
+	Q58	= (endBilling -> Q132),
+	Q59	= (orderEntry -> Q124
+		  |stopOldSpec -> Q130),
+	Q60	= (startNewSpec -> Q194),
+	Q61	= (startNewSpec -> Q6
+		  |endShipping -> Q132),
+	Q62	= (stopOldSpec -> Q114
+		  |orderEntry -> Q124),
+	Q63	= (hotSwapIn -> Q116
+		  |endBilling -> Q134),
+	Q64	= (startNewSpec -> Q43
+		  |reconfigure -> Q92),
+	Q65	= (hotSwapIn -> Q120
+		  |initBilling -> Q131
+		  |endShipping -> Q201),
+	Q66	= (stopOldSpec -> Q164),
+	Q67	= (hotSwapIn -> Q54
+		  |endShipping -> Q134),
+	Q68	= (endShipping -> Q71
+		  |endBilling -> Q129
+		  |hotSwapIn -> Q208),
+	Q69	= (orderEntry -> Q150),
+	Q70	= (reconfigure -> Q92),
+	Q71	= (hotSwapIn -> Q116
+		  |endBilling -> Q134),
+	Q72	= (hotSwapIn -> Q34
+		  |endInventory -> Q126),
+	Q73	= (stopOldSpec -> Q106
+		  |endBilling -> Q192),
+	Q74	= (approve -> Q15
+		  |reject -> Q157),
+	Q75	= (hotSwapIn -> Q7
+		  |endCredit -> Q79
+		  |endInventory -> Q136),
+	Q76	= (initInventory -> Q107
+		  |endCredit -> Q156),
+	Q77	= (startNewSpec -> Q6
+		  |endShipping -> Q132),
+	Q78	= (initBilling -> Q73),
+	Q79	= (hotSwapIn -> Q34
+		  |endInventory -> Q126),
+	Q80	= (orderEntry -> Q142),
+	Q81	= (approve -> Q27
+		  |reject -> Q91
+		  |startNewSpec -> Q165
+		  |reconfigure -> Q177),
+	Q82	= (approve -> Q21
+		  |reject -> Q163),
+	Q83	= (reconfigure -> Q31
+		  |endInventory -> Q45),
+	Q84	= (orderEntry -> Q128),
+	Q85	= (initInventory -> Q95
+		  |endCredit -> Q133),
+	Q86	= (stopOldSpec -> Q32
+		  |endBilling -> Q54
+		  |endShipping -> Q116),
+	Q87	= (orderEntry -> Q28
+		  |reconfigure -> Q41
+		  |startNewSpec -> Q50),
+	Q88	= (initCredit -> Q44
+		  |endInventory -> Q194),
+	Q89	= (approve -> Q9
+		  |reject -> Q141),
+	Q90	= (endCredit -> Q16
+		  |startNewSpec -> Q30
+		  |reconfigure -> Q35
+		  |endInventory -> Q103),
+	Q91	= (orderEntry -> Q28
+		  |reconfigure -> Q41),
+	Q92	= (startNewSpec -> Q156),
+	Q93	= (reconfigure -> Q46
+		  |endBilling -> Q173
+		  |startNewSpec -> Q175),
+	Q94	= (orderEntry -> Q150),
+	Q95	= (endCredit -> Q31
+		  |endInventory -> Q105),
+	Q96	= (startNewSpec -> Q156),
+	Q97	= (endCredit -> Q13
+		  |startNewSpec -> Q18
+		  |reconfigure -> Q182),
+	Q98	= (orderEntry -> Q128),
+	Q99	= (initCredit -> Q33
+		  |endInventory -> Q176),
+	Q100	= (endCredit -> Q151),
+	Q101	= (startNewSpec -> Q150),
+	Q102	= (endCredit -> Q39
+		  |endInventory -> Q111),
+	Q103	= (endCredit -> Q13
+		  |reconfigure -> Q182),
+	Q104	= (startNewSpec -> Q150),
+	Q105	= (endCredit -> Q159),
+	Q106	= (reconfigure -> Q51
+		  |endBilling -> Q185),
+	Q107	= (endCredit -> Q26
+		  |endInventory -> Q100),
+	Q108	= (reconfigure -> Q61
+		  |endShipping -> Q185
+		  |startNewSpec -> Q193),
+	Q109	= (reconfigure -> Q51
+		  |endBilling -> Q185),
+	Q110	= (reconfigure -> Q56
+		  |startNewSpec -> Q112
+		  |endInventory -> Q189),
+	Q111	= (endCredit -> Q145),
+	Q112	= (reconfigure -> Q88
+		  |endInventory -> Q162),
+	Q113	= (stopOldSpec -> Q184),
+	Q114	= (reconfigure -> Q8
+		  |orderEntry -> Q28
+		  |startNewSpec -> Q195),
+	Q115	= (reconfigure -> Q61
+		  |endShipping -> Q185),
+	Q116	= (stopOldSpec -> Q106
+		  |endBilling -> Q192),
+	Q117	= (stopOldSpec -> Q110
+		  |endInventory -> Q113),
+	Q118	= (endBilling -> Q169),
+	Q119	= (startNewSpec -> Q24),
+	Q120	= (endShipping -> Q78
+		  |initBilling -> Q86),
+	Q121	= (reconfigure -> Q15),
+	Q122	= (startNewSpec -> Q5
+		  |endCredit -> Q70
+		  |reconfigure -> Q168),
+	Q123	= (hotSwapIn -> Q12
+		  |orderEntry -> Q199),
+	Q124	= (stopOldSpec -> Q23),
+	Q125	= (reconfigure -> Q160),
+	Q126	= (hotSwapIn -> Q14
+		  |eval -> Q196),
+	Q127	= (orderEntry -> Q150),
+	Q128	= (initCredit -> Q1
+		  |initInventory -> Q183),
+	Q129	= (hotSwapIn -> Q54
+		  |endShipping -> Q134),
+	Q130	= (startNewSpec -> Q4
+		  |reconfigure -> Q25
+		  |orderEntry -> Q28),
+	Q131	= (endShipping -> Q71
+		  |endBilling -> Q129
+		  |hotSwapIn -> Q208),
+	Q132	= (startNewSpec -> Q24),
+	Q133	= (initInventory -> Q146),
+	Q134	= (hotSwapIn -> Q192
+		  |archive -> Q200),
+	Q135	= (endBilling -> Q153),
+	Q136	= (hotSwapIn -> Q29
+		  |endCredit -> Q126),
+	Q137	= (endInventory -> Q151),
+	Q138	= (hotSwapIn -> Q7
+		  |endCredit -> Q79
+		  |endInventory -> Q136),
+	Q139	= (initInventory -> Q154),
+	Q140	= (approve -> Q21
+		  |reject -> Q163),
+	Q141	= (orderEntry -> Q142),
+	Q142	= (initCredit -> Q20
+		  |initInventory -> Q188),
+	Q143	= (orderEntry -> Q128),
+	Q144	= (endBilling -> Q66
+		  |stopOldSpec -> Q93),
+	Q145	= (eval -> Q82),
+	Q146	= (endInventory -> Q159),
+	Q147	= (endBilling -> Q160),
+	Q148	= (endShipping -> Q22),
+	Q149	= (endCredit -> Q39
+		  |endInventory -> Q111),
+	Q150	= (initInventory -> Q174
+		  |initCredit -> Q205),
+	Q151	= (eval -> Q89),
+	Q152	= (stopOldSpec -> Q122
+		  |endCredit -> Q207),
+	Q153	= (initShipping -> Q166),
+	Q154	= (endInventory -> Q145),
+	Q155	= (endBilling -> Q169),
+	Q156	= (initInventory -> Q137),
+	Q157	= (orderEntry -> Q150),
+	Q158	= (approve -> Q9
+		  |reject -> Q141),
+	Q159	= (eval -> Q74),
+	Q160	= (initShipping -> Q171),
+	Q161	= (stopOldSpec -> Q11),
+	Q162	= (reconfigure -> Q180),
+	Q163	= (orderEntry -> Q128),
+	Q164	= (reconfigure -> Q47
+		  |startNewSpec -> Q125),
+	Q165	= (reject -> Q50
+		  |approve -> Q121
+		  |reconfigure -> Q140),
+	Q166	= (endShipping -> Q24),
+	Q167	= (endCredit -> Q26
+		  |endInventory -> Q100),
+	Q168	= (startNewSpec -> Q85
+		  |endCredit -> Q96),
+	Q169	= (initShipping -> Q148),
+	Q170	= (endBilling -> Q153),
+	Q171	= (endShipping -> Q17),
+	Q172	= (startNewSpec -> Q39
+		  |endInventory -> Q187),
+	Q173	= (reconfigure -> Q47),
+	Q174	= (initCredit -> Q37
+		  |endInventory -> Q180),
+	Q175	= (reconfigure -> Q118
+		  |endBilling -> Q125),
+	Q176	= (initCredit -> Q38),
+	Q177	= (reject -> Q48
+		  |startNewSpec -> Q158
+		  |approve -> Q190),
+	Q178	= (reconfigure -> Q119
+		  |startNewSpec -> Q202),
+	Q179	= (startNewSpec -> Q159),
+	Q180	= (initCredit -> Q42),
+	Q181	= (startNewSpec -> Q21),
+	Q182	= (startNewSpec -> Q111
+		  |endCredit -> Q187),
+	Q183	= (initCredit -> Q44
+		  |endInventory -> Q194),
+	Q184	= (reconfigure -> Q53
+		  |startNewSpec -> Q162),
+	Q185	= (reconfigure -> Q119),
+	Q186	= (startNewSpec -> Q39
+		  |endInventory -> Q187),
+	Q187	= (startNewSpec -> Q159),
+	Q188	= (initCredit -> Q33
+		  |endInventory -> Q176),
+	Q189	= (reconfigure -> Q53),
+	Q190	= (startNewSpec -> Q21),
+	Q191	= (startNewSpec -> Q111
+		  |endCredit -> Q187),
+	Q192	= (stopOldSpec -> Q178),
+	Q193	= (endShipping -> Q202
+		  |reconfigure -> Q209),
+	Q194	= (initCredit -> Q36),
+	Q195	= (orderEntry -> Q40
+		  |reconfigure -> Q127),
+	Q196	= (hotSwapIn -> Q52
+		  |reject -> Q123
+		  |approve -> Q203),
+	Q197	= (endShipping -> Q58
+		  |endBilling -> Q77),
+	Q198	= (initCredit -> Q55
+		  |hotSwapIn -> Q113),
+	Q199	= (initCredit -> Q2
+		  |initInventory -> Q57
+		  |hotSwapIn -> Q124),
+	Q200	= (hotSwapIn -> Q62
+		  |orderEntry -> Q199),
+	Q201	= (initBilling -> Q63
+		  |hotSwapIn -> Q78),
+	Q202	= (reconfigure -> Q22),
+	Q203	= (initShipping -> Q65
+		  |hotSwapIn -> Q161
+		  |initBilling -> Q206),
+	Q204	= (hotSwapIn -> Q66
+		  |initShipping -> Q67),
+	Q205	= (initInventory -> Q102
+		  |endCredit -> Q139),
+	Q206	= (initShipping -> Q68
+		  |hotSwapIn -> Q144
+		  |endBilling -> Q204),
+	Q207	= (stopOldSpec -> Q64),
+	Q208	= (stopOldSpec -> Q32
+		  |endBilling -> Q54
+		  |endShipping -> Q116),
+	Q209	= (endShipping -> Q24)+{rollback.

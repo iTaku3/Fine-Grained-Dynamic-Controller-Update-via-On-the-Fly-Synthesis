@@ -1,0 +1,148 @@
+Process:
+	UpdCont_OTF_SFG_R1
+States:
+	93
+Transitions:
+	UpdCont_OTF_SFG_R1 = Q0,
+	Q0	= (hotSwapIn -> Q1
+		  |orderEntry -> Q23),
+	Q1	= (orderEntry -> Q2),
+	Q2	= (stopOldSpec -> Q3),
+	Q3	= (reconfigure -> Q4),
+	Q4	= (startNewSpec -> Q5),
+	Q5	= (hotSwapOut -> Q6),
+	Q6	= (initCredit -> Q7
+		  |initInventory -> Q21),
+	Q7	= (endCredit -> Q8
+		  |initInventory -> Q19),
+	Q8	= (initInventory -> Q9),
+	Q9	= (endInventory -> Q10),
+	Q10	= (eval -> Q11),
+	Q11	= (reject -> Q12
+		  |approve -> Q13),
+	Q12	= (orderEntry -> Q6),
+	Q13	= (initBilling -> Q14),
+	Q14	= (endBilling -> Q15),
+	Q15	= (initShipping -> Q16),
+	Q16	= (endShipping -> Q17),
+	Q17	= (archive -> Q18),
+	Q18	= (orderEntry -> Q6),
+	Q19	= (endCredit -> Q9
+		  |endInventory -> Q20),
+	Q20	= (endCredit -> Q10),
+	Q21	= (initCredit -> Q19
+		  |endInventory -> Q22),
+	Q22	= (initCredit -> Q20),
+	Q23	= (hotSwapIn -> Q2
+		  |initCredit -> Q24
+		  |initInventory -> Q84),
+	Q24	= (hotSwapIn -> Q25
+		  |endCredit -> Q30
+		  |initInventory -> Q78),
+	Q25	= (endCredit -> Q26),
+	Q26	= (stopOldSpec -> Q27),
+	Q27	= (reconfigure -> Q28),
+	Q28	= (startNewSpec -> Q29),
+	Q29	= (hotSwapOut -> Q8),
+	Q30	= (hotSwapIn -> Q26
+		  |initInventory -> Q31),
+	Q31	= (hotSwapIn -> Q32
+		  |endInventory -> Q38),
+	Q32	= (stopOldSpec -> Q33
+		  |endInventory -> Q37),
+	Q33	= (endInventory -> Q34),
+	Q34	= (reconfigure -> Q35),
+	Q35	= (startNewSpec -> Q36),
+	Q36	= (hotSwapOut -> Q10),
+	Q37	= (stopOldSpec -> Q34),
+	Q38	= (hotSwapIn -> Q37
+		  |eval -> Q39),
+	Q39	= (hotSwapIn -> Q40
+		  |reject -> Q46
+		  |approve -> Q47),
+	Q40	= (reject -> Q41
+		  |approve -> Q42),
+	Q41	= (orderEntry -> Q2),
+	Q42	= (stopOldSpec -> Q43),
+	Q43	= (reconfigure -> Q44),
+	Q44	= (startNewSpec -> Q45),
+	Q45	= (hotSwapOut -> Q13),
+	Q46	= (orderEntry -> Q23
+		  |hotSwapIn -> Q41),
+	Q47	= (hotSwapIn -> Q42
+		  |initBilling -> Q48
+		  |initShipping -> Q69),
+	Q48	= (hotSwapIn -> Q49
+		  |initShipping -> Q54
+		  |endBilling -> Q67),
+	Q49	= (endBilling -> Q50),
+	Q50	= (stopOldSpec -> Q51),
+	Q51	= (reconfigure -> Q52),
+	Q52	= (startNewSpec -> Q53),
+	Q53	= (hotSwapOut -> Q15),
+	Q54	= (hotSwapIn -> Q55
+		  |endShipping -> Q62
+		  |endBilling -> Q66),
+	Q55	= (endShipping -> Q56
+		  |endBilling -> Q61),
+	Q56	= (endBilling -> Q57),
+	Q57	= (stopOldSpec -> Q58),
+	Q58	= (reconfigure -> Q59),
+	Q59	= (startNewSpec -> Q60),
+	Q60	= (hotSwapOut -> Q17),
+	Q61	= (endShipping -> Q57),
+	Q62	= (hotSwapIn -> Q56
+		  |endBilling -> Q63),
+	Q63	= (hotSwapIn -> Q57
+		  |archive -> Q64),
+	Q64	= (orderEntry -> Q23
+		  |hotSwapIn -> Q65),
+	Q65	= (orderEntry -> Q2),
+	Q66	= (hotSwapIn -> Q61
+		  |endShipping -> Q63),
+	Q67	= (hotSwapIn -> Q50
+		  |initShipping -> Q68),
+	Q68	= (hotSwapIn -> Q61
+		  |endShipping -> Q63),
+	Q69	= (hotSwapIn -> Q70
+		  |endShipping -> Q75
+		  |initBilling -> Q77),
+	Q70	= (endShipping -> Q71),
+	Q71	= (reconfigure -> Q72),
+	Q72	= (initBilling -> Q73),
+	Q73	= (endBilling -> Q74),
+	Q74	= (stopOldSpec -> Q59),
+	Q75	= (hotSwapIn -> Q71
+		  |initBilling -> Q76),
+	Q76	= (hotSwapIn -> Q56
+		  |endBilling -> Q63),
+	Q77	= (hotSwapIn -> Q55
+		  |endShipping -> Q62
+		  |endBilling -> Q66),
+	Q78	= (hotSwapIn -> Q79
+		  |endCredit -> Q82
+		  |endInventory -> Q83),
+	Q79	= (endCredit -> Q32
+		  |endInventory -> Q80),
+	Q80	= (endCredit -> Q37
+		  |stopOldSpec -> Q81),
+	Q81	= (endCredit -> Q34),
+	Q82	= (hotSwapIn -> Q32
+		  |endInventory -> Q38),
+	Q83	= (endCredit -> Q38
+		  |hotSwapIn -> Q80),
+	Q84	= (hotSwapIn -> Q85
+		  |initCredit -> Q90
+		  |endInventory -> Q91),
+	Q85	= (endInventory -> Q86),
+	Q86	= (stopOldSpec -> Q87),
+	Q87	= (reconfigure -> Q88),
+	Q88	= (startNewSpec -> Q89),
+	Q89	= (hotSwapOut -> Q22),
+	Q90	= (hotSwapIn -> Q79
+		  |endCredit -> Q82
+		  |endInventory -> Q83),
+	Q91	= (hotSwapIn -> Q86
+		  |initCredit -> Q92),
+	Q92	= (endCredit -> Q38
+		  |hotSwapIn -> Q80)+{rollback.

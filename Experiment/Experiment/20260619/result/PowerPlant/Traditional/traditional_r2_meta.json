@@ -1,0 +1,22 @@
+{
+  "status": "NO_COMPOSITION",
+  "id": "powerplant_traditional_r2",
+  "example": "PowerPlant",
+  "method": "Traditional",
+  "variant": "R2",
+  "target": "UpdCont_FG_R2",
+  "lts": "Experiment\\20260619\\models\\PowerPlant_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_output.txt",
+  "transitions": "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_transitions_UpdCont_FG_R2.txt",
+  "stdout": "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_stdout.txt",
+  "stderr": "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_stderr.txt",
+  "startedAt": "2026-06-22T01:23:13.872003+09:00",
+  "endedAt": "2026-06-22T11:44:45.2775013+09:00",
+  "timeoutMillis": 43200000,
+  "exitCode": 2,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260619\\models\\PowerPlant_FG.lts", "--target", "UpdCont_FG_R2", "--output", "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_output.txt", "--transitions", "Experiment\\20260619\\result\\PowerPlant\\Traditional\\traditional_r2_transitions_UpdCont_FG_R2.txt"]
+}

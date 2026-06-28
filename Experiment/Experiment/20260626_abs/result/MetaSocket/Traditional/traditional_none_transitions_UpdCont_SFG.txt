@@ -1,0 +1,107 @@
+Process:
+	UpdCont_SFG
+States:
+	57
+Transitions:
+	UpdCont_SFG = Q0,
+	Q0	= (input -> Q13
+		  |hotSwapIn -> Q32),
+	Q1	= (des128 -> Q7
+		  |output -> Q47),
+	Q2	= (startNewSpec -> Q37
+		  |input -> Q42),
+	Q3	= (input -> Q43),
+	Q4	= (reconfigure -> Q45),
+	Q5	= (input -> Q35),
+	Q6	= (reconfigure -> Q27
+		  |input -> Q40),
+	Q7	= (des128 -> Q11
+		  |output -> Q53),
+	Q8	= (reconfigure -> Q27
+		  |input -> Q40),
+	Q9	= (des64 -> Q4
+		  |output -> Q8
+		  |startNewSpec -> Q31
+		  |reconfigure -> Q45),
+	Q10	= (input -> Q43),
+	Q11	= (des128 -> Q1
+		  |output -> Q41),
+	Q12	= (input -> Q35),
+	Q13	= (hotSwapIn -> Q46
+		  |des64 -> Q51),
+	Q14	= (input -> Q46
+		  |stopOldSpec -> Q52),
+	Q15	= (output -> Q3
+		  |des128 -> Q18),
+	Q16	= (des128 -> Q1
+		  |output -> Q41),
+	Q17	= (input -> Q35),
+	Q18	= (output -> Q5
+		  |des128 -> Q25),
+	Q19	= (input -> Q43),
+	Q20	= (des128 -> Q2
+		  |startNewSpec -> Q22
+		  |input -> Q42),
+	Q21	= (startNewSpec -> Q49),
+	Q22	= (input -> Q35),
+	Q23	= (reconfigure -> Q20
+		  |input -> Q40),
+	Q24	= (des128 -> Q11),
+	Q25	= (des128 -> Q15
+		  |output -> Q56),
+	Q26	= (reconfigure -> Q38),
+	Q27	= (startNewSpec -> Q12
+		  |input -> Q42
+		  |des128 -> Q50),
+	Q28	= (startNewSpec -> Q12
+		  |input -> Q42),
+	Q29	= (startNewSpec -> Q16),
+	Q30	= (des128 -> Q1),
+	Q31	= (reconfigure -> Q24),
+	Q32	= (input -> Q46
+		  |stopOldSpec -> Q55),
+	Q33	= (input -> Q13
+		  |hotSwapIn -> Q14),
+	Q34	= (des128 -> Q21
+		  |output -> Q39
+		  |startNewSpec -> Q43),
+	Q35	= (des128 -> Q18),
+	Q36	= (des64 -> Q4
+		  |output -> Q23
+		  |startNewSpec -> Q26
+		  |reconfigure -> Q34),
+	Q37	= (input -> Q35),
+	Q38	= (des128 -> Q25),
+	Q39	= (startNewSpec -> Q22
+		  |input -> Q42),
+	Q40	= (reconfigure -> Q34),
+	Q41	= (input -> Q38),
+	Q42	= (startNewSpec -> Q43),
+	Q43	= (des128 -> Q15),
+	Q44	= (reconfigure -> Q19
+		  |input -> Q26),
+	Q45	= (output -> Q28
+		  |des128 -> Q29
+		  |startNewSpec -> Q30),
+	Q46	= (stopOldSpec -> Q36),
+	Q47	= (input -> Q43),
+	Q48	= (reconfigure -> Q10
+		  |input -> Q26),
+	Q49	= (des128 -> Q15
+		  |output -> Q56),
+	Q50	= (startNewSpec -> Q17
+		  |input -> Q42),
+	Q51	= (output -> Q33
+		  |des64 -> Q51
+		  |hotSwapIn -> Q54),
+	Q52	= (des64 -> Q6
+		  |reconfigure -> Q27
+		  |input -> Q40
+		  |startNewSpec -> Q48),
+	Q53	= (input -> Q35),
+	Q54	= (stopOldSpec -> Q9),
+	Q55	= (des64 -> Q6
+		  |reconfigure -> Q20
+		  |input -> Q40
+		  |startNewSpec -> Q44),
+	Q56	= (input -> Q38).

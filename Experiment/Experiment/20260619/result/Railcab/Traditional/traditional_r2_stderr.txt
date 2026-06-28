@@ -1,0 +1,34 @@
+Game state size:29
+Winning state size:21
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet
+6åé 21, 2026 5:40:21 åﬂëO ltsa.control.util.ControllerUtils removeTopStates
+åxçê: While doing 'removeTopStates'. Action: hotSwapOut is not in MTS alphabet

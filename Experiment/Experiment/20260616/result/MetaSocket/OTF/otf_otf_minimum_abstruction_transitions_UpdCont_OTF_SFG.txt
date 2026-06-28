@@ -1,0 +1,27 @@
+Process:
+	UpdCont_OTF_SFG
+States:
+	15
+Transitions:
+	UpdCont_OTF_SFG = Q0,
+	Q0	= (hotSwapIn -> Q1
+		  |input -> Q10),
+	Q1	= (input -> Q2),
+	Q2	= (stopOldSpec_P_DES64 -> Q3),
+	Q3	= (reconfigure_IO -> Q4),
+	Q4	= (startNewSpec_P_DES128 -> Q5),
+	Q5	= (reconfigure_others -> Q6),
+	Q6	= (hotSwapOut -> Q7),
+	Q7	= (des128 -> Q8),
+	Q8	= (des128 -> Q8
+		  |output -> Q9),
+	Q9	= (input -> Q7),
+	Q10	= (hotSwapIn -> Q2
+		  |des64 -> Q11),
+	Q11	= (des64 -> Q11
+		  |hotSwapIn -> Q12
+		  |output -> Q13),
+	Q12	= (stopOldSpec_P_DES64 -> Q3),
+	Q13	= (input -> Q10
+		  |hotSwapIn -> Q14),
+	Q14	= (input -> Q2).

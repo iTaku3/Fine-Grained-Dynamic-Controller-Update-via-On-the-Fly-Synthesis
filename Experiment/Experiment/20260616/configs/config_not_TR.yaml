@@ -1,0 +1,210 @@
+outputDir: Experiment/20260617/result
+timeoutHours: 1
+
+javaOptions:
+  - -Dmtsa.evaluation.enabled=true
+  - -Dotfduc.nondet.belief.repair=true
+  - -Xmx220G
+  # If the experiment PC has enough memory, uncomment and adjust this:
+  # - -Xmx240G
+
+cases:
+# On-the-fly (minimum) + abstruction
+  - id: gsm_otf_minimum_abstruction
+    example: "GSM"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/GSM_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: industry_otf_minimum_abstruction
+    example: "Industry"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/Industry_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: metasocket_otf_minimum_abstruction
+    example: "MetaSocket"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: powerplant_otf_minimum_abstruction
+    example: "PowerPlant"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: railcab_otf_minimum_abstruction
+    example: "Railcab"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/Railcab_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: surveillance_otf_minimum_abstruction
+    example: "Surveillance"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_SFG
+
+  - id: workflow_otf_minimum_abstruction
+    example: "Workflow"
+    method: OTF-MINIMUM-ABSTRUCTION
+    variant: otf-minimum-abstruction
+    lts: "Experiment/20260617/models/Workflow_FG.lts"
+    target: UpdCont_OTF_SFG
+
+# On-the-fly (minimum)
+  - id: gsm_otf_minimum
+    example: "GSM"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/GSM_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: industry_otf_minimum
+    example: "Industry"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/Industry_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: metasocket_otf_minimum
+    example: "MetaSocket"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/MetaSocket_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: powerplant_otf_minimum
+    example: "PowerPlant"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/PowerPlant_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: railcab_otf_minimum
+    example: "Railcab"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/Railcab_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: surveillance_otf_minimum
+    example: "Surveillance"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/Surveillance_FG.lts"
+    target: UpdCont_OTF_FG
+
+  - id: workflow_otf_minimum
+    example: "Workflow"
+    method: OTF-MINIMUM
+    variant: otf-minimum
+    lts: "Experiment/20260617/models/Workflow_FG.lts"
+    target: UpdCont_OTF_FG
+
+# traditional (monolithic) + abstruction
+  - id: gsm_traditional_abstruction
+    example: "GSM"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/GSM_FG.lts"
+    target: UpdCont_SFG
+
+  - id: industry_traditional_abstruction
+    example: "Industry"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/Industry_FG.lts"
+    target: UpdCont_SFG
+
+  - id: metasocket_traditional_abstruction
+    example: "MetaSocket"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/MetaSocket_FG.lts"
+    target: UpdCont_SFG
+
+  - id: powerplant_traditional_abstruction
+    example: "PowerPlant"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/PowerPlant_FG.lts"
+    target: UpdCont_SFG
+
+  - id: railcab_traditional_abstruction
+    example: "Railcab"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/Railcab_FG.lts"
+    target: UpdCont_SFG
+
+  - id: surveillance_traditional_abstruction
+    example: "Surveillance"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/Surveillance_FG.lts"
+    target: UpdCont_SFG
+
+  - id: workflow_traditional_abstruction
+    example: "Workflow"
+    method: Traditional
+    variant: traditional-abstruction
+    lts: "Experiment/20260617/models/Workflow_FG.lts"
+    target: UpdCont_SFG
+
+# traditional (monolithic)
+  - id: gsm_traditional
+    example: "GSM"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/GSM_FG.lts"
+    target: UpdCont_FG
+
+  - id: industry_traditional
+    example: "Industry"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/Industry_FG.lts"
+    target: UpdCont_FG
+
+  - id: metasocket_traditional
+    example: "MetaSocket"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/MetaSocket_FG.lts"
+    target: UpdCont_FG
+
+  - id: powerplant_traditional
+    example: "PowerPlant"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/PowerPlant_FG.lts"
+    target: UpdCont_FG
+
+  - id: railcab_traditional
+    example: "Railcab"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/Railcab_FG.lts"
+    target: UpdCont_FG
+
+  - id: surveillance_traditional
+    example: "Surveillance"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/Surveillance_FG.lts"
+    target: UpdCont_FG
+
+  - id: workflow_traditional
+    example: "Workflow"
+    method: Traditional
+    variant: traditional
+    lts: "Experiment/20260617/models/Workflow_FG.lts"
+    target: UpdCont_FG

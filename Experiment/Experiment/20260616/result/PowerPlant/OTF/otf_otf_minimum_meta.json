@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "id": "powerplant_otf_minimum",
+  "example": "PowerPlant",
+  "method": "OTF-MINIMUM",
+  "variant": "otf-minimum",
+  "target": "UpdCont_OTF_FG",
+  "lts": "Experiment\\20260617\\models\\PowerPlant_FG.lts",
+  "runIndex": 1,
+  "runCount": 1,
+  "output": "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_output.txt",
+  "transitions": "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_transitions_UpdCont_OTF_FG.txt",
+  "stdout": "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_stdout.txt",
+  "stderr": "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_stderr.txt",
+  "startedAt": "2026-06-17T05:18:12.9251432+09:00",
+  "endedAt": "2026-06-17T05:18:13.8966439+09:00",
+  "timeoutMillis": 3600000,
+  "exitCode": 0,
+  "timedOut": false,
+  "javaOptions": ["-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G"],
+  "command": ["C:\\Program Files\\Java\\jdk-18.0.1.1\\bin\\java", "-Dmtsa.evaluation.enabled=true", "-Dotfduc.nondet.belief.repair=true", "-Xmx220G", "-cp", "mtsa-OTF-minimum.jar", "ltsa.updatingControllers.cli.SingleCompositionRunner", "--lts", "Experiment\\20260617\\models\\PowerPlant_FG.lts", "--target", "UpdCont_OTF_FG", "--output", "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_output.txt", "--transitions", "Experiment\\20260617\\result\\PowerPlant\\OTF\\otf_otf_minimum_transitions_UpdCont_OTF_FG.txt"]
+}
