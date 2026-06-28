@@ -10,3 +10,6 @@
 
 # Large generated artifacts. Publish these as GitHub Release assets.
 Experiment/mtsa.jar
+
+# Paper draft and submission files are kept local and must not be published.
+paper/
