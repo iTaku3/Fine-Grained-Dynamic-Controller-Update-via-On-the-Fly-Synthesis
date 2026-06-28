@@ -5,6 +5,13 @@ controller update via on-the-fly synthesis. The artifact is based on MTSA/LTSA
 and includes benchmark models, experiment configurations, experiment outputs,
 and the source code needed to rebuild the executable tool.
 
+For normal use, download and run the prebuilt `mtsa.jar` from GitHub Releases:
+
+https://github.com/iTaku3/Fine-Grained-Dynamic-Controller-Update-via-On-the-Fly-Synthesis/releases/download/v1.0.0/mtsa.jar
+
+Build from source only if you want to inspect or modify the MTSA implementation
+itself.
+
 ## What The Tool Does
 
 The tool supports synthesis and analysis of controller-update scenarios for
@@ -13,9 +20,9 @@ traditional monolithic controller synthesis with on-the-fly update synthesis,
 including variants with and without the abstraction option used in the
 experiment files.
 
-The main executable is an MTSA-based Java GUI application. It can load `.lts`
-models, compile them, and run controller-synthesis/update workflows through the
-MTSA interface.
+The executable is an MTSA-based Java GUI application. It can load `.lts` models,
+compile them, and run controller-synthesis/update workflows through the MTSA
+interface.
 
 ## Repository Layout
 
@@ -50,21 +57,22 @@ MTSA interface.
   Copies of the benchmark models used for that dated run.
 
 - `Experiment/Experiment/<date>/result/` and related result directories  
-  Output files from the experiment runs, including metadata, stdout/stderr logs,
+  Output files from experiment runs, including metadata, stdout/stderr logs,
   synthesized output, and transition summaries.
 
 - `Experiment/Experiment/result/`  
-  Aggregated or post-processed result tables. Some large CSV files are excluded
-  from normal Git tracking and should be distributed through GitHub Releases.
+  Aggregated or post-processed result tables. Large CSV files are tracked with
+  Git LFS, not as GitHub Release assets.
 
 - `Experiment/mtsa.jar`  
-  A prebuilt executable jar used for running the artifact. Because this file is
-  larger than GitHub's normal file-size limit, it should be distributed as a
-  GitHub Release asset.
+  Local copy of the prebuilt executable jar. The recommended distribution point
+  is the GitHub Release asset linked above.
 
 ## Source Code Directory
 
-`Source Code/` contains the Java/Maven project used to build the tool.
+`Source Code/` contains the Java/Maven project used to build the tool. You only
+need this directory if you want to change the MTSA implementation or rebuild the
+jar.
 
 - `Source Code/maven-root/mtsa/`  
   Main Maven project. The Maven descriptor is:
@@ -95,45 +103,51 @@ MTSA interface.
   Maven build output. This directory is ignored by Git and should be regenerated
   locally.
 
-## Requirements
+## Recommended Usage
 
-- Java JDK 10 or newer
-- Apache Maven
-- Git LFS, if cloning the repository and building from source
+1. Download `mtsa.jar` from the release asset:
 
-After cloning, fetch the LFS-managed local libraries:
+   https://github.com/iTaku3/Fine-Grained-Dynamic-Controller-Update-via-On-the-Fly-Synthesis/releases/download/v1.0.0/mtsa.jar
+
+2. Run the jar:
+
+   ```bash
+   java -jar mtsa.jar
+   ```
+
+3. In the MTSA GUI, open a benchmark `.lts` file from `Experiment/Models/` or a
+   dated `Experiment/Experiment/<date>/models/` directory.
+
+4. Parse/compile the model and run the relevant synthesis or controller-update
+   workflow from the GUI menus.
+
+5. Compare generated outputs with the files under the corresponding
+   `Experiment/Experiment/<date>/result/` directory.
+
+## Cloning The Full Artifact
+
+The repository uses Git LFS for large local libraries and large aggregated CSV
+result files. After cloning the repository, run:
 
 ```bash
 git lfs install
 git lfs pull
 ```
 
-## Running The Prebuilt Tool
-
-If you downloaded `mtsa.jar` from the repository's GitHub Releases page, run:
-
-```bash
-java -jar mtsa.jar
-```
-
-If you are using the local artifact layout:
-
-```bash
-java -jar "Experiment/mtsa.jar"
-```
-
-The command opens the MTSA GUI. A typical workflow is:
-
-1. Open a benchmark model from `Experiment/Models/` or from a dated
-   `Experiment/Experiment/<date>/models/` directory.
-2. Parse/compile the model in the MTSA GUI.
-3. Run the relevant synthesis or update workflow from the GUI menus.
-4. Compare the generated output with the files under the corresponding
-   `Experiment/Experiment/<date>/result/` directory.
+This downloads the LFS-managed files needed for the full artifact contents.
 
 ## Building From Source
 
-Build the Maven project from the `mtsa` directory:
+Build from source only when you need to inspect or modify the implementation.
+For ordinary artifact use, prefer the prebuilt `mtsa.jar` from GitHub Releases.
+
+Requirements:
+
+- Java JDK 10 or newer
+- Apache Maven
+- Git LFS, if building from a fresh clone
+
+Build command:
 
 ```bash
 cd "Source Code/maven-root/mtsa"
@@ -152,24 +166,18 @@ Run the rebuilt tool with:
 java -jar "Source Code/maven-root/mtsa/target/mtsa-1.0-SNAPSHOT.jar"
 ```
 
-The build has been checked with a modern JDK. The Maven configuration targets
-Java 10 because the source code uses Java 10 language features.
+The Maven configuration targets Java 10 because the source code uses Java 10
+language features.
 
 ## Large Files
 
-GitHub rejects normal Git files larger than 100 MB. For that reason:
-
-- local dependency jars required for building are tracked with Git LFS;
-- generated executable jars and very large experiment CSV files should be
-  attached to GitHub Releases;
-- `target/` build outputs are ignored and should be regenerated with Maven.
-
-Recommended release assets include:
+GitHub Releases intentionally contains only the user-facing executable:
 
 ```text
-Source Code/maven-root/mtsa/target/mtsa-1.0-SNAPSHOT.jar
-Experiment/mtsa.jar
-Experiment/Experiment/result/20260626/All/extracted_rows_full.csv
-Experiment/Experiment/result/20260626/All/runs_compact.csv
+mtsa.jar
 ```
+
+Large CSV result files and local dependency jars are managed with Git LFS inside
+the repository. Maven build outputs under `target/` are ignored and should be
+regenerated locally when needed.
 
